@@ -4,6 +4,7 @@ extends Node2D
 @export var pushable : bool = false
 @export var destroyable : bool = false
 @export var fallable: bool = true
+@export var walkable: bool = false
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var game: Game = $"../../.."

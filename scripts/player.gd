@@ -125,7 +125,6 @@ func move(direction: Vector2):
 	
 	var tile = game.get_tile_at_position((pos + direction)/game.tileSize)
 	if tile and not tile.is_walkable() and not push(tile, direction): return
-		
 	
 	targetPositions.append(pos + direction)
 	if isCasting:
