@@ -1,279 +1,236 @@
-[gd_scene load_steps=8 format=4 uid="uid://3pte44nuj5m5"]
+[gd_scene load_steps=10 format=4 uid="uid://3pte44nuj5m5"]
 
 [ext_resource type="PackedScene" uid="uid://bdlc63ysvlljr" path="res://scenes/player.tscn" id="1_2la08"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_8utgd"]
-[ext_resource type="PackedScene" uid="uid://cj447cxojo2t6" path="res://scenes/tile.tscn" id="2_umbpb"]
+[ext_resource type="PackedScene" uid="uid://cp4ggkrgdyacy" path="res://scenes/block.tscn" id="4_30yuk"]
 [ext_resource type="Texture2D" uid="uid://dhlnhfbg8oq7d" path="res://resources/tile.png" id="4_d30wf"]
+[ext_resource type="PackedScene" uid="uid://wxm5vuei7oyq" path="res://scenes/smoke_particles.tscn" id="5_gvgcw"]
 [ext_resource type="PackedScene" uid="uid://bdp2lpfyiwu40" path="res://scenes/sign.tscn" id="5_mc1l0"]
+[ext_resource type="PackedScene" uid="uid://jyirjhlkjwxy" path="res://scenes/stone.tscn" id="6_2nryt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7y4oa"]
+resource_name = "tile"
 texture = ExtResource("4_d30wf")
 texture_region_size = Vector2i(256, 256)
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-6:0/0 = 0
-7:0/0 = 0
-8:0/0 = 0
-9:0/0 = 0
-10:0/0 = 0
-11:0/0 = 0
-12:0/0 = 0
-13:0/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-5:1/0 = 0
-6:1/0 = 0
-7:1/0 = 0
-8:1/0 = 0
-9:1/0 = 0
-10:1/0 = 0
-11:1/0 = 0
-12:1/0 = 0
-13:1/0 = 0
-14:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-4:2/0 = 0
-5:2/0 = 0
-6:2/0 = 0
-7:2/0 = 0
-8:2/0 = 0
-9:2/0 = 0
-10:2/0 = 0
-11:2/0 = 0
-12:2/0 = 0
-13:2/0 = 0
-14:2/0 = 0
-15:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-4:3/0 = 0
-5:3/0 = 0
-6:3/0 = 0
-7:3/0 = 0
-8:3/0 = 0
-9:3/0 = 0
-10:3/0 = 0
-11:3/0 = 0
-12:3/0 = 0
-13:3/0 = 0
-14:3/0 = 0
-15:3/0 = 0
-0:4/0 = 0
-1:4/0 = 0
-2:4/0 = 0
-3:4/0 = 0
-4:4/0 = 0
-5:4/0 = 0
-6:4/0 = 0
-7:4/0 = 0
-8:4/0 = 0
-9:4/0 = 0
-10:4/0 = 0
-11:4/0 = 0
-12:4/0 = 0
-13:4/0 = 0
-14:4/0 = 0
-15:4/0 = 0
-0:5/0 = 0
-1:5/0 = 0
-2:5/0 = 0
-3:5/0 = 0
-4:5/0 = 0
-5:5/0 = 0
-6:5/0 = 0
-7:5/0 = 0
-8:5/0 = 0
-9:5/0 = 0
-10:5/0 = 0
-11:5/0 = 0
-12:5/0 = 0
-13:5/0 = 0
-14:5/0 = 0
-15:5/0 = 0
-1:6/0 = 0
-2:6/0 = 0
-3:6/0 = 0
-4:6/0 = 0
-5:6/0 = 0
-6:6/0 = 0
-7:6/0 = 0
-8:6/0 = 0
-9:6/0 = 0
-10:6/0 = 0
-11:6/0 = 0
-12:6/0 = 0
-13:6/0 = 0
-14:6/0 = 0
-15:6/0 = 0
-1:7/0 = 0
-2:7/0 = 0
-3:7/0 = 0
-4:7/0 = 0
-5:7/0 = 0
-6:7/0 = 0
-7:7/0 = 0
-8:7/0 = 0
-9:7/0 = 0
-10:7/0 = 0
-11:7/0 = 0
-12:7/0 = 0
-13:7/0 = 0
-14:7/0 = 0
-15:7/0 = 0
-1:8/0 = 0
-2:8/0 = 0
-3:8/0 = 0
-4:8/0 = 0
-5:8/0 = 0
-6:8/0 = 0
-7:8/0 = 0
-8:8/0 = 0
-9:8/0 = 0
-10:8/0 = 0
-11:8/0 = 0
-12:8/0 = 0
-13:8/0 = 0
-14:8/0 = 0
-15:8/0 = 0
-0:9/0 = 0
-1:9/0 = 0
-2:9/0 = 0
-3:9/0 = 0
-4:9/0 = 0
-5:9/0 = 0
-6:9/0 = 0
-7:9/0 = 0
-8:9/0 = 0
-9:9/0 = 0
-10:9/0 = 0
-11:9/0 = 0
-12:9/0 = 0
-13:9/0 = 0
-14:9/0 = 0
-15:9/0 = 0
-0:10/0 = 0
-1:10/0 = 0
-2:10/0 = 0
-3:10/0 = 0
-4:10/0 = 0
-5:10/0 = 0
-6:10/0 = 0
-7:10/0 = 0
-8:10/0 = 0
-9:10/0 = 0
-10:10/0 = 0
-11:10/0 = 0
-12:10/0 = 0
-13:10/0 = 0
-14:10/0 = 0
-15:10/0 = 0
-0:11/0 = 0
-1:11/0 = 0
-2:11/0 = 0
-3:11/0 = 0
-4:11/0 = 0
-5:11/0 = 0
-6:11/0 = 0
-7:11/0 = 0
-8:11/0 = 0
-9:11/0 = 0
-10:11/0 = 0
-11:11/0 = 0
-12:11/0 = 0
-13:11/0 = 0
-14:11/0 = 0
-15:11/0 = 0
-0:12/0 = 0
-1:12/0 = 0
-2:12/0 = 0
-3:12/0 = 0
-4:12/0 = 0
-5:12/0 = 0
-6:12/0 = 0
-7:12/0 = 0
-8:12/0 = 0
-9:12/0 = 0
-10:12/0 = 0
-11:12/0 = 0
-12:12/0 = 0
-13:12/0 = 0
-14:12/0 = 0
-0:13/0 = 0
-1:13/0 = 0
-2:13/0 = 0
-3:13/0 = 0
-4:13/0 = 0
-5:13/0 = 0
-6:13/0 = 0
-7:13/0 = 0
-8:13/0 = 0
-9:13/0 = 0
-10:13/0 = 0
-11:13/0 = 0
-12:13/0 = 0
-13:13/0 = 0
-14:13/0 = 0
-1:14/0 = 0
-2:14/0 = 0
-3:14/0 = 0
-4:14/0 = 0
-5:14/0 = 0
-6:14/0 = 0
-7:14/0 = 0
-8:14/0 = 0
-9:14/0 = 0
-10:14/0 = 0
-11:14/0 = 0
-12:14/0 = 0
-13:14/0 = 0
-14:14/0 = 0
-2:15/0 = 0
-3:15/0 = 0
-4:15/0 = 0
-5:15/0 = 0
-6:15/0 = 0
-7:15/0 = 0
-8:15/0 = 0
-9:15/0 = 0
-10:15/0 = 0
-11:15/0 = 0
-12:15/0 = 0
-13:15/0 = 0
 0:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_aij7n"]
-tile_size = Vector2i(256, 256)
+tile_size = Vector2i(240, 240)
 sources/0 = SubResource("TileSetAtlasSource_7y4oa")
 
 [node name="Game" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_8utgd")
 tileSize = 240
 
 [node name="GroundLayer" type="TileMapLayer" parent="."]
+z_index = -2
 position = Vector2(-128, -128)
-tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAABAP//AAAAAAAAAAAAAP//AAAAAAAAAAD/////AAAAAAAAAAD//wAAAAAAAAAAAAD//wEAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAD+/wAAAAAAAAAAAAAAAP7/AAAAAAAAAAACAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAD+/wEAAAAAAAAAAAD+/wIAAAAAAAAAAAD//wIAAAAAAAAAAAABAAIAAAAAAAAAAAACAAIAAAAAAAAAAAACAAEAAAAAAAAAAAACAP//AAAAAAAAAAACAP7/AAAAAAAAAAABAP7/AAAAAAAAAAD///7/AAAAAAAAAAD+//7/AAAAAAAAAAD+////AAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAIAP7/AAAAAAAAAAAIAP//AAAAAAAAAAD///z/AAAAAAAAAAAAAPz/AAAAAAAAAAABAPz/AAAAAAAAAAD///v/AAAAAAAAAAAAAPv/AAAAAAAAAAABAPv/AAAAAAAAAAD///r/AAAAAAAAAAAAAPr/AAAAAAAAAAABAPr/AAAAAAAAAAD///n/AAAAAAAAAAAAAPn/AAAAAAAAAAABAPn/AAAAAAAAAAACAPn/AAAAAAAAAAADAPn/AAAAAAAAAAAEAPn/AAAAAAAAAAAIAP3/AAAAAAAAAAAIAPz/AAAAAAAAAAAIAPv/AAAAAAAAAAAIAPr/AAAAAAAAAAAIAPn/AAAAAAAAAAAHAPn/AAAAAAAAAAAGAPn/AAAAAAAAAAAFAPn/AAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAABAP//AAAAAAAAAAAAAP//AAAAAAAAAAD/////AAAAAAAAAAD//wAAAAAAAAAAAAD//wEAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAD+/wAAAAAAAAAAAAAAAP7/AAAAAAAAAAACAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAPv/AAAAAAAAAAAAAPr/AAAAAAAAAAD///n/AAAAAAAAAAABAPn/AAAAAAAAAAD///j/AAAAAAAAAAABAPj/AAAAAAAAAAAAAPf/AAAAAAAAAAD///X/AAAAAAAAAAAAAPX/AAAAAAAAAAABAPX/AAAAAAAAAAD///b/AAAAAAAAAAAAAPb/AAAAAAAAAAABAPb/AAAAAAAAAAD///z/AAAAAAAAAAABAPz/AAAAAAAAAAADAPX/AAAAAAAAAAAEAPX/AAAAAAAAAAAFAPX/AAAAAAAAAAAHAPX/AAAAAAAAAAAIAPX/AAAAAAAAAAAJAPX/AAAAAAAAAAAHAPT/AAAAAAAAAAAIAPT/AAAAAAAAAAAJAPT/AAAAAAAAAAAJAPP/AAAAAAAAAAAIAPP/AAAAAAAAAAAHAPP/AAAAAAAAAAALAPP/AAAAAAAAAAAMAPP/AAAAAAAAAAANAPP/AAAAAAAAAAAPAPT/AAAAAAAAAAAPAPP/AAAAAAAAAAAQAPP/AAAAAAAAAAAQAPT/AAAAAAAAAAARAPT/AAAAAAAAAAARAPP/AAAAAAAAAAD///3/AAAAAAAAAAABAP3/AAAAAAAAAAD///v/AAAAAAAAAAAAAPn/AAAAAAAAAAAAAP3/AAAAAAAAAAABAPv/AAAAAAAAAAABAPf/AAAAAAAAAAD///f/AAAAAAAAAAAPAPX/AAAAAAAAAAAQAPX/AAAAAAAAAAARAPX/AAAAAAAAAAASAPX/AAAAAAAAAAATAPX/AAAAAAAAAAASAPb/AAAAAAAAAAASAPf/AAAAAAAAAAARAPf/AAAAAAAAAAARAPj/AAAAAAAAAAATAPj/AAAAAAAAAAATAPf/AAAAAAAAAAASAPj/AAAAAAAAAAARAPn/AAAAAAAAAAASAPn/AAAAAAAAAAATAPn/AAAAAAAAAAARAPr/AAAAAAAAAAASAPr/AAAAAAAAAAATAPr/AAAAAAAAAAARAPv/AAAAAAAAAAASAPv/AAAAAAAAAAATAPv/AAAAAAAAAAATAPz/AAAAAAAAAAASAPz/AAAAAAAAAAARAPz/AAAAAAAAAAARAP7/AAAAAAAAAAASAP7/AAAAAAAAAAATAP7/AAAAAAAAAAARAAAAAAAAAAAAAAASAAAAAAAAAAAAAAATAAAAAAAAAAAAAAARAP//AAAAAAAAAAASAP//AAAAAAAAAAATAP//AAAAAAAAAAADAPT/AAAAAAAAAAAFAPb/AAAAAAAAAAALAPT/AAAAAAAAAAANAPL/AAAAAAAAAAAQAPf/AAAAAAAAAAAQAPj/AAAAAAAAAAAQAPn/AAAAAAAAAAAQAPv/AAAAAAAAAAAQAPz/AAAAAAAAAAAUAPf/AAAAAAAAAAAUAPj/AAAAAAAAAAAUAPn/AAAAAAAAAAAUAPv/AAAAAAAAAAAUAPz/AAAAAAAAAAAQAPr/AAAAAAAAAAAQAP7/AAAAAAAAAAAQAP//AAAAAAAAAAAQAAAAAAAAAAAAAAARAAEAAAAAAAAAAAASAAEAAAAAAAAAAAATAAEAAAAAAAAAAAAUAP7/AAAAAAAAAAAUAP//AAAAAAAAAAAUAAAAAAAAAAAAAAAVAP7/AAAAAAAAAAAVAP//AAAAAAAAAAAVAAAAAAAAAAAAAAAVAAEAAAAAAAAAAAASAAIAAAAAAAAAAAATAAIAAAAAAAAAAAAUAAIAAAAAAAAAAAAVAAIAAAAAAAAAAAAWAAIAAAAAAAAAAAAXAAIAAAAAAAAAAAAYAAIAAAAAAAAAAAAYAAEAAAAAAAAAAAAXAAEAAAAAAAAAAAAWAAEAAAAAAAAAAAAWAAAAAAAAAAAAAAAXAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAYAP//AAAAAAAAAAAXAP//AAAAAAAAAAAWAP//AAAAAAAAAAAWAP7/AAAAAAAAAAAXAP7/AAAAAAAAAAAYAP7/AAAAAAAAAAAUAAEAAAAAAAAAAAAaAAAAAAAAAAAAAAAbAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAdAAAAAAAAAAAAAAAeAAAAAAAAAAAAAAAfAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAhAAAAAAAAAAAAAAAiAAAAAAAAAAAAAAAiAAEAAAAAAAAAAAAiAP//AAAAAAAAAAAjAAEAAAAAAAAAAAAjAAAAAAAAAAAAAAAjAP//AAAAAAAAAAAkAAEAAAAAAAAAAAAkAAAAAAAAAAAAAAAkAP//AAAAAAAAAAAoAAEAAAAAAAAAAAAoAAAAAAAAAAAAAAAoAP//AAAAAAAAAAApAP//AAAAAAAAAAApAAAAAAAAAAAAAAApAAEAAAAAAAAAAAAqAAEAAAAAAAAAAAAqAAAAAAAAAAAAAAAqAP//AAAAAAAAAAAaAAEAAAAAAAAAAAAaAP//AAAAAAAAAAAbAAEAAAAAAAAAAAAbAP//AAAAAAAAAAAeAAEAAAAAAAAAAAAeAP//AAAAAAAAAAAfAP//AAAAAAAAAAAfAAEAAAAAAAAAAAApAPr/AAAAAAAAAAAoAPr/AAAAAAAAAAAqAPr/AAAAAAAAAAAqAPn/AAAAAAAAAAApAPn/AAAAAAAAAAAoAPn/AAAAAAAAAAAqAP7/AAAAAAAAAAAoAP7/AAAAAAAAAAArAPr/AAAAAAAAAAArAPn/AAAAAAAAAAAsAPn/AAAAAAAAAAAsAPr/AAAAAAAAAAAtAPr/AAAAAAAAAAAtAPn/AAAAAAAAAAAuAPn/AAAAAAAAAAAuAPr/AAAAAAAAAAAsAPj/AAAAAAAAAAAtAPj/AAAAAAAAAAAuAPj/AAAAAAAAAAAxAP3/AAAAAAAAAAAxAP7/AAAAAAAAAAAwAP3/AAAAAAAAAAAwAP7/AAAAAAAAAAAyAP3/AAAAAAAAAAAyAP7/AAAAAAAAAAAxAPf/AAAAAAAAAAAxAPb/AAAAAAAAAAAxAPX/AAAAAAAAAAAyAPv/AAAAAAAAAAAwAPv/AAAAAAAAAAAtAPv/AAAAAAAAAAAtAPz/AAAAAAAAAAAuAP3/AAAAAAAAAAAvAP3/AAAAAAAAAAAuAPz/AAAAAAAAAAAuAPv/AAAAAAAAAAAwAP//AAAAAAAAAAAxAP//AAAAAAAAAAAyAP//AAAAAAAAAAAvAP7/AAAAAAAAAAAtAP3/AAAAAAAAAAAuAP7/AAAAAAAAAAAxAPT/AAAAAAAAAAAtAPf/AAAAAAAAAAAsAPf/AAAAAAAAAAAuAPf/AAAAAAAAAAAxAPP/AAAAAAAAAAAwAPP/AAAAAAAAAAAvAPP/AAAAAAAAAAAyAPT/AAAAAAAAAAAyAPX/AAAAAAAAAAAyAPb/AAAAAAAAAAAwAPT/AAAAAAAAAAAwAPX/AAAAAAAAAAAwAPb/AAAAAAAAAAAuAPP/AAAAAAAAAAAtAPP/AAAAAAAAAAAsAPP/AAAAAAAAAAArAPP/AAAAAAAAAAApAPL/AAAAAAAAAAApAPP/AAAAAAAAAAApAPT/AAAAAAAAAAAoAPT/AAAAAAAAAAAoAPP/AAAAAAAAAAAoAPL/AAAAAAAAAAAtAPT/AAAAAAAAAAAtAPL/AAAAAAAAAAAnAPT/AAAAAAAAAAAnAPP/AAAAAAAAAAAnAPL/AAAAAAAAAAA=")
 tile_set = SubResource("TileSet_aij7n")
 
 [node name="Terrain" type="Node2D" parent="."]
+y_sort_enabled = true
 
-[node name="Tile" parent="Terrain" instance=ExtResource("2_umbpb")]
-visible = false
+[node name="Stones" type="Node2D" parent="Terrain"]
+
+[node name="Stone" parent="Terrain/Stones" instance=ExtResource("6_2nryt")]
+position = Vector2(3831, -3112)
+
+[node name="Stone4" parent="Terrain/Stones" instance=ExtResource("6_2nryt")]
+position = Vector2(3831, -2882)
+
+[node name="Stone5" parent="Terrain/Stones" instance=ExtResource("6_2nryt")]
+position = Vector2(4073, -2878)
+
+[node name="Stone3" parent="Terrain/Stones" instance=ExtResource("6_2nryt")]
+position = Vector2(4073, -3112)
+
+[node name="Stone2" parent="Terrain/Stones" instance=ExtResource("6_2nryt")]
+position = Vector2(4074, -2625)
+
+[node name="Stone6" parent="Terrain/Stones" instance=ExtResource("6_2nryt")]
+position = Vector2(4309, -2144)
+
+[node name="Stone7" parent="Terrain/Stones" instance=ExtResource("6_2nryt")]
+position = Vector2(4068, -1909)
+
+[node name="Stone9" parent="Terrain/Stones" instance=ExtResource("6_2nryt")]
+position = Vector2(4311, -1677)
+
+[node name="Stone10" parent="Terrain/Stones" instance=ExtResource("6_2nryt")]
+position = Vector2(4071, -1431)
+
+[node name="Stone11" parent="Terrain/Stones" instance=ExtResource("6_2nryt")]
+position = Vector2(4562, -1199)
+
+[node name="Stone12" parent="Terrain/Stones" instance=ExtResource("6_2nryt")]
+position = Vector2(4077, -1193)
+
+[node name="Stone13" parent="Terrain/Stones" instance=ExtResource("6_2nryt")]
+position = Vector2(4070, -954)
+
+[node name="Stone14" parent="Terrain/Stones" instance=ExtResource("6_2nryt")]
+position = Vector2(4548, -950)
+
+[node name="Stone15" parent="Terrain/Stones" instance=ExtResource("6_2nryt")]
+position = Vector2(5748, -236)
+
+[node name="Stone16" parent="Terrain/Stones" instance=ExtResource("6_2nryt")]
+position = Vector2(5745, 279)
+
+[node name="Stone17" parent="Terrain/Stones" instance=ExtResource("6_2nryt")]
+position = Vector2(5748, 15)
+
+[node name="Stone20" parent="Terrain/Stones" instance=ExtResource("6_2nryt")]
+position = Vector2(5516, 15)
+
+[node name="Stone21" parent="Terrain/Stones" instance=ExtResource("6_2nryt")]
+position = Vector2(5272, -236)
+
+[node name="Stone22" parent="Terrain/Stones" instance=ExtResource("6_2nryt")]
+position = Vector2(5269, 279)
+
+[node name="Stone26" parent="Terrain/Stones" instance=ExtResource("6_2nryt")]
+position = Vector2(5040, 15)
+
+[node name="Stone27" parent="Terrain/Stones" instance=ExtResource("6_2nryt")]
+position = Vector2(4786, -236)
+
+[node name="Stone30" parent="Terrain/Stones" instance=ExtResource("6_2nryt")]
+position = Vector2(4310, -487)
+
+[node name="Stone31" parent="Terrain/Stones" instance=ExtResource("6_2nryt")]
+position = Vector2(4551, 3)
+
+[node name="Stone32" parent="Terrain/Stones" instance=ExtResource("6_2nryt")]
+position = Vector2(4071, 15)
+
+[node name="Stone8" parent="Terrain/Stones" instance=ExtResource("6_2nryt")]
+position = Vector2(4550, -1915)
+
+[node name="Stone18" parent="Terrain/Stones" instance=ExtResource("6_2nryt")]
+position = Vector2(10549, -3113)
+
+[node name="Stone19" parent="Terrain/Stones" instance=ExtResource("6_2nryt")]
+position = Vector2(10795, -3113)
+
+[node name="Blocks" type="Node2D" parent="Terrain"]
+y_sort_enabled = true
+
+[node name="Block" parent="Terrain/Blocks" instance=ExtResource("4_30yuk")]
+position = Vector2(3838, -2159)
+
+[node name="Block2" parent="Terrain/Blocks" instance=ExtResource("4_30yuk")]
+position = Vector2(3838, -1917)
+
+[node name="Block3" parent="Terrain/Blocks" instance=ExtResource("4_30yuk")]
+position = Vector2(3838, -1682)
+
+[node name="Block4" parent="Terrain/Blocks" instance=ExtResource("4_30yuk")]
+position = Vector2(3838, -1450)
+
+[node name="Block5" parent="Terrain/Blocks" instance=ExtResource("4_30yuk")]
+position = Vector2(3838, -1201)
+
+[node name="Block6" parent="Terrain/Blocks" instance=ExtResource("4_30yuk")]
+position = Vector2(3838, -962)
+
+[node name="Block7" parent="Terrain/Blocks" instance=ExtResource("4_30yuk")]
+position = Vector2(4800, -2159)
+
+[node name="Block8" parent="Terrain/Blocks" instance=ExtResource("4_30yuk")]
+position = Vector2(4800, -1917)
+
+[node name="Block9" parent="Terrain/Blocks" instance=ExtResource("4_30yuk")]
+position = Vector2(4800, -1682)
+
+[node name="Block11" parent="Terrain/Blocks" instance=ExtResource("4_30yuk")]
+position = Vector2(4800, -1201)
+
+[node name="Block12" parent="Terrain/Blocks" instance=ExtResource("4_30yuk")]
+position = Vector2(4800, -962)
+
+[node name="Block13" parent="Terrain/Blocks" instance=ExtResource("4_30yuk")]
+position = Vector2(5281, -482)
+
+[node name="Block17" parent="Terrain/Blocks" instance=ExtResource("4_30yuk")]
+position = Vector2(4800, -482)
+
+[node name="Block29" parent="Terrain/Blocks" instance=ExtResource("4_30yuk")]
+position = Vector2(4562, -482)
+
+[node name="Block14" parent="Terrain/Blocks" instance=ExtResource("4_30yuk")]
+position = Vector2(5042, -482)
+
+[node name="Block15" parent="Terrain/Blocks" instance=ExtResource("4_30yuk")]
+position = Vector2(5760, -482)
+
+[node name="Block16" parent="Terrain/Blocks" instance=ExtResource("4_30yuk")]
+position = Vector2(5521, -482)
+
+[node name="Block19" parent="Terrain/Blocks" instance=ExtResource("4_30yuk")]
+position = Vector2(4800, 477)
+
+[node name="Block30" parent="Terrain/Blocks" instance=ExtResource("4_30yuk")]
+position = Vector2(4800, 477)
+
+[node name="Block20" parent="Terrain/Blocks" instance=ExtResource("4_30yuk")]
+position = Vector2(5042, 477)
+
+[node name="Block23" parent="Terrain/Blocks" instance=ExtResource("4_30yuk")]
+position = Vector2(4321, 477)
+
+[node name="Block25" parent="Terrain/Blocks" instance=ExtResource("4_30yuk")]
+position = Vector2(3842, -482)
+
+[node name="Block28" parent="Terrain/Blocks" instance=ExtResource("4_30yuk")]
+position = Vector2(4083, -482)
+
+[node name="Block26" parent="Terrain/Blocks" instance=ExtResource("4_30yuk")]
+position = Vector2(3842, -234)
+
+[node name="Block27" parent="Terrain/Blocks" instance=ExtResource("4_30yuk")]
+position = Vector2(3842, 4)
+
+[node name="Block24" parent="Terrain/Blocks" instance=ExtResource("4_30yuk")]
+position = Vector2(4563, 477)
+
+[node name="Block21" parent="Terrain/Blocks" instance=ExtResource("4_30yuk")]
+position = Vector2(5760, 477)
+
+[node name="Block22" parent="Terrain/Blocks" instance=ExtResource("4_30yuk")]
+position = Vector2(5521, 477)
+
+[node name="Block31" parent="Terrain/Blocks" instance=ExtResource("4_30yuk")]
+position = Vector2(10552, -2169)
+
+[node name="Block32" parent="Terrain/Blocks" instance=ExtResource("4_30yuk")]
+position = Vector2(11034, -2169)
+
+[node name="Block33" parent="Terrain/Blocks" instance=ExtResource("4_30yuk")]
+position = Vector2(10792, -2169)
 
 [node name="Player" parent="." instance=ExtResource("1_2la08")]
-sightRadius = 4
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(0.3, 0.3)
+position_smoothing_enabled = true
 
-[node name="Sign" parent="." instance=ExtResource("5_mc1l0")]
-position = Vector2(-4, -311)
+[node name="JumpSign" parent="." instance=ExtResource("5_mc1l0")]
+position = Vector2(-14, -2726)
+message = "-- Lesson 1 : Jump --
+↑→→→
+"
+
+[node name="CastSign" parent="." instance=ExtResource("5_mc1l0")]
+position = Vector2(-9, -1473)
+message = "-- Lesson 0 : Cast --
+Make <SPACE> in your mind"
+
+[node name="HelloSign" parent="." instance=ExtResource("5_mc1l0")]
+position = Vector2(-9, -481)
+message = "..."
+
+[node name="SmokeParticles" parent="." instance=ExtResource("5_gvgcw")]
+visible = false

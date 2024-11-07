@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsw6nsyn8qwtm"]
+
+[ext_resource type="Script" path="res://scripts/spell_symbol.gd" id="1_uruke"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_afy51"]
+font_size = 64
+outline_size = 12
+outline_color = Color(0.780392, 0.780392, 0.780392, 1)
+
+[node name="SpellSymbol" type="Node2D"]
+top_level = true
+script = ExtResource("1_uruke")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -117.0
+offset_top = -32.0
+offset_right = 117.0
+offset_bottom = 33.0
+text = "LOLOL"
+label_settings = SubResource("LabelSettings_afy51")
+horizontal_alignment = 1
+vertical_alignment = 1

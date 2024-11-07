@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://dge3mui3ddgqo"]
+
+[ext_resource type="Texture2D" uid="uid://vwerwarwcs7h" path="res://resources/parlticle.png" id="1_ashex"]
+
+[sub_resource type="Curve" id="Curve_48dm1"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.06353, 0.0, 0, 0]
+point_count = 2
+
+[node name="Particles" type="CPUParticles2D"]
+top_level = true
+z_index = -1
+scale = Vector2(0.5, 0.5)
+emitting = false
+one_shot = true
+explosiveness = 1.0
+randomness = 0.6
+lifetime_randomness = 0.6
+local_coords = true
+texture = ExtResource("1_ashex")
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 360.0
+scale_amount_curve = SubResource("Curve_48dm1")

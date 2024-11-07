@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cp4ggkrgdyacy"]
+
+[ext_resource type="Script" path="res://scripts/tile_items/_tile_item.gd" id="1_1r752"]
+[ext_resource type="Texture2D" uid="uid://oini1d3mppgs" path="res://resources/block.png" id="2_5a5dn"]
+
+[node name="Block" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_1r752")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(-1, -41)
+texture = ExtResource("2_5a5dn")

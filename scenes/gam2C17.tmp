@@ -1,0 +1,93 @@
+[gd_scene load_steps=9 format=4 uid="uid://3pte44nuj5m5"]
+
+[ext_resource type="PackedScene" uid="uid://bdlc63ysvlljr" path="res://scenes/player.tscn" id="1_2la08"]
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_8utgd"]
+[ext_resource type="Texture2D" uid="uid://dhlnhfbg8oq7d" path="res://resources/tile.png" id="4_d30wf"]
+[ext_resource type="PackedScene" uid="uid://wxm5vuei7oyq" path="res://scenes/smoke_particles.tscn" id="5_gvgcw"]
+[ext_resource type="PackedScene" uid="uid://bdp2lpfyiwu40" path="res://scenes/sign.tscn" id="5_mc1l0"]
+[ext_resource type="PackedScene" uid="uid://jyirjhlkjwxy" path="res://scenes/stone.tscn" id="6_2nryt"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7y4oa"]
+resource_name = "tile"
+texture = ExtResource("4_d30wf")
+texture_region_size = Vector2i(256, 256)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_aij7n"]
+tile_size = Vector2i(240, 240)
+sources/0 = SubResource("TileSetAtlasSource_7y4oa")
+
+[node name="Game" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_8utgd")
+tileSize = 240
+
+[node name="GroundLayer" type="TileMapLayer" parent="."]
+z_index = -2
+position = Vector2(-128, -128)
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAABAP//AAAAAAAAAAAAAP//AAAAAAAAAAD/////AAAAAAAAAAD//wAAAAAAAAAAAAD//wEAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAD+/wAAAAAAAAAAAAAAAP7/AAAAAAAAAAACAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAD+/wEAAAAAAAAAAAD+/wIAAAAAAAAAAAD//wIAAAAAAAAAAAABAAIAAAAAAAAAAAACAAIAAAAAAAAAAAACAAEAAAAAAAAAAAACAP//AAAAAAAAAAACAP7/AAAAAAAAAAABAP7/AAAAAAAAAAD///7/AAAAAAAAAAD+//7/AAAAAAAAAAD+////AAAAAAAAAAAAAPv/AAAAAAAAAAD///r/AAAAAAAAAAAAAPr/AAAAAAAAAAABAPr/AAAAAAAAAAD///n/AAAAAAAAAAABAPn/AAAAAAAAAAD///j/AAAAAAAAAAABAPj/AAAAAAAAAAAAAPf/AAAAAAAAAAD///X/AAAAAAAAAAAAAPX/AAAAAAAAAAABAPX/AAAAAAAAAAD///b/AAAAAAAAAAAAAPb/AAAAAAAAAAABAPb/AAAAAAAAAAD///z/AAAAAAAAAAABAPz/AAAAAAAAAAADAPX/AAAAAAAAAAAEAPX/AAAAAAAAAAAFAPX/AAAAAAAAAAAHAPX/AAAAAAAAAAAIAPX/AAAAAAAAAAAJAPX/AAAAAAAAAAAHAPT/AAAAAAAAAAAIAPT/AAAAAAAAAAAJAPT/AAAAAAAAAAAJAPP/AAAAAAAAAAAIAPP/AAAAAAAAAAAHAPP/AAAAAAAAAAALAPP/AAAAAAAAAAAMAPP/AAAAAAAAAAANAPP/AAAAAAAAAAAPAPT/AAAAAAAAAAAPAPP/AAAAAAAAAAAQAPP/AAAAAAAAAAAQAPT/AAAAAAAAAAARAPT/AAAAAAAAAAARAPP/AAAAAAAAAAD///3/AAAAAAAAAAABAP3/AAAAAAAAAAD///v/AAAAAAAAAAAAAPn/AAAAAAAAAAAAAP3/AAAAAAAAAAABAPv/AAAAAAAAAAABAPf/AAAAAAAAAAD///f/AAAAAAAAAAAPAPX/AAAAAAAAAAAQAPX/AAAAAAAAAAARAPX/AAAAAAAAAAASAPX/AAAAAAAAAAATAPX/AAAAAAAAAAASAPb/AAAAAAAAAAASAPf/AAAAAAAAAAARAPf/AAAAAAAAAAARAPj/AAAAAAAAAAATAPj/AAAAAAAAAAATAPf/AAAAAAAAAAASAPj/AAAAAAAAAAARAPn/AAAAAAAAAAASAPn/AAAAAAAAAAATAPn/AAAAAAAAAAARAPr/AAAAAAAAAAASAPr/AAAAAAAAAAATAPr/AAAAAAAAAAARAPv/AAAAAAAAAAASAPv/AAAAAAAAAAATAPv/AAAAAAAAAAATAPz/AAAAAAAAAAASAPz/AAAAAAAAAAARAPz/AAAAAAAAAAARAP7/AAAAAAAAAAASAP7/AAAAAAAAAAATAP7/AAAAAAAAAAARAAAAAAAAAAAAAAASAAAAAAAAAAAAAAATAAAAAAAAAAAAAAARAP//AAAAAAAAAAASAP//AAAAAAAAAAATAP//AAAAAAAAAAA=")
+tile_set = SubResource("TileSet_aij7n")
+
+[node name="Terrain" type="Node2D" parent="."]
+
+[node name="Stones" type="Node2D" parent="Terrain"]
+
+[node name="Stone" parent="Terrain/Stones" instance=ExtResource("6_2nryt")]
+position = Vector2(3831, -3112)
+
+[node name="Stone4" parent="Terrain/Stones" instance=ExtResource("6_2nryt")]
+position = Vector2(3831, -2882)
+
+[node name="Stone5" parent="Terrain/Stones" instance=ExtResource("6_2nryt")]
+position = Vector2(4073, -2878)
+
+[node name="Stone3" parent="Terrain/Stones" instance=ExtResource("6_2nryt")]
+position = Vector2(4073, -3112)
+
+[node name="Stone2" parent="Terrain/Stones" instance=ExtResource("6_2nryt")]
+position = Vector2(4074, -2625)
+
+[node name="Stone6" parent="Terrain/Stones" instance=ExtResource("6_2nryt")]
+position = Vector2(4309, -2144)
+
+[node name="Stone7" parent="Terrain/Stones" instance=ExtResource("6_2nryt")]
+position = Vector2(4068, -1909)
+
+[node name="Stone9" parent="Terrain/Stones" instance=ExtResource("6_2nryt")]
+position = Vector2(4311, -1677)
+
+[node name="Stone10" parent="Terrain/Stones" instance=ExtResource("6_2nryt")]
+position = Vector2(4071, -1431)
+
+[node name="Stone11" parent="Terrain/Stones" instance=ExtResource("6_2nryt")]
+position = Vector2(4562, -1199)
+
+[node name="Stone12" parent="Terrain/Stones" instance=ExtResource("6_2nryt")]
+position = Vector2(4077, -1193)
+
+[node name="Stone13" parent="Terrain/Stones" instance=ExtResource("6_2nryt")]
+position = Vector2(4070, -954)
+
+[node name="Stone15" parent="Terrain/Stones" instance=ExtResource("6_2nryt")]
+position = Vector2(4312, -473)
+
+[node name="Stone14" parent="Terrain/Stones" instance=ExtResource("6_2nryt")]
+position = Vector2(4548, -950)
+
+[node name="Stone8" parent="Terrain/Stones" instance=ExtResource("6_2nryt")]
+position = Vector2(4550, -1915)
+
+[node name="Player" parent="." instance=ExtResource("1_2la08")]
+position = Vector2(4313, -202)
+sightRadius = 4
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(0.3, 0.3)
+position_smoothing_enabled = true
+
+[node name="Sign" parent="." instance=ExtResource("5_mc1l0")]
+position = Vector2(-14, -2726)
+message = "Did you forget how to jump ???"
+
+[node name="SmokeParticles" parent="." instance=ExtResource("5_gvgcw")]
+visible = false
