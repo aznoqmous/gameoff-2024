@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cal6v01spva3v"]
+
+[ext_resource type="Script" path="res://scripts/tile.gd" id="1_lfej8"]
+[ext_resource type="Texture2D" uid="uid://esu85ell4muk" path="res://resources/tile-1.png" id="2_fcgmv"]
+
+[node name="Tile" type="Node2D"]
+z_index = -2
+y_sort_enabled = true
+script = ExtResource("1_lfej8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_fcgmv")

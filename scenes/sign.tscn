@@ -1,14 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdp2lpfyiwu40"]
+[gd_scene load_steps=6 format=3 uid="uid://bdp2lpfyiwu40"]
 
 [ext_resource type="Script" path="res://scripts/sign.gd" id="1_qd6lt"]
 [ext_resource type="Texture2D" uid="uid://djief4uv1y67d" path="res://resources/sign.png" id="1_rawr2"]
+[ext_resource type="FontFile" uid="uid://w12hsd66wulf" path="res://resources/fonts/PatrickHand-Regular.ttf" id="3_fx3sv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xj0qx"]
 size = Vector2(128, 128)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ttmw2"]
+font = ExtResource("3_fx3sv")
 font_size = 64
-outline_size = 20
+font_color = Color(0, 0, 0, 1)
+outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
 [node name="Sign" type="Area2D"]
@@ -24,7 +27,14 @@ y_sort_enabled = true
 position = Vector2(4, -26)
 texture = ExtResource("1_rawr2")
 
-[node name="Label" type="Label" parent="."]
+[node name="Container" type="Node2D" parent="."]
+
+[node name="SymbolSprite" type="Sprite2D" parent="Container"]
+y_sort_enabled = true
+position = Vector2(4, -417)
+scale = Vector2(1.48, 1.48)
+
+[node name="Label" type="Label" parent="Container"]
 offset_left = -350.0
 offset_top = -294.0
 offset_right = 350.0

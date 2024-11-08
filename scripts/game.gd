@@ -6,7 +6,6 @@ extends Node2D
 @onready var stones: Node2D = $Terrain/Stones
 @onready var blocks: Node2D = $Terrain/Blocks
 @onready var items: Node2D = $Terrain/Items
-@onready var tile: Tile = $Terrain/Tiles/Tile
 @onready var tilesContainer: Node2D = $Terrain/Tiles
 
 @onready var ground_layer: TileMapLayer = $GroundLayer
@@ -16,9 +15,6 @@ var tiles = {}
 
 func _ready() -> void:
 	create_map()
-
-func _process(delta: float) -> void:
-	pass
 
 var baseTile = preload("res://scenes/tiles/tile.tscn")
 var lilipadBaseTile = preload("res://scenes/tiles/lilipad_tile.tscn")

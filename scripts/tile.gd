@@ -46,7 +46,7 @@ func handle_animation(delta: float):
 func is_active() -> bool:
 	if activators.is_empty(): return true
 	for activator in activators: 
-		if not activator.active : return false
+		if activator and not activator.active : return false
 	return true
 
 func is_walkable() -> bool:

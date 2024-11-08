@@ -1,7 +1,34 @@
-[gd_scene load_steps=4 format=3 uid="uid://dhgprbkhapw2i"]
+[gd_scene load_steps=7 format=3 uid="uid://dhgprbkhapw2i"]
 
 [ext_resource type="Script" path="res://scripts/tile_items/button_tile_item.gd" id="1_e1047"]
-[ext_resource type="Texture2D" uid="uid://cmp6cshhb00ao" path="res://icon.svg" id="2_41j6q"]
+[ext_resource type="Texture2D" uid="uid://b5o4lnmngik5" path="res://resources/button.png" id="2_3ncbm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vdju"]
+atlas = ExtResource("2_3ncbm")
+region = Rect2(168, 0, 168, 168)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4k06i"]
+atlas = ExtResource("2_3ncbm")
+region = Rect2(0, 0, 168, 168)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_obfcm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1vdju")
+}],
+"loop": true,
+"name": &"activated",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4k06i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_61h34"]
 radius = 100.0
@@ -13,9 +40,11 @@ walkable = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = -1
-texture = ExtResource("2_41j6q")
+y_sort_enabled = true
+sprite_frames = SubResource("SpriteFrames_obfcm")
+autoplay = "default"
 
 [node name="Area2D" type="Area2D" parent="."]
 
