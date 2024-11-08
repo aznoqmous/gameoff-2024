@@ -148,7 +148,7 @@ func move(direction: Vector2):
 	lastDirection = direction
 
 func push(tile: Tile, direction: Vector2) -> bool:
-	direction = (direction/game.tileSize).normalized() * game.tileSize
+	direction = (direction/game.tileSize) * game.tileSize
 	var tileItem : TileItem = tile._item
 	if tileItem and tileItem.pushable:
 		tile = game.get_tile_at_position((tileItem.currentPosition + direction)/game.tileSize)
@@ -256,22 +256,8 @@ func init_spells():
 			
 @onready var jump: Jump = $Spells/Jump
 @onready var spawn_plant: SpawnPlant = $Spells/SpawnPlant
+@onready var spawn_stone: SpawnStone = $Spells/SpawnStone
 @onready var spells = [
-	{
-		"name": "Question",
-		"trails": [
-			[
-				[2,3,4],
-				[1,6,5],
-				[0,7,0],
-			],
-			[
-				[6,5,4],
-				[7,2,3],
-				[0,1,0],
-			]
-		]
-	},
 	{
 		"name": "Jump",
 		"trails": [
@@ -291,6 +277,15 @@ func init_spells():
 		],
 		"rotate": true,
 		"spell": spawn_plant
+	},
+	{
+		"name": "Stone",
+		"trails": [
+			[[5, 4, 3], [6, 1, 2], [7, 8, 9]],
+			[[7, 8, 9], [6, 1, 2], [5, 4, 3]]
+		],
+		"rotate": true,
+		"spell": spawn_stone
 	}
 ]
 func rotate_array(arr) -> Array:

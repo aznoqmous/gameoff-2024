@@ -11,14 +11,12 @@ func _ready() -> void:
 
 var active : bool = false
 func handle_enter(area: Area2D):
-	active = true
-	animated_sprite_2d.play("activated")
-	pass
+	update_state()
 
 func handle_exit(area: Area2D):
-	active = false
-	animated_sprite_2d.play("default")
-	pass
-
-func _process(delta: float) -> void:
-	pass
+	update_state()
+	
+func update_state():
+	active = area_2d.get_overlapping_areas().size() > 0
+	if not active : animated_sprite_2d.play("default")
+	else: animated_sprite_2d.play("activated")

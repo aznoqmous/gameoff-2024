@@ -33,11 +33,9 @@ func update_memory(playerPosition: Vector2):
 func handle_animation(delta: float):
 	#if not position.distance_to(player.position) < game.tileSize * player.sightRadius:
 		#memory -= delta
-	
 	if memory > 0 and is_active():
 		size = 1 + sin(Time.get_ticks_msec()/5000.0 * 2 * PI + position.x + position.y) / 20
 	else:
-		memory = 0
 		size = 0
 	scale = lerp(scale, Vector2.ONE * size, delta * 10)
 	

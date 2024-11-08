@@ -28,8 +28,6 @@ func create_map() -> void:
 	for item: TileItem in items.get_children(): item.init()
 	for stone: TileItem in stones.get_children(): stone.init()
 	for block: TileItem in blocks.get_children(): block.init()
-	
-
 
 func add_lilipad_tile(tilePosition: Vector2):
 	var newTile : Tile = lilipadBaseTile.instantiate()
@@ -43,6 +41,11 @@ func add_tile(tile: Tile, tilePosition: Vector2):
 	tile.position = tilePosition * tileSize
 	tilesContainer.add_child(tile)
 	set_tile(tilePosition.x, tilePosition.y, tile)
+	
+func add_item(tile_item: TileItem, pos: Vector2):
+	items.add_child(tile_item)
+	tile_item.position = pos * tileSize
+	tile_item.init()
 	
 func get_tile(x, y) -> Tile:
 	var key = Vector2(x,y)

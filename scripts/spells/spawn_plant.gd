@@ -1,7 +1,6 @@
 class_name SpawnPlant
 extends Spell
 
-#var lilipadTile = preload("res://scenes/tiles/lilipad_tile.tscn")
 
 func _perform(trail: Array):
 	var spawnPoint = player.cast_line.get_points()[0] / game.tileSize
@@ -18,9 +17,6 @@ func _perform(trail: Array):
 	for i in range(0, 3):
 		var pos = origin + targetDirection * (i + 1)
 		if game.get_tile_at_position(pos): break
-		#print(lilipadTile.instantiate())
-		#var newTile : Tile = game.lilipadBaseTile.instantiate()
-		#game.add_tile(newTile, pos)
 		game.add_lilipad_tile(pos)
 	
 func get_pos(value: int, arr: Array):
