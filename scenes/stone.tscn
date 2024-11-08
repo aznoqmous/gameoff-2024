@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://jyirjhlkjwxy"]
+[gd_scene load_steps=7 format=3 uid="uid://jyirjhlkjwxy"]
 
 [ext_resource type="Texture2D" uid="uid://7u0ho1aqg3lj" path="res://resources/stone-2.png" id="1_m1njd"]
 [ext_resource type="Script" path="res://scripts/tile_items/_tile_item.gd" id="1_p8hun"]
@@ -54,6 +54,9 @@ _data = {
 "RESET": SubResource("Animation_a4kek")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_l6e7p"]
+radius = 60.0
+
 [node name="Stone" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_p8hun")
@@ -68,3 +71,8 @@ libraries = {
 y_sort_enabled = true
 position = Vector2(0, -47)
 texture = ExtResource("1_m1njd")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_l6e7p")

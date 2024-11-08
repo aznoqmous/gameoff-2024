@@ -1,8 +1,10 @@
 class_name Tile
 extends Node2D
 
-@onready var player: Player = $"../../Player"
-@onready var game: Game = $"../.."
+@onready var player: Player = $"../../../Player"
+@onready var game: Game = $"../../.."
+
+@export var activators : Array[ButtonTileItem] = []
 
 var size = 0
 var memory = 0
@@ -32,7 +34,7 @@ func handle_animation(delta: float):
 	#if not position.distance_to(player.position) < game.tileSize * player.sightRadius:
 		#memory -= delta
 	
-	if memory > 0:
+	if memory > 0 and is_active():
 		size = 1 + sin(Time.get_ticks_msec()/5000.0 * 2 * PI + position.x + position.y) / 20
 	else:
 		memory = 0
@@ -40,10 +42,16 @@ func handle_animation(delta: float):
 	scale = lerp(scale, Vector2.ONE * size, delta * 10)
 	
 	if _item: _item.scale = lerp(_item.scale, scale, delta * 10)
-	
-func is_walkable():
+
+func is_active() -> bool:
+	if activators.is_empty(): return true
+	for activator in activators: 
+		if not activator.active : return false
+	return true
+
+func is_walkable() -> bool:
 	if not _item: return true
-	return false
+	return _item.walkable
 	
 func set_item(item):
 	_item = item
