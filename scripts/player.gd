@@ -56,11 +56,11 @@ func handle_movement(currentPosition):
 		start_fall()
 	
 var isCasting = false
-func _input(event):
+func _input(event: InputEvent):
 	if isFalling: return;
 	handle_movement_events(event)
-	if Input.is_action_pressed("SwitchMode"):
-		if !isCasting and Time.get_ticks_msec() - lastMoveTime > 200:
+	if Input.is_action_just_pressed("SwitchMode"):
+		if !isCasting:
 			isCasting = true
 		else:
 			isCasting = false
@@ -70,12 +70,23 @@ func _input(event):
 			cast()
 		else:
 			particles.restart()
-			add_cast_position(currentPosition, Vector2(0,0))
+			add_cast_position(get_last_position(), Vector2(0,0))
 			animationPlayer.play("Cast")
 
 var lastInputTime = 0
-func handle_movement_events(event):
-	var direction = Vector2(0, 0)
+var joystick_pressed = false
+var last_joystick_sensitivity = 0
+func handle_movement_events(event: InputEvent):
+	if "axis_value" in event:
+		var joystick_sensitivity = abs(event.axis_value)
+		if joystick_sensitivity < 0.5: return;
+		if joystick_sensitivity < last_joystick_sensitivity: 
+			last_joystick_sensitivity = joystick_sensitivity
+			return
+		last_joystick_sensitivity = joystick_sensitivity
+	
+	var movement_direction = Input.get_vector("MoveLeft","MoveRight","MoveDown","MoveUp")
+	var direction = Vector2.ZERO
 	if event.is_action_pressed("MoveRight"):
 		direction.x = 1
 	if event.is_action_pressed("MoveLeft"):
@@ -84,8 +95,10 @@ func handle_movement_events(event):
 		direction.y = -1
 	if event.is_action_pressed("MoveDown"):
 		direction.y =  1
-		
+			
 	if direction != Vector2.ZERO:
+		if inputDirection == direction and Time.get_ticks_msec() - lastInputTime < 100:
+			return;
 		move(direction * game.tileSize)
 		lastInputTime = Time.get_ticks_msec()
 		inputDirection = direction
@@ -100,6 +113,7 @@ var targetPositions : Array
 var lastPosition = null
 var lastDirection = Vector2.ZERO
 var lastMoveTime = 0
+
 func move(direction: Vector2):
 	if not is_floored(): return
 	targetDirection = -sign(direction.x)
@@ -156,6 +170,7 @@ func end_fall():
 
 var castTrail = []
 func add_cast_position(pos, dir):
+	if not cast_line.points.is_empty() and cast_line.points[-1] == pos : return;
 	cast_line.add_point(pos)
 	var lastPos = Vector2.ZERO
 	if not castTrail.is_empty():
