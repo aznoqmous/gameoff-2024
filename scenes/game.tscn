@@ -273,7 +273,7 @@ position = Vector2(9831, -5303)
 activators = [NodePath("../../Items/Button2")]
 
 [node name="Player" parent="." instance=ExtResource("1_2la08")]
-position = Vector2(9587, -3137)
+position = Vector2(9103, -6209)
 sightRadius = 7
 
 [node name="Camera2D" type="Camera2D" parent="Player"]

@@ -3,19 +3,19 @@
 [ext_resource type="Script" path="res://scripts/tile_items/button_tile_item.gd" id="1_e1047"]
 [ext_resource type="Texture2D" uid="uid://b5o4lnmngik5" path="res://resources/button.png" id="2_3ncbm"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1vdju"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_n8fke"]
 atlas = ExtResource("2_3ncbm")
-region = Rect2(168, 0, 168, 168)
+region = Rect2(256, 0, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4k06i"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xprj"]
 atlas = ExtResource("2_3ncbm")
-region = Rect2(0, 0, 168, 168)
+region = Rect2(0, 0, 256, 256)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_obfcm"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1vdju")
+"texture": SubResource("AtlasTexture_n8fke")
 }],
 "loop": true,
 "name": &"activated",
@@ -23,7 +23,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4k06i")
+"texture": SubResource("AtlasTexture_7xprj")
 }],
 "loop": true,
 "name": &"default",
@@ -43,7 +43,9 @@ walkable = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = -1
 y_sort_enabled = true
+position = Vector2(0, -50)
 sprite_frames = SubResource("SpriteFrames_obfcm")
+animation = &"activated"
 autoplay = "default"
 
 [node name="Area2D" type="Area2D" parent="."]
