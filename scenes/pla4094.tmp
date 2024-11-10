@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bdlc63ysvlljr"]
+[gd_scene load_steps=20 format=3 uid="uid://bdlc63ysvlljr"]
 
 [ext_resource type="Texture2D" uid="uid://bvn24e5joccqc" path="res://resources/player_0001_body.png" id="1_1lid0"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_3pkg8"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://dge3mui3ddgqo" path="res://scenes/particles.tscn" id="9_7oxa2"]
 [ext_resource type="Script" path="res://scripts/spells/spawn_plant.gd" id="10_plgn0"]
 [ext_resource type="Script" path="res://scripts/spells/spawn_stone.gd" id="11_uvcyf"]
-[ext_resource type="Script" path="res://scripts/spells/spawn_energy.gd" id="12_tmpeg"]
 
 [sub_resource type="Animation" id="Animation_8ywdh"]
 resource_name = "Cast"
@@ -960,6 +959,3 @@ script = ExtResource("10_plgn0")
 
 [node name="SpawnStone" type="Node" parent="Spells"]
 script = ExtResource("11_uvcyf")
-
-[node name="SpawnEnergyBall" type="Node" parent="Spells"]
-script = ExtResource("12_tmpeg")

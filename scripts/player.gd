@@ -138,7 +138,7 @@ func move(direction: Vector2):
 		animationPlayer.play("Move")
 	
 	var tile = game.get_tile_at_position((pos + direction)/game.tileSize)
-	if tile and not tile.is_walkable() and not push(tile, direction): return
+	if tile and not tile.is_walkable() and not tile.push(direction): return
 	
 	targetPositions.append(pos + direction)
 	if isCasting:
@@ -146,16 +146,6 @@ func move(direction: Vector2):
 	
 	lastMoveTime = Time.get_ticks_msec()
 	lastDirection = direction
-
-func push(tile: Tile, direction: Vector2) -> bool:
-	direction = (direction/game.tileSize) * game.tileSize
-	var tileItem : TileItem = tile._item
-	if tileItem and tileItem.pushable:
-		tile = game.get_tile_at_position((tileItem.currentPosition + direction)/game.tileSize)
-		if not tile or (tile and tile.is_walkable()):
-			tileItem.set_target_position(tileItem.currentPosition + direction)
-			return true
-	return false
 	
 var isFalling = false
 func start_fall():
@@ -257,6 +247,7 @@ func init_spells():
 @onready var jump: Jump = $Spells/Jump
 @onready var spawn_plant: SpawnPlant = $Spells/SpawnPlant
 @onready var spawn_stone: SpawnStone = $Spells/SpawnStone
+@onready var spawn_energy_ball: SpawnEnergyBall = $Spells/SpawnEnergyBall
 @onready var spells = [
 	{
 		"name": "Jump",
@@ -286,6 +277,15 @@ func init_spells():
 		],
 		"rotate": true,
 		"spell": spawn_stone
+	},
+	{
+		"name": "EnergyBall",
+		"trails": [
+			[[0, 3, 0], [2, 1, 4], [0, 5, 0], [0, 6, 0]],
+			[[0, 3, 0], [4, 1, 2], [0, 5, 0], [0, 6, 0]]
+		],
+		"rotate": true,
+		"spell": spawn_energy_ball
 	}
 ]
 func rotate_array(arr) -> Array:

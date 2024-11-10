@@ -9,18 +9,21 @@ extends Node2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var game: Game = $"../../.."
 var currentPosition = null
-var currentTile : Tile = null 
+var currentTile : Tile = null
+
+signal on_movement(position: Vector2)
 
 func _ready() -> void:
 	currentPosition = position
+
 func _process(delta: float) -> void:
 	if currentPosition and position != currentPosition:
 		position = lerp(position, currentPosition, delta * 10)
 		if position.distance_to(currentPosition) < 10:
 			position = currentPosition
-			if not game.get_tile_at_position(position/game.tileSize):
+			emit_signal("on_movement", position)
+			if fallable and not game.get_tile_at_position(position/game.tileSize):
 				fall()
-
 
 func init():
 	set_target_position(position)
@@ -39,3 +42,6 @@ func fall():
 func remove():
 	if currentTile: currentTile.set_item(null)
 	queue_free()
+	
+func push(direction: Vector2):
+	set_target_position(currentPosition + direction)

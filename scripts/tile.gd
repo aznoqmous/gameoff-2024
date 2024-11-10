@@ -4,7 +4,7 @@ extends Node2D
 @onready var player: Player = $"../../../Player"
 @onready var game: Game = $"../../.."
 
-@export var activators : Array[ButtonTileItem] = []
+@export var activators : Array[ActivatorTileItem] = []
 
 var size = 0
 var memory = 0
@@ -53,3 +53,13 @@ func is_walkable() -> bool:
 	
 func set_item(item):
 	_item = item
+
+func push(direction: Vector2) -> bool:
+	direction = (direction/game.tileSize).round() * game.tileSize
+	var tileItem : TileItem = _item
+	if tileItem and tileItem.pushable:
+		var tile = game.get_tile_at_position((tileItem.currentPosition + direction)/game.tileSize)
+		if not tile or (tile and tile.is_walkable()):
+			tileItem.push(direction)
+			return true
+	return false

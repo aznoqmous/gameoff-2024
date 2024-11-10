@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://jyirjhlkjwxy"]
 
-[ext_resource type="Script" path="res://scripts/tile_items/stone.gd" id="1_ituss"]
-[ext_resource type="Texture2D" uid="uid://7u0ho1aqg3lj" path="res://resources/stone-2.png" id="1_m1njd"]
+[ext_resource type="Script" path="res://scripts/tile_items/stone.gd" id="1_p2wjl"]
+[ext_resource type="Texture2D" uid="uid://7u0ho1aqg3lj" path="res://resources/stone-2.png" id="2_aosvw"]
 
 [sub_resource type="Animation" id="Animation_4sk8c"]
 resource_name = "Fall"
@@ -59,7 +59,7 @@ radius = 60.0
 
 [node name="Stone" type="Node2D"]
 y_sort_enabled = true
-script = ExtResource("1_ituss")
+script = ExtResource("1_p2wjl")
 pushable = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -70,7 +70,7 @@ libraries = {
 [node name="Sprite2D" type="Sprite2D" parent="."]
 y_sort_enabled = true
 position = Vector2(0, -47)
-texture = ExtResource("1_m1njd")
+texture = ExtResource("2_aosvw")
 
 [node name="Area2D" type="Area2D" parent="."]
 

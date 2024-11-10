@@ -1,7 +1,7 @@
 class_name SpawnStone
 extends Spell
 
-var stone = preload("res://scenes/stone.tscn")
+var stone = preload("res://scenes/items/stone.tscn")
 
 func _perform(trail: Array):
 	var spawnPoint = player.cast_line.get_points()[0] / game.tileSize

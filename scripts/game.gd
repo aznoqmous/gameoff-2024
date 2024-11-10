@@ -60,8 +60,11 @@ func get_tile_at_position(pos: Vector2) -> Tile:
 	
 func is_walkable(pos: Vector2) -> bool:
 	var tile = get_tile_at_position(pos)
-	if not tile: return false
-	return tile.is_walkable()
+	return tile and tile.is_walkable()
+	
+func is_blocked(pos: Vector2) -> bool:
+	var tile = get_tile_at_position(pos)
+	return tile and not tile.is_walkable()
 
 func set_tile(x, y, tile) -> void:
 	tiles[Vector2(x,y)] = tile
