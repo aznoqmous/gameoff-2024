@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://bfq0novin8k03"]
+
+[ext_resource type="Script" path="res://scripts/dialog.gd" id="1_83qjg"]
+[ext_resource type="Texture2D" uid="uid://c88x170136llq" path="res://resources/ui/dialog-box.png" id="2_uc6kv"]
+[ext_resource type="FontFile" uid="uid://w12hsd66wulf" path="res://resources/fonts/PatrickHand-Regular.ttf" id="3_jtug7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gwyfn"]
+font = ExtResource("3_jtug7")
+font_size = 64
+font_color = Color(0.281187, 0.281187, 0.281187, 1)
+
+[node name="DialogBox" type="MarginContainer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -53.0
+offset_right = 56.0
+grow_vertical = 0
+script = ExtResource("1_83qjg")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_uc6kv")
+patch_margin_left = 24
+patch_margin_top = 26
+patch_margin_right = 24
+patch_margin_bottom = 27
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+text = "Hello there"
+label_settings = SubResource("LabelSettings_gwyfn")
+horizontal_alignment = 1
+vertical_alignment = 2

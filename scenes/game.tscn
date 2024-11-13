@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://3pte44nuj5m5"]
+[gd_scene load_steps=15 format=4 uid="uid://3pte44nuj5m5"]
 
 [ext_resource type="PackedScene" uid="uid://bdlc63ysvlljr" path="res://scenes/player.tscn" id="1_2la08"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_8utgd"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://jyirjhlkjwxy" path="res://scenes/items/stone.tscn" id="6_2nryt"]
 [ext_resource type="Texture2D" uid="uid://33dsu0l7bl51" path="res://resources/symbols/jump.png" id="9_714xr"]
 [ext_resource type="Texture2D" uid="uid://bdli7fnt2suev" path="res://resources/symbols/lilipad.png" id="10_208ue"]
+[ext_resource type="PackedScene" uid="uid://c4yqpsay75ksd" path="res://scenes/teachers/_teacher.tscn" id="12_3y52t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7y4oa"]
 resource_name = "tile"
@@ -273,7 +274,7 @@ position = Vector2(9831, -5303)
 activators = [NodePath("../../Items/Button2")]
 
 [node name="Player" parent="." instance=ExtResource("1_2la08")]
-position = Vector2(9103, -6209)
+position = Vector2(8384, -3)
 sightRadius = 7
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -298,3 +299,7 @@ message = "..."
 position = Vector2(8624, -8)
 message = "-- Lesson 2 : Lilipad --"
 symbol_sprite_texture = ExtResource("10_208ue")
+
+[node name="Teacher" parent="." instance=ExtResource("12_3y52t")]
+position = Vector2(7916, -7012)
+greeting_text = "Hello stranger"
