@@ -18,7 +18,7 @@ jobs:
   deploy:
     # only run action, if pushed on prod branch
     # change or remove according to your needs
-    if: github.ref == 'refs/heads/prod'
+    if: github.ref == 'refs/heads/master'
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout source code
