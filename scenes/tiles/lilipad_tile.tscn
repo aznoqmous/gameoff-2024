@@ -7,6 +7,7 @@
 z_index = -2
 y_sort_enabled = true
 script = ExtResource("1_qaa4c")
+breakable = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_ehipv")

@@ -2,10 +2,11 @@ class_name Teacher
 extends Node2D
 
 @onready var area_2d: Area2D = $Area2D
-@onready var game: Game = $".."
+@onready var game: Game = $"../.."
 @onready var dialog_box: DialogBox = $DialogBox
 
-@export var greeting_text : String
+@export_multiline var greeting_text : String
+@export_multiline var goodbye_text : String
 
 func _ready() -> void:
 	area_2d.area_entered.connect(handle_area_enter)
@@ -21,4 +22,7 @@ func handle_area_exit(area: Area2D):
 	pass
 	
 func _process(delta: float) -> void:
+	pass
+
+func _input(event):
 	pass

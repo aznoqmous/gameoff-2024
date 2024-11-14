@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="LevelConfig" load_steps=2 format=3 uid="uid://5j1qjhkvo4du"]
+
+[ext_resource type="Script" path="res://scripts/resources/level_config.gd" id="1_1n3q2"]
+
+[resource]
+script = ExtResource("1_1n3q2")
+color = Color(0.854902, 0.854902, 0.854902, 1)

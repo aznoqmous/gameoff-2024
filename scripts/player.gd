@@ -3,9 +3,10 @@ extends Node2D
 
 @onready var game: Game = $".."
 @onready var animationPlayer : AnimationPlayer = $AnimationPlayer
-@onready var bodyNode : Node2D = $BodyNode
 @onready var cast_line: Line2D = $Line2D
 @onready var particles: CPUParticles2D = $Particles
+@onready var body_scale_node: Node2D = $BodyScaleNode
+
 var lastFlooredPosition: Vector2 = Vector2.ZERO
 var baseParticles = preload("res://scenes/particles.tscn")
 var baseSymbol = preload("res://scenes/spell_symbol.tscn")
@@ -16,11 +17,11 @@ func _ready() -> void:
 	currentPosition = position
 	animationPlayer.play("Idle")
 	init_spells()
-	
+
+var leave_tile_position = null
 var inputDirection = Vector2(0,0)
 func _process(delta: float) -> void:
 	if isFalling: return;
-		
 	if not targetPositions.is_empty():
 		var targetPosition = targetPositions[0]
 		position = lerp(position, targetPosition, delta * 20)
@@ -28,17 +29,26 @@ func _process(delta: float) -> void:
 		if position.distance_to(targetPosition) < 10:
 			position = targetPosition
 			currentPosition = targetPosition
+			if leave_tile_position: handle_leave_tile(leave_tile_position)
+			leave_tile_position = targetPositions[0]
 			targetPositions.pop_front()
 			handle_movement(currentPosition)
 				
 	# look in right direction
 	if targetDirection:
-		scale.x = lerp(scale.x, targetDirection, delta * 20)
+		body_scale_node.scale.x = lerp(body_scale_node.scale.x, targetDirection, delta * 20)
 	else:
-		scale.x = lerp(scale.x, sign(scale.x), delta * 20)
+		body_scale_node.scale.x = lerp(body_scale_node.scale.x, sign(body_scale_node.scale.x), delta * 20)
 
+signal on_leave_tile(pos: Vector2);
+func handle_leave_tile(pos:Vector2):
+	emit_signal("on_leave_tile", pos)
+	var tile = game.get_tile_at_position(pos/game.tileSize)
+	if tile: tile.handle_leave_tile()
+	
 func handle_movement(currentPosition):
 	emit_signal("on_movement", currentPosition)
+	
 	if not targetPositions.is_empty():
 		animationPlayer.stop()
 		animationPlayer.play("Move")
@@ -48,18 +58,24 @@ func handle_movement(currentPosition):
 		animationPlayer.play("Idle")
 		
 	var playerPosition = currentPosition / game.tileSize
-	var tile = game.get_tile(playerPosition.x, playerPosition.y)
+	var tile = game.get_tile_at_position(playerPosition)
 	if tile:
 		tile.bump()
-		lastFlooredPosition = currentPosition
+		if not tile.breakable : lastFlooredPosition = currentPosition
+		if not tile.is_castable():
+			clear_cast()
 	else:
 		start_fall()
+	
+	
 	
 var isCasting = false
 func _input(event: InputEvent):
 	if isFalling: return;
 	handle_movement_events(event)
 	if Input.is_action_just_pressed("SwitchMode"):
+		var tile = game.get_tile_at_position(get_last_position()/game.tileSize)
+		if tile and !tile.is_castable(): return
 		if !isCasting:
 			isCasting = true
 		else:
@@ -72,6 +88,8 @@ func _input(event: InputEvent):
 			particles.restart()
 			add_cast_position(get_last_position(), Vector2(0,0))
 			animationPlayer.play("Cast")
+	if Input.is_action_just_pressed("Reset"):
+		game.reset_level()
 
 var lastInputTime = 0
 var joystick_pressed = false
@@ -149,9 +167,10 @@ func move(direction: Vector2):
 	
 var isFalling = false
 func start_fall():
+	clear_cast()
 	isFalling = true
 	animationPlayer.play("Fall")
-	clear_cast()
+	
 func end_fall():
 	isFalling = false
 	targetPositions.clear()
@@ -208,11 +227,16 @@ func cast():
 					newSpellSymbol.set_text(spell.name)
 					newSpellSymbol.label.position = position
 	clear_cast()
-
+	
 func is_floored():
 	var pos = get_last_position()
 	pos /= game.tileSize
 	return game.get_tile(pos.x, pos.y)
+	
+func set_current_position(pos: Vector2):
+	position = pos
+	currentPosition = position
+	handle_movement(position)
 	
 func get_last_position():
 	if not targetPositions.is_empty():
@@ -224,6 +248,7 @@ func clear_cast():
 	cast_line.clear_points()
 	isCasting = false
 	particles.visible = false
+	animationPlayer.play("Idle")
 
 func play_particles():
 	var newParticles : CPUParticles2D = baseParticles.instantiate()

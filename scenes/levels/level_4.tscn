@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=4 uid="uid://44ius7w12rme"]
+
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_tau6u"]
+[ext_resource type="TileSet" uid="uid://bovlkgk6cwuhx" path="res://tilemaps/game.tres" id="2_640f6"]
+[ext_resource type="Resource" uid="uid://5j1qjhkvo4du" path="res://scripts/resources/level_nature.tres" id="2_bsqs5"]
+[ext_resource type="PackedScene" uid="uid://tywt2nicjedo" path="res://scenes/teachers/teacher-snak.tscn" id="3_s02hy"]
+
+[node name="Level3" type="Node2D"]
+script = ExtResource("1_tau6u")
+level_config = ExtResource("2_bsqs5")
+
+[node name="Spawn" type="Node2D" parent="."]
+position = Vector2(480, -240)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+z_index = -2
+position = Vector2(-128, -128)
+tile_map_data = PackedByteArray("AAAAAAAAAwACAAAAAAAIAAAAAwACAAAAAAAIAP//AwABAAAAAAAIAAEAAwACAAAAAAAJAP//AwACAAAAAAAJAAAAAwAAAAAAAAAJAAEAAwADAAAAAAAKAP//AwABAAAAAAAKAAAAAwADAAAAAAAKAAEAAwABAAAAAAAGAAAAAwABAAAAAAAHAAAAAwABAAAAAAALAAAAAwACAAAAAAAMAAAAAwACAAAAAAANAAAAAwADAAAAAAAOAP//AwADAAAAAAAOAAAAAwACAAAAAAAOAAEAAwAAAAAAAAAPAP//AwAAAAAAAAAPAAAAAwADAAAAAAAPAAEAAwABAAAAAAAQAP//AwAAAAAAAAAQAAAAAwAAAAAAAAAQAAEAAwABAAAAAAABAAAAAwADAAAAAAACAAAAAwADAAAAAAADAAAAAwACAAAAAAAEAAAAAwABAAAAAAAFAAAAAwABAAAAAAADAP//AwAAAAAAAAAEAP//AwACAAAAAAADAAEAAwAAAAAAAAAEAAEAAwADAAAAAAACAAEAAwAAAAAAAAACAP//AwADAAAAAAAJAP7/AQABAAAAAAA=")
+tile_set = ExtResource("2_640f6")
+
+[node name="ItemLayer" type="TileMapLayer" parent="."]
+z_index = -2
+position = Vector2(-128, -164.895)
+tile_set = ExtResource("2_640f6")
+
+[node name="Teacher" parent="." instance=ExtResource("3_s02hy")]
+position = Vector2(2160, -480)
+greeting_text = "Ahh... a new sstudent, drawn
+to the mysteriess of nature..."
+goodbye_text = "May the earth embrace you on your path…"
