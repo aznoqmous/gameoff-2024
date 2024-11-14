@@ -12,6 +12,7 @@ func _ready() -> void:
 	area_2d.area_entered.connect(handle_area_enter)
 	area_2d.area_exited.connect(handle_area_exit)
 	position = (position / game.tileSize).round() * game.tileSize
+	modulate = Color.TRANSPARENT
 
 func handle_area_enter(area: Area2D):
 	dialog_box.set_text(greeting_text)
@@ -22,7 +23,10 @@ func handle_area_exit(area: Area2D):
 	pass
 	
 func _process(delta: float) -> void:
-	pass
+	if global_position.distance_to(game.player.position) < game.tileSize * game.player.sightRadius:
+		modulate = lerp(modulate, Color.WHITE, delta)
+	else:
+		modulate = lerp(modulate, Color.TRANSPARENT, delta)
 
 func _input(event):
 	pass

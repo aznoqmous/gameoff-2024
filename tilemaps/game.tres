@@ -17,6 +17,7 @@ texture_region_size = Vector2i(232, 240)
 0:0/0/custom_data_3 = ExtResource("1_ljsyo")
 1:0/0 = 0
 1:0/0/custom_data_0 = true
+1:0/0/custom_data_2 = true
 1:0/0/custom_data_3 = ExtResource("1_ljsyo")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j41wl"]

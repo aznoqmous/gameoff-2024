@@ -115,14 +115,22 @@ func set_tile(x, y, tile) -> void:
 	else: tiles.erase(Vector2(x,y))
 func set_tile_at_position(pos: Vector2, tile):
 	set_tile(pos.x, pos.y, tile)
+	
+var textures = {}
 func get_cell_texture(coord:Vector2i, layer: TileMapLayer) -> Texture:
 	var source_id := layer.get_cell_source_id(coord)
+	
 	var source:TileSetAtlasSource = layer.tile_set.get_source(source_id) as TileSetAtlasSource
-	var altas_coord := layer.get_cell_atlas_coords(coord)
-	var rect := source.get_tile_texture_region(altas_coord)
+	var atlas_coord := layer.get_cell_atlas_coords(coord)
+	
+	var identifier = str(source_id,atlas_coord.x,atlas_coord.y)
+	if textures.has(identifier): return textures[identifier]
+	
+	var rect := source.get_tile_texture_region(atlas_coord)
 	var image:Image = source.texture.get_image()
 	var tile_image := image.get_region(rect)
-	return ImageTexture.create_from_image(tile_image)
+	textures[identifier] = ImageTexture.create_from_image(tile_image)
+	return textures[identifier]
 	
 func handle_player_movement(pos: Vector2):
 	var tile = get_tile_at_position(pos/tileSize)
@@ -132,7 +140,6 @@ func handle_player_movement(pos: Vector2):
 
 func set_level(level: Level):
 	current_level = level
-	
 func reset_level():
 	if not current_level: return
 	current_level.clear()
