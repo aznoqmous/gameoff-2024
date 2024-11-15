@@ -39,9 +39,9 @@ jobs:
       - name: Build
         run: |
           ./godot --headless --export-release html
-          ./godot --headless --export-release linux
-          ./godot --headless --export-release macos
-          ./godot --headless --export-release windows
+          # ./godot --headless --export-release linux
+          # ./godot --headless --export-release macos
+          # ./godot --headless --export-release windows
 
       - name: Zip HTML Export
         run: |
@@ -79,6 +79,6 @@ jobs:
       - name: Push To Itch
         run: |
           ./butler push ./exports/$PROJECT_NAME-html.zip $ITCHIO_USERNAME/$PROJECT_NAME:html
-          ./butler push ./exports/$PROJECT_NAME-linux.zip $ITCHIO_USERNAME/$PROJECT_NAME:linux
-          ./butler push ./exports/$PROJECT_NAME-macos.zip $ITCHIO_USERNAME/$PROJECT_NAME:mac
-          ./butler push ./exports/$PROJECT_NAME-windows.exe $ITCHIO_USERNAME/$PROJECT_NAME:windows
+          # ./butler push ./exports/$PROJECT_NAME-linux.zip $ITCHIO_USERNAME/$PROJECT_NAME:linux
+          # ./butler push ./exports/$PROJECT_NAME-macos.zip $ITCHIO_USERNAME/$PROJECT_NAME:mac
+          # ./butler push ./exports/$PROJECT_NAME-windows.exe $ITCHIO_USERNAME/$PROJECT_NAME:windows
