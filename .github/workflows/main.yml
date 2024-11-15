@@ -7,7 +7,6 @@ on:
     paths:
       - version_html
 
-
 env:
   BUTLER_API_KEY: ${{secrets.ITCHIO_API_KEY}} # Repository Settings -> Secrets and variables -> Actions -> New repository secret
   ITCHIO_USERNAME: aznoqmous
