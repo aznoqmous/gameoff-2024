@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b6epjvp43obfp"]
+[gd_scene load_steps=4 format=3 uid="uid://b6epjvp43obfp"]
 
 [ext_resource type="Script" path="res://scripts/tile.gd" id="1_qaa4c"]
 [ext_resource type="Texture2D" uid="uid://edwesu85wfl0" path="res://resources/lilipad.png" id="2_ehipv"]
+[ext_resource type="AudioStream" uid="uid://nbkdgfrr8tuq" path="res://resources/audio/placeholder.wav" id="3_ld0ic"]
 
 [node name="Tile" type="Node2D"]
 z_index = -2
@@ -11,3 +12,6 @@ breakable = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_ehipv")
+
+[node name="BumpAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ld0ic")

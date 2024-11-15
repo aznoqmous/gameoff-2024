@@ -12,14 +12,43 @@ var baseParticles = preload("res://scenes/particles.tscn")
 var baseSymbol = preload("res://scenes/spell_symbol.tscn")
 @export var sightRadius = 5
 
+var leave_tile_position = null
+var inputDirection = Vector2(0,0)
+
+signal on_leave_tile(pos: Vector2);
+signal on_movement(position: Vector2)
+
+var isCasting = false
+
+var lastInputTime = 0
+var joystick_pressed = false
+var last_joystick_sensitivity = 0
+
+var targetDirection = null
+var currentPosition = Vector2(0,0)
+var targetPositions : Array
+var lastPosition = null
+var lastDirection = Vector2.ZERO
+var lastMoveTime = 0
+
+var isFalling = false
+var castTrail = []
+
+# Audio
+@onready var move_audio: AudioStreamPlayer2D = $Audio/MoveAudio
+@onready var cast_move_audio: AudioStreamPlayer2D = $Audio/CastMoveAudio
+@onready var move_impossible_audio: AudioStreamPlayer2D = $Audio/MoveImpossibleAudio
+@onready var fall_audio: AudioStreamPlayer2D = $Audio/FallAudio
+@onready var cast_start_audio: AudioStreamPlayer2D = $Audio/CastStartAudio
+@onready var cast_end_audio: AudioStreamPlayer2D = $Audio/CastEndAudio
+@onready var cast_loop_audio: AudioStreamPlayer2D = $Audio/CastLoopAudio
+
 func _ready() -> void:
 	position = (position / game.tileSize).round() * game.tileSize
 	currentPosition = position
 	animationPlayer.play("Idle")
 	init_spells()
 
-var leave_tile_position = null
-var inputDirection = Vector2(0,0)
 func _process(delta: float) -> void:
 	if isFalling: return;
 	if not targetPositions.is_empty():
@@ -40,7 +69,6 @@ func _process(delta: float) -> void:
 	else:
 		body_scale_node.scale.x = lerp(body_scale_node.scale.x, sign(body_scale_node.scale.x), delta * 20)
 
-signal on_leave_tile(pos: Vector2);
 func handle_leave_tile(pos:Vector2):
 	emit_signal("on_leave_tile", pos)
 	var tile = game.get_tile_at_position(pos/game.tileSize)
@@ -60,7 +88,13 @@ func handle_movement(currentPosition):
 	var playerPosition = currentPosition / game.tileSize
 	var tile = game.get_tile_at_position(playerPosition)
 	if tile:
+		
 		tile.bump()
+		
+		#move_audio.play()
+		if not isCasting: tile.bump_audio.play()
+		else: cast_move_audio.play()
+		
 		tile.handle_enter_tile()
 		if not tile.breakable : lastFlooredPosition = currentPosition
 		if not tile.is_castable():
@@ -70,17 +104,22 @@ func handle_movement(currentPosition):
 	
 	
 	
-var isCasting = false
 func _input(event: InputEvent):
 	if isFalling: return;
 	handle_movement_events(event)
 	if Input.is_action_just_pressed("SwitchMode"):
 		var tile = game.get_tile_at_position(get_last_position()/game.tileSize)
 		if tile and !tile.is_castable(): return
+		
 		if !isCasting:
 			isCasting = true
+			cast_start_audio.play()
+			cast_loop_audio.play()
 		else:
 			isCasting = false
+			cast_end_audio.play()
+			cast_loop_audio.stop()
+			
 		particles.visible = isCasting
 		if !isCasting:
 			animationPlayer.play("Idle")
@@ -92,9 +131,6 @@ func _input(event: InputEvent):
 	if Input.is_action_just_pressed("Reset"):
 		game.reset_level()
 
-var lastInputTime = 0
-var joystick_pressed = false
-var last_joystick_sensitivity = 0
 func handle_movement_events(event: InputEvent):
 	if "axis_value" in event:
 		var joystick_sensitivity = abs(event.axis_value)
@@ -122,17 +158,6 @@ func handle_movement_events(event: InputEvent):
 		lastInputTime = Time.get_ticks_msec()
 		inputDirection = direction
 	
-
-
-signal on_movement(position: Vector2)
-
-var targetDirection = null
-var currentPosition = Vector2(0,0)
-var targetPositions : Array
-var lastPosition = null
-var lastDirection = Vector2.ZERO
-var lastMoveTime = 0
-
 func move(direction: Vector2):
 	if not is_floored(): return
 	targetDirection = -sign(direction.x)
@@ -157,7 +182,9 @@ func move(direction: Vector2):
 		animationPlayer.play("Move")
 	
 	var tile = game.get_tile_at_position((pos + direction)/game.tileSize)
-	if tile and not tile.is_walkable() and not tile.push(direction): return
+	if tile and not tile.is_walkable() and not tile.push(direction): 
+		move_impossible_audio.play()
+		return
 	
 	targetPositions.append(pos + direction)
 	if isCasting:
@@ -166,18 +193,18 @@ func move(direction: Vector2):
 	lastMoveTime = Time.get_ticks_msec()
 	lastDirection = direction
 	
-var isFalling = false
+
 func start_fall():
 	clear_cast()
 	isFalling = true
 	animationPlayer.play("Fall")
+	fall_audio.play()
 	
 func end_fall():
 	isFalling = false
 	targetPositions.clear()
 	targetPositions.append(lastFlooredPosition)
 
-var castTrail = []
 func add_cast_position(pos, dir):
 	if not cast_line.points.is_empty() and cast_line.points[-1] == pos : return;
 	cast_line.add_point(pos)

@@ -4,6 +4,7 @@ extends Node2D
 @onready var player: Player = $"../../../Player"
 @onready var game: Game = $"../../.."
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var bump_audio: AudioStreamPlayer2D = $BumpAudio
 
 @export var activators : Array[ActivatorTileItem] = []
 @export var breakable = false
@@ -37,6 +38,7 @@ func _process(delta: float) -> void:
 
 func bump():
 	scale = Vector2.ONE * 0.5
+
 
 func update_memory(playerPosition: Vector2):
 	if position.distance_to(player.position) < game.tileSize * player.sightRadius:

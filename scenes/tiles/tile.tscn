@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cj447cxojo2t6"]
+[gd_scene load_steps=4 format=3 uid="uid://cj447cxojo2t6"]
 
 [ext_resource type="Script" path="res://scripts/tile.gd" id="1_68j1j"]
 [ext_resource type="Texture2D" uid="uid://dhlnhfbg8oq7d" path="res://resources/tile.png" id="2_v4rjg"]
+[ext_resource type="AudioStream" uid="uid://nbkdgfrr8tuq" path="res://resources/audio/placeholder.wav" id="3_mtmlg"]
 
 [node name="Tile" type="Node2D"]
 z_index = -2
@@ -10,3 +11,6 @@ script = ExtResource("1_68j1j")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_v4rjg")
+
+[node name="BumpAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_mtmlg")

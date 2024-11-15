@@ -8,6 +8,8 @@ extends Node2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var game: Game = $"../../.."
+@onready var fall_audio: AudioStreamPlayer2D = $FallAudio
+
 var currentPosition = null
 var currentTile : Tile = null
 var lastPosition = null
@@ -42,6 +44,7 @@ func set_target_position(pos: Vector2):
 
 func fall():
 	animation_player.play("Fall")
+	if fall_audio: fall_audio.play()
 func remove():
 	if currentTile and currentTile._item == self: currentTile.set_item(null)
 	queue_free()

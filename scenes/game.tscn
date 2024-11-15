@@ -58,6 +58,9 @@ texture = ExtResource("4_smtyw")
 zoom = Vector2(0.3, 0.3)
 position_smoothing_enabled = true
 
+[node name="AudioListener2D" type="AudioListener2D" parent="Player"]
+current = true
+
 [node name="JumpSign" parent="." instance=ExtResource("5_mc1l0")]
 position = Vector2(-14, -2726)
 message = "-- Lesson 1 : Jump --"

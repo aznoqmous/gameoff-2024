@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bdlc63ysvlljr"]
+[gd_scene load_steps=23 format=3 uid="uid://bdlc63ysvlljr"]
 
 [ext_resource type="Texture2D" uid="uid://bvn24e5joccqc" path="res://resources/player_0001_body.png" id="1_1lid0"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_3pkg8"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://scripts/spells/spawn_stone.gd" id="11_uvcyf"]
 [ext_resource type="Script" path="res://scripts/spells/spawn_energy.gd" id="12_tmpeg"]
 [ext_resource type="Script" path="res://scripts/spells/spawn_tornado.gd" id="13_ur5lk"]
+[ext_resource type="AudioStream" uid="uid://nbkdgfrr8tuq" path="res://resources/audio/placeholder.wav" id="14_ni1mo"]
 
 [sub_resource type="Animation" id="Animation_8ywdh"]
 resource_name = "Cast"
@@ -958,16 +959,61 @@ offset = Vector2(-31, -1)
 [node name="Jump" type="Node" parent="Spells"]
 script = ExtResource("8_63fut")
 
+[node name="Audio" type="AudioStreamPlayer2D" parent="Spells/Jump"]
+stream = ExtResource("14_ni1mo")
+
 [node name="SpawnPlant" type="Node" parent="Spells"]
 script = ExtResource("10_plgn0")
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="Spells/SpawnPlant"]
+stream = ExtResource("14_ni1mo")
 
 [node name="SpawnStone" type="Node" parent="Spells"]
 script = ExtResource("11_uvcyf")
 
+[node name="Audio" type="AudioStreamPlayer2D" parent="Spells/SpawnStone"]
+stream = ExtResource("14_ni1mo")
+
 [node name="SpawnEnergyBall" type="Node" parent="Spells"]
 script = ExtResource("12_tmpeg")
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="Spells/SpawnEnergyBall"]
+stream = ExtResource("14_ni1mo")
 
 [node name="SpawnTornado" type="Node" parent="Spells"]
 script = ExtResource("13_ur5lk")
 
+[node name="Audio" type="AudioStreamPlayer2D" parent="Spells/SpawnTornado"]
+stream = ExtResource("14_ni1mo")
+
 [node name="Node2D" type="Node2D" parent="."]
+
+[node name="Audio" type="Node2D" parent="."]
+
+[node name="CastMoveAudio" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("14_ni1mo")
+bus = &"SFX"
+
+[node name="CastStartAudio" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("14_ni1mo")
+bus = &"SFX"
+
+[node name="CastLoopAudio" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("14_ni1mo")
+bus = &"SFX"
+
+[node name="CastEndAudio" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("14_ni1mo")
+bus = &"SFX"
+
+[node name="MoveImpossibleAudio" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("14_ni1mo")
+bus = &"SFX"
+
+[node name="MoveAudio" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("14_ni1mo")
+bus = &"SFX"
+
+[node name="FallAudio" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("14_ni1mo")
+bus = &"SFX"

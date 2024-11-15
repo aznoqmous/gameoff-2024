@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://oseu3jfwxp3m"]
+
+[ext_resource type="Script" path="res://scripts/tile.gd" id="1_g8d0w"]
+[ext_resource type="Texture2D" uid="uid://b7je67kxukmdh" path="res://resources/tiles-2.png" id="2_hufvg"]
+[ext_resource type="AudioStream" uid="uid://nbkdgfrr8tuq" path="res://resources/audio/placeholder.wav" id="3_sh6yd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ampju"]
+atlas = ExtResource("2_hufvg")
+region = Rect2(11.4862, 902.051, 279.557, 274.769)
+
+[node name="Tile" type="Node2D"]
+z_index = -2
+y_sort_enabled = true
+script = ExtResource("1_g8d0w")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_ampju")
+
+[node name="BumpAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_sh6yd")
