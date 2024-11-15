@@ -5,9 +5,8 @@ name: itch.io upload
 on:
   push:
     paths:
-      - "version-android"
-      - "version-ios"
-      - ".github/workflows/upload-itchio.yml"
+      - "version-web"
+      - ".github/workflows/main.yml"
 
 # the directory where your game is
 # I always put the game inside a 'game' folder
