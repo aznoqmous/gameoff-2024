@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="LevelConfig" load_steps=2 format=3 uid="uid://bp46233w7mvtr"]
+
+[ext_resource type="Script" path="res://scripts/resources/level_config.gd" id="1_hvpct"]
+
+[resource]
+script = ExtResource("1_hvpct")
+color = Color(0.9375, 0.920267, 0.820313, 1)

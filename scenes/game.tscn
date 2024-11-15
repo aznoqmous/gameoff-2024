@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://3pte44nuj5m5"]
+[gd_scene load_steps=17 format=4 uid="uid://3pte44nuj5m5"]
 
 [ext_resource type="PackedScene" uid="uid://bdlc63ysvlljr" path="res://scenes/player.tscn" id="1_2la08"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_8utgd"]
@@ -10,9 +10,12 @@
 [ext_resource type="PackedScene" uid="uid://44ius7w12rme" path="res://scenes/levels/level_nature_teacher.tscn" id="10_pwtql"]
 [ext_resource type="PackedScene" uid="uid://7bo0qg6aqda6" path="res://scenes/levels/level_nature_1.tscn" id="12_jfl5y"]
 [ext_resource type="PackedScene" uid="uid://b4loukqvarc2c" path="res://scenes/levels/level_mountain_teacher.tscn" id="13_7d6rc"]
-[ext_resource type="PackedScene" uid="uid://vr5hu5v71q30" path="res://scenes/levels/level_1.tscn" id="13_s7yu7"]
-[ext_resource type="PackedScene" uid="uid://dhdwy0krw2pon" path="res://scenes/levels/level_2.tscn" id="14_ip2n4"]
-[ext_resource type="PackedScene" uid="uid://db5qlgw6ls16u" path="res://scenes/levels/level_3.tscn" id="15_ir2oa"]
+[ext_resource type="PackedScene" uid="uid://vr5hu5v71q30" path="res://scenes/levels/level_mountain_1.tscn" id="13_s7yu7"]
+[ext_resource type="PackedScene" uid="uid://dhdwy0krw2pon" path="res://scenes/levels/level_mountain_2.tscn" id="14_ip2n4"]
+[ext_resource type="PackedScene" uid="uid://b0ilfph3jcmlc" path="res://scenes/levels/level_desert_teacher.tscn" id="14_jdsps"]
+[ext_resource type="PackedScene" uid="uid://cqmsxnbricsy5" path="res://scenes/levels/spawn.tscn" id="15_fd4cq"]
+[ext_resource type="PackedScene" uid="uid://db5qlgw6ls16u" path="res://scenes/levels/level_mountain_3.tscn" id="15_ir2oa"]
+[ext_resource type="Resource" uid="uid://cpcbaeiwl0e2m" path="res://scripts/resources/level_config.tres" id="16_q0k2g"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -23,7 +26,7 @@ tileSize = 240
 z_index = -2
 y_sort_enabled = true
 position = Vector2(-128, -128)
-tile_map_data = PackedByteArray("AAD//wAAAQAAAAAAAAAAAAAAAQAAAAAAAAABAAAAAQAAAAAAAAAAAP//AQAAAAAAAAAAAAEAAQAAAAAAAAD/////AQAAAAAAAAD//wEAAQAAAAAAAAABAP//AQAAAAAAAAABAAEAAQAAAAAAAAAAAP7/AQAAAAAAAAD///3/AQAAAAAAAAABAP3/AQAAAAAAAAD///v/AQAAAAAAAAAAAPv/AQAAAAAAAAABAPv/AQAAAAAAAAD///n/AQAAAAAAAAAAAPr/AQAAAAAAAAAAAPn/AQAAAAAAAAABAPn/AQAAAAAAAAD///f/AQABAAAAAAD///j/AQAAAAAAAAAAAPf/AQAAAAAAAAABAPf/AQAAAAAAAAABAPj/AQAAAAAAAAD///z/AQAAAAAAAAAAAP3/AQAAAAAAAAABAPz/AQAAAAAAAAD///X/AQAAAAAAAAD///b/AQABAAAAAAAAAPX/AQAAAAAAAAAAAPb/AQABAAAAAAABAPX/AQAAAAAAAAABAPb/AQABAAAAAAD+/wAAAQAAAAAAAAACAAAAAQAAAAAAAAAAAAIAAQAAAAAAAAADAPb/AQAAAAAAAAAEAPb/AQAAAAAAAAAFAPb/AQAAAAAAAAADAPf/AQAAAAAAAAAHAPX/AQAAAAAAAAAHAPb/AQAAAAAAAAAIAPb/AQAAAAAAAAAJAPb/AQAAAAAAAAAtAAIAAwAAAAIAAAAtAAEAAwAAAAIAAAAtAAMAAwABAAIAAAAuAAIAAwABAAIAAAAvAAIAAwACAAIAAAAvAAEAAwABAAIAAAAwAAEAAwACAAIAAAAwAAIAAwABAAIAAAAwAAMAAwAAAAIAAAAvAAMAAwABAAIAAAA=")
+tile_map_data = PackedByteArray("AAAtAAIAAwAAAAIAAAAtAAEAAwAAAAIAAAAtAAMAAwABAAIAAAAuAAIAAwABAAIAAAAvAAIAAwACAAIAAAAvAAEAAwABAAIAAAAwAAEAAwACAAIAAAAwAAIAAwABAAIAAAAwAAMAAwAAAAIAAAAvAAMAAwABAAIAAAA=")
 tile_set = ExtResource("2_4554k")
 
 [node name="Terrain" type="Node2D" parent="."]
@@ -85,7 +88,13 @@ level_config = ExtResource("8_11dgn")
 position = Vector2(11760, 720)
 
 [node name="Nature1" parent="." instance=ExtResource("12_jfl5y")]
-position = Vector2(14640, 240)
+position = Vector2(720, 0)
 
 [node name="NatureTeacher" parent="." instance=ExtResource("10_pwtql")]
-position = Vector2(18480, 3600)
+position = Vector2(4560, 3360)
+
+[node name="DesertTeacher" parent="." instance=ExtResource("14_jdsps")]
+position = Vector2(-960, 240)
+
+[node name="Spawn" parent="." instance=ExtResource("15_fd4cq")]
+level_config = ExtResource("16_q0k2g")
