@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bdlc63ysvlljr"]
+[gd_scene load_steps=22 format=3 uid="uid://bdlc63ysvlljr"]
 
 [ext_resource type="Texture2D" uid="uid://bvn24e5joccqc" path="res://resources/player_0001_body.png" id="1_1lid0"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_3pkg8"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://scripts/spells/spawn_plant.gd" id="10_plgn0"]
 [ext_resource type="Script" path="res://scripts/spells/spawn_stone.gd" id="11_uvcyf"]
 [ext_resource type="Script" path="res://scripts/spells/spawn_energy.gd" id="12_tmpeg"]
+[ext_resource type="Script" path="res://scripts/spells/spawn_tornado.gd" id="13_ur5lk"]
 
 [sub_resource type="Animation" id="Animation_8ywdh"]
 resource_name = "Cast"
@@ -911,22 +912,6 @@ local_coords = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_0tob7")
 
-[node name="Spells" type="Node" parent="."]
-
-[node name="Jump" type="Node" parent="Spells"]
-script = ExtResource("8_63fut")
-
-[node name="SpawnPlant" type="Node" parent="Spells"]
-script = ExtResource("10_plgn0")
-
-[node name="SpawnStone" type="Node" parent="Spells"]
-script = ExtResource("11_uvcyf")
-
-[node name="SpawnEnergyBall" type="Node" parent="Spells"]
-script = ExtResource("12_tmpeg")
-
-[node name="Node2D" type="Node2D" parent="."]
-
 [node name="BodyScaleNode" type="Node2D" parent="."]
 
 [node name="BodyNode" type="Node2D" parent="BodyScaleNode"]
@@ -967,3 +952,22 @@ position = Vector2(2, -120)
 rotation = 0.509775
 texture = ExtResource("2_iadob")
 offset = Vector2(-31, -1)
+
+[node name="Spells" type="Node" parent="."]
+
+[node name="Jump" type="Node" parent="Spells"]
+script = ExtResource("8_63fut")
+
+[node name="SpawnPlant" type="Node" parent="Spells"]
+script = ExtResource("10_plgn0")
+
+[node name="SpawnStone" type="Node" parent="Spells"]
+script = ExtResource("11_uvcyf")
+
+[node name="SpawnEnergyBall" type="Node" parent="Spells"]
+script = ExtResource("12_tmpeg")
+
+[node name="SpawnTornado" type="Node" parent="Spells"]
+script = ExtResource("13_ur5lk")
+
+[node name="Node2D" type="Node2D" parent="."]

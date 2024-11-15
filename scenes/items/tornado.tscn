@@ -1,0 +1,78 @@
+[gd_scene load_steps=7 format=3 uid="uid://rqqiw0dq10kp"]
+
+[ext_resource type="Script" path="res://scripts/tile_items/tornado.gd" id="1_cfhno"]
+[ext_resource type="Texture2D" uid="uid://cp4w8dcnfg2xb" path="res://resources/particle-smoke.png" id="2_nstj3"]
+
+[sub_resource type="Animation" id="Animation_4sk8c"]
+resource_name = "Fall"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"remove"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_a4kek"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qplix"]
+_data = {
+"Fall": SubResource("Animation_4sk8c"),
+"RESET": SubResource("Animation_a4kek")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l6e7p"]
+radius = 60.0
+
+[node name="Tornado" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_cfhno")
+walkable = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qplix")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, -47)
+texture = ExtResource("2_nstj3")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_l6e7p")

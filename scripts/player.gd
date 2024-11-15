@@ -61,6 +61,7 @@ func handle_movement(currentPosition):
 	var tile = game.get_tile_at_position(playerPosition)
 	if tile:
 		tile.bump()
+		tile.handle_enter_tile()
 		if not tile.breakable : lastFlooredPosition = currentPosition
 		if not tile.is_castable():
 			clear_cast()
@@ -273,6 +274,7 @@ func init_spells():
 @onready var spawn_plant: SpawnPlant = $Spells/SpawnPlant
 @onready var spawn_stone: SpawnStone = $Spells/SpawnStone
 @onready var spawn_energy_ball: SpawnEnergyBall = $Spells/SpawnEnergyBall
+@onready var spawn_tornado: SpawnTornado = $Spells/SpawnTornado
 @onready var spells = [
 	{
 		"name": "Jump",
@@ -311,6 +313,14 @@ func init_spells():
 		],
 		"rotate": true,
 		"spell": spawn_energy_ball
+	},
+	{
+		"name": "Tornado",
+		"trails": [
+			[[4, 3, 2], [5, 1, 0], [0, 6, 0]]
+		],
+		"rotate": false,
+		"spell": spawn_tornado
 	}
 ]
 func rotate_array(arr) -> Array:

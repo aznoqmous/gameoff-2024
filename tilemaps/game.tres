@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=11 format=3 uid="uid://bovlkgk6cwuhx"]
+[gd_resource type="TileSet" load_steps=12 format=3 uid="uid://bovlkgk6cwuhx"]
 
 [ext_resource type="PackedScene" uid="uid://cj447cxojo2t6" path="res://scenes/tiles/tile.tscn" id="1_ljsyo"]
 [ext_resource type="Texture2D" uid="uid://kx4f52yamxb2" path="res://resources/tiles.png" id="1_v0071"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dhgprbkhapw2i" path="res://scenes/items/button.tscn" id="4_doatv"]
 [ext_resource type="Texture2D" uid="uid://2x0jmm3v2cpk" path="res://resources/items.png" id="5_1gpah"]
 [ext_resource type="PackedScene" uid="uid://cp4ggkrgdyacy" path="res://scenes/items/block.tscn" id="5_wxxg2"]
+[ext_resource type="PackedScene" uid="uid://rqqiw0dq10kp" path="res://scenes/items/tornado.tscn" id="6_iuvwh"]
 [ext_resource type="Texture2D" uid="uid://b7je67kxukmdh" path="res://resources/tiles-2.png" id="7_58spl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r0egb"]
@@ -29,6 +30,8 @@ texture_region_size = Vector2i(250, 300)
 1:0/0/custom_data_4 = ExtResource("4_doatv")
 2:0/0 = 0
 2:0/0/custom_data_4 = ExtResource("5_wxxg2")
+3:0/0 = 0
+3:0/0/custom_data_4 = ExtResource("6_iuvwh")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n1jgk"]
 texture = ExtResource("7_58spl")

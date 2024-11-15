@@ -16,6 +16,9 @@ var level: Level
 var _item = null # stone, lever
 var _destroy = false
 
+signal on_set_item(item: TileItem)
+signal on_enter_tile()
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	scale = Vector2.ZERO
@@ -68,6 +71,7 @@ func is_castable() -> bool:
 	
 func set_item(item):
 	_item = item
+	on_set_item.emit(_item)
 
 func push(direction: Vector2) -> bool:
 	direction = (direction/game.tileSize).round() * game.tileSize
@@ -84,6 +88,9 @@ func set_texture(texture: ImageTexture):
 
 func set_level(the_level: Level):
 	level = the_level
+
+func handle_enter_tile():
+	on_enter_tile.emit()
 
 func handle_leave_tile():
 	if not breakable: return

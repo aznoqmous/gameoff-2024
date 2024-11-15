@@ -10,12 +10,13 @@ extends Node2D
 @onready var game: Game = $"../../.."
 var currentPosition = null
 var currentTile : Tile = null
+var lastPosition = null
 
 signal on_movement(position: Vector2)
 
 func _ready() -> void:
 	currentPosition = position
-	init()
+	#init()
 
 func _process(delta: float) -> void:
 	if currentPosition and position != currentPosition:
@@ -32,6 +33,7 @@ func init():
 func set_target_position(pos: Vector2):
 	if currentTile: currentTile.set_item(null)
 	currentPosition = (pos / game.tileSize).round() * game.tileSize
+	lastPosition = currentPosition
 	var tile : Tile = game.get_tile_at_position(currentPosition / game.tileSize)
 	currentTile = null
 	if tile:
@@ -41,8 +43,11 @@ func set_target_position(pos: Vector2):
 func fall():
 	animation_player.play("Fall")
 func remove():
-	if currentTile: currentTile.set_item(null)
+	if currentTile and currentTile._item == self: currentTile.set_item(null)
 	queue_free()
 	
 func push(direction: Vector2):
 	set_target_position(currentPosition + direction)
+
+func get_tile() -> Tile:
+	return game.get_tile_at_position(currentPosition/game.tileSize)
