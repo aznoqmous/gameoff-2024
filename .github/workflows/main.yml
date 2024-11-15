@@ -1,51 +1,84 @@
-name: itch.io upload
+# https://github.com/deplicator/github-godot4-itchio/blob/main/.github/workflows/deploy.yml
+name: Deploy to Itch.io
 
-# define what triggers the action
-# in this case: on push if one of the files named in paths changes
-on:
-  push:
-    paths:
-      - "version-android"
-      - "version-ios"
-      - ".github/workflows/upload-itchio.yml"
+# Manually trigger by going to this workflow in the repository actions tab
+on: workflow_dispatch
 
-# the directory where your game is
-# I always put the game inside a 'game' folder
 env:
-  WORKING_DIRECTORY: .
+  BUTLER_API_KEY: ${{secrets.ITCHIO_API_KEY}} # Repository Settings -> Secrets and variables -> Actions -> New repository secret
+  ITCHIO_USERNAME: aznoqmous
+  PROJECT_NAME: "game-off-2024" # See README.md about project, channel, and export file naming conventions
 
 jobs:
-  deploy:
-    # only run action, if pushed on prod branch
-    # change or remove according to your needs
-    if: github.ref == 'refs/heads/master'
-    runs-on: ubuntu-20.04
+  Build:
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout source code
-        uses: actions/checkout@v3
-    
-      # change or remove according to your needs
-      - name: Delete iOS icons
-        run: rm -rf $WORKING_DIRECTORY/AppIcons
-      
-      # change or remove according to your needs
-      - name: Create export directory
-        run: mkdir html5
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
 
-      # exports the game in html mode
-      # more info here https://github.com/dulvui/godot-html-export
-      - name: Godot HTML5 export
-        uses: dulvui/godot-html-export@v0.0.2
-        with:
-          working-directory: $WORKING_DIRECTORY
+      - name: Get Godot Version
+        run: echo "GODOT_VERSION=$(grep '^config/features' project.godot | cut -d "\"" -f 2)" >> $GITHUB_ENV
 
-      # uploads to itch.io
-      # more info here https://github.com/dulvui/itchio-butler-upload
-      - name: Upload to itch.io
-        uses: dulvui/itchio-butler-upload@v0.0.1
+      - name: Download Godot
+        run: |
+          curl -L -o godot.zip https://downloads.tuxfamily.org/godotengine/$GODOT_VERSION/Godot_v$GODOT_VERSION-stable_linux.x86_64.zip
+          unzip godot.zip
+          mv Godot_v$GODOT_VERSION-stable_linux.x86_64 godot
+          chmod +x godot
+
+      - name: Download Godot Export Templates
+        run: |
+          curl -L -o export_templates.zip https://downloads.tuxfamily.org/godotengine/$GODOT_VERSION/Godot_v$GODOT_VERSION-stable_export_templates.tpz
+          unzip export_templates.zip
+
+      - name: Install Export Templates
+        run: |
+          mkdir -p ~/.local/share/godot/export_templates/$GODOT_VERSION.stable
+          mv ./templates/* ~/.local/share/godot/export_templates/$GODOT_VERSION.stable
+
+      - name: Build
+        run: |
+          ./godot --headless --export-release html
+          ./godot --headless --export-release linux
+          ./godot --headless --export-release macos
+          ./godot --headless --export-release windows
+
+      - name: Zip HTML Export
+        run: |
+          cd exports/html
+          zip $PROJECT_NAME-html.zip -r -m *
+          mv $PROJECT_NAME-html.zip ..
+          cd -
+
+      - name: Save Artifacts for Next Job
+        uses: actions/upload-artifact@v4
         with:
-          working-directory: html5
-          api-key: ${{ secrets.ITCHIO_API_KEY }}
-          user: aznoqmous
-          game: game-off-2024
-          channel: html5
+          name: exports
+          path: exports
+
+  Publish:
+    needs: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: exports
+          path: exports
+
+      - name: Download Butler
+        run: |
+          curl -L -o butler.zip https://broth.itch.ovh/butler/linux-amd64/LATEST/archive/default
+          unzip butler.zip
+          chmod +x butler
+          ./butler -V
+
+      - name: Login To Butler
+        run: ./butler login
+
+      - name: Push To Itch
+        run: |
+          ./butler push ./exports/$PROJECT_NAME-html.zip $ITCHIO_USERNAME/$PROJECT_NAME:html
+          ./butler push ./exports/$PROJECT_NAME-linux.zip $ITCHIO_USERNAME/$PROJECT_NAME:linux
+          ./butler push ./exports/$PROJECT_NAME-macos.zip $ITCHIO_USERNAME/$PROJECT_NAME:mac
+          ./butler push ./exports/$PROJECT_NAME-windows.exe $ITCHIO_USERNAME/$PROJECT_NAME:windows
