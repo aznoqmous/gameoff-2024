@@ -6,6 +6,7 @@ on:
   push:
     paths:
       - version_html
+  workflow_dispatch:
 
 env:
   BUTLER_API_KEY: ${{secrets.ITCHIO_API_KEY}} # Repository Settings -> Secrets and variables -> Actions -> New repository secret
