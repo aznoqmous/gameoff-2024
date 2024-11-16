@@ -23,6 +23,7 @@
 [ext_resource type="AudioStream" uid="uid://cuvgr8c74v7hi" path="res://resources/audio/SFX/Cast_Loop.wav" id="20_1wtkq"]
 [ext_resource type="AudioStream" uid="uid://8m55qb2w2jes" path="res://resources/audio/SFX/Player_Jump_Rise-001.wav" id="21_7ksjh"]
 [ext_resource type="AudioStream" uid="uid://b1dwob2aiymys" path="res://resources/audio/SFX/Player_Fall-001.wav" id="22_4ak1h"]
+[ext_resource type="AudioStream" uid="uid://bmwagaf2yfeo6" path="res://resources/audio/SFX/Cast_Fail.wav" id="22_8tjp5"]
 
 [sub_resource type="Animation" id="Animation_8ywdh"]
 resource_name = "Cast"
@@ -892,11 +893,6 @@ point_count = 3
 [sub_resource type="CircleShape2D" id="CircleShape2D_0tob7"]
 radius = 60.48
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_1pwh6"]
-random_pitch = 1.2
-streams_count = 1
-stream_0/stream = ExtResource("15_51yk2")
-
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_o8prq"]
 streams_count = 4
 stream_0/stream = ExtResource("15_o0elb")
@@ -1013,7 +1009,7 @@ stream = ExtResource("14_ni1mo")
 [node name="Audio" type="Node2D" parent="."]
 
 [node name="CastMoveAudio" type="AudioStreamPlayer2D" parent="Audio"]
-stream = SubResource("AudioStreamRandomizer_1pwh6")
+stream = ExtResource("15_51yk2")
 bus = &"SFX"
 
 [node name="CastStartAudio" type="AudioStreamPlayer2D" parent="Audio"]
@@ -1025,7 +1021,7 @@ stream = ExtResource("20_1wtkq")
 bus = &"SFX"
 
 [node name="CastEndAudio" type="AudioStreamPlayer2D" parent="Audio"]
-stream = ExtResource("14_ni1mo")
+stream = ExtResource("22_8tjp5")
 bus = &"SFX"
 
 [node name="MoveImpossibleAudio" type="AudioStreamPlayer2D" parent="Audio"]

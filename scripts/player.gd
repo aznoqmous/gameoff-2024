@@ -93,7 +93,9 @@ func handle_movement(currentPosition):
 		
 		#move_audio.play()
 		if not isCasting: tile.bump_audio.play()
-		else: cast_move_audio.play()
+		else: 
+			cast_move_audio.pitch_scale += 0.1
+			cast_move_audio.play()
 		
 		tile.handle_enter_tile()
 		if not tile.breakable : lastFlooredPosition = currentPosition
@@ -236,11 +238,12 @@ func cast():
 		spellMask[pos.y - min.y][pos.x - min.x] = 1
 		index += 1
 		
-
+	var casted = false
 	for spell in spells:
 		for trail in spell.trails:
 			if trail == spellCanvas or trail == spellMask:
 				if spell.has("spell"):
+					casted = true
 					spell.spell.cast(trail)
 					
 					var newSpellSymbol : SpellSymbol = baseSymbol.instantiate()
@@ -251,7 +254,7 @@ func cast():
 					newSpellSymbol.set_text(spell.name)
 					newSpellSymbol.label.position = position
 
-	cast_end_audio.play()
+	if not casted: cast_end_audio.play()
 	clear_cast()
 	
 func is_floored():
@@ -275,6 +278,7 @@ func clear_cast():
 	isCasting = false
 	particles.visible = false
 	animationPlayer.play("Idle")
+	cast_move_audio.pitch_scale = 1
 	cast_loop_audio.stop()
 
 func play_particles():

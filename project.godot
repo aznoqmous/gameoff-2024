@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 buses/default_bus_layout="res://resources/audio/default_bus_layout.tres"
 
+[display]
+
+window/size/viewport_height=800
+
 [input]
 
 MoveLeft={

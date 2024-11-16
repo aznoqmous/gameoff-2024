@@ -1,30 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://rqqiw0dq10kp"]
+[gd_scene load_steps=14 format=3 uid="uid://rqqiw0dq10kp"]
 
 [ext_resource type="Script" path="res://scripts/tile_items/tornado.gd" id="1_cfhno"]
-[ext_resource type="Texture2D" uid="uid://cp4w8dcnfg2xb" path="res://resources/sprites/particle-smoke.png" id="2_nstj3"]
+[ext_resource type="Texture2D" uid="uid://o2m5edjs8fbf" path="res://resources/sprites/tornado.png" id="2_tnkt6"]
 
 [sub_resource type="Animation" id="Animation_4sk8c"]
 resource_name = "Fall"
 length = 0.5
-tracks/0/type = "value"
+tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1e-05, 1e-05)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0.5),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -35,24 +23,62 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_a4kek"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qplix"]
 _data = {
 "Fall": SubResource("Animation_4sk8c"),
 "RESET": SubResource("Animation_a4kek")
 }
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j555q"]
+atlas = ExtResource("2_tnkt6")
+region = Rect2(0, 0, 168, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xu77n"]
+atlas = ExtResource("2_tnkt6")
+region = Rect2(168, 0, 168, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjeh5"]
+atlas = ExtResource("2_tnkt6")
+region = Rect2(336, 0, 168, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7qna"]
+atlas = ExtResource("2_tnkt6")
+region = Rect2(504, 0, 168, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukqjr"]
+atlas = ExtResource("2_tnkt6")
+region = Rect2(672, 0, 168, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gadm4"]
+atlas = ExtResource("2_tnkt6")
+region = Rect2(840, 0, 168, 180)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0kx1n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j555q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xu77n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tjeh5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c7qna")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukqjr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gadm4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l6e7p"]
 radius = 60.0
@@ -67,10 +93,12 @@ libraries = {
 "": SubResource("AnimationLibrary_qplix")
 }
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-y_sort_enabled = true
-position = Vector2(0, -47)
-texture = ExtResource("2_nstj3")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(4, -64)
+sprite_frames = SubResource("SpriteFrames_0kx1n")
+autoplay = "default"
+frame_progress = 0.514676
+speed_scale = 2.0
 
 [node name="Area2D" type="Area2D" parent="."]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://3pte44nuj5m5"]
+[gd_scene load_steps=23 format=4 uid="uid://3pte44nuj5m5"]
 
 [ext_resource type="PackedScene" uid="uid://bdlc63ysvlljr" path="res://scenes/player.tscn" id="1_2la08"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_8utgd"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bdp2lpfyiwu40" path="res://scenes/sign.tscn" id="5_mc1l0"]
 [ext_resource type="PackedScene" uid="uid://b7t2q0dt6xcgn" path="res://scenes/tiles/tile-nature.tscn" id="6_rycf0"]
 [ext_resource type="Texture2D" uid="uid://33dsu0l7bl51" path="res://resources/sprites/symbols/jump.png" id="9_714xr"]
+[ext_resource type="PackedScene" uid="uid://y06bwyn3cqea" path="res://scenes/nature_particles.tscn" id="9_lygld"]
 [ext_resource type="PackedScene" uid="uid://44ius7w12rme" path="res://scenes/levels/level_nature_teacher.tscn" id="10_pwtql"]
 [ext_resource type="PackedScene" uid="uid://7bo0qg6aqda6" path="res://scenes/levels/level_nature_1.tscn" id="12_jfl5y"]
 [ext_resource type="PackedScene" uid="uid://b4loukqvarc2c" path="res://scenes/levels/level_mountain_teacher.tscn" id="13_7d6rc"]
@@ -19,6 +20,8 @@
 [ext_resource type="PackedScene" uid="uid://cqmsxnbricsy5" path="res://scenes/levels/spawn.tscn" id="15_fd4cq"]
 [ext_resource type="PackedScene" uid="uid://db5qlgw6ls16u" path="res://scenes/levels/level_mountain_3.tscn" id="15_ir2oa"]
 [ext_resource type="PackedScene" uid="uid://dcql1w2n5ulgu" path="res://scenes/levels/sanctuary.tscn" id="17_nerxj"]
+[ext_resource type="Script" path="res://scripts/background.gd" id="21_1k5mv"]
+[ext_resource type="Texture2D" uid="uid://bxu6tvve61n07" path="res://resources/sprites/clouds.png" id="21_37r75"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -89,10 +92,10 @@ position = Vector2(1920, -6480)
 activators = [NodePath("../../Items/Button")]
 
 [node name="Player" parent="." instance=ExtResource("1_2la08")]
-position = Vector2(1920, -4320)
-sightRadius = 6
+position = Vector2(1920, -4800)
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
+visible = false
 modulate = Color(0.780392, 0.780392, 0.780392, 1)
 z_index = -10
 position = Vector2(0, -2.18279e-11)
@@ -105,6 +108,9 @@ position_smoothing_enabled = true
 
 [node name="AudioListener2D" type="AudioListener2D" parent="Player"]
 current = true
+
+[node name="NatureParticles" parent="Player" instance=ExtResource("9_lygld")]
+visible = false
 
 [node name="JumpSign" parent="." instance=ExtResource("5_mc1l0")]
 position = Vector2(-14, -2726)
@@ -147,3 +153,17 @@ position = Vector2(-720, -4080)
 
 [node name="Level1" parent="." instance=ExtResource("17_nerxj")]
 position = Vector2(1920, -4080)
+
+[node name="Background" type="Node2D" parent="."]
+script = ExtResource("21_1k5mv")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Background"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Background/ParallaxBackground"]
+motion_scale = Vector2(0.9, 0.9)
+motion_mirroring = Vector2(4320, 4320)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer"]
+scale = Vector2(4, 4)
+texture = ExtResource("21_37r75")
+centered = false

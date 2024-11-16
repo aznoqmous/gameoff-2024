@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dhgprbkhapw2i"]
+[gd_scene load_steps=9 format=3 uid="uid://dhgprbkhapw2i"]
 
 [ext_resource type="Script" path="res://scripts/tile_items/button_tile_item.gd" id="1_e1047"]
 [ext_resource type="Texture2D" uid="uid://b5o4lnmngik5" path="res://resources/sprites/button.png" id="2_3ncbm"]
-[ext_resource type="AudioStream" uid="uid://nbkdgfrr8tuq" path="res://resources/audio/placeholder.wav" id="3_3qq1x"]
+[ext_resource type="AudioStream" uid="uid://dbj22vjp85mvv" path="res://resources/audio/SFX/sfx_switch_on-001.wav" id="3_q6soa"]
+[ext_resource type="AudioStream" uid="uid://dn5i1o8kxb61" path="res://resources/audio/SFX/sfx_switch_off.wav" id="4_qa8dn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n8fke"]
 atlas = ExtResource("2_3ncbm")
@@ -55,7 +56,7 @@ autoplay = "default"
 shape = SubResource("CircleShape2D_61h34")
 
 [node name="EnterAudio" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_3qq1x")
+stream = ExtResource("3_q6soa")
 
 [node name="ExitAudio" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_3qq1x")
+stream = ExtResource("4_qa8dn")

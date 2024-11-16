@@ -17,5 +17,4 @@ tile_set = ExtResource("2_cvj1s")
 [node name="ItemLayer" type="TileMapLayer" parent="."]
 z_index = -2
 position = Vector2(-128, -164.895)
-tile_map_data = PackedByteArray("AAABAAAAAgAAAAAAAAA=")
 tile_set = ExtResource("2_cvj1s")
