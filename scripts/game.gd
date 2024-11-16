@@ -1,6 +1,7 @@
 class_name Game
 extends Node2D
 
+@onready var audio_manager: Node = $AudioManager
 @onready var player: Player = $Player
 @onready var terrain: Node2D = $Terrain
 @onready var stones: Node2D = $Terrain/Stones
@@ -21,6 +22,7 @@ var levels = []
 func _ready() -> void:
 	player.on_movement.connect(handle_player_movement)
 	create_map()
+	handle_player_movement(player.position)
 
 func _process(delta):
 	if current_level and current_level.level_config and current_level.level_config.color:
@@ -139,7 +141,11 @@ func handle_player_movement(pos: Vector2):
 			set_level(tile.level)
 
 func set_level(level: Level):
+	if not current_level or current_level.level_config != level.level_config:
+		audio_manager.play_theme(level.level_config.theme)
 	current_level = level
+	print("Entering ", level)
+
 func reset_level():
 	if not current_level: return
 	current_level.clear()

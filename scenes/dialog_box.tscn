@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bfq0novin8k03"]
 
 [ext_resource type="Script" path="res://scripts/dialog.gd" id="1_83qjg"]
-[ext_resource type="Texture2D" uid="uid://c88x170136llq" path="res://resources/ui/dialog-box.png" id="2_uc6kv"]
+[ext_resource type="Texture2D" uid="uid://c88x170136llq" path="res://resources/sprites/ui/dialog-box.png" id="2_uc6kv"]
 [ext_resource type="FontFile" uid="uid://w12hsd66wulf" path="res://resources/fonts/PatrickHand-Regular.ttf" id="3_jtug7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_gwyfn"]

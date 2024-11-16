@@ -1,10 +1,12 @@
-[gd_scene load_steps=3 format=4 uid="uid://dhdwy0krw2pon"]
+[gd_scene load_steps=4 format=4 uid="uid://dhdwy0krw2pon"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_wvu0s"]
-[ext_resource type="TileSet" uid="uid://bovlkgk6cwuhx" path="res://tilemaps/game.tres" id="2_wodqw"]
+[ext_resource type="Resource" uid="uid://d28pre13p8bry" path="res://scripts/resources/level_mountain.tres" id="2_5mtrw"]
+[ext_resource type="TileSet" uid="uid://bovlkgk6cwuhx" path="res://resources/tilemaps/game.tres" id="2_wodqw"]
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_wvu0s")
+level_config = ExtResource("2_5mtrw")
 
 [node name="Spawn" type="Node2D" parent="."]
 

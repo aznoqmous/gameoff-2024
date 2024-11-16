@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://px3aynsjwcst"]
 
 [ext_resource type="Script" path="res://scripts/tile_items/energy_ball.gd" id="1_cw43k"]
-[ext_resource type="Texture2D" uid="uid://df2jrc6eko5cf" path="res://resources/energy-ball.png" id="2_ctbn2"]
-[ext_resource type="Texture2D" uid="uid://vwerwarwcs7h" path="res://resources/parlticle.png" id="3_na704"]
+[ext_resource type="Texture2D" uid="uid://df2jrc6eko5cf" path="res://resources/sprites/energy-ball.png" id="2_ctbn2"]
+[ext_resource type="Texture2D" uid="uid://vwerwarwcs7h" path="res://resources/sprites/parlticle.png" id="3_na704"]
 
 [sub_resource type="Animation" id="Animation_4sk8c"]
 resource_name = "Fall"

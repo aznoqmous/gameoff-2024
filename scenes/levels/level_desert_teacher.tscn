@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_jjxnf"]
 [ext_resource type="Resource" uid="uid://bp46233w7mvtr" path="res://scripts/resources/level_desert.tres" id="2_7x2fo"]
-[ext_resource type="TileSet" uid="uid://bovlkgk6cwuhx" path="res://tilemaps/game.tres" id="3_kd81x"]
+[ext_resource type="TileSet" uid="uid://bovlkgk6cwuhx" path="res://resources/tilemaps/game.tres" id="3_kd81x"]
 [ext_resource type="PackedScene" uid="uid://dhmnwbbaxa1e0" path="res://scenes/teachers/teacher-desert.tscn" id="4_7f5ml"]
 
 [node name="Level" type="Node2D"]

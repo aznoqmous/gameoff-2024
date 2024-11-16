@@ -1,11 +1,11 @@
 [gd_scene load_steps=12 format=3 uid="uid://tywt2nicjedo"]
 
 [ext_resource type="Script" path="res://scripts/teacher.gd" id="1_wtd0p"]
-[ext_resource type="Texture2D" uid="uid://cn12s7egotr6b" path="res://resources/teachers/body_0003_Layer-70.png" id="2_jb6ck"]
-[ext_resource type="Texture2D" uid="uid://6h4sxdfo7i7y" path="res://resources/teachers/body_0002_Layer-69.png" id="3_s8yxx"]
-[ext_resource type="Texture2D" uid="uid://mu12gfxjbk5o" path="res://resources/teachers/body_0001_Layer-66.png" id="4_fug0s"]
-[ext_resource type="Texture2D" uid="uid://c502b17k3ttkj" path="res://resources/teachers/body_0000_Layer-70.png" id="5_c02dp"]
-[ext_resource type="Texture2D" uid="uid://dc7gonb0vwunm" path="res://resources/teachers/snak.png" id="6_j30as"]
+[ext_resource type="Texture2D" uid="uid://cn12s7egotr6b" path="res://resources/sprites/teachers/body_0003_Layer-70.png" id="2_jb6ck"]
+[ext_resource type="Texture2D" uid="uid://6h4sxdfo7i7y" path="res://resources/sprites/teachers/body_0002_Layer-69.png" id="3_s8yxx"]
+[ext_resource type="Texture2D" uid="uid://mu12gfxjbk5o" path="res://resources/sprites/teachers/body_0001_Layer-66.png" id="4_fug0s"]
+[ext_resource type="Texture2D" uid="uid://c502b17k3ttkj" path="res://resources/sprites/teachers/body_0000_Layer-70.png" id="5_c02dp"]
+[ext_resource type="Texture2D" uid="uid://dc7gonb0vwunm" path="res://resources/sprites/teachers/snak.png" id="6_j30as"]
 [ext_resource type="PackedScene" uid="uid://bfq0novin8k03" path="res://scenes/dialog_box.tscn" id="7_nbl8c"]
 
 [sub_resource type="Animation" id="Animation_hxg1w"]
@@ -98,6 +98,10 @@ radius = 122.73
 
 [node name="Teacher" type="Node2D"]
 script = ExtResource("1_wtd0p")
+greeting_text = "Ahh… a new sstudent, drawn to
+the mysteriess of nature…
+"
+goodbye_text = "May the earth embrace you on your path…"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

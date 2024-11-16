@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=4 uid="uid://44ius7w12rme"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_tau6u"]
-[ext_resource type="TileSet" uid="uid://bovlkgk6cwuhx" path="res://tilemaps/game.tres" id="2_640f6"]
+[ext_resource type="TileSet" uid="uid://bovlkgk6cwuhx" path="res://resources/tilemaps/game.tres" id="2_640f6"]
 [ext_resource type="Resource" uid="uid://5j1qjhkvo4du" path="res://scripts/resources/level_nature.tres" id="2_bsqs5"]
 [ext_resource type="PackedScene" uid="uid://tywt2nicjedo" path="res://scenes/teachers/teacher-nature.tscn" id="3_s02hy"]
 

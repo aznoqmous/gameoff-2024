@@ -2,11 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://bdlc63ysvlljr" path="res://scenes/player.tscn" id="1_2la08"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_8utgd"]
-[ext_resource type="TileSet" uid="uid://bovlkgk6cwuhx" path="res://tilemaps/game.tres" id="2_4554k"]
-[ext_resource type="Texture2D" uid="uid://b5g6u5t0jc7s2" path="res://resources/square.png" id="4_smtyw"]
+[ext_resource type="AudioStream" uid="uid://dq2t0pxe1d4dc" path="res://resources/audio/SFX/AMB_Background.wav" id="2_6ksot"]
+[ext_resource type="Script" path="res://scripts/audio_manager.gd" id="2_8fmnl"]
+[ext_resource type="TileSet" uid="uid://bovlkgk6cwuhx" path="res://resources/tilemaps/game.tres" id="2_4554k"]
+[ext_resource type="Texture2D" uid="uid://b5g6u5t0jc7s2" path="res://resources/sprites/square.png" id="4_smtyw"]
 [ext_resource type="PackedScene" uid="uid://bdp2lpfyiwu40" path="res://scenes/sign.tscn" id="5_mc1l0"]
-[ext_resource type="Resource" uid="uid://d28pre13p8bry" path="res://scripts/resources/level_mountain.tres" id="8_11dgn"]
-[ext_resource type="Texture2D" uid="uid://33dsu0l7bl51" path="res://resources/symbols/jump.png" id="9_714xr"]
+[ext_resource type="Texture2D" uid="uid://33dsu0l7bl51" path="res://resources/sprites/symbols/jump.png" id="9_714xr"]
 [ext_resource type="PackedScene" uid="uid://44ius7w12rme" path="res://scenes/levels/level_nature_teacher.tscn" id="10_pwtql"]
 [ext_resource type="PackedScene" uid="uid://7bo0qg6aqda6" path="res://scenes/levels/level_nature_1.tscn" id="12_jfl5y"]
 [ext_resource type="PackedScene" uid="uid://b4loukqvarc2c" path="res://scenes/levels/level_mountain_teacher.tscn" id="13_7d6rc"]
@@ -15,12 +16,24 @@
 [ext_resource type="PackedScene" uid="uid://b0ilfph3jcmlc" path="res://scenes/levels/level_desert_teacher.tscn" id="14_jdsps"]
 [ext_resource type="PackedScene" uid="uid://cqmsxnbricsy5" path="res://scenes/levels/spawn.tscn" id="15_fd4cq"]
 [ext_resource type="PackedScene" uid="uid://db5qlgw6ls16u" path="res://scenes/levels/level_mountain_3.tscn" id="15_ir2oa"]
-[ext_resource type="Resource" uid="uid://cpcbaeiwl0e2m" path="res://scripts/resources/level_config.tres" id="16_q0k2g"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_8utgd")
 tileSize = 240
+
+[node name="AudioManager" type="Node" parent="."]
+script = ExtResource("2_8fmnl")
+fade_out_duration = 1.0
+
+[node name="BackgroundAudio" type="AudioStreamPlayer" parent="AudioManager"]
+stream = ExtResource("2_6ksot")
+volume_db = -12.0
+autoplay = true
+bus = &"Music"
+
+[node name="ThemeAudio" type="AudioStreamPlayer" parent="AudioManager"]
+bus = &"Music"
 
 [node name="GroundLayer" type="TileMapLayer" parent="."]
 z_index = -2
@@ -77,15 +90,12 @@ message = "..."
 
 [node name="Push1" parent="." instance=ExtResource("13_s7yu7")]
 position = Vector2(3120, -2640)
-level_config = ExtResource("8_11dgn")
 
 [node name="Push2" parent="." instance=ExtResource("14_ip2n4")]
 position = Vector2(4800, -2400)
-level_config = ExtResource("8_11dgn")
 
 [node name="Push3" parent="." instance=ExtResource("15_ir2oa")]
 position = Vector2(8160, -1680)
-level_config = ExtResource("8_11dgn")
 
 [node name="StoneTeacher" parent="." instance=ExtResource("13_7d6rc")]
 position = Vector2(11760, 720)
@@ -100,4 +110,5 @@ position = Vector2(4560, 3360)
 position = Vector2(-960, 240)
 
 [node name="Spawn" parent="." instance=ExtResource("15_fd4cq")]
-level_config = ExtResource("16_q0k2g")
+
+[node name="Node2D" type="Node2D" parent="."]

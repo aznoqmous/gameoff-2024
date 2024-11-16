@@ -20,21 +20,15 @@ var _destroy = false
 signal on_set_item(item: TileItem)
 signal on_enter_tile()
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	scale = Vector2.ZERO
 	player.on_movement.connect(update_memory)
 	update_memory(player.position)
 	
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if position.distance_to(player.position) > game.tileSize * player.sightRadius:
 		return;
-
 	handle_animation(delta)
-	pass
 
 func bump():
 	scale = Vector2.ONE * 0.5

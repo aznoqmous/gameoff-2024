@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://b7t2q0dt6xcgn"]
 
 [ext_resource type="Script" path="res://scripts/tile.gd" id="1_0jnkj"]
-[ext_resource type="Texture2D" uid="uid://b7je67kxukmdh" path="res://resources/tiles-2.png" id="2_iibn7"]
-[ext_resource type="AudioStream" uid="uid://nbkdgfrr8tuq" path="res://resources/audio/placeholder.wav" id="3_nt23d"]
+[ext_resource type="Texture2D" uid="uid://b7je67kxukmdh" path="res://resources/sprites/tiles-2.png" id="2_iibn7"]
+[ext_resource type="AudioStream" uid="uid://bbicne52gb1e" path="res://resources/audio/SFX/Player_Jump_Down_Gravel-001.wav" id="3_spr84"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ampju"]
 atlas = ExtResource("2_iibn7")
@@ -17,4 +17,4 @@ script = ExtResource("1_0jnkj")
 texture = SubResource("AtlasTexture_ampju")
 
 [node name="BumpAudio" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_nt23d")
+stream = ExtResource("3_spr84")

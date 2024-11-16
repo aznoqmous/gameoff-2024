@@ -117,8 +117,6 @@ func _input(event: InputEvent):
 			cast_loop_audio.play()
 		else:
 			isCasting = false
-			cast_end_audio.play()
-			cast_loop_audio.stop()
 			
 		particles.visible = isCasting
 		if !isCasting:
@@ -238,12 +236,10 @@ func cast():
 		spellMask[pos.y - min.y][pos.x - min.x] = 1
 		index += 1
 		
-	print(spellCanvas)
 
 	for spell in spells:
 		for trail in spell.trails:
 			if trail == spellCanvas or trail == spellMask:
-				print("Casting " + spell.name)
 				if spell.has("spell"):
 					spell.spell.cast(trail)
 					
@@ -254,6 +250,8 @@ func cast():
 					newSpellSymbol.add_line(newLine)
 					newSpellSymbol.set_text(spell.name)
 					newSpellSymbol.label.position = position
+
+	cast_end_audio.play()
 	clear_cast()
 	
 func is_floored():
@@ -277,6 +275,7 @@ func clear_cast():
 	isCasting = false
 	particles.visible = false
 	animationPlayer.play("Idle")
+	cast_loop_audio.stop()
 
 func play_particles():
 	var newParticles : CPUParticles2D = baseParticles.instantiate()

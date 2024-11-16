@@ -1,19 +1,28 @@
-[gd_scene load_steps=23 format=3 uid="uid://bdlc63ysvlljr"]
+[gd_scene load_steps=34 format=3 uid="uid://bdlc63ysvlljr"]
 
-[ext_resource type="Texture2D" uid="uid://bvn24e5joccqc" path="res://resources/player_0001_body.png" id="1_1lid0"]
+[ext_resource type="Texture2D" uid="uid://bvn24e5joccqc" path="res://resources/sprites/player_0001_body.png" id="1_1lid0"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_3pkg8"]
-[ext_resource type="Texture2D" uid="uid://c7o7jac1frbgk" path="res://resources/player_0000_head.png" id="2_iadob"]
-[ext_resource type="Texture2D" uid="uid://b23417iftbhle" path="res://resources/player_0005_right-arm.png" id="3_noj1x"]
-[ext_resource type="Texture2D" uid="uid://banja4xdapgxi" path="res://resources/player_0004_left-arm.png" id="4_4xl7a"]
-[ext_resource type="Texture2D" uid="uid://cqoyo7p4kdgy" path="res://resources/player_0003_right-leg.png" id="5_0y0nh"]
-[ext_resource type="Texture2D" uid="uid://cml0m1i44kq37" path="res://resources/player_0002_left-leg.png" id="6_ls7n4"]
+[ext_resource type="Texture2D" uid="uid://c7o7jac1frbgk" path="res://resources/sprites/player_0000_head.png" id="2_iadob"]
+[ext_resource type="Texture2D" uid="uid://b23417iftbhle" path="res://resources/sprites/player_0005_right-arm.png" id="3_noj1x"]
+[ext_resource type="Texture2D" uid="uid://banja4xdapgxi" path="res://resources/sprites/player_0004_left-arm.png" id="4_4xl7a"]
+[ext_resource type="Texture2D" uid="uid://cqoyo7p4kdgy" path="res://resources/sprites/player_0003_right-leg.png" id="5_0y0nh"]
+[ext_resource type="Texture2D" uid="uid://cml0m1i44kq37" path="res://resources/sprites/player_0002_left-leg.png" id="6_ls7n4"]
 [ext_resource type="Script" path="res://scripts/spells/jump.gd" id="8_63fut"]
 [ext_resource type="PackedScene" uid="uid://dge3mui3ddgqo" path="res://scenes/particles.tscn" id="9_7oxa2"]
 [ext_resource type="Script" path="res://scripts/spells/spawn_plant.gd" id="10_plgn0"]
+[ext_resource type="AudioStream" uid="uid://cb66bf2mr6r2f" path="res://resources/audio/SFX/Magic_Jump-001.wav" id="10_x3kuq"]
 [ext_resource type="Script" path="res://scripts/spells/spawn_stone.gd" id="11_uvcyf"]
 [ext_resource type="Script" path="res://scripts/spells/spawn_energy.gd" id="12_tmpeg"]
 [ext_resource type="Script" path="res://scripts/spells/spawn_tornado.gd" id="13_ur5lk"]
 [ext_resource type="AudioStream" uid="uid://nbkdgfrr8tuq" path="res://resources/audio/placeholder.wav" id="14_ni1mo"]
+[ext_resource type="AudioStream" uid="uid://c6lv35hsmwq4g" path="res://resources/audio/SFX/Player_Move_Magic-001.wav" id="15_51yk2"]
+[ext_resource type="AudioStream" uid="uid://bxfo4el4im6qv" path="res://resources/audio/SFX/Cast_Start-001.wav" id="15_o0elb"]
+[ext_resource type="AudioStream" uid="uid://b3qy8tp2dxru7" path="res://resources/audio/SFX/Cast_Start-002.wav" id="16_q12jb"]
+[ext_resource type="AudioStream" uid="uid://bqx672k62f2hk" path="res://resources/audio/SFX/Cast_Start-003.wav" id="17_55fsh"]
+[ext_resource type="AudioStream" uid="uid://doasyb5vc7a7q" path="res://resources/audio/SFX/Cast_Start-004.wav" id="18_02a84"]
+[ext_resource type="AudioStream" uid="uid://cuvgr8c74v7hi" path="res://resources/audio/SFX/Cast_Loop.wav" id="20_1wtkq"]
+[ext_resource type="AudioStream" uid="uid://8m55qb2w2jes" path="res://resources/audio/SFX/Player_Jump_Rise-001.wav" id="21_7ksjh"]
+[ext_resource type="AudioStream" uid="uid://b1dwob2aiymys" path="res://resources/audio/SFX/Player_Fall-001.wav" id="22_4ak1h"]
 
 [sub_resource type="Animation" id="Animation_8ywdh"]
 resource_name = "Cast"
@@ -883,6 +892,18 @@ point_count = 3
 [sub_resource type="CircleShape2D" id="CircleShape2D_0tob7"]
 radius = 60.48
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_1pwh6"]
+random_pitch = 1.2
+streams_count = 1
+stream_0/stream = ExtResource("15_51yk2")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_o8prq"]
+streams_count = 4
+stream_0/stream = ExtResource("15_o0elb")
+stream_1/stream = ExtResource("16_q12jb")
+stream_2/stream = ExtResource("17_55fsh")
+stream_3/stream = ExtResource("18_02a84")
+
 [node name="Player" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_3pkg8")
@@ -960,7 +981,7 @@ offset = Vector2(-31, -1)
 script = ExtResource("8_63fut")
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="Spells/Jump"]
-stream = ExtResource("14_ni1mo")
+stream = ExtResource("10_x3kuq")
 
 [node name="SpawnPlant" type="Node" parent="Spells"]
 script = ExtResource("10_plgn0")
@@ -991,15 +1012,15 @@ stream = ExtResource("14_ni1mo")
 [node name="Audio" type="Node2D" parent="."]
 
 [node name="CastMoveAudio" type="AudioStreamPlayer2D" parent="Audio"]
-stream = ExtResource("14_ni1mo")
+stream = SubResource("AudioStreamRandomizer_1pwh6")
 bus = &"SFX"
 
 [node name="CastStartAudio" type="AudioStreamPlayer2D" parent="Audio"]
-stream = ExtResource("14_ni1mo")
+stream = SubResource("AudioStreamRandomizer_o8prq")
 bus = &"SFX"
 
 [node name="CastLoopAudio" type="AudioStreamPlayer2D" parent="Audio"]
-stream = ExtResource("14_ni1mo")
+stream = ExtResource("20_1wtkq")
 bus = &"SFX"
 
 [node name="CastEndAudio" type="AudioStreamPlayer2D" parent="Audio"]
@@ -1011,9 +1032,9 @@ stream = ExtResource("14_ni1mo")
 bus = &"SFX"
 
 [node name="MoveAudio" type="AudioStreamPlayer2D" parent="Audio"]
-stream = ExtResource("14_ni1mo")
+stream = ExtResource("21_7ksjh")
 bus = &"SFX"
 
 [node name="FallAudio" type="AudioStreamPlayer2D" parent="Audio"]
-stream = ExtResource("14_ni1mo")
+stream = ExtResource("22_4ak1h")
 bus = &"SFX"

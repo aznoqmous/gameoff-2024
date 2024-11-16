@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://rqqiw0dq10kp"]
 
 [ext_resource type="Script" path="res://scripts/tile_items/tornado.gd" id="1_cfhno"]
-[ext_resource type="Texture2D" uid="uid://cp4w8dcnfg2xb" path="res://resources/particle-smoke.png" id="2_nstj3"]
+[ext_resource type="Texture2D" uid="uid://cp4w8dcnfg2xb" path="res://resources/sprites/particle-smoke.png" id="2_nstj3"]
 
 [sub_resource type="Animation" id="Animation_4sk8c"]
 resource_name = "Fall"

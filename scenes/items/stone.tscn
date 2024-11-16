@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=3 uid="uid://jyirjhlkjwxy"]
 
 [ext_resource type="Script" path="res://scripts/tile_items/stone.gd" id="1_p2wjl"]
-[ext_resource type="Texture2D" uid="uid://7u0ho1aqg3lj" path="res://resources/stone-2.png" id="2_aosvw"]
-[ext_resource type="AudioStream" uid="uid://nbkdgfrr8tuq" path="res://resources/audio/placeholder.wav" id="3_p0fy6"]
+[ext_resource type="Texture2D" uid="uid://7u0ho1aqg3lj" path="res://resources/sprites/stone-2.png" id="2_aosvw"]
+[ext_resource type="AudioStream" uid="uid://b1dwob2aiymys" path="res://resources/audio/SFX/Player_Fall-001.wav" id="3_5m1pg"]
 
 [sub_resource type="Animation" id="Animation_4sk8c"]
 resource_name = "Fall"
-length = 0.5
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -26,7 +26,7 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.5),
+"times": PackedFloat32Array(2),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -79,4 +79,4 @@ texture = ExtResource("2_aosvw")
 shape = SubResource("CircleShape2D_l6e7p")
 
 [node name="FallAudio" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_p0fy6")
+stream = ExtResource("3_5m1pg")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bdp2lpfyiwu40"]
 
 [ext_resource type="Script" path="res://scripts/sign.gd" id="1_qd6lt"]
-[ext_resource type="Texture2D" uid="uid://djief4uv1y67d" path="res://resources/sign.png" id="1_rawr2"]
+[ext_resource type="Texture2D" uid="uid://djief4uv1y67d" path="res://resources/sprites/sign.png" id="1_rawr2"]
 [ext_resource type="FontFile" uid="uid://w12hsd66wulf" path="res://resources/fonts/PatrickHand-Regular.ttf" id="3_fx3sv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xj0qx"]

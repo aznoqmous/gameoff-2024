@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dhgprbkhapw2i"]
 
 [ext_resource type="Script" path="res://scripts/tile_items/button_tile_item.gd" id="1_e1047"]
-[ext_resource type="Texture2D" uid="uid://b5o4lnmngik5" path="res://resources/button.png" id="2_3ncbm"]
+[ext_resource type="Texture2D" uid="uid://b5o4lnmngik5" path="res://resources/sprites/button.png" id="2_3ncbm"]
 [ext_resource type="AudioStream" uid="uid://nbkdgfrr8tuq" path="res://resources/audio/placeholder.wav" id="3_3qq1x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n8fke"]
