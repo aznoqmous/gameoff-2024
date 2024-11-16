@@ -907,6 +907,7 @@ stream_3/stream = ExtResource("18_02a84")
 [node name="Player" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_3pkg8")
+sightRadius = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

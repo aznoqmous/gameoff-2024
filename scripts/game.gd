@@ -72,6 +72,7 @@ func load_items_layer(layer: TileMapLayer, offset: Vector2, level: Level = null)
 func load_level(level: Level):
 	load_tiles_layer(level.tile_map_layer, level.position, level)
 	load_items_layer(level.item_layer, level.position, level)
+	audio_manager.preload_level_audio(level.level_config.theme)
 
 func add_lilipad_tile(tilePosition: Vector2):
 	var newTile : Tile = lilipadBaseTile.instantiate()

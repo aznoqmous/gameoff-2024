@@ -26,8 +26,6 @@ func _ready() -> void:
 	update_memory(player.position)
 	
 func _process(delta: float) -> void:
-	if position.distance_to(player.position) > game.tileSize * player.sightRadius:
-		return;
 	handle_animation(delta)
 
 func bump():
@@ -39,6 +37,8 @@ func update_memory(playerPosition: Vector2):
 		memory += 1
 
 func handle_animation(delta: float):	
+	if position.distance_to(player.position) > game.tileSize * player.sightRadius * 2:
+		return
 	if _destroy:
 		scale = lerp(scale, Vector2.ZERO, delta * 10)
 		if scale.length() < 0.1: queue_free()

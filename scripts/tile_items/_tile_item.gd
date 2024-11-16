@@ -18,7 +18,7 @@ signal on_movement(position: Vector2)
 
 func _ready() -> void:
 	currentPosition = position
-	#init()
+	scale = Vector2.ZERO
 
 func _process(delta: float) -> void:
 	if currentPosition and position != currentPosition:

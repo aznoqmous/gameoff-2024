@@ -1,30 +1,34 @@
 extends Node
 
-@export var fade_in_duration: float
-@export var fade_out_duration: float
+var themes = {}
+@export var fade_in_speed: float
+@export var fade_out_speed: float
 
 @onready var background_audio: AudioStreamPlayer = $BackgroundAudio
 @onready var theme_audio: AudioStreamPlayer = $ThemeAudio
 
-var active_theme: AudioStreamPlayer
+var theme_volume = 0
+var active_theme: AudioStream
+
+var active_player : AudioStreamPlayer
+var last_player : AudioStreamPlayer
+func _process(delta):
+	if active_player: 
+		active_player.volume_db = lerp(active_player.volume_db, theme_audio.volume_db, delta * fade_in_speed)
+	if last_player: 
+		last_player.volume_db = lerp(last_player.volume_db, -80.0, delta * fade_out_speed)
+
+func preload_level_audio(stream: AudioStream):
+	if themes.has(stream): return
+	var player: AudioStreamPlayer = theme_audio.duplicate()
+	player.stream = stream
+	themes[stream] = player
+	add_child(player)
 
 func play_theme(theme: AudioStream):
-	print("active theme", active_theme)
-	if active_theme != null: fade_out(active_theme)
-	if theme: fade_in(theme)
-
-func fade_out(player: AudioStreamPlayer):
-	var tween = get_tree().create_tween()
-	tween.tween_property(player, "volume_db", -80, fade_out_duration)
-	await tween.finished
-	if player != null : player.queue_free()
-
-func fade_in(stream: AudioStream):
-	var player: AudioStreamPlayer = theme_audio.duplicate()
-	add_child(player)
-	player.stream = stream
+	var player = themes[theme]
+	if active_player and active_player != player : 
+		last_player = active_player
+	active_player = player
 	player.volume_db = -80
 	player.play()
-	var tween = get_tree().create_tween()
-	tween.tween_property(player, "volume_db", theme_audio.volume_db, fade_in_duration)
-	active_theme = player
