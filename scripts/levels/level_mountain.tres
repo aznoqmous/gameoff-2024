@@ -5,3 +5,4 @@
 [resource]
 script = ExtResource("1_m6w7b")
 color = Color(0.808594, 0.742085, 0.612762, 1)
+cloud_color = Color(0.457031, 0.416363, 0.337418, 1)

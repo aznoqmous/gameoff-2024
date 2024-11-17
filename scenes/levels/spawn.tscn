@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_vj26o"]
 [ext_resource type="TileSet" uid="uid://bovlkgk6cwuhx" path="res://resources/tilemaps/game.tres" id="2_cvj1s"]
-[ext_resource type="Resource" uid="uid://cpcbaeiwl0e2m" path="res://scripts/resources/level_config.tres" id="2_igcmf"]
+[ext_resource type="Resource" uid="uid://cpcbaeiwl0e2m" path="res://scripts/levels/level_config.tres" id="2_igcmf"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_vj26o")

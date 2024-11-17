@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="LevelConfig" load_steps=3 format=3 uid="uid://bp46233w7mvtr"]
-
-[ext_resource type="Script" path="res://scripts/resources/level_config.gd" id="1_hvpct"]
-[ext_resource type="AudioStream" uid="uid://dqdon5uwpsxbw" path="res://resources/audio/music/MUS_Desert.wav" id="2_11qtr"]
-
-[resource]
-script = ExtResource("1_hvpct")
-color = Color(0.9375, 0.920267, 0.820313, 1)
-theme = ExtResource("2_11qtr")

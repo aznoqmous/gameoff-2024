@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bdlc63ysvlljr"]
+[gd_scene load_steps=48 format=3 uid="uid://bdlc63ysvlljr"]
 
 [ext_resource type="Texture2D" uid="uid://bvn24e5joccqc" path="res://resources/sprites/player_0001_body.png" id="1_1lid0"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_3pkg8"]
@@ -11,8 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://dge3mui3ddgqo" path="res://scenes/particles.tscn" id="9_7oxa2"]
 [ext_resource type="Script" path="res://scripts/spells/spawn_plant.gd" id="10_plgn0"]
 [ext_resource type="AudioStream" uid="uid://cb66bf2mr6r2f" path="res://resources/audio/SFX/Magic_Jump-001.wav" id="10_x3kuq"]
+[ext_resource type="AudioStream" uid="uid://cix7cvqh7y8da" path="res://resources/audio/SFX/Magic_Jump-002.wav" id="11_oisot"]
 [ext_resource type="Script" path="res://scripts/spells/spawn_stone.gd" id="11_uvcyf"]
 [ext_resource type="Script" path="res://scripts/spells/spawn_energy.gd" id="12_tmpeg"]
+[ext_resource type="AudioStream" uid="uid://dg7gxmkdmr8nb" path="res://resources/audio/SFX/Magic_Jump-003.wav" id="12_xkn28"]
 [ext_resource type="Script" path="res://scripts/spells/spawn_tornado.gd" id="13_ur5lk"]
 [ext_resource type="AudioStream" uid="uid://nbkdgfrr8tuq" path="res://resources/audio/placeholder.wav" id="14_ni1mo"]
 [ext_resource type="AudioStream" uid="uid://c6lv35hsmwq4g" path="res://resources/audio/SFX/Player_Move_Magic-001.wav" id="15_51yk2"]
@@ -24,6 +26,16 @@
 [ext_resource type="AudioStream" uid="uid://8m55qb2w2jes" path="res://resources/audio/SFX/Player_Jump_Rise-001.wav" id="21_7ksjh"]
 [ext_resource type="AudioStream" uid="uid://b1dwob2aiymys" path="res://resources/audio/SFX/Player_Fall-001.wav" id="22_4ak1h"]
 [ext_resource type="AudioStream" uid="uid://bmwagaf2yfeo6" path="res://resources/audio/SFX/Cast_Fail.wav" id="22_8tjp5"]
+[ext_resource type="Script" path="res://scripts/audio_list.gd" id="26_rn3mj"]
+[ext_resource type="AudioStream" uid="uid://hwatu7tqxtyo" path="res://resources/audio/SFX/Player_Move_Magic-002.wav" id="28_uoi1o"]
+[ext_resource type="AudioStream" uid="uid://bqfpjqjohryex" path="res://resources/audio/SFX/Player_Move_Magic-003.wav" id="29_kjqr4"]
+[ext_resource type="AudioStream" uid="uid://cfe6qm6n408rj" path="res://resources/audio/SFX/Player_Move_Magic-004.wav" id="30_vedux"]
+[ext_resource type="AudioStream" uid="uid://yhlbi5blawwk" path="res://resources/audio/SFX/Player_Move_Magic-005.wav" id="31_63dwg"]
+[ext_resource type="AudioStream" uid="uid://086sppj62xdr" path="res://resources/audio/SFX/Player_Move_Magic-006.wav" id="32_hrf7a"]
+[ext_resource type="AudioStream" uid="uid://tn7uhudxt0nh" path="res://resources/audio/SFX/Player_Move_Magic-007.wav" id="33_j36xs"]
+[ext_resource type="AudioStream" uid="uid://b4ibavht4apq" path="res://resources/audio/SFX/Player_Move_Magic-008.wav" id="34_sai1f"]
+[ext_resource type="AudioStream" uid="uid://dhcocnwgde8kg" path="res://resources/audio/SFX/Player_Move_Magic-009.wav" id="35_iwa47"]
+[ext_resource type="AudioStream" uid="uid://ccpkyoxv6bs1m" path="res://resources/audio/SFX/Player_Move_Magic-010.wav" id="36_t4nq1"]
 
 [sub_resource type="Animation" id="Animation_8ywdh"]
 resource_name = "Cast"
@@ -893,6 +905,14 @@ point_count = 3
 [sub_resource type="CircleShape2D" id="CircleShape2D_0tob7"]
 radius = 60.48
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_3a4m0"]
+streams_count = 3
+stream_0/stream = ExtResource("10_x3kuq")
+stream_1/stream = ExtResource("11_oisot")
+stream_2/stream = ExtResource("12_xkn28")
+
+[sub_resource type="AudioStream" id="AudioStream_tx8dd"]
+
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_o8prq"]
 streams_count = 4
 stream_0/stream = ExtResource("15_o0elb")
@@ -977,39 +997,42 @@ offset = Vector2(-31, -1)
 [node name="Jump" type="Node" parent="Spells"]
 script = ExtResource("8_63fut")
 
-[node name="Audio" type="AudioStreamPlayer2D" parent="Spells/Jump"]
-stream = ExtResource("10_x3kuq")
+[node name="Audio" type="AudioStreamPlayer" parent="Spells/Jump"]
+stream = SubResource("AudioStreamRandomizer_3a4m0")
+bus = &"SFX"
 
 [node name="SpawnPlant" type="Node" parent="Spells"]
 script = ExtResource("10_plgn0")
 
-[node name="Audio" type="AudioStreamPlayer2D" parent="Spells/SpawnPlant"]
+[node name="Audio" type="AudioStreamPlayer" parent="Spells/SpawnPlant"]
 stream = ExtResource("14_ni1mo")
+bus = &"SFX"
 
 [node name="SpawnStone" type="Node" parent="Spells"]
 script = ExtResource("11_uvcyf")
 
-[node name="Audio" type="AudioStreamPlayer2D" parent="Spells/SpawnStone"]
+[node name="Audio" type="AudioStreamPlayer" parent="Spells/SpawnStone"]
 stream = ExtResource("14_ni1mo")
+bus = &"SFX"
 
 [node name="SpawnEnergyBall" type="Node" parent="Spells"]
 script = ExtResource("12_tmpeg")
 
-[node name="Audio" type="AudioStreamPlayer2D" parent="Spells/SpawnEnergyBall"]
+[node name="Audio" type="AudioStreamPlayer" parent="Spells/SpawnEnergyBall"]
 stream = ExtResource("14_ni1mo")
+bus = &"SFX"
 
 [node name="SpawnTornado" type="Node" parent="Spells"]
 script = ExtResource("13_ur5lk")
 
-[node name="Audio" type="AudioStreamPlayer2D" parent="Spells/SpawnTornado"]
+[node name="Audio" type="AudioStreamPlayer" parent="Spells/SpawnTornado"]
 stream = ExtResource("14_ni1mo")
-
-[node name="Node2D" type="Node2D" parent="."]
+bus = &"SFX"
 
 [node name="Audio" type="Node2D" parent="."]
 
 [node name="CastMoveAudio" type="AudioStreamPlayer2D" parent="Audio"]
-stream = ExtResource("15_51yk2")
+stream = SubResource("AudioStream_tx8dd")
 bus = &"SFX"
 
 [node name="CastStartAudio" type="AudioStreamPlayer2D" parent="Audio"]
@@ -1030,8 +1053,13 @@ bus = &"SFX"
 
 [node name="MoveAudio" type="AudioStreamPlayer2D" parent="Audio"]
 stream = ExtResource("21_7ksjh")
+volume_db = -12.0
 bus = &"SFX"
 
 [node name="FallAudio" type="AudioStreamPlayer2D" parent="Audio"]
 stream = ExtResource("22_4ak1h")
 bus = &"SFX"
+
+[node name="CastMoveAudioList" type="AudioStreamPlayer2D" parent="Audio"]
+script = ExtResource("26_rn3mj")
+streams = Array[AudioStream]([ExtResource("15_51yk2"), ExtResource("28_uoi1o"), ExtResource("29_kjqr4"), ExtResource("30_vedux"), ExtResource("31_63dwg"), ExtResource("32_hrf7a"), ExtResource("33_j36xs"), ExtResource("34_sai1f"), ExtResource("35_iwa47"), ExtResource("36_t4nq1")])

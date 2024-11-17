@@ -21,6 +21,7 @@ grow_vertical = 0
 script = ExtResource("1_83qjg")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
+modulate = Color(0.957031, 0.934431, 0.886002, 1)
 layout_mode = 2
 texture = ExtResource("2_uc6kv")
 patch_margin_left = 24

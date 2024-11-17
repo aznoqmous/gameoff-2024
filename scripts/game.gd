@@ -9,7 +9,8 @@ extends Node2D
 @onready var items: Node2D = $Terrain/Items
 @onready var tilesContainer: Node2D = $Terrain/Tiles
 
-@onready var camera_sprite_2d: Sprite2D = $Player/Sprite2D
+@onready var camera_sprite_2d: Sprite2D = $Background/ParallaxBackground/BackgroundLayer/Sprite2D
+@onready var background: Background = $Background
 
 @onready var ground_layer: TileMapLayer = $GroundLayer
 @export var mapSize = Vector2(10,10)
@@ -24,9 +25,6 @@ func _ready() -> void:
 	create_map()
 	handle_player_movement(player.position)
 
-func _process(delta):
-	if current_level and current_level.level_config and current_level.level_config.color:
-		camera_sprite_2d.modulate = lerp(camera_sprite_2d.modulate, current_level.level_config.color, delta)
 
 var baseTile = preload("res://scenes/tiles/tile.tscn")
 var lilipadBaseTile = preload("res://scenes/tiles/lilipad_tile.tscn")
@@ -138,13 +136,14 @@ func get_cell_texture(coord:Vector2i, layer: TileMapLayer) -> Texture:
 func handle_player_movement(pos: Vector2):
 	var tile = get_tile_at_position(pos/tileSize)
 	if tile and tile.level:
-		if current_level != tile.level: 
+		if current_level != tile.level:
 			set_level(tile.level)
 
 func set_level(level: Level):
 	if not current_level or current_level.level_config != level.level_config:
 		audio_manager.play_theme(level.level_config.theme)
 	current_level = level
+	background.set_level(level)
 	print("Entering ", level)
 
 func reset_level():

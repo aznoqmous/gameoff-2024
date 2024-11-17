@@ -21,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://db5qlgw6ls16u" path="res://scenes/levels/level_mountain_3.tscn" id="15_ir2oa"]
 [ext_resource type="PackedScene" uid="uid://dcql1w2n5ulgu" path="res://scenes/levels/sanctuary.tscn" id="17_nerxj"]
 [ext_resource type="Script" path="res://scripts/background.gd" id="21_1k5mv"]
-[ext_resource type="Texture2D" uid="uid://cone0cw03eolm" path="res://resources/sprites/clouds-blank.png" id="22_ktvkw"]
+[ext_resource type="Texture2D" uid="uid://bxu6tvve61n07" path="res://resources/sprites/clouds.png" id="21_37r75"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -92,7 +92,7 @@ position = Vector2(1920, -6480)
 activators = [NodePath("../../Items/Button")]
 
 [node name="Player" parent="." instance=ExtResource("1_2la08")]
-position = Vector2(1920, -3840)
+position = Vector2(1920, -4080)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(0.3, 0.3)
@@ -151,20 +151,18 @@ script = ExtResource("21_1k5mv")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="Background"]
 
+[node name="Sprite2D" type="Sprite2D" parent="Background/ParallaxBackground"]
+modulate = Color(0.683594, 0.328445, 0.328445, 1)
+z_index = -10
+position = Vector2(1920, -4080)
+scale = Vector2(187.5, 127.5)
+texture = ExtResource("4_smtyw")
+
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Background/ParallaxBackground"]
 motion_scale = Vector2(0.9, 0.9)
 motion_mirroring = Vector2(4320, 4320)
 
-[node name="CloudSprite" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer"]
+[node name="Sprite2D" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer"]
 scale = Vector2(4, 4)
-texture = ExtResource("22_ktvkw")
+texture = ExtResource("21_37r75")
 centered = false
-
-[node name="BackgroundLayer" type="ParallaxLayer" parent="Background/ParallaxBackground"]
-motion_mirroring = Vector2(1024, 768)
-
-[node name="BackgroundSprite" type="Sprite2D" parent="Background/ParallaxBackground/BackgroundLayer"]
-modulate = Color(0.854902, 0.854902, 0.854902, 1)
-z_index = -10
-scale = Vector2(187.5, 127.5)
-texture = ExtResource("4_smtyw")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=4 uid="uid://b4loukqvarc2c"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_ckpm8"]
-[ext_resource type="Resource" uid="uid://d28pre13p8bry" path="res://scripts/resources/level_mountain.tres" id="2_8wquj"]
+[ext_resource type="Resource" uid="uid://d28pre13p8bry" path="res://scripts/levels/level_mountain.tres" id="2_8wquj"]
 [ext_resource type="TileSet" uid="uid://bovlkgk6cwuhx" path="res://resources/tilemaps/game.tres" id="3_bmdmo"]
 [ext_resource type="PackedScene" uid="uid://cu5pn3mjvcwul" path="res://scenes/teachers/teacher-mountain.tscn" id="4_dq7ql"]
 

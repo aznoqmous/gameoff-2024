@@ -36,9 +36,10 @@ var castTrail = []
 
 # Audio
 @onready var move_audio: AudioStreamPlayer2D = $Audio/MoveAudio
-@onready var cast_move_audio: AudioStreamPlayer2D = $Audio/CastMoveAudio
 @onready var move_impossible_audio: AudioStreamPlayer2D = $Audio/MoveImpossibleAudio
 @onready var fall_audio: AudioStreamPlayer2D = $Audio/FallAudio
+@onready var cast_move_audio: AudioStreamPlayer2D = $Audio/CastMoveAudio
+@onready var cast_move_audio_list: AudioList2D = $Audio/CastMoveAudioList
 @onready var cast_start_audio: AudioStreamPlayer2D = $Audio/CastStartAudio
 @onready var cast_end_audio: AudioStreamPlayer2D = $Audio/CastEndAudio
 @onready var cast_loop_audio: AudioStreamPlayer2D = $Audio/CastLoopAudio
@@ -91,11 +92,11 @@ func handle_movement(currentPosition):
 		
 		tile.bump()
 		
-		#move_audio.play()
 		if not isCasting: tile.bump_audio.play()
 		else: 
-			cast_move_audio.pitch_scale += 0.1
-			cast_move_audio.play()
+			cast_move_audio_list.play_from_list()
+			#cast_move_audio.pitch_scale += 0.1
+			#cast_move_audio.play()
 		
 		tile.handle_enter_tile()
 		if not tile.breakable : lastFlooredPosition = currentPosition
@@ -162,6 +163,8 @@ func move(direction: Vector2):
 	if not is_floored(): return
 	targetDirection = -sign(direction.x)
 	
+	if not isCasting : move_audio.play()
+
 	var pos = currentPosition
 	var lastPosition = get_last_position()
 	if not targetPositions.is_empty() and Time.get_ticks_msec() - lastMoveTime < 200:
@@ -278,7 +281,7 @@ func clear_cast():
 	isCasting = false
 	particles.visible = false
 	animationPlayer.play("Idle")
-	cast_move_audio.pitch_scale = 1
+	cast_move_audio_list.reset()
 	cast_loop_audio.stop()
 
 func play_particles():
