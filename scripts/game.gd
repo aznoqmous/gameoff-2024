@@ -36,7 +36,7 @@ func create_map() -> void:
 	load_tiles_layer(ground_layer)
 	
 	for level: Level in levels:
-		load_level(level)
+		if level.is_visible_in_tree(): load_level(level)
 
 func load_tiles_layer(layer: TileMapLayer, offset: Vector2 = Vector2.ZERO, level: Level = null):
 

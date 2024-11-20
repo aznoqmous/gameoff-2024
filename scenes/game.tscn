@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://3pte44nuj5m5"]
+[gd_scene load_steps=23 format=4 uid="uid://3pte44nuj5m5"]
 
 [ext_resource type="PackedScene" uid="uid://bdlc63ysvlljr" path="res://scenes/player.tscn" id="1_2la08"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_8utgd"]
@@ -16,11 +16,12 @@
 [ext_resource type="PackedScene" uid="uid://vr5hu5v71q30" path="res://scenes/levels/level_mountain_1.tscn" id="13_s7yu7"]
 [ext_resource type="PackedScene" uid="uid://dhdwy0krw2pon" path="res://scenes/levels/level_mountain_2.tscn" id="14_ip2n4"]
 [ext_resource type="PackedScene" uid="uid://b0ilfph3jcmlc" path="res://scenes/levels/level_desert_teacher.tscn" id="14_jdsps"]
+[ext_resource type="PackedScene" uid="uid://br5nlsyntqwq8" path="res://scenes/levels/level_mountain_buttons_1.tscn" id="15_7vmk0"]
 [ext_resource type="PackedScene" uid="uid://cqmsxnbricsy5" path="res://scenes/levels/spawn.tscn" id="15_fd4cq"]
 [ext_resource type="PackedScene" uid="uid://db5qlgw6ls16u" path="res://scenes/levels/level_mountain_3.tscn" id="15_ir2oa"]
 [ext_resource type="PackedScene" uid="uid://dcql1w2n5ulgu" path="res://scenes/levels/sanctuary.tscn" id="17_nerxj"]
 [ext_resource type="Script" path="res://scripts/levels/environment_manager.gd" id="21_1k5mv"]
-[ext_resource type="PackedScene" uid="uid://b4ju5dfgus5lq" path="res://scenes/levels/level_mountain_buttons.tscn" id="23_7quh7"]
+[ext_resource type="PackedScene" uid="uid://b4ju5dfgus5lq" path="res://scenes/levels/level_mountain_buttons_2.tscn" id="23_7quh7"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -28,7 +29,7 @@ script = ExtResource("1_8utgd")
 tileSize = 240
 
 [node name="Player" parent="." instance=ExtResource("1_2la08")]
-position = Vector2(1920, -4080)
+position = Vector2(6240, -4080)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(0.3, 0.3)
@@ -123,16 +124,20 @@ activators = [NodePath("../../Items/Button")]
 position = Vector2(4320, -4320)
 
 [node name="Push2" parent="." instance=ExtResource("14_ip2n4")]
+visible = false
 position = Vector2(6000, -4080)
 
 [node name="Push3" parent="." instance=ExtResource("15_ir2oa")]
-position = Vector2(9360, -3360)
+position = Vector2(8160, -1680)
+
+[node name="Button1" parent="." instance=ExtResource("15_7vmk0")]
+position = Vector2(5760, -4080)
+
+[node name="Button2" parent="." instance=ExtResource("23_7quh7")]
+position = Vector2(13680, 240)
 
 [node name="StoneTeacher" parent="." instance=ExtResource("13_7d6rc")]
-position = Vector2(12000, -960)
-
-[node name="Button1" parent="." instance=ExtResource("23_7quh7")]
-position = Vector2(15840, -2160)
+position = Vector2(10800, 720)
 
 [node name="Nature1" parent="." instance=ExtResource("12_jfl5y")]
 position = Vector2(1920, -6720)
