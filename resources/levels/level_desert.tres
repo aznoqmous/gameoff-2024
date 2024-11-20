@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="LevelConfig" load_steps=4 format=3 uid="uid://bp46233w7mvtr"]
 
 [ext_resource type="Script" path="res://scripts/resources/level_config.gd" id="1_13tuw"]
-[ext_resource type="PackedScene" uid="uid://rf1fci4jcbyv" path="res://scenes/environments/desert_environment.tscn" id="1_ik8f0"]
+[ext_resource type="PackedScene" uid="uid://rf1fci4jcbyv" path="res://scenes/environments/environment_desert.tscn" id="1_ik8f0"]
 [ext_resource type="AudioStream" uid="uid://dqdon5uwpsxbw" path="res://resources/audio/music/MUS_Desert.wav" id="2_rmyit"]
 
 [resource]

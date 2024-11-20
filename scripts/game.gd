@@ -9,8 +9,8 @@ extends Node2D
 @onready var items: Node2D = $Terrain/Items
 @onready var tilesContainer: Node2D = $Terrain/Tiles
 
-@onready var camera_sprite_2d: Sprite2D = $Background/ParallaxBackground/BackgroundLayer/Sprite2D
-@onready var background: Background = $Background
+@onready var camera_sprite_2d: Sprite2D = $EnvironmentManager/ParallaxBackground/BackgroundLayer/Sprite2D
+@onready var environment: EnvironmentManager = $EnvironmentManager
 
 @onready var ground_layer: TileMapLayer = $GroundLayer
 @export var mapSize = Vector2(10,10)
@@ -39,6 +39,14 @@ func create_map() -> void:
 		load_level(level)
 
 func load_tiles_layer(layer: TileMapLayer, offset: Vector2 = Vector2.ZERO, level: Level = null):
+
+	for tile in layer.get_children():
+		tile.reparent(tilesContainer)
+		set_tile_at_position((tile.global_position / tileSize).round(), tile)
+		if level : 
+			tile.set_level(level)
+			level.objects.append(tile)
+
 	for tilePosition in layer.get_used_cells():
 		var texture : ImageTexture = get_cell_texture(tilePosition, layer)
 		var data := layer.get_cell_tile_data(tilePosition)
@@ -48,7 +56,7 @@ func load_tiles_layer(layer: TileMapLayer, offset: Vector2 = Vector2.ZERO, level
 		
 		var tile = tile_base.instantiate()
 		add_tile(tile, Vector2(tilePosition) + (offset / tileSize).round())
-		
+		print(tile.global_position / tileSize)
 		tile.set_texture(texture)
 		if level : 
 			tile.set_level(level)
@@ -59,6 +67,13 @@ func load_tiles_layer(layer: TileMapLayer, offset: Vector2 = Vector2.ZERO, level
 		tile.breakable = data.get_custom_data("breakable")
 
 func load_items_layer(layer: TileMapLayer, offset: Vector2, level: Level = null):
+	for item in layer.get_children():
+		if not item: continue
+		#add_item(item, (item.global_position - offset).round() / tileSize)
+		item.reparent(items)
+		item.init()
+		if level: level.objects.append(item)
+		
 	for tilePosition in layer.get_used_cells():
 		var data := layer.get_cell_tile_data(tilePosition)
 		var item = data.get_custom_data("item")
@@ -114,6 +129,7 @@ func set_tile(x, y, tile) -> void:
 	if tile: 
 		tiles[Vector2(x,y)] = tile
 	else: tiles.erase(Vector2(x,y))
+
 func set_tile_at_position(pos: Vector2, tile):
 	set_tile(pos.x, pos.y, tile)
 	
@@ -143,7 +159,7 @@ func set_level(level: Level):
 	if not current_level or current_level.level_config != level.level_config:
 		audio_manager.play_theme(level.level_config.theme)
 	current_level = level
-	background.set_level(level)
+	environment.set_level(level)
 	print("Entering ", level)
 
 func reset_level():

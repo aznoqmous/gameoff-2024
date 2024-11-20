@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcj10ermbut8h"]
+
+[ext_resource type="Script" path="res://scripts/levels/base_environment.gd" id="1_2o32l"]
+[ext_resource type="PackedScene" uid="uid://mous3wbqqboo" path="res://scenes/environments/parallax_background.tscn" id="2_iet4l"]
+
+[node name="Environment" type="Node2D"]
+z_index = 10
+script = ExtResource("1_2o32l")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("2_iet4l")]
+
+[node name="CloudSprite" parent="ParallaxBackground/ParallaxLayer" index="0"]
+modulate = Color(0.458824, 0.415686, 0.337255, 1)
+
+[node name="BackgroundSprite" parent="ParallaxBackground/BackgroundLayer" index="0"]
+modulate = Color(0.807843, 0.741176, 0.611765, 1)
+
+[editable path="ParallaxBackground"]

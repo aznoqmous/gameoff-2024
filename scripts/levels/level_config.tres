@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="LevelConfig" load_steps=2 format=3 uid="uid://cpcbaeiwl0e2m"]
-
-[ext_resource type="Script" path="res://scripts/resources/level_config.gd" id="1_mktpc"]
-
-[resource]
-script = ExtResource("1_mktpc")
-color = Color(0.855469, 0.855469, 0.855469, 1)
-cloud_color = Color(1, 1, 1, 0)

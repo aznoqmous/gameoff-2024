@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=4 uid="uid://cqmsxnbricsy5"]
+[gd_scene load_steps=6 format=4 uid="uid://cqmsxnbricsy5"]
 
-[ext_resource type="Script" path="res://scripts/level.gd" id="1_vj26o"]
+[ext_resource type="Script" path="res://scripts/levels/level.gd" id="1_vj26o"]
 [ext_resource type="TileSet" uid="uid://bovlkgk6cwuhx" path="res://resources/tilemaps/game.tres" id="2_cvj1s"]
-[ext_resource type="Resource" uid="uid://cpcbaeiwl0e2m" path="res://scripts/levels/level_config.tres" id="2_igcmf"]
+[ext_resource type="Resource" uid="uid://cpcbaeiwl0e2m" path="res://resources/levels/level_config.tres" id="2_igcmf"]
+[ext_resource type="PackedScene" uid="uid://bdp2lpfyiwu40" path="res://scenes/sign.tscn" id="4_ij2yg"]
+[ext_resource type="Texture2D" uid="uid://33dsu0l7bl51" path="res://resources/sprites/symbols/jump.png" id="5_2mem0"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_vj26o")
@@ -18,3 +20,17 @@ tile_set = ExtResource("2_cvj1s")
 z_index = -2
 position = Vector2(-128, -164.895)
 tile_set = ExtResource("2_cvj1s")
+
+[node name="JumpSign" parent="." instance=ExtResource("4_ij2yg")]
+position = Vector2(-14, -2726)
+message = "-- Lesson 1 : Jump --"
+symbol_sprite_texture = ExtResource("5_2mem0")
+
+[node name="CastSign" parent="." instance=ExtResource("4_ij2yg")]
+position = Vector2(-9, -1473)
+message = "-- CAST --
+SPACE, MOVE, SPACE"
+
+[node name="HelloSign" parent="." instance=ExtResource("4_ij2yg")]
+position = Vector2(-9, -481)
+message = "..."

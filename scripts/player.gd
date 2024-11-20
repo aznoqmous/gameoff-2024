@@ -209,7 +209,9 @@ func end_fall():
 	targetPositions.append(lastFlooredPosition)
 
 func add_cast_position(pos, dir):
-	if not cast_line.points.is_empty() and cast_line.points[-1] == pos : return;
+	if not cast_line.points.is_empty() and cast_line.points[-1] == pos : return
+	if not cast_line.points.is_empty() and cast_line.points.size() > 9 : return clear_cast()
+	
 	cast_line.add_point(pos)
 	var lastPos = Vector2.ZERO
 	if not castTrail.is_empty():
@@ -241,6 +243,14 @@ func cast():
 		spellMask[pos.y - min.y][pos.x - min.x] = 1
 		index += 1
 		
+	var newSpellSymbol : SpellSymbol = baseSymbol.instantiate()
+	add_child(newSpellSymbol)
+	var newLine : Line2D = cast_line.duplicate()
+	newLine.top_level = false
+	newSpellSymbol.add_line(newLine)
+	newSpellSymbol.label.position = position
+	newSpellSymbol.set_text(":(")
+	
 	var casted = false
 	for spell in spells:
 		for trail in spell.trails:
@@ -249,13 +259,7 @@ func cast():
 					casted = true
 					spell.spell.cast(trail)
 					
-					var newSpellSymbol : SpellSymbol = baseSymbol.instantiate()
-					add_child(newSpellSymbol)
-					var newLine : Line2D = cast_line.duplicate()
-					newLine.top_level = false
-					newSpellSymbol.add_line(newLine)
 					newSpellSymbol.set_text(spell.name)
-					newSpellSymbol.label.position = position
 
 	if not casted: cast_end_audio.play()
 	clear_cast()

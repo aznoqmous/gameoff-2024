@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://rqqiw0dq10kp"]
+[gd_scene load_steps=15 format=3 uid="uid://rqqiw0dq10kp"]
 
 [ext_resource type="Script" path="res://scripts/tile_items/tornado.gd" id="1_cfhno"]
 [ext_resource type="Texture2D" uid="uid://o2m5edjs8fbf" path="res://resources/sprites/tornado.png" id="2_tnkt6"]
+[ext_resource type="AudioStream" uid="uid://b1dwob2aiymys" path="res://resources/audio/SFX/Player_Fall-001.wav" id="3_g321f"]
 
 [sub_resource type="Animation" id="Animation_4sk8c"]
 resource_name = "Fall"
@@ -152,3 +153,6 @@ speed_scale = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_l6e7p")
+
+[node name="FallAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_g321f")

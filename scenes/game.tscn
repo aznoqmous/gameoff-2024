@@ -1,17 +1,16 @@
-[gd_scene load_steps=23 format=4 uid="uid://3pte44nuj5m5"]
+[gd_scene load_steps=22 format=4 uid="uid://3pte44nuj5m5"]
 
 [ext_resource type="PackedScene" uid="uid://bdlc63ysvlljr" path="res://scenes/player.tscn" id="1_2la08"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_8utgd"]
 [ext_resource type="AudioStream" uid="uid://dq2t0pxe1d4dc" path="res://resources/audio/SFX/AMB_Background.wav" id="2_6ksot"]
 [ext_resource type="Script" path="res://scripts/audio_manager.gd" id="2_8fmnl"]
 [ext_resource type="TileSet" uid="uid://bovlkgk6cwuhx" path="res://resources/tilemaps/game.tres" id="2_4554k"]
-[ext_resource type="Texture2D" uid="uid://b5g6u5t0jc7s2" path="res://resources/sprites/square.png" id="4_smtyw"]
 [ext_resource type="PackedScene" uid="uid://dhgprbkhapw2i" path="res://scenes/items/button.tscn" id="5_3j3c6"]
-[ext_resource type="PackedScene" uid="uid://bdp2lpfyiwu40" path="res://scenes/sign.tscn" id="5_mc1l0"]
+[ext_resource type="PackedScene" uid="uid://mous3wbqqboo" path="res://scenes/environments/parallax_background.tscn" id="5_6jx2f"]
 [ext_resource type="PackedScene" uid="uid://b7t2q0dt6xcgn" path="res://scenes/tiles/tile-nature.tscn" id="6_rycf0"]
-[ext_resource type="Texture2D" uid="uid://33dsu0l7bl51" path="res://resources/sprites/symbols/jump.png" id="9_714xr"]
 [ext_resource type="PackedScene" uid="uid://y06bwyn3cqea" path="res://scenes/nature_particles.tscn" id="9_lygld"]
 [ext_resource type="PackedScene" uid="uid://44ius7w12rme" path="res://scenes/levels/level_nature_teacher.tscn" id="10_pwtql"]
+[ext_resource type="Texture2D" uid="uid://rrc3srj3ranm" path="res://resources/sprites/point.png" id="11_uslv7"]
 [ext_resource type="PackedScene" uid="uid://7bo0qg6aqda6" path="res://scenes/levels/level_nature_1.tscn" id="12_jfl5y"]
 [ext_resource type="PackedScene" uid="uid://b4loukqvarc2c" path="res://scenes/levels/level_mountain_teacher.tscn" id="13_7d6rc"]
 [ext_resource type="PackedScene" uid="uid://vr5hu5v71q30" path="res://scenes/levels/level_mountain_1.tscn" id="13_s7yu7"]
@@ -20,13 +19,34 @@
 [ext_resource type="PackedScene" uid="uid://cqmsxnbricsy5" path="res://scenes/levels/spawn.tscn" id="15_fd4cq"]
 [ext_resource type="PackedScene" uid="uid://db5qlgw6ls16u" path="res://scenes/levels/level_mountain_3.tscn" id="15_ir2oa"]
 [ext_resource type="PackedScene" uid="uid://dcql1w2n5ulgu" path="res://scenes/levels/sanctuary.tscn" id="17_nerxj"]
-[ext_resource type="Script" path="res://scripts/background.gd" id="21_1k5mv"]
-[ext_resource type="Texture2D" uid="uid://cone0cw03eolm" path="res://resources/sprites/clouds-blank.png" id="22_ktvkw"]
+[ext_resource type="Script" path="res://scripts/levels/environment_manager.gd" id="21_1k5mv"]
+[ext_resource type="PackedScene" uid="uid://b4ju5dfgus5lq" path="res://scenes/levels/level_mountain_buttons.tscn" id="23_7quh7"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_8utgd")
 tileSize = 240
+
+[node name="Player" parent="." instance=ExtResource("1_2la08")]
+position = Vector2(1920, -4080)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(0.3, 0.3)
+position_smoothing_enabled = true
+
+[node name="PointLight2D" type="PointLight2D" parent="Player/Camera2D"]
+scale = Vector2(10, 10)
+energy = 0.2
+texture = ExtResource("11_uslv7")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="Player"]
+current = true
+
+[node name="NatureParticles" parent="Player" instance=ExtResource("9_lygld")]
+visible = false
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.8, 0.8, 0.8, 1)
 
 [node name="AudioManager" type="Node" parent="."]
 script = ExtResource("2_8fmnl")
@@ -41,6 +61,12 @@ bus = &"Music"
 
 [node name="ThemeAudio" type="AudioStreamPlayer" parent="AudioManager"]
 bus = &"Music"
+
+[node name="EnvironmentManager" type="Node2D" parent="."]
+script = ExtResource("21_1k5mv")
+
+[node name="ParallaxBackground" parent="EnvironmentManager" instance=ExtResource("5_6jx2f")]
+visible = false
 
 [node name="GroundLayer" type="TileMapLayer" parent="."]
 z_index = -2
@@ -91,32 +117,7 @@ activators = [NodePath("../../Items/Button")]
 position = Vector2(1920, -6480)
 activators = [NodePath("../../Items/Button")]
 
-[node name="Player" parent="." instance=ExtResource("1_2la08")]
-position = Vector2(1920, -3840)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(0.3, 0.3)
-position_smoothing_enabled = true
-
-[node name="AudioListener2D" type="AudioListener2D" parent="Player"]
-current = true
-
-[node name="NatureParticles" parent="Player" instance=ExtResource("9_lygld")]
-visible = false
-
-[node name="JumpSign" parent="." instance=ExtResource("5_mc1l0")]
-position = Vector2(-14, -2726)
-message = "-- Lesson 1 : Jump --"
-symbol_sprite_texture = ExtResource("9_714xr")
-
-[node name="CastSign" parent="." instance=ExtResource("5_mc1l0")]
-position = Vector2(-9, -1473)
-message = "-- CAST --
-SPACE, MOVE, SPACE"
-
-[node name="HelloSign" parent="." instance=ExtResource("5_mc1l0")]
-position = Vector2(-9, -481)
-message = "..."
+[node name="---STONE---" type="Node" parent="."]
 
 [node name="Push1" parent="." instance=ExtResource("13_s7yu7")]
 position = Vector2(4320, -4320)
@@ -129,6 +130,9 @@ position = Vector2(9360, -3360)
 
 [node name="StoneTeacher" parent="." instance=ExtResource("13_7d6rc")]
 position = Vector2(12000, -960)
+
+[node name="Button1" parent="." instance=ExtResource("23_7quh7")]
+position = Vector2(15840, -2160)
 
 [node name="Nature1" parent="." instance=ExtResource("12_jfl5y")]
 position = Vector2(1920, -6720)
@@ -145,26 +149,3 @@ position = Vector2(-720, -4080)
 
 [node name="Level1" parent="." instance=ExtResource("17_nerxj")]
 position = Vector2(1920, -4080)
-
-[node name="Background" type="Node2D" parent="."]
-script = ExtResource("21_1k5mv")
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="Background"]
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="Background/ParallaxBackground"]
-motion_scale = Vector2(0.9, 0.9)
-motion_mirroring = Vector2(4320, 4320)
-
-[node name="CloudSprite" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer"]
-scale = Vector2(4, 4)
-texture = ExtResource("22_ktvkw")
-centered = false
-
-[node name="BackgroundLayer" type="ParallaxLayer" parent="Background/ParallaxBackground"]
-motion_mirroring = Vector2(1024, 768)
-
-[node name="BackgroundSprite" type="Sprite2D" parent="Background/ParallaxBackground/BackgroundLayer"]
-modulate = Color(0.854902, 0.854902, 0.854902, 1)
-z_index = -10
-scale = Vector2(187.5, 127.5)
-texture = ExtResource("4_smtyw")

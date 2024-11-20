@@ -16,10 +16,6 @@ func _ready() -> void:
 	item_layer.visible = false
 	pass
 
-
-func _process(delta: float) -> void:
-	pass
-
 func clear():
 	for obj in objects:
 		if obj != null: obj.queue_free()

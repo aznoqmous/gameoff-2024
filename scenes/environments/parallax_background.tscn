@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://mous3wbqqboo"]
+
+[ext_resource type="Texture2D" uid="uid://cone0cw03eolm" path="res://resources/sprites/clouds-blank.png" id="1_dis2v"]
+[ext_resource type="Texture2D" uid="uid://b5g6u5t0jc7s2" path="res://resources/sprites/square.png" id="2_wqcxt"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+layer = -5
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.9, 0.9)
+motion_mirroring = Vector2(4320, 4320)
+
+[node name="CloudSprite" type="Sprite2D" parent="ParallaxLayer"]
+z_as_relative = false
+scale = Vector2(4, 4)
+texture = ExtResource("1_dis2v")
+centered = false
+
+[node name="BackgroundLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(1024, 768)
+
+[node name="BackgroundSprite" type="Sprite2D" parent="BackgroundLayer"]
+modulate = Color(0.854902, 0.854902, 0.854902, 1)
+z_index = -10
+scale = Vector2(187.5, 127.5)
+texture = ExtResource("2_wqcxt")

@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=4 uid="uid://vr5hu5v71q30"]
 
 [ext_resource type="TileSet" uid="uid://bovlkgk6cwuhx" path="res://resources/tilemaps/game.tres" id="1_hwqyo"]
-[ext_resource type="Script" path="res://scripts/level.gd" id="1_ulkl8"]
-[ext_resource type="Resource" uid="uid://d28pre13p8bry" path="res://scripts/levels/level_mountain.tres" id="2_q6rf3"]
+[ext_resource type="Script" path="res://scripts/levels/level.gd" id="1_ulkl8"]
+[ext_resource type="Resource" uid="uid://d28pre13p8bry" path="res://resources/levels/level_mountain.tres" id="2_q6rf3"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_ulkl8")

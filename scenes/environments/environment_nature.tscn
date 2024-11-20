@@ -1,0 +1,83 @@
+[gd_scene load_steps=7 format=3 uid="uid://c0y186lynyfnm"]
+
+[ext_resource type="Script" path="res://scripts/levels/base_environment.gd" id="1_jumcc"]
+[ext_resource type="Texture2D" uid="uid://vwerwarwcs7h" path="res://resources/sprites/particle.png" id="2_4f7h5"]
+[ext_resource type="Texture2D" uid="uid://dtp47pwqimo3q" path="res://resources/sprites/background-texture.jpg" id="3_opfow"]
+[ext_resource type="PackedScene" uid="uid://cyx621is8r273" path="res://scenes/environments/firefly.tscn" id="4_m2b37"]
+[ext_resource type="PackedScene" uid="uid://mous3wbqqboo" path="res://scenes/environments/parallax_background.tscn" id="5_d05jv"]
+
+[sub_resource type="Curve" id="Curve_dndaf"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.744755, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="Environment" type="Node2D"]
+z_index = 10
+script = ExtResource("1_jumcc")
+
+[node name="SandParticles" type="CPUParticles2D" parent="."]
+visible = false
+position = Vector2(-1920, -720)
+amount = 25
+lifetime = 2.0
+randomness = 1.0
+texture = ExtResource("2_4f7h5")
+emission_shape = 3
+emission_rect_extents = Vector2(1, 2000)
+direction = Vector2(2, 1)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 2000.0
+initial_velocity_max = 3000.0
+scale_amount_min = 0.1
+scale_amount_max = 0.5
+scale_amount_curve = SubResource("Curve_dndaf")
+color = Color(0.546875, 0.528361, 0.40802, 1)
+
+[node name="Fog" type="CPUParticles2D" parent="."]
+visible = false
+position = Vector2(-1200, -720)
+amount = 25
+lifetime = 2.0
+randomness = 1.0
+texture = ExtResource("2_4f7h5")
+emission_shape = 3
+emission_rect_extents = Vector2(2000, 1)
+direction = Vector2(2, 1)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 2000.0
+initial_velocity_max = 3000.0
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 9.81
+scale_amount_max = 24.37
+scale_amount_curve = SubResource("Curve_dndaf")
+color = Color(0.94, 0.923707, 0.8178, 0.0784314)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0.94, 0.923707, 0.8178, 0.235294)
+scale = Vector2(6.6, 6.6)
+texture = ExtResource("3_opfow")
+
+[node name="EnvironmentFirefly" parent="." instance=ExtResource("4_m2b37")]
+top_level = true
+position = Vector2(480, 240)
+
+[node name="EnvironmentFirefly2" parent="." instance=ExtResource("4_m2b37")]
+top_level = true
+position = Vector2(480, 240)
+
+[node name="EnvironmentFirefly3" parent="." instance=ExtResource("4_m2b37")]
+top_level = true
+position = Vector2(480, 240)
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("5_d05jv")]
+
+[node name="CloudSprite" parent="ParallaxBackground/ParallaxLayer" index="0"]
+modulate = Color(0.752014, 0.867188, 0.853691, 1)
+
+[node name="BackgroundSprite" parent="ParallaxBackground/BackgroundLayer" index="0"]
+modulate = Color(0.55365, 0.734375, 0.715679, 1)
+
+[editable path="ParallaxBackground"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vwerwarwcs7h"
-path="res://.godot/imported/parlticle.png-45a3eb75c7cc36d1312a0c348b3883ac.ctex"
+uid="uid://dqjp2i6kb8jyq"
+path="res://.godot/imported/firefly.png-eb5469f9348b2d45dfcf61c91c99484a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/sprites/parlticle.png"
-dest_files=["res://.godot/imported/parlticle.png-45a3eb75c7cc36d1312a0c348b3883ac.ctex"]
+source_file="res://resources/sprites/firefly.png"
+dest_files=["res://.godot/imported/firefly.png-eb5469f9348b2d45dfcf61c91c99484a.ctex"]
 
 [params]
 
