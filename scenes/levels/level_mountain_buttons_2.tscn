@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dkriar24wri7v" path="res://scenes/tiles/tile-mountain.tscn" id="4_orck1"]
 [ext_resource type="PackedScene" uid="uid://dhgprbkhapw2i" path="res://scenes/items/button.tscn" id="5_qppny"]
 
-[node name="Level3" type="Node2D"]
+[node name="MountainButtons2" type="Node2D"]
 script = ExtResource("1_30tte")
 level_config = ExtResource("2_irp1l")
 

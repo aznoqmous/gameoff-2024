@@ -5,7 +5,6 @@ func init():
 	super()
 	
 	var tile: Tile = get_tile()
-	print("TORNADO INIT")
 	tile.on_set_item.connect(handle_tile_set_item)
 	tile.on_enter_tile.connect(handle_enter_tile)
 	

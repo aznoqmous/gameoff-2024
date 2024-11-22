@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://bdlc63ysvlljr"]
+[gd_scene load_steps=55 format=3 uid="uid://bdlc63ysvlljr"]
 
 [ext_resource type="Texture2D" uid="uid://bvn24e5joccqc" path="res://resources/sprites/player_0001_body.png" id="1_1lid0"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_3pkg8"]
@@ -13,19 +13,24 @@
 [ext_resource type="AudioStream" uid="uid://cb66bf2mr6r2f" path="res://resources/audio/SFX/Magic_Jump-001.wav" id="10_x3kuq"]
 [ext_resource type="AudioStream" uid="uid://cix7cvqh7y8da" path="res://resources/audio/SFX/Magic_Jump-002.wav" id="11_oisot"]
 [ext_resource type="Script" path="res://scripts/spells/spawn_stone.gd" id="11_uvcyf"]
-[ext_resource type="Script" path="res://scripts/spells/spawn_energy.gd" id="12_tmpeg"]
 [ext_resource type="AudioStream" uid="uid://dg7gxmkdmr8nb" path="res://resources/audio/SFX/Magic_Jump-003.wav" id="12_xkn28"]
 [ext_resource type="Script" path="res://scripts/spells/spawn_tornado.gd" id="13_ur5lk"]
 [ext_resource type="AudioStream" uid="uid://nbkdgfrr8tuq" path="res://resources/audio/placeholder.wav" id="14_ni1mo"]
 [ext_resource type="AudioStream" uid="uid://c6lv35hsmwq4g" path="res://resources/audio/SFX/Player_Move_Magic-001.wav" id="15_51yk2"]
 [ext_resource type="AudioStream" uid="uid://bxfo4el4im6qv" path="res://resources/audio/SFX/Cast_Start-001.wav" id="15_o0elb"]
 [ext_resource type="AudioStream" uid="uid://b3qy8tp2dxru7" path="res://resources/audio/SFX/Cast_Start-002.wav" id="16_q12jb"]
+[ext_resource type="AudioStream" uid="uid://ct4bus2p1ntsq" path="res://resources/audio/SFX/Magic_Rock-001.wav" id="16_qsvkn"]
 [ext_resource type="AudioStream" uid="uid://bqx672k62f2hk" path="res://resources/audio/SFX/Cast_Start-003.wav" id="17_55fsh"]
+[ext_resource type="AudioStream" uid="uid://deknhbaxkh8me" path="res://resources/audio/SFX/Magic_Rock-002.wav" id="17_ljjxc"]
 [ext_resource type="AudioStream" uid="uid://doasyb5vc7a7q" path="res://resources/audio/SFX/Cast_Start-004.wav" id="18_02a84"]
+[ext_resource type="AudioStream" uid="uid://b6mb18nardymk" path="res://resources/audio/SFX/Magic_Rock-003.wav" id="18_4fw2a"]
 [ext_resource type="AudioStream" uid="uid://cuvgr8c74v7hi" path="res://resources/audio/SFX/Cast_Loop.wav" id="20_1wtkq"]
+[ext_resource type="AudioStream" uid="uid://cvrtbly182vmp" path="res://resources/audio/SFX/Magic_Tornado-001.wav" id="20_kqp6i"]
 [ext_resource type="AudioStream" uid="uid://8m55qb2w2jes" path="res://resources/audio/SFX/Player_Jump_Rise-001.wav" id="21_7ksjh"]
+[ext_resource type="AudioStream" uid="uid://6nl6aoh0x1kg" path="res://resources/audio/SFX/Magic_Tornado-002.wav" id="21_hmp15"]
 [ext_resource type="AudioStream" uid="uid://b1dwob2aiymys" path="res://resources/audio/SFX/Player_Fall-001.wav" id="22_4ak1h"]
 [ext_resource type="AudioStream" uid="uid://bmwagaf2yfeo6" path="res://resources/audio/SFX/Cast_Fail.wav" id="22_8tjp5"]
+[ext_resource type="AudioStream" uid="uid://b0cvee73o8d4q" path="res://resources/audio/SFX/Magic_Tornado-003.wav" id="22_h07y1"]
 [ext_resource type="Script" path="res://scripts/audio_list.gd" id="26_rn3mj"]
 [ext_resource type="AudioStream" uid="uid://hwatu7tqxtyo" path="res://resources/audio/SFX/Player_Move_Magic-002.wav" id="28_uoi1o"]
 [ext_resource type="AudioStream" uid="uid://bqfpjqjohryex" path="res://resources/audio/SFX/Player_Move_Magic-003.wav" id="29_kjqr4"]
@@ -911,6 +916,18 @@ stream_0/stream = ExtResource("10_x3kuq")
 stream_1/stream = ExtResource("11_oisot")
 stream_2/stream = ExtResource("12_xkn28")
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_wan50"]
+streams_count = 3
+stream_0/stream = ExtResource("16_qsvkn")
+stream_1/stream = ExtResource("17_ljjxc")
+stream_2/stream = ExtResource("18_4fw2a")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xr5cy"]
+streams_count = 3
+stream_0/stream = ExtResource("20_kqp6i")
+stream_1/stream = ExtResource("21_hmp15")
+stream_2/stream = ExtResource("22_h07y1")
+
 [sub_resource type="AudioStream" id="AudioStream_tx8dd"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_o8prq"]
@@ -1012,21 +1029,14 @@ bus = &"SFX"
 script = ExtResource("11_uvcyf")
 
 [node name="Audio" type="AudioStreamPlayer" parent="Spells/SpawnStone"]
-stream = ExtResource("14_ni1mo")
-bus = &"SFX"
-
-[node name="SpawnEnergyBall" type="Node" parent="Spells"]
-script = ExtResource("12_tmpeg")
-
-[node name="Audio" type="AudioStreamPlayer" parent="Spells/SpawnEnergyBall"]
-stream = ExtResource("14_ni1mo")
+stream = SubResource("AudioStreamRandomizer_wan50")
 bus = &"SFX"
 
 [node name="SpawnTornado" type="Node" parent="Spells"]
 script = ExtResource("13_ur5lk")
 
 [node name="Audio" type="AudioStreamPlayer" parent="Spells/SpawnTornado"]
-stream = ExtResource("14_ni1mo")
+stream = SubResource("AudioStreamRandomizer_xr5cy")
 bus = &"SFX"
 
 [node name="Audio" type="Node2D" parent="."]

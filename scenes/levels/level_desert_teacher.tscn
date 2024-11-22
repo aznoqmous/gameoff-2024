@@ -1,11 +1,12 @@
-[gd_scene load_steps=5 format=4 uid="uid://b0ilfph3jcmlc"]
+[gd_scene load_steps=6 format=4 uid="uid://b0ilfph3jcmlc"]
 
 [ext_resource type="Script" path="res://scripts/levels/level.gd" id="1_jjxnf"]
 [ext_resource type="Resource" uid="uid://bp46233w7mvtr" path="res://resources/levels/level_desert.tres" id="2_7x2fo"]
 [ext_resource type="TileSet" uid="uid://bovlkgk6cwuhx" path="res://resources/tilemaps/game.tres" id="3_kd81x"]
 [ext_resource type="PackedScene" uid="uid://dhmnwbbaxa1e0" path="res://scenes/teachers/teacher-desert.tscn" id="4_7f5ml"]
+[ext_resource type="PackedScene" uid="uid://cpjdyvcelx4da" path="res://scenes/camera_pan.tscn" id="5_4mme6"]
 
-[node name="Level" type="Node2D"]
+[node name="DesertTeacher" type="Node2D"]
 script = ExtResource("1_jjxnf")
 level_config = ExtResource("2_7x2fo")
 
@@ -26,3 +27,11 @@ tile_set = ExtResource("3_kd81x")
 
 [node name="Teacher" parent="." instance=ExtResource("4_7f5ml")]
 position = Vector2(-3120, -1200)
+
+[node name="CameraPan" parent="." instance=ExtResource("5_4mme6")]
+position = Vector2(-3120, -1440)
+
+[node name="CollisionPolygon2D" parent="CameraPan/Area2D" index="0"]
+polygon = PackedVector2Array(960, 480, 960, 1200, -240, 1200, -240, 480)
+
+[editable path="CameraPan"]

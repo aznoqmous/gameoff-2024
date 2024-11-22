@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://jyirjhlkjwxy" path="res://scenes/items/stone.tscn" id="3_t37oe"]
 [ext_resource type="PackedScene" uid="uid://dhgprbkhapw2i" path="res://scenes/items/button.tscn" id="4_doatv"]
 [ext_resource type="Texture2D" uid="uid://2x0jmm3v2cpk" path="res://resources/sprites/items.png" id="5_1gpah"]
-[ext_resource type="PackedScene" uid="uid://cp4ggkrgdyacy" path="res://scenes/items/block.tscn" id="5_wxxg2"]
+[ext_resource type="PackedScene" uid="uid://cp4ggkrgdyacy" path="res://scenes/block.tscn" id="5_gx3vp"]
 [ext_resource type="PackedScene" uid="uid://rqqiw0dq10kp" path="res://scenes/items/tornado.tscn" id="6_iuvwh"]
 [ext_resource type="Texture2D" uid="uid://b7je67kxukmdh" path="res://resources/sprites/tiles-2.png" id="7_58spl"]
 [ext_resource type="PackedScene" uid="uid://b7t2q0dt6xcgn" path="res://scenes/tiles/tile-nature.tscn" id="8_tlokx"]
@@ -33,7 +33,7 @@ texture_region_size = Vector2i(250, 300)
 1:0/0 = 0
 1:0/0/custom_data_4 = ExtResource("4_doatv")
 2:0/0 = 0
-2:0/0/custom_data_4 = ExtResource("5_wxxg2")
+2:0/0/custom_data_4 = ExtResource("5_gx3vp")
 3:0/0 = 0
 3:0/0/custom_data_4 = ExtResource("6_iuvwh")
 

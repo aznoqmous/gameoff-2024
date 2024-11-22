@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bdp2lpfyiwu40" path="res://scenes/sign.tscn" id="4_ij2yg"]
 [ext_resource type="Texture2D" uid="uid://33dsu0l7bl51" path="res://resources/sprites/symbols/jump.png" id="5_2mem0"]
 
-[node name="Level1" type="Node2D"]
+[node name="Spawn" type="Node2D"]
 script = ExtResource("1_vj26o")
 level_config = ExtResource("2_igcmf")
 

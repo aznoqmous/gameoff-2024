@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://5j1qjhkvo4du" path="res://resources/levels/level_nature.tres" id="2_bsqs5"]
 [ext_resource type="PackedScene" uid="uid://tywt2nicjedo" path="res://scenes/teachers/teacher-nature.tscn" id="3_s02hy"]
 
-[node name="Level3" type="Node2D"]
+[node name="NatureTeacher" type="Node2D"]
 script = ExtResource("1_tau6u")
 level_config = ExtResource("2_bsqs5")
 

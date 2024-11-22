@@ -15,7 +15,6 @@ func push(direction: Vector2):
 
 func handle_movement(pos: Vector2):
 	moved += 1
-	print(fallable)
 	if moved >= distance or game.is_blocked(currentPosition/game.tileSize + currentDirection): 
 		fallable = true
 		return

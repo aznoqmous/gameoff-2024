@@ -34,12 +34,14 @@ func create_map() -> void:
 	ground_layer.visible = false
 	
 	load_tiles_layer(ground_layer)
-	
-	for level: Level in levels:
-		if level.is_visible_in_tree(): load_level(level)
+	for level: Level in levels.duplicate():
+		if level.is_visible_in_tree():
+			level.init()
+			load_level(level.clone())
+			remove_child(level)
 
 func load_tiles_layer(layer: TileMapLayer, offset: Vector2 = Vector2.ZERO, level: Level = null):
-
+	
 	for tile in layer.get_children():
 		tile.reparent(tilesContainer)
 		set_tile_at_position((tile.global_position / tileSize).round(), tile)
@@ -56,7 +58,6 @@ func load_tiles_layer(layer: TileMapLayer, offset: Vector2 = Vector2.ZERO, level
 		
 		var tile = tile_base.instantiate()
 		add_tile(tile, Vector2(tilePosition) + (offset / tileSize).round())
-		print(tile.global_position / tileSize)
 		tile.set_texture(texture)
 		if level : 
 			tile.set_level(level)
@@ -69,7 +70,6 @@ func load_tiles_layer(layer: TileMapLayer, offset: Vector2 = Vector2.ZERO, level
 func load_items_layer(layer: TileMapLayer, offset: Vector2, level: Level = null):
 	for item in layer.get_children():
 		if not item: continue
-		#add_item(item, (item.global_position - offset).round() / tileSize)
 		item.reparent(items)
 		item.init()
 		if level: level.objects.append(item)
@@ -83,6 +83,9 @@ func load_items_layer(layer: TileMapLayer, offset: Vector2, level: Level = null)
 		if level: level.objects.append(item)
 		
 func load_level(level: Level):
+	add_child(level)
+	if not level.is_node_ready(): await level.ready
+	print("READY", level)
 	load_tiles_layer(level.tile_map_layer, level.position, level)
 	load_items_layer(level.item_layer, level.position, level)
 	audio_manager.preload_level_audio(level.level_config.theme)
@@ -108,7 +111,7 @@ func add_item(tile_item: TileItem, pos: Vector2):
 	
 func get_tile(x, y) -> Tile:
 	var key = Vector2(x,y)
-	if tiles.has(key) and tiles[key].is_active():
+	if tiles.has(key) and tiles[key] != null and tiles[key].is_active():
 		return tiles[key]
 	return null
 	
@@ -164,10 +167,13 @@ func set_level(level: Level):
 
 func reset_level():
 	if not current_level: return
-	current_level.clear()
+	var level = current_level
+	current_level = level.clone()
+	level.clear()
+	remove_child(level)
+	level.queue_free()
 	load_level(current_level)
 	if current_level.spawn: 
 		player.set_current_position(current_level.position + current_level.spawn.position)
 	else:
 		player.set_current_position(current_level.position)
-	

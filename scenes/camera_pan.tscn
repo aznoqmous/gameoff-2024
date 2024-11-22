@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cpjdyvcelx4da"]
+
+[node name="CameraPan" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(240, 0, 240, 240, 480, 240, 480, 480, 0, 480, 0, 0)

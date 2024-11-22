@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dkriar24wri7v" path="res://scenes/tiles/tile-mountain.tscn" id="4_hspfw"]
 [ext_resource type="PackedScene" uid="uid://dhgprbkhapw2i" path="res://scenes/items/button.tscn" id="5_85u8g"]
 
-[node name="Level3" type="Node2D"]
+[node name="MountainButtons1" type="Node2D"]
 script = ExtResource("1_rdthi")
 level_config = ExtResource("2_eer8v")
 
@@ -48,13 +48,15 @@ position = Vector2(3008, 2048)
 activators = [NodePath("../../ItemLayer/Button")]
 
 [node name="ItemLayer" type="TileMapLayer" parent="."]
-z_index = -2
 position = Vector2(-128, -164.895)
 tile_map_data = PackedByteArray("AAAEAAUAAgAAAAAAAAAHAAIAAgAAAAAAAAA=")
 tile_set = ExtResource("3_abffc")
 
 [node name="Button2" parent="ItemLayer" instance=ExtResource("5_85u8g")]
 position = Vector2(2528, 1364.9)
+
+[node name="Button3" parent="ItemLayer" instance=ExtResource("5_85u8g")]
+position = Vector2(848, 164.895)
 
 [node name="Button" parent="ItemLayer" instance=ExtResource("5_85u8g")]
 position = Vector2(1808, 2324.9)

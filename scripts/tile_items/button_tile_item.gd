@@ -6,6 +6,7 @@ extends ActivatorTileItem
 @onready var exit_audio: AudioStreamPlayer2D = $ExitAudio
 
 func _ready() -> void:
+	set_active(area_2d.get_overlapping_areas().size() > 0)
 	area_2d.area_entered.connect(handle_enter)
 	area_2d.area_exited.connect(handle_exit)
 
