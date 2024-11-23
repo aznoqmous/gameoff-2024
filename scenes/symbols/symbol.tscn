@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://1lyf2vk0tge2"]
+
+[ext_resource type="Texture2D" uid="uid://jdgwy8a76lle" path="res://resources/sprites/symbol-lilipad.png" id="1_e7kui"]
+[ext_resource type="Texture2D" uid="uid://rrc3srj3ranm" path="res://resources/sprites/point.png" id="2_h7sna"]
+
+[node name="Symbol" type="Node2D"]
+z_index = -1
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 0.2
+texture = ExtResource("2_h7sna")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 0)
+texture = ExtResource("1_e7kui")

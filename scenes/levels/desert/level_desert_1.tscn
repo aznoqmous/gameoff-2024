@@ -37,7 +37,7 @@ activators = [NodePath("../../ItemLayer/Button")]
 [node name="ItemLayer" type="TileMapLayer" parent="."]
 z_index = -2
 position = Vector2(-128, -164.895)
-tile_map_data = PackedByteArray("AAD4//z/AgADAAAAAAD4//b/AgADAAAAAAD3//f/AgADAAAAAAD4//f/AgAAAAAAAAD4//P/AgAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD4//z/AgADAAAAAAD4//b/AgADAAAAAAD3//f/AgADAAAAAAD4//f/AgAAAAAAAAD4//P/AgAAAAAAAAD3//7/AgAEAAAAAAD7//b/AgAEAAAAAADz//T/AgAEAAAAAAD5//L/AgAEAAAAAAA=")
 tile_set = ExtResource("3_do6kw")
 
 [node name="Button" parent="ItemLayer" instance=ExtResource("4_p1ugn")]

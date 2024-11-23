@@ -11,7 +11,6 @@ script = ExtResource("1_mcsgx")
 level_config = ExtResource("2_reemg")
 
 [node name="Spawn" type="Node2D" parent="."]
-position = Vector2(480, -240)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -2

@@ -1,12 +1,13 @@
-[gd_resource type="TileSet" load_steps=16 format=3 uid="uid://bovlkgk6cwuhx"]
+[gd_resource type="TileSet" load_steps=17 format=3 uid="uid://bovlkgk6cwuhx"]
 
 [ext_resource type="PackedScene" uid="uid://cj447cxojo2t6" path="res://scenes/tiles/tile.tscn" id="1_ljsyo"]
 [ext_resource type="Texture2D" uid="uid://kx4f52yamxb2" path="res://resources/sprites/tiles.png" id="1_v0071"]
 [ext_resource type="PackedScene" uid="uid://jyirjhlkjwxy" path="res://scenes/items/stone.tscn" id="3_t37oe"]
 [ext_resource type="PackedScene" uid="uid://dhgprbkhapw2i" path="res://scenes/items/button.tscn" id="4_doatv"]
 [ext_resource type="Texture2D" uid="uid://2x0jmm3v2cpk" path="res://resources/sprites/items.png" id="5_1gpah"]
-[ext_resource type="PackedScene" uid="uid://cp4ggkrgdyacy" path="res://scenes/block.tscn" id="5_gx3vp"]
+[ext_resource type="PackedScene" uid="uid://cp4ggkrgdyacy" path="res://scenes/items/block.tscn" id="5_cr3au"]
 [ext_resource type="PackedScene" uid="uid://rqqiw0dq10kp" path="res://scenes/items/tornado.tscn" id="6_iuvwh"]
+[ext_resource type="PackedScene" uid="uid://ca3glk4ae3btq" path="res://scenes/items/cactus.tscn" id="7_3gfq4"]
 [ext_resource type="Texture2D" uid="uid://b7je67kxukmdh" path="res://resources/sprites/tiles-2.png" id="7_58spl"]
 [ext_resource type="PackedScene" uid="uid://b7t2q0dt6xcgn" path="res://scenes/tiles/tile-nature.tscn" id="8_tlokx"]
 [ext_resource type="PackedScene" uid="uid://dkriar24wri7v" path="res://scenes/tiles/tile-mountain.tscn" id="9_rtco0"]
@@ -33,9 +34,11 @@ texture_region_size = Vector2i(250, 300)
 1:0/0 = 0
 1:0/0/custom_data_4 = ExtResource("4_doatv")
 2:0/0 = 0
-2:0/0/custom_data_4 = ExtResource("5_gx3vp")
+2:0/0/custom_data_4 = ExtResource("5_cr3au")
 3:0/0 = 0
 3:0/0/custom_data_4 = ExtResource("6_iuvwh")
+4:0/0 = 0
+4:0/0/custom_data_4 = ExtResource("7_3gfq4")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n1jgk"]
 texture = ExtResource("7_58spl")
@@ -93,6 +96,9 @@ texture_region_size = Vector2i(300, 300)
 3:0/0/custom_data_1 = true
 3:0/0/custom_data_2 = true
 3:0/0/custom_data_3 = ExtResource("11_o34if")
+3:3/0 = 0
+3:3/0/custom_data_0 = true
+3:3/0/custom_data_1 = true
 
 [resource]
 tile_size = Vector2i(240, 240)

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=4 uid="uid://s2kgfl5cr0xl"]
+[gd_scene load_steps=5 format=4 uid="uid://s2kgfl5cr0xl"]
 
 [ext_resource type="Script" path="res://scripts/levels/level.gd" id="1_fjns7"]
 [ext_resource type="Resource" uid="uid://bp46233w7mvtr" path="res://resources/levels/level_desert.tres" id="2_0nrcw"]
 [ext_resource type="TileSet" uid="uid://bovlkgk6cwuhx" path="res://resources/tilemaps/game.tres" id="3_fkrmr"]
+[ext_resource type="PackedScene" uid="uid://4q35qrha1s02" path="res://scenes/altar.tscn" id="4_g8ryc"]
 
 [node name="NewLevel" type="Node2D"]
 script = ExtResource("1_fjns7")
@@ -20,3 +21,7 @@ tile_set = ExtResource("3_fkrmr")
 z_index = -2
 position = Vector2(-128, -164.895)
 tile_set = ExtResource("3_fkrmr")
+
+[node name="Altar" parent="." instance=ExtResource("4_g8ryc")]
+modulate = Color(1, 0.980469, 0.867188, 1)
+position = Vector2(-1200, -1680)

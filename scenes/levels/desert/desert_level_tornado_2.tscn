@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=4 uid="uid://cplxqu1ucbmqv"]
+
+[ext_resource type="Script" path="res://scripts/levels/level.gd" id="1_mjt8t"]
+[ext_resource type="Resource" uid="uid://bp46233w7mvtr" path="res://resources/levels/level_desert.tres" id="2_8b4c4"]
+[ext_resource type="TileSet" uid="uid://bovlkgk6cwuhx" path="res://resources/tilemaps/game.tres" id="3_e5xaq"]
+[ext_resource type="PackedScene" uid="uid://oseu3jfwxp3m" path="res://scenes/tiles/tile-desert.tscn" id="4_naq82"]
+[ext_resource type="PackedScene" uid="uid://dhgprbkhapw2i" path="res://scenes/items/button.tscn" id="5_njlae"]
+
+[node name="NewLevel" type="Node2D"]
+script = ExtResource("1_mjt8t")
+level_config = ExtResource("2_8b4c4")
+
+[node name="Spawn" type="Node2D" parent="."]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+z_index = -2
+position = Vector2(-128, -128)
+tile_map_data = PackedByteArray("AAAAAAAAAwAAAAMAAAD//wAAAwABAAMAAAD+/wAAAwADAAMAAAD+////AwAAAAMAAAD+//7/AwAAAAMAAAD9//7/AwABAAMAAAD8//7/AwAAAAMAAAD/////AwABAAMAAAD9////AwACAAMAAAD///3/AwAAAAMAAAD+//3/AwAAAAMAAAD9//3/AwAAAAMAAAD+//r/AwABAAMAAAD+//z/AwADAAMAAAD+//v/AwADAAMAAAD///r/AwACAAMAAAD+//n/AwABAAMAAAD///n/AwABAAMAAAAAAPn/AwAAAAMAAAAAAPj/AwACAAMAAAD///j/AwACAAMAAAD+//j/AwACAAMAAAD8//3/AwABAAMAAAD4//7/AwADAAMAAAD3//3/AwACAAMAAAD4//3/AwABAAMAAAD2//3/AwAAAAMAAAD2//7/AwABAAMAAAD3//7/AwAAAAMAAAD2//v/AwADAAMAAAD2//z/AwADAAMAAAD3//v/AwACAAMAAAD3//z/AwACAAMAAAD1//z/AwACAAMAAAD1//3/AwAAAAMAAAD9//j/AwADAAMAAAD9//n/AwACAAMAAAD8//j/AwAAAAMAAAD8//n/AwACAAMAAAA=")
+tile_set = ExtResource("3_e5xaq")
+
+[node name="Tile" parent="TileMapLayer" node_paths=PackedStringArray("activators") instance=ExtResource("4_naq82")]
+position = Vector2(-1552, -352)
+activators = [NodePath("../../ItemLayer/Button")]
+
+[node name="ItemLayer" type="TileMapLayer" parent="."]
+z_index = -2
+position = Vector2(-128, -164.895)
+tile_map_data = PackedByteArray("AAD+//n/AgAAAAAAAAD8//n/AgAEAAAAAAD/////AgAEAAAAAAD2//7/AgAEAAAAAAA=")
+tile_set = ExtResource("3_e5xaq")
+
+[node name="Button" parent="ItemLayer" instance=ExtResource("5_njlae")]
+position = Vector2(-832, -555.105)

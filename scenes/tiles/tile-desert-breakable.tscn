@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://deovsie68fei7"]
+
+[ext_resource type="Script" path="res://scripts/tile.gd" id="1_68m8p"]
+[ext_resource type="Texture2D" uid="uid://dxrpqxmj2gbk7" path="res://resources/sprites/tile-desert-breakable.png" id="2_8gdgi"]
+[ext_resource type="AudioStream" uid="uid://s5iewv8wkgrr" path="res://resources/audio/SFX/Player_Jump_Down_Sand-001.wav" id="3_7socc"]
+
+[node name="Tile" type="Node2D"]
+z_index = -2
+y_sort_enabled = true
+script = ExtResource("1_68m8p")
+breakable = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_8gdgi")
+
+[node name="BumpAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_7socc")

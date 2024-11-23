@@ -8,6 +8,7 @@ extends Node2D
 @onready var blocks: Node2D = $Terrain/Blocks
 @onready var items: Node2D = $Terrain/Items
 @onready var tilesContainer: Node2D = $Terrain/Tiles
+@onready var sanctuary: Level = $Sanctuary
 
 @onready var camera_sprite_2d: Sprite2D = $EnvironmentManager/ParallaxBackground/BackgroundLayer/Sprite2D
 @onready var environment: EnvironmentManager = $EnvironmentManager

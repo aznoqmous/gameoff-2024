@@ -15,7 +15,7 @@ level_config = ExtResource("2_7f5y6")
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -2
 position = Vector2(-128, -128)
-tile_map_data = PackedByteArray("AAAAAAAAAwACAAMAAAD//wAAAwABAAMAAAD+////AwACAAMAAAD/////AwABAAMAAAD9/wAAAwACAAMAAAD9////AwACAAMAAAD9//7/AwACAAMAAAD5////AwACAAMAAAD5//7/AwACAAMAAAD5/wAAAwAAAAMAAAD4/wAAAwABAAMAAAD4////AwABAAMAAAD4//7/AwACAAMAAAD3//7/AwAAAAMAAAD3////AwABAAMAAAD3/wAAAwACAAMAAAD3//r/AwACAAMAAAD4//r/AwABAAMAAAD5//r/AwACAAMAAAD3//n/AwAAAAMAAAD4//n/AwABAAMAAAD5//n/AwABAAMAAAD9//r/AwABAAMAAAA=")
+tile_map_data = PackedByteArray("AAAAAAAAAwACAAMAAAD//wAAAwABAAMAAAD+////AwADAAMAAAD/////AwABAAMAAAD9/wAAAwACAAMAAAD9////AwACAAMAAAD9//7/AwACAAMAAAD5////AwACAAMAAAD5//7/AwACAAMAAAD5/wAAAwAAAAMAAAD4/wAAAwABAAMAAAD4////AwABAAMAAAD4//7/AwACAAMAAAD3//7/AwAAAAMAAAD3////AwABAAMAAAD3/wAAAwACAAMAAAD3//r/AwACAAMAAAD4//r/AwABAAMAAAD5//r/AwACAAMAAAD3//n/AwAAAAMAAAD4//n/AwABAAMAAAD5//n/AwABAAMAAAD9//r/AwABAAMAAAD+/wAAAwADAAMAAAD2////AwAAAAMAAAD2/wAAAwABAAMAAAD4//z/AwADAAMAAAA=")
 tile_set = ExtResource("3_foif4")
 
 [node name="Tile" parent="TileMapLayer" node_paths=PackedStringArray("activators") instance=ExtResource("4_gtsum")]
@@ -37,7 +37,7 @@ activators = [NodePath("../../ItemLayer/Button2")]
 [node name="ItemLayer" type="TileMapLayer" parent="."]
 z_index = -2
 position = Vector2(-128, -164.895)
-tile_map_data = PackedByteArray("AAD9/wAAAgADAAAAAAD9////AgADAAAAAAD9//7/AgADAAAAAAD3//n/AgADAAAAAAD4//n/AgADAAAAAAD5//n/AgADAAAAAAD5//r/AgADAAAAAAA=")
+tile_map_data = PackedByteArray("AAD9/wAAAgADAAAAAAD9////AgADAAAAAAD9//7/AgADAAAAAAD3//n/AgADAAAAAAD4//n/AgADAAAAAAD5//n/AgADAAAAAAD5//r/AgADAAAAAAD2////AgAEAAAAAAA=")
 tile_set = ExtResource("3_foif4")
 
 [node name="Button" parent="ItemLayer" instance=ExtResource("5_fl58t")]
