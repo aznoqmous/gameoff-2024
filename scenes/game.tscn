@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://3pte44nuj5m5"]
+[gd_scene load_steps=30 format=4 uid="uid://3pte44nuj5m5"]
 
 [ext_resource type="PackedScene" uid="uid://bdlc63ysvlljr" path="res://scenes/player.tscn" id="1_2la08"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_8utgd"]
@@ -14,14 +14,21 @@
 [ext_resource type="PackedScene" uid="uid://b4loukqvarc2c" path="res://scenes/levels/mountain/level_mountain_teacher.tscn" id="13_7d6rc"]
 [ext_resource type="PackedScene" uid="uid://vr5hu5v71q30" path="res://scenes/levels/mountain/level_mountain_1.tscn" id="13_s7yu7"]
 [ext_resource type="PackedScene" uid="uid://dhdwy0krw2pon" path="res://scenes/levels/mountain/_level_mountain_2.tscn" id="14_ip2n4"]
-[ext_resource type="PackedScene" uid="uid://b0ilfph3jcmlc" path="res://scenes/levels/level_desert_teacher.tscn" id="14_jdsps"]
+[ext_resource type="PackedScene" uid="uid://b0ilfph3jcmlc" path="res://scenes/levels/desert/level_desert_teacher.tscn" id="14_jdsps"]
 [ext_resource type="PackedScene" uid="uid://br5nlsyntqwq8" path="res://scenes/levels/mountain/level_mountain_buttons_1.tscn" id="15_7vmk0"]
 [ext_resource type="PackedScene" uid="uid://cqmsxnbricsy5" path="res://scenes/levels/spawn.tscn" id="15_fd4cq"]
 [ext_resource type="PackedScene" uid="uid://db5qlgw6ls16u" path="res://scenes/levels/mountain/level_mountain_3.tscn" id="15_ir2oa"]
 [ext_resource type="PackedScene" uid="uid://b4ju5dfgus5lq" path="res://scenes/levels/mountain/level_mountain_buttons_2.tscn" id="16_b1f5b"]
 [ext_resource type="PackedScene" uid="uid://dcql1w2n5ulgu" path="res://scenes/levels/sanctuary.tscn" id="17_nerxj"]
+[ext_resource type="PackedScene" uid="uid://wyhyrhoti5l8" path="res://scenes/levels/nature/level_nature_2.tscn" id="19_g1ffw"]
+[ext_resource type="PackedScene" uid="uid://c6qwvnf3qf6sy" path="res://scenes/levels/nature/level_nature_lilipad_1.tscn" id="20_qup1n"]
 [ext_resource type="Script" path="res://scripts/levels/environment_manager.gd" id="21_1k5mv"]
 [ext_resource type="PackedScene" uid="uid://41064blckomy" path="res://scenes/levels/mountain/level_mountain_altar.tscn" id="22_uh8hu"]
+[ext_resource type="PackedScene" uid="uid://bddal6gs0hgwj" path="res://scenes/levels/desert/level_desert_1.tscn" id="25_4t5vn"]
+[ext_resource type="PackedScene" uid="uid://bqhd5trlvmgsi" path="res://scenes/levels/nature/level_nature_altar.tscn" id="25_pmawo"]
+[ext_resource type="PackedScene" uid="uid://bg4vynw0uuanm" path="res://scenes/levels/desert/desert_level_2.tscn" id="26_pgo4m"]
+[ext_resource type="PackedScene" uid="uid://1b5ruldw4kyp" path="res://scenes/levels/desert/desert_level_tornado_1.tscn" id="28_i841p"]
+[ext_resource type="PackedScene" uid="uid://s2kgfl5cr0xl" path="res://scenes/levels/desert/desert_altar.tscn" id="29_83hrw"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -29,7 +36,6 @@ script = ExtResource("1_8utgd")
 tileSize = 240
 
 [node name="Player" parent="." instance=ExtResource("1_2la08")]
-position = Vector2(3600, -9600)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(0.3, 0.3)
@@ -70,7 +76,7 @@ visible = false
 z_index = -2
 y_sort_enabled = true
 position = Vector2(-128, -128)
-tile_map_data = PackedByteArray("AAALAO//AwABAAIAAAAMAO//AwABAAIAAAAMAPD/AwABAAIAAAANAO//AwAAAAIAAAAOAO//AwABAAIAAAALAPD/AwACAAIAAAALAO7/AwACAAIAAAAMAO7/AwAAAAIAAAAIAOv/AwACAAAAAAAIAOz/AwAAAAAAAAAHAOz/AwABAAAAAAAJAOz/AwAAAAAAAAAHAOv/AwABAAAAAAAJAOv/AwABAAAAAAACAO//AwAAAAMAAAABAO//AwACAAMAAAAAAO7/AwACAAMAAAAAAO//AwACAAMAAAABAO7/AwABAAMAAAD//+7/AwABAAMAAAA=")
+tile_map_data = PackedByteArray("AAALAO//AwABAAIAAAAMAO//AwABAAIAAAAMAPD/AwABAAIAAAANAO//AwAAAAIAAAAOAO//AwABAAIAAAALAPD/AwACAAIAAAALAO7/AwACAAIAAAAMAO7/AwAAAAIAAAAIAOv/AwACAAAAAAAIAOz/AwAAAAAAAAAHAOz/AwABAAAAAAAJAOz/AwAAAAAAAAAHAOv/AwABAAAAAAAJAOv/AwABAAAAAAACAO//AwAAAAMAAAD//+7/AwABAAMAAAAAAO7/AwACAAMAAAAAAO//AwACAAMAAAABAO7/AwABAAMAAAABAO//AwACAAMAAAA=")
 tile_set = ExtResource("2_4554k")
 
 [node name="Terrain" type="Node2D" parent="."]
@@ -115,6 +121,11 @@ activators = [NodePath("../../Items/Button")]
 position = Vector2(1920, -6480)
 activators = [NodePath("../../Items/Button")]
 
+[node name="Spawn" parent="." instance=ExtResource("15_fd4cq")]
+
+[node name="Sanctuary" parent="." instance=ExtResource("17_nerxj")]
+position = Vector2(1920, -4080)
+
 [node name="---STONE---" type="Node" parent="."]
 
 [node name="Push1" parent="." instance=ExtResource("13_s7yu7")]
@@ -144,15 +155,31 @@ position = Vector2(17760, 240)
 [node name="Nature1" parent="." instance=ExtResource("12_jfl5y")]
 position = Vector2(1920, -6720)
 
+[node name="Nature3" parent="." instance=ExtResource("19_g1ffw")]
+position = Vector2(2640, -9360)
+
 [node name="NatureTeacher" parent="." instance=ExtResource("10_pwtql")]
-position = Vector2(2880, -9600)
+position = Vector2(0, -12960)
+
+[node name="NatureLilipad1" parent="." instance=ExtResource("20_qup1n")]
+position = Vector2(3600, -12960)
+
+[node name="NatureAlter" parent="." instance=ExtResource("25_pmawo")]
+position = Vector2(6480, -13440)
 
 [node name="---Desert---" type="Node" parent="."]
 
+[node name="Desert1" parent="." instance=ExtResource("25_4t5vn")]
+position = Vector2(-480, -4320)
+
+[node name="Desert2" parent="." instance=ExtResource("26_pgo4m")]
+position = Vector2(-3840, -8880)
+
 [node name="DesertTeacher" parent="." instance=ExtResource("14_jdsps")]
-position = Vector2(-720, -4080)
+position = Vector2(-5520, -11760)
 
-[node name="Level1" parent="." instance=ExtResource("17_nerxj")]
-position = Vector2(1920, -4080)
+[node name="DesertTornado1" parent="." instance=ExtResource("28_i841p")]
+position = Vector2(-9360, -12240)
 
-[node name="Spawn" parent="." instance=ExtResource("15_fd4cq")]
+[node name="DeserAltar" parent="." instance=ExtResource("29_83hrw")]
+position = Vector2(-13200, -13200)

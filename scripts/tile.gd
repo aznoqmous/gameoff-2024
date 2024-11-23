@@ -14,7 +14,7 @@ var walkable = true
 var size = 0
 var memory = 0
 var level: Level
-var _item = null # stone, lever
+var _item : TileItem = null # stone, lever
 var _destroy = false
 
 signal on_set_item(item: TileItem)
@@ -49,7 +49,7 @@ func handle_animation(delta: float):
 		size = 0
 	scale = lerp(scale, Vector2.ONE * size, delta * 10)
 	
-	if _item: _item.scale = lerp(_item.scale, scale, delta * 10)
+	if _item != null: _item.scale = lerp(_item.scale, scale, delta * 10)
 
 func is_active() -> bool:
 	if activators.is_empty(): return true
@@ -75,8 +75,9 @@ func push(direction: Vector2) -> bool:
 	if tileItem and tileItem.pushable:
 		var tile = game.get_tile_at_position((tileItem.currentPosition + direction)/game.tileSize)
 		if not tile or (tile and tile.is_walkable()):
-			tileItem.push(direction)
-			return true
+			var initialPosition = tileItem.position
+			var finalPosition = tileItem.push(direction)			
+			return initialPosition != finalPosition
 	return false
 
 func set_texture(texture: ImageTexture):

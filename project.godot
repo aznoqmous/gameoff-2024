@@ -69,4 +69,4 @@ Reset={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-environment/defaults/default_clear_color=Color(0.780392, 0.780392, 0.780392, 1)
+environment/defaults/default_clear_color=Color(0.854902, 0.854902, 0.854902, 1)

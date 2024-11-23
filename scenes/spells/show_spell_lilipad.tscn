@@ -14,7 +14,7 @@ script = ExtResource("1_725tl")
 
 [node name="Line2D" type="Line2D" parent="."]
 z_index = -1
-points = PackedVector2Array(0, 0, -240, 0, 0, -240, -240, -240, -480, -240, -480, 0, -480, 240, -240, 240, 0, 240, -240, 0)
+points = PackedVector2Array(0, 0, -240, 0, 0, -240, -480, -240, -480, 240, 0, 240, -240, 0)
 width = 16.0
 width_curve = SubResource("Curve_7vcre")
 

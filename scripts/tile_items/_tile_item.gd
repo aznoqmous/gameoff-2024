@@ -45,12 +45,21 @@ func set_target_position(pos: Vector2):
 func fall():
 	animation_player.play("Fall")
 	if fall_audio: fall_audio.play()
+
 func remove():
 	if currentTile and currentTile._item == self: currentTile.set_item(null)
 	queue_free()
 	
 func push(direction: Vector2):
-	set_target_position(currentPosition + direction)
+	var tileDirection = direction / game.tileSize
+	var finalPosition = currentPosition
+	
+	for step in range(0, tileDirection.length()):
+		finalPosition = finalPosition + tileDirection.normalized() * game.tileSize
+		if game.is_blocked(finalPosition / game.tileSize): return
+		set_target_position(finalPosition)
+	
+	return finalPosition
 
 func get_tile() -> Tile:
 	return game.get_tile_at_position(currentPosition/game.tileSize)

@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=4 uid="uid://bg4vynw0uuanm"]
+
+[ext_resource type="Script" path="res://scripts/levels/level.gd" id="1_pn2q7"]
+[ext_resource type="Resource" uid="uid://bp46233w7mvtr" path="res://resources/levels/level_desert.tres" id="2_7f5y6"]
+[ext_resource type="TileSet" uid="uid://bovlkgk6cwuhx" path="res://resources/tilemaps/game.tres" id="3_foif4"]
+[ext_resource type="PackedScene" uid="uid://oseu3jfwxp3m" path="res://scenes/tiles/tile-desert.tscn" id="4_gtsum"]
+[ext_resource type="PackedScene" uid="uid://dhgprbkhapw2i" path="res://scenes/items/button.tscn" id="5_fl58t"]
+
+[node name="DesertLevel2" type="Node2D"]
+script = ExtResource("1_pn2q7")
+level_config = ExtResource("2_7f5y6")
+
+[node name="Spawn" type="Node2D" parent="."]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+z_index = -2
+position = Vector2(-128, -128)
+tile_map_data = PackedByteArray("AAAAAAAAAwACAAMAAAD//wAAAwABAAMAAAD+////AwACAAMAAAD/////AwABAAMAAAD9/wAAAwACAAMAAAD9////AwACAAMAAAD9//7/AwACAAMAAAD5////AwACAAMAAAD5//7/AwACAAMAAAD5/wAAAwAAAAMAAAD4/wAAAwABAAMAAAD4////AwABAAMAAAD4//7/AwACAAMAAAD3//7/AwAAAAMAAAD3////AwABAAMAAAD3/wAAAwACAAMAAAD3//r/AwACAAMAAAD4//r/AwABAAMAAAD5//r/AwACAAMAAAD3//n/AwAAAAMAAAD4//n/AwABAAMAAAD5//n/AwABAAMAAAD9//r/AwABAAMAAAA=")
+tile_set = ExtResource("3_foif4")
+
+[node name="Tile" parent="TileMapLayer" node_paths=PackedStringArray("activators") instance=ExtResource("4_gtsum")]
+position = Vector2(-2032, -592)
+activators = [NodePath("../../ItemLayer/Button")]
+
+[node name="Tile2" parent="TileMapLayer" node_paths=PackedStringArray("activators") instance=ExtResource("4_gtsum")]
+position = Vector2(-2032, -832)
+activators = [NodePath("../../ItemLayer/Button")]
+
+[node name="Tile3" parent="TileMapLayer" node_paths=PackedStringArray("activators") instance=ExtResource("4_gtsum")]
+position = Vector2(-2032, -1072)
+activators = [NodePath("../../ItemLayer/Button")]
+
+[node name="Tile5" parent="TileMapLayer" node_paths=PackedStringArray("activators") instance=ExtResource("4_gtsum")]
+position = Vector2(-1552, -2512)
+activators = [NodePath("../../ItemLayer/Button2")]
+
+[node name="ItemLayer" type="TileMapLayer" parent="."]
+z_index = -2
+position = Vector2(-128, -164.895)
+tile_map_data = PackedByteArray("AAD9/wAAAgADAAAAAAD9////AgADAAAAAAD9//7/AgADAAAAAAD3//n/AgADAAAAAAD4//n/AgADAAAAAAD5//n/AgADAAAAAAD5//r/AgADAAAAAAA=")
+tile_set = ExtResource("3_foif4")
+
+[node name="Button" parent="ItemLayer" instance=ExtResource("5_fl58t")]
+position = Vector2(-1792, -75.105)
+
+[node name="Button2" parent="ItemLayer" instance=ExtResource("5_fl58t")]
+position = Vector2(-592, -1275.1)

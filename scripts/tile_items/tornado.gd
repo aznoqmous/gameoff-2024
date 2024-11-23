@@ -13,7 +13,7 @@ func handle_tile_set_item(item: TileItem):
 	if not item or item == self: return
 	var direction = item.lastPosition - item.position
 	if not direction: return
-	item.set_target_position(item.position + direction * 4)
+	item.push(direction * 4)
 	fall()
 
 # handle player

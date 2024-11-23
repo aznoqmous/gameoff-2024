@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=4 uid="uid://bqhd5trlvmgsi"]
+
+[ext_resource type="Script" path="res://scripts/levels/level.gd" id="1_j4ayr"]
+[ext_resource type="Resource" uid="uid://5j1qjhkvo4du" path="res://resources/levels/level_nature.tres" id="2_4uclq"]
+[ext_resource type="TileSet" uid="uid://bovlkgk6cwuhx" path="res://resources/tilemaps/game.tres" id="3_b07jw"]
+
+[node name="Nature1" type="Node2D"]
+script = ExtResource("1_j4ayr")
+level_config = ExtResource("2_4uclq")
+
+[node name="Spawn" type="Node2D" parent="."]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+z_index = -2
+position = Vector2(-128, -128)
+tile_map_data = PackedByteArray("AAAAAAAAAwAAAAAAAAAAAP//AwACAAAAAAABAP//AwABAAAAAAABAP7/AwAAAAAAAAACAP7/AwACAAAAAAACAP3/AwABAAAAAAADAP3/AwABAAAAAAADAPz/AwAAAAAAAAACAP//AwADAAAAAAABAPz/AwADAAAAAAAFAP7/AwADAAAAAAADAPv/AwACAAAAAAACAPr/AwACAAAAAAADAPr/AwAAAAAAAAAEAPr/AwACAAAAAAAEAPn/AwAAAAAAAAACAPn/AwACAAAAAAACAPj/AwACAAAAAAADAPj/AwABAAAAAAAEAPj/AwACAAAAAAADAPf/AwAAAAAAAAABAPn/AwACAAAAAAAFAPn/AwAAAAAAAAAGAPv/AwADAAAAAAA=")
+tile_set = ExtResource("3_b07jw")
+
+[node name="ItemLayer" type="TileMapLayer" parent="."]
+z_index = -2
+position = Vector2(-128, -164.895)
+tile_set = ExtResource("3_b07jw")
