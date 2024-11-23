@@ -55,8 +55,5 @@ tile_set = ExtResource("3_abffc")
 [node name="Button2" parent="ItemLayer" instance=ExtResource("5_85u8g")]
 position = Vector2(2528, 1364.9)
 
-[node name="Button3" parent="ItemLayer" instance=ExtResource("5_85u8g")]
-position = Vector2(848, 164.895)
-
 [node name="Button" parent="ItemLayer" instance=ExtResource("5_85u8g")]
 position = Vector2(1808, 2324.9)

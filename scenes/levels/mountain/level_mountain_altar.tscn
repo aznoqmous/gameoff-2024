@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=4 uid="uid://41064blckomy"]
+
+[ext_resource type="Script" path="res://scripts/levels/level.gd" id="1_dpttv"]
+[ext_resource type="Resource" uid="uid://d28pre13p8bry" path="res://resources/levels/level_mountain.tres" id="2_kunwp"]
+[ext_resource type="TileSet" uid="uid://bovlkgk6cwuhx" path="res://resources/tilemaps/game.tres" id="3_2c2uy"]
+
+[node name="MountainButtons2" type="Node2D"]
+script = ExtResource("1_dpttv")
+level_config = ExtResource("2_kunwp")
+
+[node name="Spawn" type="Node2D" parent="."]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+z_index = -2
+position = Vector2(-128, -128)
+tile_map_data = PackedByteArray("AAAAAAAAAwABAAIAAAD//wAAAwACAAIAAAD//wEAAwABAAIAAAAAAAEAAwABAAIAAAABAP//AwABAAIAAAABAAAAAwAAAAIAAAACAP//AwAAAAIAAAACAAAAAwAAAAIAAAADAP//AwACAAIAAAADAP7/AwABAAIAAAAEAP7/AwACAAIAAAAEAP//AwAAAAIAAAAFAP7/AwAAAAIAAAAFAP//AwAAAAIAAAAFAPv/AwACAAIAAAAFAPz/AwAAAAIAAAAFAP3/AwAAAAIAAAAGAPv/AwACAAIAAAAGAP3/AwABAAIAAAAGAP7/AwAAAAIAAAAEAPj/AwAAAAIAAAAEAPn/AwABAAIAAAAEAPr/AwACAAIAAAAFAPj/AwABAAIAAAAFAPn/AwAAAAIAAAAFAPr/AwABAAIAAAAGAPj/AwAAAAIAAAAGAPn/AwABAAIAAAAGAPr/AwACAAIAAAADAPn/AwABAAIAAAAFAPf/AwACAAIAAAAHAPn/AwABAAIAAAA=")
+tile_set = ExtResource("3_2c2uy")
+
+[node name="ItemLayer" type="TileMapLayer" parent="."]
+z_index = -2
+position = Vector2(-128, -164.895)
+tile_set = ExtResource("3_2c2uy")

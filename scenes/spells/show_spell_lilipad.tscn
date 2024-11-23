@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cs4atjkdxi7l2"]
+
+[ext_resource type="Script" path="res://scripts/show_spell.gd" id="1_725tl"]
+[ext_resource type="Texture2D" uid="uid://vwerwarwcs7h" path="res://resources/sprites/particle.png" id="2_44kgl"]
+
+[sub_resource type="Curve" id="Curve_7vcre"]
+max_value = 5.0
+_data = [Vector2(0, 1.89435), 0.0, 0.0, 0, 0, Vector2(0.494983, 3.77524), 0.0, 0.0, 0, 0, Vector2(1, 2.02557), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="ShowSpell" type="Node2D"]
+self_modulate = Color(1, 1, 1, 0.784314)
+script = ExtResource("1_725tl")
+
+[node name="Line2D" type="Line2D" parent="."]
+z_index = -1
+points = PackedVector2Array(0, 0, -240, 0, 0, -240, -240, -240, -480, -240, -480, 0, -480, 240, -240, 240, 0, 240, -240, 0)
+width = 16.0
+width_curve = SubResource("Curve_7vcre")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+texture = ExtResource("2_44kgl")

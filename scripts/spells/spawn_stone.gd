@@ -7,3 +7,4 @@ func _perform(trail: Array):
 	var spawnPoint = player.cast_line.get_points()[0] / game.tileSize
 	var newStone : Stone = stone.instantiate()
 	game.add_item(newStone, spawnPoint)
+	game.current_level.objects.append(newStone)

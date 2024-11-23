@@ -17,7 +17,8 @@ func _perform(trail: Array):
 	for i in range(0, 3):
 		var pos = origin + targetDirection * (i + 1)
 		if game.get_tile_at_position(pos): break
-		game.add_lilipad_tile(pos)
+		var newTile = game.add_lilipad_tile(pos)
+		game.current_level.objects.append(newTile)
 	
 func get_pos(value: int, arr: Array):
 	var y = 0

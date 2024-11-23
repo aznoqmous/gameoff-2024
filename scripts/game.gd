@@ -90,9 +90,10 @@ func load_level(level: Level):
 	load_items_layer(level.item_layer, level.position, level)
 	audio_manager.preload_level_audio(level.level_config.theme)
 
-func add_lilipad_tile(tilePosition: Vector2):
+func add_lilipad_tile(tilePosition: Vector2) -> Tile:
 	var newTile : Tile = lilipadBaseTile.instantiate()
 	add_tile(newTile, tilePosition)
+	return newTile
 
 func add_ground_tile(tilePosition: Vector2) -> Tile:
 	var newTile : Tile = baseTile.instantiate()

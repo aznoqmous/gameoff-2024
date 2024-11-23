@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://bdlc63ysvlljr"]
+[gd_scene load_steps=59 format=3 uid="uid://bdlc63ysvlljr"]
 
 [ext_resource type="Texture2D" uid="uid://bvn24e5joccqc" path="res://resources/sprites/player_0001_body.png" id="1_1lid0"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_3pkg8"]
@@ -16,10 +16,13 @@
 [ext_resource type="AudioStream" uid="uid://dg7gxmkdmr8nb" path="res://resources/audio/SFX/Magic_Jump-003.wav" id="12_xkn28"]
 [ext_resource type="Script" path="res://scripts/spells/spawn_tornado.gd" id="13_ur5lk"]
 [ext_resource type="AudioStream" uid="uid://nbkdgfrr8tuq" path="res://resources/audio/placeholder.wav" id="14_ni1mo"]
+[ext_resource type="AudioStream" uid="uid://cbsgwx5dv4dui" path="res://resources/audio/SFX/Magic_Lilipad-001.wav" id="14_pe53u"]
+[ext_resource type="AudioStream" uid="uid://bvxnchge0w6nb" path="res://resources/audio/SFX/Magic_Lilipad-002.wav" id="15_3c332"]
 [ext_resource type="AudioStream" uid="uid://c6lv35hsmwq4g" path="res://resources/audio/SFX/Player_Move_Magic-001.wav" id="15_51yk2"]
 [ext_resource type="AudioStream" uid="uid://bxfo4el4im6qv" path="res://resources/audio/SFX/Cast_Start-001.wav" id="15_o0elb"]
 [ext_resource type="AudioStream" uid="uid://b3qy8tp2dxru7" path="res://resources/audio/SFX/Cast_Start-002.wav" id="16_q12jb"]
 [ext_resource type="AudioStream" uid="uid://ct4bus2p1ntsq" path="res://resources/audio/SFX/Magic_Rock-001.wav" id="16_qsvkn"]
+[ext_resource type="AudioStream" uid="uid://dmyp0pcoifxdf" path="res://resources/audio/SFX/Magic_Lilipad-003.wav" id="16_yy1h3"]
 [ext_resource type="AudioStream" uid="uid://bqx672k62f2hk" path="res://resources/audio/SFX/Cast_Start-003.wav" id="17_55fsh"]
 [ext_resource type="AudioStream" uid="uid://deknhbaxkh8me" path="res://resources/audio/SFX/Magic_Rock-002.wav" id="17_ljjxc"]
 [ext_resource type="AudioStream" uid="uid://doasyb5vc7a7q" path="res://resources/audio/SFX/Cast_Start-004.wav" id="18_02a84"]
@@ -916,6 +919,12 @@ stream_0/stream = ExtResource("10_x3kuq")
 stream_1/stream = ExtResource("11_oisot")
 stream_2/stream = ExtResource("12_xkn28")
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_kein2"]
+streams_count = 3
+stream_0/stream = ExtResource("14_pe53u")
+stream_1/stream = ExtResource("15_3c332")
+stream_2/stream = ExtResource("16_yy1h3")
+
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_wan50"]
 streams_count = 3
 stream_0/stream = ExtResource("16_qsvkn")
@@ -1022,7 +1031,7 @@ bus = &"SFX"
 script = ExtResource("10_plgn0")
 
 [node name="Audio" type="AudioStreamPlayer" parent="Spells/SpawnPlant"]
-stream = ExtResource("14_ni1mo")
+stream = SubResource("AudioStreamRandomizer_kein2")
 bus = &"SFX"
 
 [node name="SpawnStone" type="Node" parent="Spells"]

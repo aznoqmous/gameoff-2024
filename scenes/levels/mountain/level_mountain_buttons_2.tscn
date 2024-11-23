@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=4 uid="uid://b4ju5dfgus5lq"]
+
+[ext_resource type="Script" path="res://scripts/levels/level.gd" id="1_30tte"]
+[ext_resource type="Resource" uid="uid://d28pre13p8bry" path="res://resources/levels/level_mountain.tres" id="2_irp1l"]
+[ext_resource type="TileSet" uid="uid://bovlkgk6cwuhx" path="res://resources/tilemaps/game.tres" id="3_p1ua4"]
+[ext_resource type="PackedScene" uid="uid://dkriar24wri7v" path="res://scenes/tiles/tile-mountain.tscn" id="4_orck1"]
+[ext_resource type="PackedScene" uid="uid://dhgprbkhapw2i" path="res://scenes/items/button.tscn" id="5_qppny"]
+
+[node name="MountainButtons2" type="Node2D"]
+script = ExtResource("1_30tte")
+level_config = ExtResource("2_irp1l")
+
+[node name="Spawn" type="Node2D" parent="."]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+z_index = -2
+position = Vector2(-128, -128)
+tile_map_data = PackedByteArray("AAAAAAAAAwAAAAIAAAABAAAAAwABAAIAAAAAAAEAAwAAAAIAAAABAAEAAwACAAIAAAACAAEAAwAAAAIAAAAEAAAAAwACAAIAAAAEAAEAAwACAAIAAAAFAAAAAwAAAAIAAAAFAAEAAwAAAAIAAAAGAAAAAwACAAIAAAAGAAEAAwACAAIAAAAEAP//AwABAAIAAAAFAP//AwAAAAIAAAAGAP//AwAAAAIAAAADAAEAAwAAAAIAAAAJAAAAAwABAAIAAAAKAAAAAwABAAIAAAAFAP7/AwACAAIAAAAFAAIAAwACAAIAAAAJAP//AwACAAIAAAAKAP//AwABAAIAAAAAAP//AwACAAIAAAABAP//AwABAAIAAAAJAAEAAwACAAIAAAAKAAEAAwACAAIAAAALAAAAAwABAAIAAAALAAEAAwAAAAIAAAAKAP7/AwACAAIAAAAJAAQAAwABAAIAAAAKAAQAAwACAAIAAAALAAQAAwABAAIAAAALAAUAAwAAAAIAAAAJAAUAAwACAAIAAAAKAAYAAwAAAAIAAAALAAYAAwACAAIAAAAGAAQAAwABAAIAAAAFAAQAAwACAAIAAAAEAAQAAwACAAIAAAAEAAUAAwACAAIAAAAFAAYAAwACAAIAAAAGAAYAAwAAAAIAAAAGAAUAAwAAAAIAAAAFAAUAAwACAAIAAAAKAAMAAwACAAIAAAAKAAIAAwABAAIAAAAKAAUAAwABAAIAAAAEAAYAAwABAAIAAAA=")
+tile_set = ExtResource("3_p1ua4")
+
+[node name="Tile" parent="TileMapLayer" node_paths=PackedStringArray("activators") instance=ExtResource("4_orck1")]
+position = Vector2(2048, -112)
+activators = [NodePath("../../ItemLayer/Button"), NodePath("../../ItemLayer/Button2")]
+
+[node name="Tile2" parent="TileMapLayer" node_paths=PackedStringArray("activators") instance=ExtResource("4_orck1")]
+position = Vector2(1808, -112)
+activators = [NodePath("../../ItemLayer/Button"), NodePath("../../ItemLayer/Button2")]
+
+[node name="Tile3" parent="TileMapLayer" node_paths=PackedStringArray("activators") instance=ExtResource("4_orck1")]
+position = Vector2(2768, -112)
+activators = [NodePath("../../ItemLayer/Button3")]
+
+[node name="Tile4" parent="TileMapLayer" node_paths=PackedStringArray("activators") instance=ExtResource("4_orck1")]
+position = Vector2(3008, 1328)
+activators = [NodePath("../../ItemLayer/Button4")]
+
+[node name="Tile5" parent="TileMapLayer" node_paths=PackedStringArray("activators") instance=ExtResource("4_orck1")]
+position = Vector2(3248, 1328)
+activators = [NodePath("../../ItemLayer/Button4")]
+
+[node name="Tile6" parent="TileMapLayer" node_paths=PackedStringArray("activators") instance=ExtResource("4_orck1")]
+position = Vector2(3488, 1328)
+activators = [NodePath("../../ItemLayer/Button4")]
+
+[node name="ItemLayer" type="TileMapLayer" parent="."]
+z_index = -2
+position = Vector2(-128, -164.895)
+tile_map_data = PackedByteArray("AAAGAAEAAgAAAAAAAAAEAP//AgAAAAAAAAAGAP//AgAAAAAAAAAEAAEAAgAAAAAAAAA=")
+tile_set = ExtResource("3_p1ua4")
+
+[node name="Button" parent="ItemLayer" instance=ExtResource("5_qppny")]
+position = Vector2(1328, -315.105)
+
+[node name="Button2" parent="ItemLayer" instance=ExtResource("5_qppny")]
+position = Vector2(1328, 644.895)
+
+[node name="Button3" parent="ItemLayer" instance=ExtResource("5_qppny")]
+position = Vector2(2528, -315.105)
+
+[node name="Button4" parent="ItemLayer" instance=ExtResource("5_qppny")]
+position = Vector2(2528, 1364.9)

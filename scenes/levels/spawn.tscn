@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=4 uid="uid://cqmsxnbricsy5"]
+[gd_scene load_steps=7 format=4 uid="uid://cqmsxnbricsy5"]
 
 [ext_resource type="Script" path="res://scripts/levels/level.gd" id="1_vj26o"]
 [ext_resource type="TileSet" uid="uid://bovlkgk6cwuhx" path="res://resources/tilemaps/game.tres" id="2_cvj1s"]
 [ext_resource type="Resource" uid="uid://cpcbaeiwl0e2m" path="res://resources/levels/level_config.tres" id="2_igcmf"]
 [ext_resource type="PackedScene" uid="uid://bdp2lpfyiwu40" path="res://scenes/sign.tscn" id="4_ij2yg"]
 [ext_resource type="Texture2D" uid="uid://33dsu0l7bl51" path="res://resources/sprites/symbols/jump.png" id="5_2mem0"]
+[ext_resource type="PackedScene" uid="uid://1we4pa5w358e" path="res://scenes/spells/show_spell_jump.tscn" id="6_jrd13"]
 
 [node name="Spawn" type="Node2D"]
 script = ExtResource("1_vj26o")
@@ -34,3 +35,6 @@ SPACE, MOVE, SPACE"
 [node name="HelloSign" parent="." instance=ExtResource("4_ij2yg")]
 position = Vector2(-9, -481)
 message = "..."
+
+[node name="ShowSpell" parent="." instance=ExtResource("6_jrd13")]
+position = Vector2(-240, -2400)

@@ -37,6 +37,7 @@ animations = [{
 radius = 100.0
 
 [node name="Button" type="Node2D"]
+z_as_relative = false
 script = ExtResource("1_e1047")
 fallable = false
 walkable = true

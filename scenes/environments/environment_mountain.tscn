@@ -12,6 +12,9 @@ script = ExtResource("1_2o32l")
 [node name="CloudSprite" parent="ParallaxBackground/ParallaxLayer" index="0"]
 modulate = Color(0.458824, 0.415686, 0.337255, 1)
 
+[node name="BackgroundLayer" parent="ParallaxBackground" index="1"]
+scale = Vector2(20, 20)
+
 [node name="BackgroundSprite" parent="ParallaxBackground/BackgroundLayer" index="0"]
 modulate = Color(0.807843, 0.741176, 0.611765, 1)
 
