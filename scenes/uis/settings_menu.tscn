@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=3 uid="uid://dck8r017nkhwg"]
+
+[ext_resource type="Script" path="res://scripts/uis/menu.gd" id="1_8r6xv"]
+[ext_resource type="FontFile" uid="uid://w12hsd66wulf" path="res://resources/fonts/PatrickHand-Regular.ttf" id="1_14kmu"]
+[ext_resource type="PackedScene" uid="uid://bgcli7wvigrsh" path="res://scenes/uis/slider_control.tscn" id="1_l6aka"]
+[ext_resource type="Texture2D" uid="uid://c88x170136llq" path="res://resources/sprites/ui/dialog-box.png" id="1_lge1l"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ve1o4"]
+font = ExtResource("1_14kmu")
+font_size = 32
+outline_size = 1
+
+[node name="Menu" type="CanvasLayer"]
+script = ExtResource("1_8r6xv")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 43.0
+offset_top = -271.0
+offset_right = 347.0
+offset_bottom = -43.0
+grow_vertical = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control"]
+modulate = Color(0.75, 0.75, 0.75, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_lge1l")
+patch_margin_left = 21
+patch_margin_top = 25
+patch_margin_right = 16
+patch_margin_bottom = 27
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -49.0
+offset_right = 49.0
+offset_bottom = 44.0
+grow_horizontal = 2
+text = "Settings"
+label_settings = SubResource("LabelSettings_ve1o4")
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 55.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Master" parent="Control/VBoxContainer" instance=ExtResource("1_l6aka")]
+layout_mode = 2
+audio_bus = "Master"
+
+[node name="Music" parent="Control/VBoxContainer" instance=ExtResource("1_l6aka")]
+layout_mode = 2
+audio_bus = "Music"
+
+[node name="SFX" parent="Control/VBoxContainer" instance=ExtResource("1_l6aka")]
+layout_mode = 2
+audio_bus = "SFX"

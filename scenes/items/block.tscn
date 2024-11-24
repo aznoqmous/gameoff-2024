@@ -17,3 +17,4 @@ texture = ExtResource("2_5a5dn")
 
 [node name="FallAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_523sr")
+bus = &"SFX"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b7jrpo5ky1dgo"]
+[gd_scene load_steps=5 format=3 uid="uid://ci6qur3c8fx0b"]
 
 [ext_resource type="Script" path="res://scripts/tile_items/capacitor.gd" id="1_68er3"]
 [ext_resource type="Texture2D" uid="uid://cmp6cshhb00ao" path="res://icon.svg" id="2_v1fxr"]

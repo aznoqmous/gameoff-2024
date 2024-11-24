@@ -18,3 +18,4 @@ texture = SubResource("AtlasTexture_ampju")
 
 [node name="BumpAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_2lut3")
+bus = &"SFX"

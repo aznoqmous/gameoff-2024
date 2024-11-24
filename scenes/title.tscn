@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://c351pl2gsxj61"]
+
+[ext_resource type="Script" path="res://scripts/uis/title.gd" id="1_spqcb"]
+[ext_resource type="PackedScene" uid="uid://j6jm62adx1ro" path="res://scenes/uis/button.tscn" id="2_571ub"]
+
+[node name="Title" type="Node"]
+script = ExtResource("1_spqcb")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" parent="CanvasLayer/CenterContainer" instance=ExtResource("2_571ub")]
+layout_mode = 2

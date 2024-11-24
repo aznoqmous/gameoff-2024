@@ -14,7 +14,9 @@ func _ready() -> void:
 	area_exited.connect(handle_area_exited)
 	label.text = message
 	symbol_sprite.texture = symbol_sprite_texture
-
+	label.modulate.a = 0
+	symbol_sprite.scale = Vector2.ZERO
+	
 func _process(delta: float) -> void:
 	label.modulate.a = lerp(label.modulate.a, state, delta * 5)
 	symbol_sprite.scale = lerp(symbol_sprite.scale, Vector2.ONE * state, delta * 5)

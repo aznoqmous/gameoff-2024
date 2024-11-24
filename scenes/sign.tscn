@@ -57,3 +57,4 @@ horizontal_alignment = 1
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_7ahto")
+bus = &"SFX"

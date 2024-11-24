@@ -1,0 +1,11 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://b207umd437051"]
+
+[ext_resource type="Texture2D" uid="uid://c88x170136llq" path="res://resources/sprites/ui/dialog-box.png" id="1_srykc"]
+
+[resource]
+texture = ExtResource("1_srykc")
+texture_margin_left = 19.5933
+texture_margin_top = 18.1938
+texture_margin_right = 22.3924
+texture_margin_bottom = 24.7249
+modulate_color = Color(0.792969, 0.792969, 0.792969, 1)

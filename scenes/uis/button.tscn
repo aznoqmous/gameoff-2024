@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://j6jm62adx1ro"]
+
+[ext_resource type="FontFile" uid="uid://w12hsd66wulf" path="res://resources/fonts/PatrickHand-Regular.ttf" id="1_js71i"]
+[ext_resource type="StyleBox" uid="uid://b207umd437051" path="res://resources/uis/button_hover_style_box_texture.tres" id="1_mbyox"]
+[ext_resource type="StyleBox" uid="uid://1x2c3gat7yw6" path="res://resources/uis/button_style_box_texture.tres" id="1_xyp1j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jgfy0"]
+
+[sub_resource type="Theme" id="Theme_0eqm4"]
+default_font = ExtResource("1_js71i")
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0.25, 0.25, 0.25, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 0)
+Button/font_sizes/font_size = 32
+Button/styles/focus = SubResource("StyleBoxEmpty_jgfy0")
+Button/styles/hover = ExtResource("1_mbyox")
+Button/styles/hover_pressed = ExtResource("1_mbyox")
+Button/styles/normal = ExtResource("1_xyp1j")
+Button/styles/pressed = ExtResource("1_mbyox")
+
+[node name="Button" type="Button"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.0
+offset_top = -32.0
+offset_right = 43.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_0eqm4")
+text = "PLAY"

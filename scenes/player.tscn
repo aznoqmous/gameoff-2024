@@ -1051,6 +1051,7 @@ bus = &"SFX"
 [node name="Audio" type="Node2D" parent="."]
 
 [node name="CastMoveAudio" type="AudioStreamPlayer2D" parent="Audio"]
+position = Vector2(0, 2)
 stream = SubResource("AudioStream_tx8dd")
 bus = &"SFX"
 
@@ -1059,6 +1060,7 @@ stream = SubResource("AudioStreamRandomizer_o8prq")
 bus = &"SFX"
 
 [node name="CastLoopAudio" type="AudioStreamPlayer2D" parent="Audio"]
+position = Vector2(0, -4)
 stream = ExtResource("20_1wtkq")
 bus = &"SFX"
 
@@ -1080,5 +1082,6 @@ stream = ExtResource("22_4ak1h")
 bus = &"SFX"
 
 [node name="CastMoveAudioList" type="AudioStreamPlayer2D" parent="Audio"]
+bus = &"SFX"
 script = ExtResource("26_rn3mj")
 streams = Array[AudioStream]([ExtResource("15_51yk2"), ExtResource("28_uoi1o"), ExtResource("29_kjqr4"), ExtResource("30_vedux"), ExtResource("31_63dwg"), ExtResource("32_hrf7a"), ExtResource("33_j36xs"), ExtResource("34_sai1f"), ExtResource("35_iwa47"), ExtResource("36_t4nq1")])

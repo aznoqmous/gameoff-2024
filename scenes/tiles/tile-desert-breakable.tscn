@@ -15,3 +15,4 @@ texture = ExtResource("2_8gdgi")
 
 [node name="BumpAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_7socc")
+bus = &"SFX"

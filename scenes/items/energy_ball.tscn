@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://px3aynsjwcst"]
+[gd_scene load_steps=11 format=3 uid="uid://b64lom3ul7kce"]
 
 [ext_resource type="Script" path="res://scripts/tile_items/energy_ball.gd" id="1_cw43k"]
 [ext_resource type="Texture2D" uid="uid://df2jrc6eko5cf" path="res://resources/sprites/energy-ball.png" id="2_ctbn2"]
