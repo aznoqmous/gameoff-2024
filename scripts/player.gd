@@ -89,15 +89,10 @@ func handle_movement(currentPosition):
 	var playerPosition = currentPosition / game.tileSize
 	var tile = game.get_tile_at_position(playerPosition)
 	if tile:
-		
 		tile.bump()
-		
 		if not isCasting: tile.bump_audio.play()
 		else: 
 			cast_move_audio_list.play_from_list()
-			#cast_move_audio.pitch_scale += 0.1
-			#cast_move_audio.play()
-		
 		tile.handle_enter_tile()
 		if not tile.breakable : lastFlooredPosition = currentPosition
 		if not tile.is_castable():
@@ -160,7 +155,7 @@ func handle_movement_events(event: InputEvent):
 		inputDirection = direction
 	
 func move(direction: Vector2):
-	if not is_floored(): return
+	if not is_floored() and Time.get_ticks_msec() - lastMoveTime > 200: return
 	targetDirection = -sign(direction.x)
 	
 	if not isCasting : move_audio.play()
@@ -169,6 +164,8 @@ func move(direction: Vector2):
 	var lastPosition = get_last_position()
 	if not targetPositions.is_empty() and Time.get_ticks_msec() - lastMoveTime < 200:
 		var tile = game.get_tile_at_position((lastPosition + direction)/game.tileSize)
+		if not is_floored(): lastMoveTime = Time.get_ticks_msec() + 200
+		if not tile: return
 		if tile and not tile.is_walkable() : return;
 		targetPositions.pop_back()
 		if isCasting:
@@ -193,7 +190,7 @@ func move(direction: Vector2):
 	if isCasting:
 		add_cast_position(pos + direction, direction)
 	
-	lastMoveTime = Time.get_ticks_msec()
+	if lastMoveTime < Time.get_ticks_msec(): lastMoveTime = Time.get_ticks_msec()
 	lastDirection = direction
 	
 

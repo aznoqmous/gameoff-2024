@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://3pte44nuj5m5"]
+[gd_scene load_steps=37 format=4 uid="uid://3pte44nuj5m5"]
 
 [ext_resource type="PackedScene" uid="uid://bdlc63ysvlljr" path="res://scenes/player.tscn" id="1_2la08"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_8utgd"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://44ius7w12rme" path="res://scenes/levels/nature/level_nature_teacher.tscn" id="10_pwtql"]
 [ext_resource type="Texture2D" uid="uid://rrc3srj3ranm" path="res://resources/sprites/point.png" id="11_uslv7"]
 [ext_resource type="PackedScene" uid="uid://7bo0qg6aqda6" path="res://scenes/levels/nature/level_nature_1.tscn" id="12_jfl5y"]
+[ext_resource type="PackedScene" uid="uid://bp1liseitxwsg" path="res://scenes/levels/level_tutorial.tscn" id="13_0x2yl"]
 [ext_resource type="PackedScene" uid="uid://b4loukqvarc2c" path="res://scenes/levels/mountain/level_mountain_teacher.tscn" id="13_7d6rc"]
 [ext_resource type="PackedScene" uid="uid://vr5hu5v71q30" path="res://scenes/levels/mountain/level_mountain_1.tscn" id="13_s7yu7"]
 [ext_resource type="PackedScene" uid="uid://dhdwy0krw2pon" path="res://scenes/levels/mountain/_level_mountain_2.tscn" id="14_ip2n4"]
@@ -42,7 +43,7 @@ script = ExtResource("1_8utgd")
 tileSize = 240
 
 [node name="Player" parent="." instance=ExtResource("1_2la08")]
-position = Vector2(-960, 0)
+position = Vector2(240, 1440)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(0.3, 0.3)
@@ -128,11 +129,14 @@ activators = [NodePath("../../Items/Button")]
 position = Vector2(1920, -6480)
 activators = [NodePath("../../Items/Button")]
 
-[node name="Spawn" parent="." instance=ExtResource("15_fd4cq")]
-position = Vector2(-960, 0)
-
 [node name="Sanctuary" parent="." instance=ExtResource("17_nerxj")]
 position = Vector2(1920, -4080)
+
+[node name="Spawn" parent="." instance=ExtResource("15_fd4cq")]
+position = Vector2(240, 1440)
+
+[node name="Tutorial" parent="." instance=ExtResource("13_0x2yl")]
+position = Vector2(480, -1200)
 
 [node name="---STONE---" type="Node" parent="."]
 

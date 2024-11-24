@@ -26,7 +26,6 @@ func _ready() -> void:
 	create_map()
 	handle_player_movement(player.position)
 
-
 var baseTile = preload("res://scenes/tiles/tile.tscn")
 var lilipadBaseTile = preload("res://scenes/tiles/lilipad_tile.tscn")
 func create_map() -> void:	

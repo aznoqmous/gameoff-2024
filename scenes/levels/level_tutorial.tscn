@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=4 uid="uid://bp1liseitxwsg"]
+
+[ext_resource type="Script" path="res://scripts/levels/level.gd" id="1_4cnmj"]
+[ext_resource type="Resource" uid="uid://cpcbaeiwl0e2m" path="res://resources/levels/level_config.tres" id="2_1kcvj"]
+[ext_resource type="TileSet" uid="uid://bovlkgk6cwuhx" path="res://resources/tilemaps/game.tres" id="3_ytgnd"]
+[ext_resource type="PackedScene" uid="uid://bdp2lpfyiwu40" path="res://scenes/sign.tscn" id="4_yxdow"]
+
+[node name="NewLevel" type="Node2D"]
+script = ExtResource("1_4cnmj")
+level_config = ExtResource("2_1kcvj")
+
+[node name="Spawn" type="Node2D" parent="."]
+position = Vector2(480, -1200)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+z_index = -2
+position = Vector2(-128, -128)
+tile_map_data = PackedByteArray("AAAAAAAAAQAAAAAAAAACAAAAAQAAAAAAAAACAP//AQAAAAAAAAADAP//AQAAAAAAAAAEAP//AQAAAAAAAAAGAP//AQAAAAAAAAAHAP//AQAAAAAAAAACAPv/AQAAAAAAAAADAPv/AQAAAAAAAAADAPr/AQAAAAAAAAAEAPr/AQAAAAAAAAAEAPn/AQAAAAAAAAAFAPn/AQAAAAAAAAAGAPn/AQAAAAAAAAAGAPj/AQAAAAAAAAAGAPf/AQAAAAAAAAAHAP7/AQAAAAAAAAAHAP3/AQAAAAAAAAAHAPv/AQAAAAAAAAA=")
+tile_set = ExtResource("3_ytgnd")
+
+[node name="ItemLayer" type="TileMapLayer" parent="."]
+z_index = -2
+position = Vector2(-128, -164.895)
+tile_set = ExtResource("3_ytgnd")
+
+[node name="Sign3" parent="." instance=ExtResource("4_yxdow")]
+position = Vector2(480, -240)
+message = "Nice !"
+
+[node name="Sign" parent="." instance=ExtResource("4_yxdow")]
+position = Vector2(1440, -240)
+message = "You can jump in any direction"
+
+[node name="Sign2" parent="." instance=ExtResource("4_yxdow")]
+position = Vector2(1680, -1200)
+message = "If you're stuck, press <R>"
