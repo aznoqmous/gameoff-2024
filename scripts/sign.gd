@@ -5,6 +5,8 @@ extends Area2D
 @onready var label: Label = $Container/Label
 @onready var symbol_sprite: Sprite2D = $Container/SymbolSprite
 @onready var container: Node2D = $Container
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
+
 var state: float = 0
 
 func _ready() -> void:
@@ -19,6 +21,6 @@ func _process(delta: float) -> void:
 
 func handle_area_entered(area: Area2D):
 	state = 1
+	audio_stream_player_2d.play()
 func handle_area_exited(area: Area2D):
 	state = 0
-# ↖↗↙↘←↑→↓

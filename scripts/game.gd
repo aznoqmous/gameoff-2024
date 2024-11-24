@@ -85,7 +85,6 @@ func load_items_layer(layer: TileMapLayer, offset: Vector2, level: Level = null)
 func load_level(level: Level):
 	add_child(level)
 	if not level.is_node_ready(): await level.ready
-	print("READY", level)
 	load_tiles_layer(level.tile_map_layer, level.position, level)
 	load_items_layer(level.item_layer, level.position, level)
 	audio_manager.preload_level_audio(level.level_config.theme)
@@ -164,7 +163,6 @@ func set_level(level: Level):
 		audio_manager.play_theme(level.level_config.theme)
 	current_level = level
 	environment.set_level(level)
-	print("Entering ", level)
 
 func reset_level():
 	if not current_level: return

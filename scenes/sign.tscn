@@ -1,8 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://bdp2lpfyiwu40"]
+[gd_scene load_steps=11 format=3 uid="uid://bdp2lpfyiwu40"]
 
 [ext_resource type="Script" path="res://scripts/sign.gd" id="1_qd6lt"]
 [ext_resource type="Texture2D" uid="uid://djief4uv1y67d" path="res://resources/sprites/sign.png" id="1_rawr2"]
 [ext_resource type="FontFile" uid="uid://w12hsd66wulf" path="res://resources/fonts/PatrickHand-Regular.ttf" id="3_fx3sv"]
+[ext_resource type="AudioStream" uid="uid://ccxkw1y7gbhv0" path="res://resources/audio/SFX/UI_Select-001.wav" id="4_iaauh"]
+[ext_resource type="AudioStream" uid="uid://bp0xxllxrj11n" path="res://resources/audio/SFX/UI_Select-002.wav" id="5_dofn6"]
+[ext_resource type="AudioStream" uid="uid://dns58lnff0y8w" path="res://resources/audio/SFX/UI_Select-003.wav" id="6_m5mu1"]
+[ext_resource type="AudioStream" uid="uid://ciek0ecqvrdqx" path="res://resources/audio/SFX/UI_Select-004.wav" id="7_jekr1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xj0qx"]
 size = Vector2(128, 128)
@@ -13,6 +17,13 @@ font_size = 64
 font_color = Color(0, 0, 0, 1)
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7ahto"]
+streams_count = 4
+stream_0/stream = ExtResource("4_iaauh")
+stream_1/stream = ExtResource("5_dofn6")
+stream_2/stream = ExtResource("6_m5mu1")
+stream_3/stream = ExtResource("7_jekr1")
 
 [node name="Sign" type="Area2D"]
 z_index = -1
@@ -43,3 +54,6 @@ text = "-- Lesson 1 --
 →→→→"
 label_settings = SubResource("LabelSettings_ttmw2")
 horizontal_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_7ahto")
