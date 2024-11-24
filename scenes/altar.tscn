@@ -1,25 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://4q35qrha1s02"]
+[gd_scene load_steps=13 format=3 uid="uid://4q35qrha1s02"]
 
 [ext_resource type="Script" path="res://scripts/altar.gd" id="1_7wx0k"]
 [ext_resource type="Texture2D" uid="uid://dfk50sbdgxfl2" path="res://resources/sprites/altar.png" id="1_pyffs"]
 [ext_resource type="Texture2D" uid="uid://vwerwarwcs7h" path="res://resources/sprites/particle.png" id="2_8xsvy"]
 [ext_resource type="Texture2D" uid="uid://rrc3srj3ranm" path="res://resources/sprites/point.png" id="2_ptu6d"]
-
-[sub_resource type="Animation" id="Animation_h8d36"]
-resource_name = "Idle"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Node2D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 6.28319]
-}
+[ext_resource type="Texture2D" uid="uid://b5g6u5t0jc7s2" path="res://resources/sprites/square.png" id="5_q17ft"]
 
 [sub_resource type="Animation" id="Animation_y4e1b"]
 length = 0.001
@@ -35,11 +20,125 @@ tracks/0/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D/PointLight2D:texture_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [5.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node2D/PointLight2D:energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_h8d36"]
+resource_name = "idle"
+length = 50.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 50),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_8g8j7"]
+resource_name = "teleport"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/PointLight2D:texture_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [5.0, 20.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D/PointLight2D:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.3, 1.0]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1, 1.9, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"teleport"
+}, {
+"args": [],
+"method": &"activate_symbol"
+}, {
+"args": [],
+"method": &"reset_animation"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1y8cj"]
 _data = {
-"Idle": SubResource("Animation_h8d36"),
-"RESET": SubResource("Animation_y4e1b")
+"RESET": SubResource("Animation_y4e1b"),
+"idle": SubResource("Animation_h8d36"),
+"teleport": SubResource("Animation_8g8j7")
 }
 
 [sub_resource type="Curve" id="Curve_m6cxo"]
@@ -59,8 +158,7 @@ script = ExtResource("1_7wx0k")
 libraries = {
 "": SubResource("AnimationLibrary_1y8cj")
 }
-autoplay = "Idle"
-speed_scale = 0.02
+autoplay = "idle"
 
 [node name="Node2D" type="Node2D" parent="."]
 z_index = -1
@@ -96,3 +194,10 @@ color_ramp = SubResource("Gradient_e8fgr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_2o2jk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+top_level = true
+z_index = 100
+scale = Vector2(1000, 1000)
+texture = ExtResource("5_q17ft")

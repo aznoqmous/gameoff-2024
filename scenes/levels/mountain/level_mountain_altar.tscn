@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://41064blckomy"]
+[gd_scene load_steps=4 format=4 uid="uid://41064blckomy"]
 
 [ext_resource type="Script" path="res://scripts/levels/level.gd" id="1_dpttv"]
 [ext_resource type="Resource" uid="uid://d28pre13p8bry" path="res://resources/levels/level_mountain.tres" id="2_kunwp"]
 [ext_resource type="TileSet" uid="uid://bovlkgk6cwuhx" path="res://resources/tilemaps/game.tres" id="3_2c2uy"]
-[ext_resource type="PackedScene" uid="uid://4q35qrha1s02" path="res://scenes/altar.tscn" id="4_n6pja"]
 
 [node name="MountainButtons2" type="Node2D"]
 script = ExtResource("1_dpttv")
@@ -21,7 +20,3 @@ tile_set = ExtResource("3_2c2uy")
 z_index = -2
 position = Vector2(-128, -164.895)
 tile_set = ExtResource("3_2c2uy")
-
-[node name="Altar" parent="." instance=ExtResource("4_n6pja")]
-modulate = Color(1, 0.896094, 0.699219, 1)
-position = Vector2(1200, -2160)

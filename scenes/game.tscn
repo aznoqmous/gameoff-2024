@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://3pte44nuj5m5"]
+[gd_scene load_steps=36 format=4 uid="uid://3pte44nuj5m5"]
 
 [ext_resource type="PackedScene" uid="uid://bdlc63ysvlljr" path="res://scenes/player.tscn" id="1_2la08"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_8utgd"]
@@ -27,13 +27,14 @@
 [ext_resource type="PackedScene" uid="uid://obgwlimq8ms1" path="res://scenes/levels/nature/level_nature_lilipad_2.tscn" id="24_b2hwo"]
 [ext_resource type="PackedScene" uid="uid://bddal6gs0hgwj" path="res://scenes/levels/desert/level_desert_1.tscn" id="25_4t5vn"]
 [ext_resource type="PackedScene" uid="uid://bqhd5trlvmgsi" path="res://scenes/levels/nature/level_nature_altar.tscn" id="25_pmawo"]
-[ext_resource type="PackedScene" uid="uid://bg4vynw0uuanm" path="res://scenes/levels/desert/desert_level_2.tscn" id="26_pgo4m"]
-[ext_resource type="PackedScene" uid="uid://1b5ruldw4kyp" path="res://scenes/levels/desert/desert_level_tornado_1.tscn" id="28_i841p"]
-[ext_resource type="PackedScene" uid="uid://s2kgfl5cr0xl" path="res://scenes/levels/desert/desert_altar.tscn" id="29_83hrw"]
-[ext_resource type="PackedScene" uid="uid://cplxqu1ucbmqv" path="res://scenes/levels/desert/desert_level_tornado_2.tscn" id="29_pll2u"]
-[ext_resource type="PackedScene" uid="uid://1lyf2vk0tge2" path="res://scenes/symbols/symbol.tscn" id="30_lbbme"]
+[ext_resource type="PackedScene" uid="uid://4q35qrha1s02" path="res://scenes/altar.tscn" id="26_3b3qm"]
+[ext_resource type="PackedScene" uid="uid://bg4vynw0uuanm" path="res://scenes/levels/desert/level_desert_2.tscn" id="26_pgo4m"]
+[ext_resource type="PackedScene" uid="uid://1b5ruldw4kyp" path="res://scenes/levels/desert/level_desert_tornado_1.tscn" id="28_i841p"]
+[ext_resource type="PackedScene" uid="uid://s2kgfl5cr0xl" path="res://scenes/levels/desert/level_desert_altar.tscn" id="29_83hrw"]
+[ext_resource type="PackedScene" uid="uid://cplxqu1ucbmqv" path="res://scenes/levels/desert/level_desert_tornado_2.tscn" id="29_pll2u"]
 [ext_resource type="PackedScene" uid="uid://ck1lkjgk8xn5y" path="res://scenes/symbols/symbol-stone.tscn" id="31_10rqu"]
 [ext_resource type="PackedScene" uid="uid://b0w14xtai1rje" path="res://scenes/symbols/symbol-tornado.tscn" id="32_w5ceq"]
+[ext_resource type="PackedScene" uid="uid://b45qwgiuu5iut" path="res://scenes/symbols/symbol-lilipad.tscn" id="35_gojn7"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -41,7 +42,7 @@ script = ExtResource("1_8utgd")
 tileSize = 240
 
 [node name="Player" parent="." instance=ExtResource("1_2la08")]
-position = Vector2(1920, -4080)
+position = Vector2(-960, 0)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(0.3, 0.3)
@@ -128,6 +129,7 @@ position = Vector2(1920, -6480)
 activators = [NodePath("../../Items/Button")]
 
 [node name="Spawn" parent="." instance=ExtResource("15_fd4cq")]
+position = Vector2(-960, 0)
 
 [node name="Sanctuary" parent="." instance=ExtResource("17_nerxj")]
 position = Vector2(1920, -4080)
@@ -156,6 +158,11 @@ position = Vector2(13920, -720)
 [node name="MountainAltar" parent="." instance=ExtResource("22_uh8hu")]
 position = Vector2(17760, 240)
 
+[node name="Altar3" parent="." node_paths=PackedStringArray("symbol") instance=ExtResource("26_3b3qm")]
+modulate = Color(1, 0.896094, 0.699219, 1)
+position = Vector2(18960, -1920)
+symbol = NodePath("../SymbolStone")
+
 [node name="---Nature---" type="Node" parent="."]
 
 [node name="Nature1" parent="." instance=ExtResource("12_jfl5y")]
@@ -177,6 +184,11 @@ position = Vector2(6480, -13440)
 [node name="NatureAltar" parent="." instance=ExtResource("25_pmawo")]
 position = Vector2(6480, -13440)
 
+[node name="Altar2" parent="." node_paths=PackedStringArray("symbol") instance=ExtResource("26_3b3qm")]
+modulate = Color(1, 1, 0.800781, 1)
+position = Vector2(7200, -15600)
+symbol = NodePath("../SymbolLilipad")
+
 [node name="---Desert---" type="Node" parent="."]
 
 [node name="Desert1" parent="." instance=ExtResource("25_4t5vn")]
@@ -194,19 +206,21 @@ position = Vector2(-9360, -12240)
 [node name="DesertTornado2" parent="." instance=ExtResource("29_pll2u")]
 position = Vector2(-13200, -13200)
 
-[node name="DeserAltar" parent="." instance=ExtResource("29_83hrw")]
+[node name="DesertAltar" parent="." instance=ExtResource("29_83hrw")]
 position = Vector2(-15840, -14400)
+
+[node name="Altar" parent="." node_paths=PackedStringArray("symbol") instance=ExtResource("26_3b3qm")]
+modulate = Color(1, 0.980469, 0.867188, 1)
+position = Vector2(-17040, -16080)
+symbol = NodePath("../SymbolTornado")
 
 [node name="---Symbols---" type="Node" parent="."]
 
 [node name="SymbolStone" parent="." instance=ExtResource("31_10rqu")]
-visible = false
 position = Vector2(2160, -4080)
 
-[node name="SymbolLilipad" parent="." instance=ExtResource("30_lbbme")]
-visible = false
-position = Vector2(1920, -4320)
-
 [node name="SymbolTornado" parent="." instance=ExtResource("32_w5ceq")]
-visible = false
 position = Vector2(1680, -4080)
+
+[node name="SymbolLilipad" parent="." instance=ExtResource("35_gojn7")]
+position = Vector2(1920, -4320)

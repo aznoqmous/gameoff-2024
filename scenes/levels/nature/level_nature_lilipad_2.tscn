@@ -1,23 +1,22 @@
 [gd_scene load_steps=4 format=4 uid="uid://obgwlimq8ms1"]
 
 [ext_resource type="Script" path="res://scripts/levels/level.gd" id="1_r4ydt"]
-[ext_resource type="Resource" uid="uid://bp46233w7mvtr" path="res://resources/levels/level_desert.tres" id="2_0fqls"]
+[ext_resource type="Resource" uid="uid://5j1qjhkvo4du" path="res://resources/levels/level_nature.tres" id="2_2epha"]
 [ext_resource type="TileSet" uid="uid://bovlkgk6cwuhx" path="res://resources/tilemaps/game.tres" id="3_weuek"]
 
 [node name="NewLevel" type="Node2D"]
 script = ExtResource("1_r4ydt")
-level_config = ExtResource("2_0fqls")
+level_config = ExtResource("2_2epha")
 
 [node name="Spawn" type="Node2D" parent="."]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -2
 position = Vector2(-128, -128)
-tile_map_data = PackedByteArray("AAAAAAAAAwABAAAAAAABAAAAAwABAAAAAAACAAAAAwABAAAAAAABAP7/AwADAAAAAAABAP//AwACAAAAAAACAP7/AwACAAAAAAACAP//AwAAAAAAAAADAP7/AwABAAAAAAADAP//AwABAAAAAAABAAEAAwABAAAAAAACAAEAAwABAAAAAAADAAAAAwAAAAAAAAAEAP//AwADAAAAAAAFAP//AwABAAAAAAAGAP//AwADAAAAAAAEAP7/AwACAAAAAAAFAP7/AwABAAAAAAAGAP7/AwADAAAAAAADAAEAAwACAAAAAAAFAPr/AwABAAAAAAAEAPn/AwACAAAAAAAFAPn/AwABAAAAAAAGAPn/AwAAAAAAAAAFAPj/AwABAAAAAAAEAPf/AwACAAAAAAAEAPj/AwAAAAAAAAAGAPj/AwAAAAAAAAAFAPf/AwADAAAAAAAGAPf/AwADAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAAAAwABAAAAAAABAAAAAwABAAAAAAACAAAAAwABAAAAAAABAP7/AwADAAAAAAABAP//AwACAAAAAAACAP7/AwACAAAAAAACAP//AwAAAAAAAAADAP7/AwABAAAAAAADAP//AwABAAAAAAABAAEAAwABAAAAAAACAAEAAwABAAAAAAADAAAAAwAAAAAAAAAEAP//AwADAAAAAAAFAP//AwABAAAAAAAEAP7/AwACAAAAAAAFAP7/AwABAAAAAAAGAP7/AwADAAAAAAAGAP//AwADAAAAAAADAP3/AwAAAAAAAAACAPn/AwABAAAAAAADAPz/AwADAAAAAAADAPv/AwADAAAAAAADAPr/AwADAAAAAAA=")
 tile_set = ExtResource("3_weuek")
 
 [node name="ItemLayer" type="TileMapLayer" parent="."]
 z_index = -2
 position = Vector2(-128, -164.895)
-tile_map_data = PackedByteArray("AAAFAPj/AgAAAAAAAAA=")
 tile_set = ExtResource("3_weuek")

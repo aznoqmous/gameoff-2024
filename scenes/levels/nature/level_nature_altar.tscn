@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://bqhd5trlvmgsi"]
+[gd_scene load_steps=4 format=4 uid="uid://bqhd5trlvmgsi"]
 
 [ext_resource type="Script" path="res://scripts/levels/level.gd" id="1_j4ayr"]
 [ext_resource type="Resource" uid="uid://5j1qjhkvo4du" path="res://resources/levels/level_nature.tres" id="2_4uclq"]
 [ext_resource type="TileSet" uid="uid://bovlkgk6cwuhx" path="res://resources/tilemaps/game.tres" id="3_b07jw"]
-[ext_resource type="PackedScene" uid="uid://4q35qrha1s02" path="res://scenes/altar.tscn" id="4_3x5i2"]
 
 [node name="Nature1" type="Node2D"]
 script = ExtResource("1_j4ayr")
@@ -21,7 +20,3 @@ tile_set = ExtResource("3_b07jw")
 z_index = -2
 position = Vector2(-128, -164.895)
 tile_set = ExtResource("3_b07jw")
-
-[node name="Altar" parent="." instance=ExtResource("4_3x5i2")]
-modulate = Color(1, 1, 0.800781, 1)
-position = Vector2(720, -2160)
