@@ -162,7 +162,7 @@ func move(direction: Vector2):
 
 	var pos = currentPosition
 	var lastPosition = get_last_position()
-	if not targetPositions.is_empty() and Time.get_ticks_msec() - lastMoveTime < 200:
+	if lastDirection != direction and not targetPositions.is_empty() and Time.get_ticks_msec() - lastMoveTime < 200:
 		var tile = game.get_tile_at_position((lastPosition + direction)/game.tileSize)
 		if not is_floored(): lastMoveTime = Time.get_ticks_msec() + 200
 		if not tile: return

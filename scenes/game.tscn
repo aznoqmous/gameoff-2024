@@ -88,7 +88,7 @@ visible = false
 z_index = -2
 y_sort_enabled = true
 position = Vector2(-128, -128)
-tile_map_data = PackedByteArray("AAALAO//AwABAAIAAAAMAO//AwABAAIAAAAMAPD/AwABAAIAAAANAO//AwAAAAIAAAAOAO//AwABAAIAAAALAPD/AwACAAIAAAALAO7/AwACAAIAAAAMAO7/AwAAAAIAAAAIAOv/AwACAAAAAAAIAOz/AwAAAAAAAAAHAOz/AwABAAAAAAAJAOz/AwAAAAAAAAAHAOv/AwABAAAAAAAJAOv/AwABAAAAAAACAO//AwAAAAMAAAD//+7/AwABAAMAAAAAAO7/AwACAAMAAAAAAO//AwACAAMAAAABAO7/AwABAAMAAAABAO//AwACAAMAAAA=")
+tile_map_data = PackedByteArray("AAAIAOv/AwACAAAAAAAIAOz/AwAAAAAAAAAHAOz/AwABAAAAAAAJAOz/AwAAAAAAAAAHAOv/AwABAAAAAAAJAOv/AwABAAAAAAAMAPH/AwAAAAIAAAAMAPD/AwACAAIAAAAMAO//AwACAAIAAAANAPD/AwAAAAIAAAANAO//AwABAAIAAAANAPH/AwABAAIAAAAOAPD/AwABAAIAAAA=")
 tile_set = ExtResource("2_4554k")
 
 [node name="Terrain" type="Node2D" parent="."]
@@ -137,38 +137,38 @@ activators = [NodePath("../../Items/Button")]
 position = Vector2(1920, -4080)
 
 [node name="Spawn" parent="." instance=ExtResource("15_fd4cq")]
-position = Vector2(240, 1440)
+position = Vector2(240, 2160)
 
 [node name="Tutorial" parent="." instance=ExtResource("13_0x2yl")]
-position = Vector2(480, -1200)
+position = Vector2(480, -480)
 
 [node name="---STONE---" type="Node" parent="."]
 
 [node name="Push1" parent="." instance=ExtResource("13_s7yu7")]
-position = Vector2(4320, -4320)
+position = Vector2(4080, -4080)
 
 [node name="Push2" parent="." instance=ExtResource("14_ip2n4")]
 visible = false
 position = Vector2(6000, -4080)
 
 [node name="Push3" parent="." instance=ExtResource("15_ir2oa")]
-position = Vector2(8160, -1680)
+position = Vector2(7920, -1440)
 
 [node name="Button1" parent="." instance=ExtResource("15_7vmk0")]
-position = Vector2(5760, -4080)
+position = Vector2(5520, -3840)
 
 [node name="StoneTeacher" parent="." instance=ExtResource("13_7d6rc")]
-position = Vector2(9840, 0)
+position = Vector2(9600, 240)
 
 [node name="MountainButtons2" parent="." instance=ExtResource("16_b1f5b")]
-position = Vector2(13920, -720)
+position = Vector2(13680, -480)
 
 [node name="MountainAltar" parent="." instance=ExtResource("22_uh8hu")]
-position = Vector2(17760, 240)
+position = Vector2(17520, 480)
 
 [node name="Altar3" parent="." node_paths=PackedStringArray("symbol") instance=ExtResource("26_3b3qm")]
 modulate = Color(1, 0.896094, 0.699219, 1)
-position = Vector2(18960, -1920)
+position = Vector2(18720, -1680)
 symbol = NodePath("../SymbolStone")
 
 [node name="---Nature---" type="Node" parent="."]
@@ -200,35 +200,35 @@ symbol = NodePath("../SymbolLilipad")
 [node name="---Desert---" type="Node" parent="."]
 
 [node name="Desert1" parent="." instance=ExtResource("25_4t5vn")]
-position = Vector2(-480, -4320)
+position = Vector2(240, -3840)
 
 [node name="Desert2" parent="." instance=ExtResource("26_pgo4m")]
-position = Vector2(-3840, -8880)
+position = Vector2(-3120, -8400)
 
 [node name="DesertTeacher" parent="." instance=ExtResource("14_jdsps")]
-position = Vector2(-5520, -11760)
+position = Vector2(-4800, -11280)
 
 [node name="DesertTornado1" parent="." instance=ExtResource("28_i841p")]
-position = Vector2(-9360, -12240)
+position = Vector2(-8640, -11760)
 
 [node name="DesertTornado2" parent="." instance=ExtResource("29_pll2u")]
-position = Vector2(-13200, -13200)
+position = Vector2(-12480, -12720)
 
 [node name="DesertAltar" parent="." instance=ExtResource("29_83hrw")]
-position = Vector2(-15840, -14400)
+position = Vector2(-15120, -13920)
 
 [node name="Altar" parent="." node_paths=PackedStringArray("symbol") instance=ExtResource("26_3b3qm")]
 modulate = Color(1, 0.980469, 0.867188, 1)
-position = Vector2(-17040, -16080)
+position = Vector2(-16320, -15600)
 symbol = NodePath("../SymbolTornado")
 
 [node name="---Symbols---" type="Node" parent="."]
 
 [node name="SymbolStone" parent="." instance=ExtResource("31_10rqu")]
-position = Vector2(2160, -4080)
+position = Vector2(2400, -3840)
 
 [node name="SymbolTornado" parent="." instance=ExtResource("32_w5ceq")]
-position = Vector2(1680, -4080)
+position = Vector2(1440, -3840)
 
 [node name="SymbolLilipad" parent="." instance=ExtResource("35_gojn7")]
 position = Vector2(1920, -4320)
