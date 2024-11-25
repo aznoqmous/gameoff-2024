@@ -17,3 +17,6 @@ grow_vertical = 2
 
 [node name="Button" parent="CanvasLayer/CenterContainer" instance=ExtResource("2_571ub")]
 layout_mode = 2
+
+[node name="SceneManager" type="CanvasLayer" parent="."]
+layer = 10
