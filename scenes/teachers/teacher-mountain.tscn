@@ -97,6 +97,8 @@ _data = {
 radius = 122.73
 
 [node name="Teacher" type="Node2D"]
+z_index = 3
+y_sort_enabled = true
 script = ExtResource("1_lvlih")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -111,6 +113,7 @@ autoplay = "Idle"
 shape = SubResource("CircleShape2D_7kt11")
 
 [node name="Node2D" type="Node2D" parent="."]
+y_sort_enabled = true
 position = Vector2(0, -100)
 
 [node name="Body0003Layer-70" type="Sprite2D" parent="Node2D"]

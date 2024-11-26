@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=4 uid="uid://obgwlimq8ms1"]
+[gd_scene load_steps=6 format=4 uid="uid://obgwlimq8ms1"]
 
 [ext_resource type="Script" path="res://scripts/levels/level.gd" id="1_r4ydt"]
 [ext_resource type="Resource" uid="uid://5j1qjhkvo4du" path="res://resources/levels/level_nature.tres" id="2_2epha"]
 [ext_resource type="TileSet" uid="uid://bovlkgk6cwuhx" path="res://resources/tilemaps/game.tres" id="3_weuek"]
+[ext_resource type="PackedScene" uid="uid://b7t2q0dt6xcgn" path="res://scenes/tiles/tile-nature.tscn" id="4_lcyyr"]
+[ext_resource type="PackedScene" uid="uid://dhgprbkhapw2i" path="res://scenes/items/button.tscn" id="5_2nqfk"]
 
 [node name="NewLevel" type="Node2D"]
 script = ExtResource("1_r4ydt")
@@ -13,10 +15,25 @@ level_config = ExtResource("2_2epha")
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -2
 position = Vector2(-128, -128)
-tile_map_data = PackedByteArray("AAAAAAAAAwABAAAAAAABAAAAAwABAAAAAAACAAAAAwABAAAAAAABAP7/AwADAAAAAAABAP//AwACAAAAAAACAP7/AwACAAAAAAACAP//AwAAAAAAAAADAP7/AwABAAAAAAADAP//AwABAAAAAAABAAEAAwABAAAAAAACAAEAAwABAAAAAAADAAAAAwAAAAAAAAAEAP//AwADAAAAAAAFAP//AwABAAAAAAAEAP7/AwACAAAAAAAFAP7/AwABAAAAAAAGAP7/AwADAAAAAAAGAP//AwADAAAAAAADAP3/AwAAAAAAAAACAPn/AwABAAAAAAADAPz/AwADAAAAAAADAPv/AwADAAAAAAADAPr/AwADAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAAAAwABAAAAAAABAAAAAwABAAAAAAACAAAAAwABAAAAAAABAP//AwACAAAAAAACAAEAAwABAAAAAAAFAAEAAwAAAAAAAAAGAAEAAwABAAAAAAAHAAEAAwABAAAAAAAGAP//AwACAAAAAAAFAP//AwABAAAAAAAKAP//AwABAAAAAAAKAAAAAwAAAAAAAAALAAAAAwABAAAAAAALAP//AwAAAAAAAAALAP7/AwAAAAAAAAAKAP7/AwACAAAAAAAMAP7/AwABAAAAAAAMAP//AwACAAAAAAAMAAAAAwACAAAAAAAIAAEAAwADAAAAAAAJAAEAAwADAAAAAAAKAAEAAwADAAAAAAALAAEAAwADAAAAAAAGAPv/AwAAAAAAAAAGAPr/AwACAAAAAAAFAPr/AwAAAAAAAAAHAPr/AwAAAAAAAAAGAPn/AwAAAAAAAAAGAAAAAwAAAAAAAAAAAP//AwACAAAAAAAAAAEAAwACAAAAAAAGAP7/AwADAAAAAAAGAP3/AwADAAAAAAAGAPz/AwADAAAAAAAHAAAAAwADAAAAAAAFAAAAAwADAAAAAAAEAAAAAwADAAAAAAADAAAAAwADAAAAAAABAAEAAwADAAAAAAAJAPz/AwADAAAAAAADAP7/AwADAAAAAAAEAAMAAwADAAAAAAANAAIAAwADAAAAAAACAPv/AwADAAAAAAAHAPv/AwABAAAAAAAHAPn/AwABAAAAAAAFAPn/AwACAAAAAAA=")
 tile_set = ExtResource("3_weuek")
+
+[node name="Tile" parent="TileMapLayer" node_paths=PackedStringArray("activators") instance=ExtResource("4_lcyyr")]
+position = Vector2(1568, -1792)
+activators = [NodePath("../../ItemLayer/Button")]
+
+[node name="Tile2" parent="TileMapLayer" node_paths=PackedStringArray("activators") instance=ExtResource("4_lcyyr")]
+position = Vector2(1568, -2032)
+activators = [NodePath("../../ItemLayer/Button")]
+
+[node name="Tile3" parent="TileMapLayer" node_paths=PackedStringArray("activators") instance=ExtResource("4_lcyyr")]
+position = Vector2(1568, -2272)
+activators = [NodePath("../../ItemLayer/Button")]
 
 [node name="ItemLayer" type="TileMapLayer" parent="."]
 z_index = -2
 position = Vector2(-128, -164.895)
 tile_set = ExtResource("3_weuek")
+
+[node name="Button" parent="ItemLayer" instance=ExtResource("5_2nqfk")]
+position = Vector2(1568, -1275.1)

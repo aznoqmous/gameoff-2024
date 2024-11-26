@@ -1,5 +1,5 @@
 class_name SceneManagerProgress
-extends Control
+extends CanvasLayer
 
 @onready var progress_container: Panel = $Panel/ProgressContainer
 @onready var progress_value: Panel = $Panel/ProgressContainer/ProgressValue
@@ -18,7 +18,6 @@ func _process(delta: float) -> void:
 func appear():
 	animation_player.play("Appear")
 	await animation_player.animation_finished
-	print("finished")
 
 func disappear():
 	animation_player.play("Disappear")

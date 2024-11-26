@@ -8,14 +8,18 @@ extends Node2D
 @onready var blocks: Node2D = $Terrain/Blocks
 @onready var items: Node2D = $Terrain/Items
 @onready var tilesContainer: Node2D = $Terrain/Tiles
-@onready var sanctuary: Level = $Sanctuary
+@onready var sanctuary: Sanctuary = $Sanctuary
+@onready var sanctuary_end: Sanctuary = $SanctuaryEnd
 
 @onready var camera_sprite_2d: Sprite2D = $EnvironmentManager/ParallaxBackground/BackgroundLayer/Sprite2D
 @onready var environment: EnvironmentManager = $EnvironmentManager
 
 @onready var ground_layer: TileMapLayer = $GroundLayer
+
 @export var mapSize = Vector2(10,10)
 @export var tileSize = 100
+@export var symbols: Array[AltarSymbol] = []
+@onready var spawn_paths: Level = $SpawnPaths
 
 var current_level:Level = null
 var tiles = {}
@@ -25,6 +29,9 @@ func _ready() -> void:
 	player.on_movement.connect(handle_player_movement)
 	create_map()
 	handle_player_movement(player.position)
+	
+	for altar_symbol in symbols:
+		altar_symbol.on_activate.connect(handle_activate_symbol)
 
 var baseTile = preload("res://scenes/tiles/tile.tscn")
 var lilipadBaseTile = preload("res://scenes/tiles/lilipad_tile.tscn")
@@ -176,3 +183,14 @@ func reset_level():
 		player.set_current_position(current_level.position + current_level.spawn.position)
 	else:
 		player.set_current_position(current_level.position)
+
+func handle_activate_symbol():
+	print("ACTIVATED")
+	player.targetPositions.clear()
+	for altar_symbol in symbols:
+		print(altar_symbol.is_active())
+		if not altar_symbol.is_active():
+			player.set_current_position(sanctuary.position + Vector2.DOWN * tileSize)
+			return
+	print("COMPLETED !")
+	player.set_current_position(sanctuary_end.position)

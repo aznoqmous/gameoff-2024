@@ -15,8 +15,7 @@ func play_teleport(area: Area2D):
 	animation_player.play("teleport")
 
 func teleport():
-	game.player.targetPositions.clear()
-	game.player.set_current_position(game.sanctuary.position)
+	activate_symbol()
 
 func activate_symbol():
 	if symbol: symbol.activate()

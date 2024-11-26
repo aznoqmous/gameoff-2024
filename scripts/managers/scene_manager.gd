@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Node
 
 var current_scene = null
 var game_scene = "res://scenes/game.tscn"
@@ -13,6 +13,7 @@ func _ready():
 	
 	scene_manager_progress = pre_scene_manager_progress.instantiate()
 	add_child(scene_manager_progress)
+	scene_manager_progress.visible = false
 
 func load_title():
 	load_scene(title_scene)
@@ -34,11 +35,13 @@ func set_scene(scene):
 	get_tree().current_scene = current_scene
 
 func load_scene_progress(path):
+	scene_manager_progress.visible = true
 	scene_manager_progress.set_progress(0.0)
 	await scene_manager_progress.appear()
 	var s = await _thread_load(path)
 	set_scene(s.instantiate())
 	await scene_manager_progress.disappear()
+	scene_manager_progress.visible = false
 	
 func _thread_load(path):
 	ResourceLoader.load_threaded_request(path)

@@ -12,6 +12,5 @@ func _perform(trail: Array):
 		finalPosition = (position + finalDirection) / game.tileSize
 		if game.is_blocked(finalPosition):
 			var tile = game.get_tile_at_position(finalPosition)
-			print(tile, tile._item)
 			if tile and not tile.push(player.lastDirection): break
 	player.move(finalDirection)

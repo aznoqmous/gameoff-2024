@@ -39,7 +39,6 @@ position = Vector2(-128, -164.895)
 tile_set = ExtResource("3_bmdmo")
 
 [node name="Button" parent="ItemLayer" instance=ExtResource("4_vswbp")]
-z_as_relative = false
 position = Vector2(2768, -1035.1)
 
 [node name="Teacher" parent="." instance=ExtResource("4_dq7ql")]

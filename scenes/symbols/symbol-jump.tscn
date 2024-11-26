@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccgqqol0mmcek"]
+
+[ext_resource type="Texture2D" uid="uid://rrc3srj3ranm" path="res://resources/sprites/point.png" id="1_2ctj4"]
+[ext_resource type="Texture2D" uid="uid://y7kv022572d6" path="res://resources/sprites/symbol-jump.png" id="2_g7mxm"]
+
+[node name="Symbol" type="Node2D"]
+z_index = -1
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-60, 32)
+energy = 0.2
+texture = ExtResource("1_2ctj4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 0)
+texture = ExtResource("2_g7mxm")
