@@ -125,7 +125,9 @@ func _input(event: InputEvent):
 			add_cast_position(get_last_position(), Vector2(0,0))
 			animationPlayer.play("Cast")
 	if Input.is_action_just_pressed("Reset"):
+		clear_cast()
 		game.reset_level()
+		leave_tile_position = get_last_position()
 
 func handle_movement_events(event: InputEvent):
 	if "axis_value" in event:
@@ -247,12 +249,12 @@ func cast():
 	newSpellSymbol.add_line(newLine)
 	newSpellSymbol.label.position = position
 	newSpellSymbol.set_text(":(")
-	
+		
 	var casted = false
 	for spell in spells:
 		for trail in spell.trails:
 			if trail == spellCanvas or trail == spellMask:
-				if spell.has("spell"):
+				if spell.has("spell") and spell.spell.is_available():
 					casted = true
 					spell.spell.cast(trail)
 					
@@ -307,8 +309,8 @@ func init_spells():
 @onready var jump: Jump = $Spells/Jump
 @onready var spawn_plant: SpawnPlant = $Spells/SpawnPlant
 @onready var spawn_stone: SpawnStone = $Spells/SpawnStone
-@onready var spawn_energy_ball: SpawnEnergyBall = $Spells/SpawnEnergyBall
 @onready var spawn_tornado: SpawnTornado = $Spells/SpawnTornado
+@onready var the_end: TheEnd = $Spells/TheEnd
 @onready var spells = [
 	{
 		"name": "Jump",
@@ -340,21 +342,19 @@ func init_spells():
 		"spell": spawn_stone
 	},
 	{
-		"name": "EnergyBall",
-		"trails": [
-			[[0, 3, 0], [2, 1, 4], [0, 5, 0], [0, 6, 0]],
-			[[0, 3, 0], [4, 1, 2], [0, 5, 0], [0, 6, 0]]
-		],
-		"rotate": true,
-		"spell": spawn_energy_ball
-	},
-	{
 		"name": "Tornado",
 		"trails": [
 			[[4, 3, 2], [5, 1, 0], [0, 6, 0]]
 		],
 		"rotate": false,
 		"spell": spawn_tornado
+	},
+	{
+		"name": "The end",
+		"trails": [
+			[[0, 6, 0], [3, 5, 1], [0, 4, 0]]
+		],
+		"spell": the_end
 	}
 ]
 func rotate_array(arr) -> Array:

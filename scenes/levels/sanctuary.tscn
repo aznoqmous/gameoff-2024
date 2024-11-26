@@ -8,6 +8,9 @@
 script = ExtResource("1_8i553")
 level_config = ExtResource("2_u64y5")
 
+[node name="Spawn" type="Node2D" parent="."]
+position = Vector2(0, 240)
+
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -2
 position = Vector2(-128, -128)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://bdlc63ysvlljr"]
+[gd_scene load_steps=60 format=3 uid="uid://bdlc63ysvlljr"]
 
 [ext_resource type="Texture2D" uid="uid://bvn24e5joccqc" path="res://resources/sprites/player_0001_body.png" id="1_1lid0"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_3pkg8"]
@@ -34,6 +34,7 @@
 [ext_resource type="AudioStream" uid="uid://b1dwob2aiymys" path="res://resources/audio/SFX/Player_Fall-001.wav" id="22_4ak1h"]
 [ext_resource type="AudioStream" uid="uid://bmwagaf2yfeo6" path="res://resources/audio/SFX/Cast_Fail.wav" id="22_8tjp5"]
 [ext_resource type="AudioStream" uid="uid://b0cvee73o8d4q" path="res://resources/audio/SFX/Magic_Tornado-003.wav" id="22_h07y1"]
+[ext_resource type="Script" path="res://scripts/spells/the_end.gd" id="25_dru6i"]
 [ext_resource type="Script" path="res://scripts/audio_list.gd" id="26_rn3mj"]
 [ext_resource type="AudioStream" uid="uid://hwatu7tqxtyo" path="res://resources/audio/SFX/Player_Move_Magic-002.wav" id="28_uoi1o"]
 [ext_resource type="AudioStream" uid="uid://bqfpjqjohryex" path="res://resources/audio/SFX/Player_Move_Magic-003.wav" id="29_kjqr4"]
@@ -1047,6 +1048,9 @@ script = ExtResource("13_ur5lk")
 [node name="Audio" type="AudioStreamPlayer" parent="Spells/SpawnTornado"]
 stream = SubResource("AudioStreamRandomizer_xr5cy")
 bus = &"SFX"
+
+[node name="TheEnd" type="Node" parent="Spells"]
+script = ExtResource("25_dru6i")
 
 [node name="Audio" type="Node2D" parent="."]
 

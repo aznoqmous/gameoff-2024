@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://3pte44nuj5m5"]
+[gd_scene load_steps=39 format=3 uid="uid://3pte44nuj5m5"]
 
 [ext_resource type="PackedScene" uid="uid://bdlc63ysvlljr" path="res://scenes/player.tscn" id="1_2la08"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_8utgd"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" path="res://scripts/managers/audio_manager.gd" id="2_8fmnl"]
 [ext_resource type="TileSet" uid="uid://bovlkgk6cwuhx" path="res://resources/tilemaps/game.tres" id="2_4554k"]
 [ext_resource type="PackedScene" uid="uid://dck8r017nkhwg" path="res://scenes/uis/settings_menu.tscn" id="2_exl6d"]
-[ext_resource type="PackedScene" uid="uid://dhgprbkhapw2i" path="res://scenes/items/button.tscn" id="5_3j3c6"]
 [ext_resource type="PackedScene" uid="uid://mous3wbqqboo" path="res://scenes/environments/parallax_background.tscn" id="5_6jx2f"]
 [ext_resource type="PackedScene" uid="uid://44ius7w12rme" path="res://scenes/levels/nature/level_nature_teacher.tscn" id="10_pwtql"]
 [ext_resource type="Texture2D" uid="uid://rrc3srj3ranm" path="res://resources/sprites/point.png" id="11_uslv7"]
@@ -50,7 +49,7 @@ symbols = [NodePath("SymbolStone"), NodePath("SymbolTornado"), NodePath("SymbolL
 visible = false
 
 [node name="Player" parent="." instance=ExtResource("1_2la08")]
-position = Vector2(21120, -1920)
+position = Vector2(1680, -11280)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(0.3, 0.3)
@@ -98,9 +97,6 @@ y_sort_enabled = true
 
 [node name="Items" type="Node2D" parent="Terrain"]
 y_sort_enabled = true
-
-[node name="Button" parent="Terrain/Items" instance=ExtResource("5_3j3c6")]
-position = Vector2(1680, -5040)
 
 [node name="Stones" type="Node2D" parent="Terrain"]
 y_sort_enabled = true

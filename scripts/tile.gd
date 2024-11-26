@@ -31,7 +31,6 @@ func _process(delta: float) -> void:
 func bump():
 	scale = Vector2.ONE * 0.5
 
-
 func update_memory(playerPosition: Vector2):
 	if position.distance_to(player.position) < game.tileSize * player.sightRadius:
 		memory += 1
@@ -93,4 +92,3 @@ func handle_leave_tile():
 	if not breakable: return
 	_destroy = true
 	game.set_tile_at_position(position/game.tileSize, null)
-	pass

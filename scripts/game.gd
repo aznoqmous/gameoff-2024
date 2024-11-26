@@ -184,9 +184,11 @@ func reset_level():
 	else:
 		player.set_current_position(current_level.position)
 
+var is_end_level = false
 func handle_activate_symbol():
 	print("ACTIVATED")
 	player.targetPositions.clear()
+	player.clear_cast()
 	for altar_symbol in symbols:
 		print(altar_symbol.is_active())
 		if not altar_symbol.is_active():
@@ -194,3 +196,4 @@ func handle_activate_symbol():
 			return
 	print("COMPLETED !")
 	player.set_current_position(sanctuary_end.position)
+	is_end_level = true
