@@ -17,5 +17,6 @@ grow_vertical = 2
 
 [node name="Button" parent="CanvasLayer/CenterContainer" instance=ExtResource("2_571ub")]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 
 [node name="SceneManager" type="Node" parent="."]

@@ -64,6 +64,7 @@ texture = ExtResource("11_uslv7")
 current = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+position = Vector2(-1680, 720)
 color = Color(0.8, 0.8, 0.8, 1)
 
 [node name="AudioManager" type="Node" parent="."]

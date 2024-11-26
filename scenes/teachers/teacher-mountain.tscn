@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://mu12gfxjbk5o" path="res://resources/sprites/teachers/body_0001_Layer-66.png" id="4_x56dx"]
 [ext_resource type="Texture2D" uid="uid://c502b17k3ttkj" path="res://resources/sprites/teachers/body_0000_Layer-70.png" id="5_mx7b4"]
 [ext_resource type="Texture2D" uid="uid://cf0p1q2y8tuyv" path="res://resources/sprites/teachers/ston.png" id="6_atup0"]
-[ext_resource type="PackedScene" uid="uid://bfq0novin8k03" path="res://scenes/dialog_box.tscn" id="7_hasr8"]
+[ext_resource type="PackedScene" uid="uid://bfq0novin8k03" path="res://scenes/uis/dialog_box.tscn" id="7_hasr8"]
 
 [sub_resource type="Animation" id="Animation_hxg1w"]
 resource_name = "Idle"
