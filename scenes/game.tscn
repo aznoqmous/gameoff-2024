@@ -49,7 +49,7 @@ symbols = [NodePath("SymbolStone"), NodePath("SymbolTornado"), NodePath("SymbolL
 visible = false
 
 [node name="Player" parent="." instance=ExtResource("1_2la08")]
-position = Vector2(1680, -11280)
+position = Vector2(3600, -3840)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(0.3, 0.3)
