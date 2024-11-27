@@ -43,6 +43,7 @@ var castTrail = []
 @onready var cast_start_audio: AudioStreamPlayer2D = $Audio/CastStartAudio
 @onready var cast_end_audio: AudioStreamPlayer2D = $Audio/CastEndAudio
 @onready var cast_loop_audio: AudioStreamPlayer2D = $Audio/CastLoopAudio
+@onready var teleport_audio: AudioStreamPlayer2D = $Audio/TeleportAudio
 
 func _ready() -> void:
 	position = (position / game.tileSize).round() * game.tileSize

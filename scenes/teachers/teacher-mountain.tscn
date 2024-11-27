@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cu5pn3mjvcwul"]
+[gd_scene load_steps=17 format=3 uid="uid://cu5pn3mjvcwul"]
 
 [ext_resource type="Script" path="res://scripts/teacher.gd" id="1_lvlih"]
 [ext_resource type="Texture2D" uid="uid://cn12s7egotr6b" path="res://resources/sprites/teachers/body_0003_Layer-70.png" id="2_3acfb"]
@@ -7,6 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://c502b17k3ttkj" path="res://resources/sprites/teachers/body_0000_Layer-70.png" id="5_mx7b4"]
 [ext_resource type="Texture2D" uid="uid://cf0p1q2y8tuyv" path="res://resources/sprites/teachers/ston.png" id="6_atup0"]
 [ext_resource type="PackedScene" uid="uid://bfq0novin8k03" path="res://scenes/uis/dialog_box.tscn" id="7_hasr8"]
+[ext_resource type="AudioStream" uid="uid://bj5p2up0blmi3" path="res://resources/audio/SFX/new/sfx_teacher_mountain-001.wav" id="8_0w2h8"]
+[ext_resource type="AudioStream" uid="uid://o7tydjxk2jd7" path="res://resources/audio/SFX/new/sfx_teacher_mountain-002.wav" id="9_2fay6"]
+[ext_resource type="AudioStream" uid="uid://hsvshchy2bug" path="res://resources/audio/SFX/new/sfx_teacher_mountain-003.wav" id="10_17j7h"]
+[ext_resource type="AudioStream" uid="uid://cil1mi8be0qai" path="res://resources/audio/SFX/new/UI_Teacher_bye.wav" id="11_xmyll"]
 
 [sub_resource type="Animation" id="Animation_hxg1w"]
 resource_name = "Idle"
@@ -96,6 +100,12 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_7kt11"]
 radius = 122.73
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_5c18a"]
+streams_count = 3
+stream_0/stream = ExtResource("8_0w2h8")
+stream_1/stream = ExtResource("9_2fay6")
+stream_2/stream = ExtResource("10_17j7h")
+
 [node name="Teacher" type="Node2D"]
 z_index = 3
 y_sort_enabled = true
@@ -145,3 +155,11 @@ offset_left = 174.0
 offset_top = -640.0
 offset_right = 389.0
 offset_bottom = -523.0
+
+[node name="GreetingAudio" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_5c18a")
+bus = &"SFX"
+
+[node name="ByeAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_xmyll")
+bus = &"SFX"

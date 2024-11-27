@@ -5,6 +5,8 @@ extends Node2D
 @onready var game: Game = $"../.."
 @onready var dialog_box: DialogBox = $DialogBox
 @onready var show_spell: Node2D = $ShowSpell
+@onready var greeting_audio: AudioStreamPlayer2D = $GreetingAudio
+@onready var bye_audio: AudioStreamPlayer2D = $ByeAudio
 
 @export_multiline var greeting_text : String
 @export_multiline var goodbye_text : String
@@ -19,9 +21,10 @@ func _ready() -> void:
 
 func handle_area_enter(area: Area2D):
 	dialog_box.set_text(greeting_text)
-	pass
+	if greeting_audio: greeting_audio.play()
 	
 func handle_area_exit(area: Area2D):
+	if greeting_audio: greeting_audio.play()
 	var ended = await dialog_box.set_text(goodbye_text)
 	await get_tree().create_timer(1).timeout
 	if dialog_box.target_text == goodbye_text: dialog_box.set_text("")

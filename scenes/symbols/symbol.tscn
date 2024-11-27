@@ -13,3 +13,5 @@ texture = ExtResource("2_h7sna")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1, 0)
 texture = ExtResource("1_e7kui")
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]

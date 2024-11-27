@@ -1,6 +1,7 @@
 class_name Game
 extends Node2D
 
+@onready var screen_overlay: ScreenOverlay = $ScreenOverlay
 @onready var audio_manager: Node = $AudioManager
 @onready var player: Player = $Player
 @onready var terrain: Node2D = $Terrain
@@ -185,15 +186,35 @@ func reset_level():
 		player.set_current_position(current_level.position)
 
 var is_end_level = false
-func handle_activate_symbol():
-	print("ACTIVATED")
+func handle_altar_teleport():
+	player.teleport_audio.play()
 	player.targetPositions.clear()
 	player.clear_cast()
+	await screen_overlay.animate(1, 0.2)
+	await get_tree().create_timer(0.5).timeout
+	player.set_current_position(sanctuary.position + Vector2.DOWN * tileSize)
+	await get_tree().create_timer(0.5).timeout
+	await screen_overlay.animate(0, 1)
+	
+func handle_activate_symbol(altarSymbol: AltarSymbol):
+	print("ACTIVATED NEW SYMBOL")
+	await get_tree().create_timer(0.5).timeout
+	await altarSymbol.play_animation()
+	await get_tree().create_timer(1).timeout
+
 	for altar_symbol in symbols:
-		print(altar_symbol.is_active())
 		if not altar_symbol.is_active():
-			player.set_current_position(sanctuary.position + Vector2.DOWN * tileSize)
 			return
-	print("COMPLETED !")
+			
+	print("ALL SYMBOLS ACTIVATED")
+	
+	# play end animation
+	
+	await screen_overlay.animate(1, 1)
+	await get_tree().create_timer(0.5).timeout
 	player.set_current_position(sanctuary_end.position)
+	await get_tree().create_timer(0.5).timeout
+	await screen_overlay.animate(0, 1)
+	
 	is_end_level = true
+	

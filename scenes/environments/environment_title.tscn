@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dg06pkporng5x"]
+
+[ext_resource type="Script" path="res://scripts/levels/base_environment.gd" id="1_n3ft8"]
+[ext_resource type="PackedScene" uid="uid://mous3wbqqboo" path="res://scenes/environments/parallax_background.tscn" id="2_vlp7w"]
+
+[node name="Environment" type="Node2D"]
+z_index = 10
+script = ExtResource("1_n3ft8")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("2_vlp7w")]

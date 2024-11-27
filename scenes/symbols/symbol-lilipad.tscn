@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b45qwgiuu5iut"]
+[gd_scene load_steps=5 format=3 uid="uid://b45qwgiuu5iut"]
 
 [ext_resource type="Texture2D" uid="uid://rrc3srj3ranm" path="res://resources/sprites/point.png" id="1_1l1wq"]
 [ext_resource type="Script" path="res://scripts/altar_symbol.gd" id="1_shu78"]
 [ext_resource type="Texture2D" uid="uid://jdgwy8a76lle" path="res://resources/sprites/symbol-lilipad.png" id="2_wtvfk"]
+[ext_resource type="AudioStream" uid="uid://cajj72w227tch" path="res://resources/audio/music/MUS_First cast v2.wav" id="4_y7co1"]
 
 [node name="Symbol" type="Node2D"]
 z_index = -1
@@ -15,3 +16,6 @@ texture = ExtResource("1_1l1wq")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1, 0)
 texture = ExtResource("2_wtvfk")
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_y7co1")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://bdlc63ysvlljr"]
+[gd_scene load_steps=61 format=3 uid="uid://bdlc63ysvlljr"]
 
 [ext_resource type="Texture2D" uid="uid://bvn24e5joccqc" path="res://resources/sprites/player_0001_body.png" id="1_1lid0"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_3pkg8"]
@@ -45,6 +45,7 @@
 [ext_resource type="AudioStream" uid="uid://b4ibavht4apq" path="res://resources/audio/SFX/Player_Move_Magic-008.wav" id="34_sai1f"]
 [ext_resource type="AudioStream" uid="uid://dhcocnwgde8kg" path="res://resources/audio/SFX/Player_Move_Magic-009.wav" id="35_iwa47"]
 [ext_resource type="AudioStream" uid="uid://ccpkyoxv6bs1m" path="res://resources/audio/SFX/Player_Move_Magic-010.wav" id="36_t4nq1"]
+[ext_resource type="AudioStream" uid="uid://bsf1pkfgb6ur3" path="res://resources/audio/SFX/new/sfx_portal_teleport.wav" id="46_rnndc"]
 
 [sub_resource type="Animation" id="Animation_8ywdh"]
 resource_name = "Cast"
@@ -1089,3 +1090,7 @@ bus = &"SFX"
 bus = &"SFX"
 script = ExtResource("26_rn3mj")
 streams = Array[AudioStream]([ExtResource("15_51yk2"), ExtResource("28_uoi1o"), ExtResource("29_kjqr4"), ExtResource("30_vedux"), ExtResource("31_63dwg"), ExtResource("32_hrf7a"), ExtResource("33_j36xs"), ExtResource("34_sai1f"), ExtResource("35_iwa47"), ExtResource("36_t4nq1")])
+
+[node name="TeleportAudio" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("46_rnndc")
+bus = &"SFX"

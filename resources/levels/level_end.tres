@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="LevelConfig" load_steps=4 format=3 uid="uid://5j8h7080infg"]
+
+[ext_resource type="PackedScene" uid="uid://36f0fe4fxeh0" path="res://scenes/environments/environment_default.tscn" id="1_cfobf"]
+[ext_resource type="Script" path="res://scripts/resources/level_config.gd" id="2_xm6ot"]
+[ext_resource type="AudioStream" uid="uid://dx6gk7mxnne0q" path="res://resources/audio/music/MUS_End.wav" id="3_r7fbb"]
+
+[resource]
+script = ExtResource("2_xm6ot")
+color = Color(0.855469, 0.855469, 0.855469, 1)
+cloud_color = Color(1, 1, 1, 0)
+theme = ExtResource("3_r7fbb")
+environment = ExtResource("1_cfobf")

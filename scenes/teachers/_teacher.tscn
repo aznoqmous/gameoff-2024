@@ -142,3 +142,7 @@ offset_left = 155.0
 offset_top = -442.0
 offset_right = 247.0
 offset_bottom = -389.0
+
+[node name="GreetingAudio" type="AudioStreamPlayer2D" parent="."]
+
+[node name="ByeAudio" type="AudioStreamPlayer2D" parent="."]

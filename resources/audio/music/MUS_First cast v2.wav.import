@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cajj72w227tch"
+path="res://.godot/imported/MUS_First cast v2.wav-906ab8b4de8e551bf3a0e9e0aa26abbb.sample"
+
+[deps]
+
+source_file="res://resources/audio/music/MUS_First cast v2.wav"
+dest_files=["res://.godot/imported/MUS_First cast v2.wav-906ab8b4de8e551bf3a0e9e0aa26abbb.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

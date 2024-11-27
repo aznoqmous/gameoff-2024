@@ -1,7 +1,8 @@
-[gd_scene load_steps=39 format=3 uid="uid://3pte44nuj5m5"]
+[gd_scene load_steps=41 format=3 uid="uid://3pte44nuj5m5"]
 
 [ext_resource type="PackedScene" uid="uid://bdlc63ysvlljr" path="res://scenes/player.tscn" id="1_2la08"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_8utgd"]
+[ext_resource type="Script" path="res://scripts/screen_overlay.gd" id="2_3whoh"]
 [ext_resource type="AudioStream" uid="uid://dq2t0pxe1d4dc" path="res://resources/audio/SFX/AMB_Background.wav" id="2_6ksot"]
 [ext_resource type="Script" path="res://scripts/managers/audio_manager.gd" id="2_8fmnl"]
 [ext_resource type="TileSet" uid="uid://bovlkgk6cwuhx" path="res://resources/tilemaps/game.tres" id="2_4554k"]
@@ -39,17 +40,32 @@
 [ext_resource type="PackedScene" uid="uid://b45qwgiuu5iut" path="res://scenes/symbols/symbol-lilipad.tscn" id="35_gojn7"]
 [ext_resource type="PackedScene" uid="uid://ccgqqol0mmcek" path="res://scenes/symbols/symbol-jump.tscn" id="38_qr3fs"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ctf73"]
+bg_color = Color(1, 1, 1, 1)
+
 [node name="Game" type="Node2D" node_paths=PackedStringArray("symbols")]
 y_sort_enabled = true
 script = ExtResource("1_8utgd")
 tileSize = 240
 symbols = [NodePath("SymbolStone"), NodePath("SymbolTornado"), NodePath("SymbolLilipad")]
 
+[node name="ScreenOverlay" type="CanvasLayer" parent="."]
+script = ExtResource("2_3whoh")
+
+[node name="Panel" type="Panel" parent="ScreenOverlay"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ctf73")
+
 [node name="Menu" parent="." instance=ExtResource("2_exl6d")]
 visible = false
 
 [node name="Player" parent="." instance=ExtResource("1_2la08")]
-position = Vector2(3600, -3840)
+position = Vector2(-6960, -12000)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(0.3, 0.3)

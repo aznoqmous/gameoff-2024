@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ck1lkjgk8xn5y"]
+[gd_scene load_steps=5 format=3 uid="uid://ck1lkjgk8xn5y"]
 
 [ext_resource type="Script" path="res://scripts/altar_symbol.gd" id="1_eff43"]
 [ext_resource type="Texture2D" uid="uid://rrc3srj3ranm" path="res://resources/sprites/point.png" id="1_x80ty"]
 [ext_resource type="Texture2D" uid="uid://cguxe5kfqlvli" path="res://resources/sprites/symbol-stone.png" id="2_gww5d"]
+[ext_resource type="AudioStream" uid="uid://cajj72w227tch" path="res://resources/audio/music/MUS_First cast v2.wav" id="4_24tyc"]
 
 [node name="Symbol" type="Node2D"]
 z_index = -1
@@ -15,3 +16,6 @@ texture = ExtResource("1_x80ty")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1, 0)
 texture = ExtResource("2_gww5d")
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_24tyc")

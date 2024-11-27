@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=4 uid="uid://1pl3xiiwduai"]
 
 [ext_resource type="Script" path="res://scripts/levels/sanctuary.gd" id="1_opxgq"]
-[ext_resource type="Resource" uid="uid://cpcbaeiwl0e2m" path="res://resources/levels/level_config.tres" id="2_6cjqm"]
+[ext_resource type="Resource" uid="uid://5j8h7080infg" path="res://resources/levels/level_end.tres" id="2_ryg3f"]
 [ext_resource type="TileSet" uid="uid://bovlkgk6cwuhx" path="res://resources/tilemaps/game.tres" id="3_2mttb"]
 [ext_resource type="PackedScene" uid="uid://dhmnwbbaxa1e0" path="res://scenes/teachers/teacher-desert.tscn" id="4_tpxt3"]
 [ext_resource type="PackedScene" uid="uid://cu5pn3mjvcwul" path="res://scenes/teachers/teacher-mountain.tscn" id="5_1cbr4"]
@@ -13,7 +13,7 @@
 
 [node name="Sanctuary" type="Node2D"]
 script = ExtResource("1_opxgq")
-level_config = ExtResource("2_6cjqm")
+level_config = ExtResource("2_ryg3f")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -2
