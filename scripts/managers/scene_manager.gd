@@ -9,7 +9,7 @@ var scene_manager_progress: SceneManagerProgress
 func _ready():
 	var root = get_tree().root
 	current_scene = root.get_child(root.get_child_count() - 1)
-	load_title()
+	#load_title()
 	
 	scene_manager_progress = pre_scene_manager_progress.instantiate()
 	add_child(scene_manager_progress)
