@@ -7,6 +7,7 @@ extends Node2D
 @onready var spawn: Node2D = $Spawn
 
 @export var level_config: LevelConfig
+@export var audio_track: AudioStream
 
 var refLevel: Level # level kept as reference inside game
 

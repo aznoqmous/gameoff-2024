@@ -319,6 +319,7 @@ bus = &"Music"
 
 [node name="TitleTheme2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_tw5mu")
+volume_db = -12.0
 autoplay = true
 bus = &"Music"
 

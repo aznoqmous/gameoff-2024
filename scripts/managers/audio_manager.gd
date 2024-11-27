@@ -1,3 +1,4 @@
+class_name AudioManager
 extends Node
 
 var themes = {}
@@ -6,6 +7,7 @@ var themes = {}
 
 @onready var background_audio: AudioStreamPlayer = $BackgroundAudio
 @onready var theme_audio: AudioStreamPlayer = $ThemeAudio
+@onready var audio_track: AudioStreamPlayer = $AudioTrack
 
 var theme_volume = 0
 var active_theme: AudioStream
@@ -32,3 +34,8 @@ func play_theme(theme: AudioStream):
 	active_player = player
 	player.volume_db = -80
 	player.play()
+	
+func play_audio_track(track: AudioStream):
+	audio_track.stream = track
+	audio_track.play()
+	

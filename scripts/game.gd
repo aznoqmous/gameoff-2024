@@ -2,7 +2,7 @@ class_name Game
 extends Node2D
 
 @onready var screen_overlay: ScreenOverlay = $ScreenOverlay
-@onready var audio_manager: Node = $AudioManager
+@onready var audio_manager: AudioManager = $AudioManager
 @onready var player: Player = $Player
 @onready var terrain: Node2D = $Terrain
 @onready var stones: Node2D = $Terrain/Stones
@@ -168,7 +168,9 @@ func handle_player_movement(pos: Vector2):
 
 func set_level(level: Level):
 	if not current_level or current_level.level_config != level.level_config:
-		audio_manager.play_theme(level.level_config.theme)
+		pass
+		#audio_manager.play_theme(level.level_config.theme)
+	if level.audio_track: audio_manager.play_audio_track(level.audio_track)
 	current_level = level
 	environment.set_level(level)
 
