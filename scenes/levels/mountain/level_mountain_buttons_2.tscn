@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=4 uid="uid://b4ju5dfgus5lq"]
+[gd_scene load_steps=7 format=4 uid="uid://b4ju5dfgus5lq"]
 
 [ext_resource type="Script" path="res://scripts/levels/level.gd" id="1_30tte"]
 [ext_resource type="Resource" uid="uid://d28pre13p8bry" path="res://resources/levels/level_mountain.tres" id="2_irp1l"]
 [ext_resource type="TileSet" uid="uid://bovlkgk6cwuhx" path="res://resources/tilemaps/game.tres" id="3_p1ua4"]
 [ext_resource type="PackedScene" uid="uid://dkriar24wri7v" path="res://scenes/tiles/tile-mountain.tscn" id="4_orck1"]
 [ext_resource type="PackedScene" uid="uid://dhgprbkhapw2i" path="res://scenes/items/button.tscn" id="5_qppny"]
+[ext_resource type="PackedScene" uid="uid://dhnsy05wklqec" path="res://scenes/coin.tscn" id="6_gry2p"]
 
 [node name="MountainButtons2" type="Node2D"]
 script = ExtResource("1_30tte")
@@ -59,3 +60,6 @@ position = Vector2(2528, -315.105)
 
 [node name="Button4" parent="ItemLayer" instance=ExtResource("5_qppny")]
 position = Vector2(2528, 1364.9)
+
+[node name="Coin" parent="." instance=ExtResource("6_gry2p")]
+position = Vector2(1200, 1200)

@@ -16,9 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://b4loukqvarc2c" path="res://scenes/levels/mountain/level_mountain_teacher.tscn" id="13_7d6rc"]
 [ext_resource type="PackedScene" uid="uid://c3my6yjx2mccf" path="res://scenes/levels/spawn_paths.tscn" id="13_21gr4"]
 [ext_resource type="PackedScene" uid="uid://vr5hu5v71q30" path="res://scenes/levels/mountain/level_mountain_1.tscn" id="13_s7yu7"]
-[ext_resource type="PackedScene" uid="uid://dhdwy0krw2pon" path="res://scenes/levels/mountain/level_mountain_stone_1.tscn" id="14_ip2n4"]
+[ext_resource type="PackedScene" uid="uid://dhdwy0krw2pon" path="res://scenes/levels/mountain/level_mountain_4.tscn" id="14_ip2n4"]
 [ext_resource type="PackedScene" uid="uid://b0ilfph3jcmlc" path="res://scenes/levels/desert/level_desert_teacher.tscn" id="14_jdsps"]
-[ext_resource type="PackedScene" uid="uid://br5nlsyntqwq8" path="res://scenes/levels/mountain/level_mountain_buttons_1.tscn" id="15_7vmk0"]
+[ext_resource type="PackedScene" uid="uid://npynciymsn1p" path="res://scenes/levels/mountain/level_mountain_buttons_1.tscn" id="15_7vmk0"]
 [ext_resource type="PackedScene" uid="uid://cqmsxnbricsy5" path="res://scenes/levels/spawn.tscn" id="15_fd4cq"]
 [ext_resource type="PackedScene" uid="uid://db5qlgw6ls16u" path="res://scenes/levels/mountain/level_mountain_3.tscn" id="15_ir2oa"]
 [ext_resource type="PackedScene" uid="uid://b4ju5dfgus5lq" path="res://scenes/levels/mountain/level_mountain_buttons_2.tscn" id="16_b1f5b"]
@@ -65,7 +65,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_ctf73")
 visible = false
 
 [node name="Player" parent="." instance=ExtResource("1_2la08")]
-position = Vector2(0, 2160)
+position = Vector2(4320, -4800)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(0.3, 0.3)
@@ -150,8 +150,8 @@ position = Vector2(4080, -4080)
 [node name="Push3" parent="." instance=ExtResource("15_ir2oa")]
 position = Vector2(7920, -1440)
 
-[node name="Button1" parent="." instance=ExtResource("15_7vmk0")]
-position = Vector2(5520, -3840)
+[node name="MountainButtons1" parent="." instance=ExtResource("15_7vmk0")]
+position = Vector2(5760, -3840)
 
 [node name="StoneTeacher" parent="." instance=ExtResource("13_7d6rc")]
 position = Vector2(9600, 240)

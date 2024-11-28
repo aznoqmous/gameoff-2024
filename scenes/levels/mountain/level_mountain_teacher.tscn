@@ -1,18 +1,19 @@
-[gd_scene load_steps=9 format=4 uid="uid://b4loukqvarc2c"]
+[gd_scene load_steps=10 format=4 uid="uid://b4loukqvarc2c"]
 
 [ext_resource type="Script" path="res://scripts/levels/level.gd" id="1_ckpm8"]
 [ext_resource type="Resource" uid="uid://d28pre13p8bry" path="res://resources/levels/level_mountain.tres" id="2_8wquj"]
 [ext_resource type="TileSet" uid="uid://bovlkgk6cwuhx" path="res://resources/tilemaps/game.tres" id="3_bmdmo"]
-[ext_resource type="AudioStream" uid="uid://be5ikwxnh7sp" path="res://resources/audio/music/MUS_Moutain.wav" id="3_mis3p"]
+[ext_resource type="AudioStream" uid="uid://bglkimvky5n8n" path="res://resources/audio/music/MUS_Moutain_v5.wav" id="3_r7rik"]
 [ext_resource type="PackedScene" uid="uid://cu5pn3mjvcwul" path="res://scenes/teachers/teacher-mountain.tscn" id="4_dq7ql"]
 [ext_resource type="PackedScene" uid="uid://dkriar24wri7v" path="res://scenes/tiles/tile-mountain.tscn" id="4_iihny"]
 [ext_resource type="PackedScene" uid="uid://dhgprbkhapw2i" path="res://scenes/items/button.tscn" id="4_vswbp"]
 [ext_resource type="PackedScene" uid="uid://du40mdoydrsrw" path="res://scenes/spells/show_spell_stone.tscn" id="6_ee6h2"]
+[ext_resource type="PackedScene" uid="uid://dhnsy05wklqec" path="res://scenes/coin.tscn" id="9_0sjf0"]
 
 [node name="MountainTeacher" type="Node2D"]
 script = ExtResource("1_ckpm8")
 level_config = ExtResource("2_8wquj")
-audio_track = ExtResource("3_mis3p")
+audio_track = ExtResource("3_r7rik")
 
 [node name="Spawn" type="Node2D" parent="."]
 position = Vector2(1920, 480)
@@ -20,7 +21,7 @@ position = Vector2(1920, 480)
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -2
 position = Vector2(-128, -128)
-tile_map_data = PackedByteArray("AAAJAPr/AQABAAAAAAAIAPv/AwABAAIAAAAJAPv/AwAAAAIAAAAKAPv/AwABAAIAAAAKAPz/AwACAAIAAAAJAPz/AwABAAIAAAAIAPz/AwABAAIAAAAIAP3/AwAAAAIAAAAJAP3/AwABAAIAAAAKAP3/AwACAAIAAAAJAP//AwAAAAIAAAAJAAAAAwACAAIAAAAJAAEAAwAAAAIAAAAIAAEAAwACAAIAAAAIAAAAAwAAAAIAAAAKAAAAAwAAAAIAAAAKAAEAAwACAAIAAAAIAAIAAwAAAAIAAAAJAAIAAwACAAIAAAAKAAIAAwABAAIAAAAJAAMAAwAAAAIAAAAIAAMAAwABAAIAAAAKAAMAAwAAAAIAAAAPAPz/AwACAAIAAAAPAP3/AwABAAIAAAAPAPv/AwABAAIAAAAQAPv/AwABAAIAAAAQAPz/AwAAAAIAAAAQAP3/AwAAAAIAAAALAP3/AwABAAIAAAALAPz/AwAAAAIAAAALAPv/AwACAAIAAAA=")
+tile_map_data = PackedByteArray("AAAJAPr/AQABAAAAAAAIAPv/AwABAAIAAAAJAPv/AwAAAAIAAAAKAPv/AwABAAIAAAAKAPz/AwACAAIAAAAJAPz/AwABAAIAAAAIAPz/AwABAAIAAAAIAP3/AwAAAAIAAAAJAP3/AwABAAIAAAAKAP3/AwACAAIAAAAJAP//AwAAAAIAAAAJAAAAAwACAAIAAAAJAAEAAwAAAAIAAAAIAAEAAwACAAIAAAAIAAAAAwAAAAIAAAAKAAAAAwAAAAIAAAAKAAEAAwACAAIAAAAIAAIAAwAAAAIAAAAJAAIAAwACAAIAAAAKAAIAAwABAAIAAAAJAAMAAwAAAAIAAAAIAAMAAwABAAIAAAAKAAMAAwAAAAIAAAAPAPz/AwACAAIAAAAPAP3/AwABAAIAAAAPAPv/AwABAAIAAAAQAPv/AwABAAIAAAAQAPz/AwAAAAIAAAAQAP3/AwAAAAIAAAALAP3/AwABAAIAAAALAPz/AwAAAAIAAAALAPv/AwACAAIAAAAEAPz/AwABAAIAAAADAPz/AwAAAAIAAAA=")
 tile_set = ExtResource("3_bmdmo")
 
 [node name="Tile" parent="TileMapLayer" node_paths=PackedStringArray("activators") instance=ExtResource("4_iihny")]
@@ -51,3 +52,6 @@ goodbye_text = "Stay grounded, kid."
 
 [node name="ShowSpell" parent="Teacher" instance=ExtResource("6_ee6h2")]
 position = Vector2(0, 480)
+
+[node name="Coin" parent="." instance=ExtResource("9_0sjf0")]
+position = Vector2(720, -960)

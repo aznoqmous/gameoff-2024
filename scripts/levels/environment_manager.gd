@@ -40,7 +40,7 @@ func set_level(the_level: Level):
 	player.add_child(active_environment)
 
 func load_environment(level_config: LevelConfig):
-	if not level_config.environment: return
+	if not level_config or not level_config.environment: return
 	if environments.has(level_config): return environments[level_config]
 	var environment : BaseEnvironment = level_config.environment.instantiate()
 	environments[level_config] = environment

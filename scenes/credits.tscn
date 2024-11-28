@@ -1,11 +1,73 @@
-[gd_scene load_steps=9 format=3 uid="uid://dboj5acci6hut"]
+[gd_scene load_steps=14 format=3 uid="uid://dboj5acci6hut"]
 
 [ext_resource type="Script" path="res://scripts/credits.gd" id="1_ajy0i"]
 [ext_resource type="FontFile" uid="uid://w12hsd66wulf" path="res://resources/fonts/PatrickHand-Regular.ttf" id="2_me6bs"]
 [ext_resource type="Texture2D" uid="uid://cone0cw03eolm" path="res://resources/sprites/clouds-blank.png" id="5_xmlyd"]
 [ext_resource type="Texture2D" uid="uid://b5g6u5t0jc7s2" path="res://resources/sprites/square.png" id="6_eocot"]
-[ext_resource type="AudioStream" uid="uid://dx6gk7mxnne0q" path="res://resources/audio/music/MUS_End.wav" id="8_ix2bp"]
+[ext_resource type="AudioStream" uid="uid://chyfbjk3ndotx" path="res://resources/audio/music/MUS_End Master-1.wav" id="6_saktn"]
+[ext_resource type="Script" path="res://scripts/screen_overlay.gd" id="7_g0cth"]
 [ext_resource type="AudioStream" uid="uid://dq2t0pxe1d4dc" path="res://resources/audio/SFX/AMB_Background.wav" id="17_7jwxi"]
+
+[sub_resource type="Animation" id="Animation_s2i3x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ScreenOverlay/Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/CenterContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_dh402"]
+resource_name = "open"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ScreenOverlay/Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(3.06667, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/CenterContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(13.0333, 16.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m4sti"]
+_data = {
+"RESET": SubResource("Animation_s2i3x"),
+"open": SubResource("Animation_dh402")
+}
 
 [sub_resource type="LabelSettings" id="LabelSettings_43rlr"]
 font = ExtResource("2_me6bs")
@@ -16,10 +78,17 @@ font = ExtResource("2_me6bs")
 font_size = 32
 font_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_70pe8"]
+bg_color = Color(1, 1, 1, 1)
+
 [node name="Credits" type="Node"]
 script = ExtResource("1_ajy0i")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_m4sti")
+}
+autoplay = "open"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -30,41 +99,37 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="Control" parent="CanvasLayer/CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer"]
 layout_mode = 2
+theme_override_constants/separation = 50
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/CenterContainer/VBoxContainer"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer/VBoxContainer/VBoxContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer/VBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="CanvasLayer/CenterContainer/VBoxContainer/VBoxContainer2/VBoxContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/CenterContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "game development, level design and art"
+text = "programing stuff, level design and art"
 label_settings = SubResource("LabelSettings_43rlr")
 
-[node name="Label2" type="Label" parent="CanvasLayer/CenterContainer/VBoxContainer/VBoxContainer2/VBoxContainer"]
+[node name="Label2" type="Label" parent="CanvasLayer/CenterContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "aznoqmous"
 label_settings = SubResource("LabelSettings_mio38")
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/CenterContainer/VBoxContainer/VBoxContainer2"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="CanvasLayer/CenterContainer/VBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="CanvasLayer/CenterContainer/VBoxContainer/VBoxContainer2/VBoxContainer2"]
+[node name="Label" type="Label" parent="CanvasLayer/CenterContainer/VBoxContainer/VBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "sound design and music"
 label_settings = SubResource("LabelSettings_43rlr")
 
-[node name="Label2" type="Label" parent="CanvasLayer/CenterContainer/VBoxContainer/VBoxContainer2/VBoxContainer2"]
+[node name="Label2" type="Label" parent="CanvasLayer/CenterContainer/VBoxContainer/VBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "modee"
@@ -100,6 +165,17 @@ autoplay = true
 bus = &"Music"
 
 [node name="TitleTheme3" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_ix2bp")
+stream = ExtResource("6_saktn")
 autoplay = true
 bus = &"Music"
+
+[node name="ScreenOverlay" type="CanvasLayer" parent="."]
+script = ExtResource("7_g0cth")
+
+[node name="Panel" type="Panel" parent="ScreenOverlay"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_70pe8")

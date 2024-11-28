@@ -49,7 +49,6 @@ func create_map() -> void:
 			remove_child(level)
 
 func load_tiles_layer(layer: TileMapLayer, offset: Vector2 = Vector2.ZERO, level: Level = null):
-	
 	for tile in layer.get_children():
 		tile.reparent(tilesContainer)
 		set_tile_at_position((tile.global_position / tileSize).round(), tile)
@@ -95,7 +94,7 @@ func load_level(level: Level):
 	if not level.is_node_ready(): await level.ready
 	load_tiles_layer(level.tile_map_layer, level.position, level)
 	load_items_layer(level.item_layer, level.position, level)
-	audio_manager.preload_level_audio(level.level_config.theme)
+	if level.level_config: audio_manager.preload_level_audio(level.level_config.theme)
 
 func add_lilipad_tile(tilePosition: Vector2) -> Tile:
 	var newTile : Tile = lilipadBaseTile.instantiate()
@@ -171,6 +170,8 @@ func set_level(level: Level):
 		pass
 		#audio_manager.play_theme(level.level_config.theme)
 	if level.audio_track: audio_manager.play_audio_track(level.audio_track)
+	if level.stop_current_audio_track: 
+		audio_manager.stop_audio_track()
 	current_level = level
 	environment.set_level(level)
 
@@ -199,6 +200,7 @@ func handle_altar_teleport():
 	await screen_overlay.animate(0, 1)
 	
 func handle_activate_symbol(altarSymbol: AltarSymbol):
+	player.prevent_inputs = true
 	print("ACTIVATED NEW SYMBOL")
 	await get_tree().create_timer(0.5).timeout
 	await altarSymbol.play_animation()
@@ -219,4 +221,18 @@ func handle_activate_symbol(altarSymbol: AltarSymbol):
 	await screen_overlay.animate(0, 1)
 	
 	is_end_level = true
-	
+	player.prevent_inputs = false
+
+func play_end():
+	await screen_overlay.animate(1, 2)
+	SceneManager.load_credits()
+
+var collected_coins = {}
+var existing_coins = {}
+func collect(coin: Coin):
+	collected_coins[coin.global_position] = true
+	print("+1 coin !", str(collected_coins.size(), "/", existing_coins.size()))
+var coins_count = 0
+
+func register_coin(coin: Coin):
+	existing_coins[coin.global_position] = coin

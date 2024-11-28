@@ -7,6 +7,7 @@
 [node name="NewLevel" type="Node2D"]
 script = ExtResource("1_fjns7")
 level_config = ExtResource("2_0nrcw")
+stop_current_audio_track = true
 
 [node name="Spawn" type="Node2D" parent="."]
 

@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://ck1lkjgk8xn5y" path="res://scenes/symbols/symbol-stone.tscn" id="9_lu0yg"]
 [ext_resource type="PackedScene" uid="uid://b45qwgiuu5iut" path="res://scenes/symbols/symbol-lilipad.tscn" id="10_qko5e"]
 
-[node name="Sanctuary" type="Node2D"]
+[node name="SanctuaryEnd" type="Node2D"]
 script = ExtResource("1_opxgq")
 level_config = ExtResource("2_ryg3f")
 

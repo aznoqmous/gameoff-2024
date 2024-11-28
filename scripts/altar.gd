@@ -14,6 +14,7 @@ func reset_animation():
 	animation_player.play("idle")
 	
 func play_teleport(area: Area2D):
+	game.player.prevent_inputs = true
 	audio.play()
 	animation_player.play("teleport")
 
@@ -21,3 +22,4 @@ func teleport():
 	game.handle_altar_teleport()
 	await get_tree().create_timer(1).timeout
 	if symbol: symbol.activate()
+	else: game.player.prevent_inputs = false

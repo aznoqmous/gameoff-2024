@@ -7,6 +7,7 @@ extends Node2D
 @onready var particles: CPUParticles2D = $Particles
 @onready var body_scale_node: Node2D = $BodyScaleNode
 
+var prevent_inputs = false
 var lastFlooredPosition: Vector2 = Vector2.ZERO
 var baseParticles = preload("res://scenes/particles.tscn")
 var baseSymbol = preload("res://scenes/spell_symbol.tscn")
@@ -104,6 +105,7 @@ func handle_movement(currentPosition):
 	
 	
 func _input(event: InputEvent):
+	if prevent_inputs: return;
 	if isFalling: return;
 	handle_movement_events(event)
 	if Input.is_action_just_pressed("SwitchMode"):

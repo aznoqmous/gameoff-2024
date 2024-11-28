@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=4 uid="uid://1b5ruldw4kyp"]
+[gd_scene load_steps=7 format=4 uid="uid://1b5ruldw4kyp"]
 
 [ext_resource type="Script" path="res://scripts/levels/level.gd" id="1_s8jd0"]
 [ext_resource type="Resource" uid="uid://bp46233w7mvtr" path="res://resources/levels/level_desert.tres" id="2_p5yaq"]
 [ext_resource type="TileSet" uid="uid://bovlkgk6cwuhx" path="res://resources/tilemaps/game.tres" id="3_8gc3e"]
 [ext_resource type="PackedScene" uid="uid://oseu3jfwxp3m" path="res://scenes/tiles/tile-desert.tscn" id="4_gw7or"]
 [ext_resource type="PackedScene" uid="uid://dhgprbkhapw2i" path="res://scenes/items/button.tscn" id="5_v08wy"]
+[ext_resource type="PackedScene" uid="uid://dhnsy05wklqec" path="res://scenes/coin.tscn" id="6_066r5"]
 
 [node name="NewLevel" type="Node2D"]
 script = ExtResource("1_s8jd0")
@@ -15,7 +16,7 @@ level_config = ExtResource("2_p5yaq")
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -2
 position = Vector2(-128, -128)
-tile_map_data = PackedByteArray("AAAAAAAAAwABAAMAAAD//wAAAwABAAMAAAD//wEAAwABAAMAAAD//wIAAwAAAAMAAAD+/wEAAwACAAMAAAD+/wAAAwABAAMAAAD///3/AwACAAMAAAD+//z/AwABAAMAAAD+//v/AwABAAMAAAD///v/AwABAAMAAAD///z/AwACAAMAAAAAAPz/AwABAAMAAAAAAPv/AwACAAMAAAAAAAEAAwAAAAMAAAD///j/AwACAAMAAAD+//j/AwAAAAMAAAD9//j/AwABAAMAAAD+//f/AwABAAMAAAD9//f/AwAAAAMAAAD8//f/AwACAAMAAAD7//f/AwABAAMAAAD///f/AwACAAMAAAD+//b/AwAAAAMAAAD9//b/AwACAAMAAAD8//b/AwAAAAMAAAD7//b/AwAAAAMAAAD6//b/AwAAAAMAAAD9//z/AwAAAAMAAAD8//z/AwAAAAMAAAD7//z/AwAAAAMAAAD6//z/AwAAAAMAAAD6//v/AwAAAAMAAAD5//v/AwAAAAMAAAD4//v/AwACAAMAAAD4//z/AwABAAMAAAD4//3/AwACAAMAAAD5//3/AwABAAMAAAD5//z/AwAAAAMAAAD5/wAAAwACAAMAAAD5//r/AwAAAAMAAAD5//n/AwABAAMAAAD5//j/AwAAAAMAAAD5//f/AwAAAAMAAAD6//f/AwACAAMAAAD0//z/AwACAAMAAADz//z/AwABAAMAAADz//v/AwAAAAMAAADz//3/AwAAAAMAAADy//z/AwAAAAMAAADx//z/AwACAAMAAAA=")
+tile_map_data = PackedByteArray("AAAAAAAAAwABAAMAAAD//wAAAwABAAMAAAD//wEAAwABAAMAAAD//wIAAwAAAAMAAAD+/wEAAwACAAMAAAD+/wAAAwABAAMAAAD///3/AwACAAMAAAD+//z/AwABAAMAAAD+//v/AwABAAMAAAD///v/AwABAAMAAAD///z/AwACAAMAAAAAAPz/AwABAAMAAAAAAPv/AwACAAMAAAAAAAEAAwAAAAMAAAD///j/AwACAAMAAAD+//j/AwAAAAMAAAD9//j/AwABAAMAAAD+//f/AwABAAMAAAD9//f/AwAAAAMAAAD8//f/AwACAAMAAAD7//f/AwABAAMAAAD///f/AwACAAMAAAD+//b/AwAAAAMAAAD9//b/AwACAAMAAAD8//b/AwAAAAMAAAD7//b/AwAAAAMAAAD6//b/AwAAAAMAAAD9//z/AwAAAAMAAAD8//z/AwAAAAMAAAD7//z/AwAAAAMAAAD6//z/AwAAAAMAAAD6//v/AwAAAAMAAAD5//v/AwAAAAMAAAD4//v/AwACAAMAAAD4//z/AwABAAMAAAD4//3/AwACAAMAAAD5//3/AwABAAMAAAD5//z/AwAAAAMAAAD5/wAAAwACAAMAAAD5//r/AwAAAAMAAAD5//n/AwABAAMAAAD5//j/AwAAAAMAAAD5//f/AwAAAAMAAAD6//f/AwACAAMAAAD0//z/AwACAAMAAADz//z/AwABAAMAAADz//v/AwAAAAMAAADz//3/AwAAAAMAAADy//z/AwAAAAMAAADx//z/AwACAAMAAAD1/wAAAwAAAAMAAAA=")
 tile_set = ExtResource("3_8gc3e")
 
 [node name="Tile" parent="TileMapLayer" node_paths=PackedStringArray("activators") instance=ExtResource("4_gw7or")]
@@ -30,3 +31,6 @@ tile_set = ExtResource("3_8gc3e")
 
 [node name="Button" parent="ItemLayer" instance=ExtResource("5_v08wy")]
 position = Vector2(-1552, 164.895)
+
+[node name="Coin" parent="." instance=ExtResource("6_066r5")]
+position = Vector2(-2640, 0)

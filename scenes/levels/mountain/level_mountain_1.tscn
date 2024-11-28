@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=4 uid="uid://vr5hu5v71q30"]
+[gd_scene load_steps=5 format=4 uid="uid://vr5hu5v71q30"]
 
 [ext_resource type="TileSet" uid="uid://bovlkgk6cwuhx" path="res://resources/tilemaps/game.tres" id="1_hwqyo"]
 [ext_resource type="Script" path="res://scripts/levels/level.gd" id="1_ulkl8"]
 [ext_resource type="Resource" uid="uid://d28pre13p8bry" path="res://resources/levels/level_mountain.tres" id="2_q6rf3"]
+[ext_resource type="PackedScene" uid="uid://dhnsy05wklqec" path="res://scenes/coin.tscn" id="4_cqqev"]
 
 [node name="Mountain1" type="Node2D"]
 script = ExtResource("1_ulkl8")
@@ -20,5 +21,8 @@ tile_set = ExtResource("1_hwqyo")
 [node name="ItemLayer" type="TileMapLayer" parent="."]
 z_index = -2
 position = Vector2(-128, -164.895)
-tile_map_data = PackedByteArray("AAACAAEAAgAAAAAAAAAAAP3/AgAAAAAAAAABAPz/AgAAAAAAAAACAP3/AgAAAAAAAAAAAP//AgAAAAAAAAACAP//AgAAAAAAAAD///7/AgAAAAAAAAD/////AgAAAAAAAAABAP7/AgAAAAAAAAABAAAAAgAAAAAAAAADAAAAAgAAAAAAAAABAAIAAgAAAAAAAAAAAAEAAgAAAAAAAAAFAAEAAgAAAAAAAAAEAAEAAgAAAAAAAAADAAIAAgAAAAAAAAADAAQAAgAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAACAAEAAgAAAAAAAAAAAP3/AgAAAAAAAAABAPz/AgAAAAAAAAACAP3/AgAAAAAAAAAAAP//AgAAAAAAAAACAP//AgAAAAAAAAD///7/AgAAAAAAAAD/////AgAAAAAAAAABAP7/AgAAAAAAAAABAAAAAgAAAAAAAAADAAAAAgAAAAAAAAABAAIAAgAAAAAAAAAAAAEAAgAAAAAAAAAFAAEAAgAAAAAAAAAEAAEAAgAAAAAAAAADAAIAAgAAAAAAAAADAAQAAgAAAAAAAAACAAQAAgAAAAAAAAAAAAIAAgAAAAAAAAADAAEAAgAAAAAAAAA=")
 tile_set = ExtResource("1_hwqyo")
+
+[node name="Coin" parent="." instance=ExtResource("4_cqqev")]
+position = Vector2(720, -960)

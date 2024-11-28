@@ -975,6 +975,8 @@ explosiveness = 0.0
 local_coords = false
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2049
+collision_mask = 2049
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_0tob7")

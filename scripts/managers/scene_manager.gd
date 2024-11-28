@@ -3,6 +3,7 @@ extends Node
 var current_scene = null
 var game_scene = "res://scenes/game.tscn"
 var title_scene = "res://scenes/title.tscn"
+var credits_scene = "res://scenes/credits.tscn"
 var pre_scene_manager_progress = preload("res://scenes/scene_manager_progress.tscn")
 var scene_manager_progress: SceneManagerProgress
 
@@ -20,6 +21,9 @@ func load_title():
 	
 func load_game():
 	load_scene_progress(game_scene)
+
+func load_credits():
+	load_scene(credits_scene)
 
 func load_scene(path):
 	_deferred_goto_scene.call_deferred(path)

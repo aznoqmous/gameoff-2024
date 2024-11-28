@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://44ius7w12rme"]
+[gd_scene load_steps=8 format=4 uid="uid://44ius7w12rme"]
 
 [ext_resource type="Script" path="res://scripts/levels/level.gd" id="1_tau6u"]
 [ext_resource type="TileSet" uid="uid://bovlkgk6cwuhx" path="res://resources/tilemaps/game.tres" id="2_640f6"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://cttjpdrpb1uk6" path="res://resources/audio/music/MUS_Forest.wav" id="3_a3egj"]
 [ext_resource type="PackedScene" uid="uid://tywt2nicjedo" path="res://scenes/teachers/teacher-nature.tscn" id="3_s02hy"]
 [ext_resource type="PackedScene" uid="uid://cs4atjkdxi7l2" path="res://scenes/spells/show_spell_lilipad.tscn" id="5_8ljrb"]
+[ext_resource type="PackedScene" uid="uid://dhnsy05wklqec" path="res://scenes/coin.tscn" id="7_wnjw8"]
 
 [node name="NatureTeacher" type="Node2D"]
 script = ExtResource("1_tau6u")
@@ -31,3 +32,6 @@ position = Vector2(2160, -480)
 
 [node name="ShowSpell" parent="Teacher2" instance=ExtResource("5_8ljrb")]
 position = Vector2(240, 480)
+
+[node name="Coin" parent="." instance=ExtResource("7_wnjw8")]
+position = Vector2(720, -2400)

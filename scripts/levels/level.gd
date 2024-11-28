@@ -8,6 +8,7 @@ extends Node2D
 
 @export var level_config: LevelConfig
 @export var audio_track: AudioStream
+@export var stop_current_audio_track: bool
 
 var refLevel: Level # level kept as reference inside game
 

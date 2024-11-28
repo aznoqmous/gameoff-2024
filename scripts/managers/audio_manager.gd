@@ -37,5 +37,9 @@ func play_theme(theme: AudioStream):
 	
 func play_audio_track(track: AudioStream):
 	audio_track.stream = track
+	audio_track.volume_db = 0
 	audio_track.play()
 	
+func stop_audio_track():
+	var tween = get_tree().create_tween()
+	tween.tween_property(audio_track, "volume_db", -80, 5)
