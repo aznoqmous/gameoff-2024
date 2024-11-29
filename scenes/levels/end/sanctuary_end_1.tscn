@@ -1,15 +1,8 @@
-[gd_scene load_steps=11 format=4 uid="uid://7sareldb3h20"]
+[gd_scene load_steps=4 format=4 uid="uid://7sareldb3h20"]
 
 [ext_resource type="Script" path="res://scripts/levels/sanctuary.gd" id="1_h3xi2"]
 [ext_resource type="Resource" uid="uid://5j8h7080infg" path="res://resources/levels/level_end.tres" id="2_mxcfj"]
 [ext_resource type="TileSet" uid="uid://bovlkgk6cwuhx" path="res://resources/tilemaps/game.tres" id="3_wqyxd"]
-[ext_resource type="PackedScene" uid="uid://dhmnwbbaxa1e0" path="res://scenes/teachers/teacher-desert.tscn" id="4_vjjvn"]
-[ext_resource type="PackedScene" uid="uid://tywt2nicjedo" path="res://scenes/teachers/teacher-nature.tscn" id="5_p21fl"]
-[ext_resource type="PackedScene" uid="uid://cu5pn3mjvcwul" path="res://scenes/teachers/teacher-mountain.tscn" id="6_qms7n"]
-[ext_resource type="PackedScene" uid="uid://ccgqqol0mmcek" path="res://scenes/symbols/symbol-jump.tscn" id="7_w6lct"]
-[ext_resource type="PackedScene" uid="uid://b0w14xtai1rje" path="res://scenes/symbols/symbol-tornado.tscn" id="8_bhx3h"]
-[ext_resource type="PackedScene" uid="uid://ck1lkjgk8xn5y" path="res://scenes/symbols/symbol-stone.tscn" id="9_coont"]
-[ext_resource type="PackedScene" uid="uid://b45qwgiuu5iut" path="res://scenes/symbols/symbol-lilipad.tscn" id="10_ojdvf"]
 
 [node name="SanctuaryEnd" type="Node2D"]
 script = ExtResource("1_h3xi2")
@@ -18,7 +11,7 @@ level_config = ExtResource("2_mxcfj")
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -2
 position = Vector2(-128, -128)
-tile_map_data = PackedByteArray("AAD//9f/AQABAAAAAAAAANb/AQABAAAAAAABANf/AQABAAAAAAAAANj/AQABAAAAAAAAANf/AQAAAAAAAAD//9j/AQAAAAAAAAD+/9f/AQAAAAAAAAD//9b/AQAAAAAAAAABANb/AQAAAAAAAAABANj/AQAAAAAAAAACANf/AQAAAAAAAAAAANn/AQAAAAAAAAAAANX/AQAAAAAAAAD+/9b/AQAAAAAAAAD+/9X/AQAAAAAAAAD//9X/AQAAAAAAAAD//9T/AQAAAAAAAAAAANT/AQAAAAAAAAABANT/AQAAAAAAAAABANX/AQAAAAAAAAACANX/AQAAAAAAAAD9/9b/AQAAAAAAAAD9/9f/AQAAAAAAAAD9/9j/AQAAAAAAAAD+/9j/AQAAAAAAAAD//9n/AQAAAAAAAAABANn/AQAAAAAAAAACANj/AQAAAAAAAAADANj/AQAAAAAAAAADANf/AQAAAAAAAAADANb/AQAAAAAAAAACANb/AQAAAAAAAAD+/9n/AQAAAAAAAAACANn/AQAAAAAAAAD//9r/AQAAAAAAAAAAANr/AQAAAAAAAAABANr/AQAAAAAAAAAGAPn/AQABAAAAAAAHAPn/AQAAAAAAAAAIAPn/AQAAAAAAAAAJAPn/AwADAAAAAAAKAPn/AQAAAAAAAAALAPn/AQAAAAAAAAANAPn/AQAAAAAAAAAMAPn/AwADAAAAAAAMAPj/AwADAAAAAAALAPr/AwADAAAAAAAMAPr/AwADAAAAAAAKAPr/AQAAAAAAAAAIAPT/AQAAAAAAAAAJAPj/AwADAAAAAAAKAPj/AwADAAAAAAALAPj/AQAAAAAAAAALAPf/AQAAAAAAAAALAPb/AQAAAAAAAAAJAPf/AQAAAAAAAAAKAPf/AQAAAAAAAAAIAPP/AQAAAAAAAAAJAPP/AQAAAAAAAAAJAPT/AQAAAAAAAAAJAPX/AQAAAAAAAAAIAPX/AQAAAAAAAAAMAPf/AwADAAAAAAAOAPr/AwADAAAAAAAOAPn/AwADAAAAAAAKAPL/AwADAAAAAAAKAPH/AQAAAAAAAAAJAPL/AQAAAAAAAAAJAPH/AQAAAAAAAAAKAPb/AQAAAAAAAAAJAPb/AwADAAAAAAALAPT/AwADAAAAAAAMAPT/AQAAAAAAAAAMAPX/AQAAAAAAAAALAPX/AwADAAAAAAANAPX/AQAAAAAAAAAPAPb/AwADAAAAAAAFAPL/AwADAAAAAAANAPL/AwADAAAAAAALAPL/AwADAAAAAAALAPH/AwADAAAAAAAOAPT/AQAAAAAAAAAOAPP/AQAAAAAAAAAPAPP/AQAAAAAAAAAPAPL/AQAAAAAAAAAOAPL/AwADAAAAAAAPAPT/AwADAAAAAAAOAPX/AwADAAAAAAAQAPT/AwADAAAAAAAQAPP/AwADAAAAAAAQAPL/AwADAAAAAAANAPT/AwADAAAAAAAIAPL/AwADAAAAAAAIAPH/AwADAAAAAAAHAPL/AwADAAAAAAAEAPT/AQABAAAAAAA=")
+tile_map_data = PackedByteArray("AAAGAPn/AQABAAAAAAAHAPn/AQAAAAAAAAAIAPn/AQAAAAAAAAAJAPn/AwADAAAAAAAKAPn/AQAAAAAAAAANAPn/AQAAAAAAAAAMAPn/AwADAAAAAAAMAPj/AwADAAAAAAALAPr/AwADAAAAAAAMAPr/AwADAAAAAAAKAPr/AQAAAAAAAAAIAPT/AQAAAAAAAAAJAPj/AwADAAAAAAAKAPj/AwADAAAAAAALAPf/AQAAAAAAAAALAPb/AQAAAAAAAAAJAPf/AQAAAAAAAAAKAPf/AQAAAAAAAAAIAPP/AQAAAAAAAAAJAPP/AQAAAAAAAAAJAPT/AQAAAAAAAAAJAPX/AQAAAAAAAAAIAPX/AQAAAAAAAAAMAPf/AwADAAAAAAAOAPr/AwADAAAAAAAOAPn/AwADAAAAAAAKAPL/AwADAAAAAAAKAPH/AQAAAAAAAAAJAPL/AQAAAAAAAAAJAPH/AQAAAAAAAAAKAPb/AQAAAAAAAAAJAPb/AwADAAAAAAALAPT/AwADAAAAAAAMAPT/AQAAAAAAAAAMAPX/AQAAAAAAAAALAPX/AwADAAAAAAANAPX/AQAAAAAAAAAPAPb/AwADAAAAAAAFAPL/AwADAAAAAAANAPL/AwADAAAAAAALAPL/AwADAAAAAAALAPH/AwADAAAAAAAOAPT/AQAAAAAAAAAOAPP/AQAAAAAAAAAPAPP/AQAAAAAAAAAPAPL/AQAAAAAAAAAOAPL/AwADAAAAAAAPAPT/AwADAAAAAAAOAPX/AwADAAAAAAAQAPT/AwADAAAAAAAQAPP/AwADAAAAAAAQAPL/AwADAAAAAAANAPT/AwADAAAAAAAIAPL/AwADAAAAAAAIAPH/AwADAAAAAAAHAPL/AwADAAAAAAAEAPT/AQABAAAAAAALAPj/AQAAAAAAAAALAPn/AQAAAAAAAAA=")
 tile_set = ExtResource("3_wqyxd")
 
 [node name="ItemLayer" type="TileMapLayer" parent="."]
@@ -26,38 +19,6 @@ z_index = -2
 position = Vector2(-128, -128)
 tile_map_data = PackedByteArray("AAAHAPn/AgAAAAAAAAA=")
 tile_set = ExtResource("3_wqyxd")
-
-[node name="Teacher" parent="." instance=ExtResource("4_vjjvn")]
-z_index = 3
-position = Vector2(-480, -10320)
-greeting_text = "A storm knows no bounds,
-but clears the skies for the leap ahead."
-goodbye_text = ""
-
-[node name="Teacher3" parent="." instance=ExtResource("5_p21fl")]
-z_index = 3
-position = Vector2(0, -10560)
-greeting_text = "The dance of life begins and ends in stillness."
-goodbye_text = ""
-
-[node name="Teacher2" parent="." instance=ExtResource("6_qms7n")]
-position = Vector2(480, -10320)
-greeting_text = "Foundation comes first."
-
-[node name="Symbol" parent="." instance=ExtResource("7_w6lct")]
-position = Vector2(0, -9600)
-
-[node name="Symbol2" parent="." instance=ExtResource("8_bhx3h")]
-position = Vector2(-240, -9840)
-script = null
-
-[node name="Symbol3" parent="." instance=ExtResource("9_coont")]
-position = Vector2(240, -9840)
-script = null
-
-[node name="Symbol4" parent="." instance=ExtResource("10_ojdvf")]
-position = Vector2(0, -10080)
-script = null
 
 [node name="Spawn" type="Node2D" parent="."]
 position = Vector2(1440, -1680)

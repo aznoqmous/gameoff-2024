@@ -30,4 +30,6 @@ func _process(delta: float):
 	pass
 
 func wait(seconds: float) -> void:
-	await get_tree().create_timer(seconds).timeout
+	var tree = get_tree()
+	if not tree: return
+	await tree.create_timer(seconds).timeout

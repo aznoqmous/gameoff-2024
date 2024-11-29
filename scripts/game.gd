@@ -10,7 +10,7 @@ extends Node2D
 @onready var items: Node2D = $Terrain/Items
 @onready var tilesContainer: Node2D = $Terrain/Tiles
 @onready var sanctuary: Sanctuary = $Sanctuary
-@onready var sanctuary_end: Sanctuary = $SanctuaryEnd
+@export var sanctuary_end: Sanctuary
 
 @onready var camera_sprite_2d: Sprite2D = $EnvironmentManager/ParallaxBackground/BackgroundLayer/Sprite2D
 @onready var environment: EnvironmentManager = $EnvironmentManager
@@ -27,10 +27,9 @@ var tiles = {}
 var levels = []
 
 func _ready() -> void:
-	player.on_movement.connect(handle_player_movement)
 	create_map()
+	player.on_movement.connect(handle_player_movement)
 	handle_player_movement(player.position)
-	
 	for altar_symbol in symbols:
 		altar_symbol.on_activate.connect(handle_activate_symbol)
 
@@ -180,15 +179,17 @@ func reset_level():
 	if not current_level: return
 	var level = current_level
 	current_level = level.clone()
+	current_level.resets = level.resets
 	level.clear()
 	remove_child(level)
 	level.queue_free()
 	load_level(current_level)
+	current_level.handle_reset()
 	if current_level.spawn: 
 		player.set_current_position(current_level.position + current_level.spawn.position)
 	else:
 		player.set_current_position(current_level.position)
-
+	
 var is_end_level = false
 func handle_altar_teleport():
 	player.teleport_audio.play()
@@ -207,9 +208,9 @@ func handle_activate_symbol(altarSymbol: AltarSymbol):
 	await altarSymbol.play_animation()
 	await get_tree().create_timer(1).timeout
 
-	for altar_symbol in symbols:
-		if not altar_symbol.is_active():
-			return
+	#for altar_symbol in symbols:
+		#if not altar_symbol.is_active():
+			#return
 			
 	print("ALL SYMBOLS ACTIVATED")
 	
@@ -217,7 +218,7 @@ func handle_activate_symbol(altarSymbol: AltarSymbol):
 	
 	await screen_overlay.animate(1, 1)
 	await get_tree().create_timer(0.5).timeout
-	player.set_current_position(sanctuary_end.position)
+	player.set_current_position(sanctuary_end.spawn.global_position)
 	await get_tree().create_timer(0.5).timeout
 	await screen_overlay.animate(0, 1)
 	

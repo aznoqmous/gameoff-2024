@@ -5,10 +5,14 @@ extends Node2D
 @onready var item_layer: TileMapLayer = $ItemLayer
 @onready var game: Game = $"/root/Game"
 @onready var spawn: Node2D = $Spawn
+@onready var tips: Node2D = $Sign
 
 @export var level_config: LevelConfig
 @export var audio_track: AudioStream
 @export var stop_current_audio_track: bool
+
+var resets = 0
+var show_tips_reset_count = 3
 
 var refLevel: Level # level kept as reference inside game
 
@@ -30,6 +34,10 @@ func clear():
 	for obj in objects:
 		if obj != null: obj.queue_free()
 	objects = []
+
+func handle_reset():
+	resets += 1
+	if resets > show_tips_reset_count and tips: tips.visible = true
 
 func clone():
 	var level : Level = scene.instantiate()
