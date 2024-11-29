@@ -12,7 +12,7 @@ extends Node2D
 @export var stop_current_audio_track: bool
 
 var resets = 0
-var show_tips_reset_count = 3
+var show_tips_reset_count = 2
 
 var refLevel: Level # level kept as reference inside game
 
@@ -24,6 +24,7 @@ func _ready() -> void:
 	game.levels.append(self)
 	tile_map_layer.visible = false
 	item_layer.visible = false
+	if tips: tips.visible = false
 	
 # called only on reference levels, not on clones
 func init():
@@ -37,7 +38,7 @@ func clear():
 
 func handle_reset():
 	resets += 1
-	if resets > show_tips_reset_count and tips: tips.visible = true
+	if resets >= show_tips_reset_count and tips: tips.visible = true
 
 func clone():
 	var level : Level = scene.instantiate()

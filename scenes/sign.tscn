@@ -35,10 +35,11 @@ shape = SubResource("RectangleShape2D_xj0qx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 y_sort_enabled = true
-position = Vector2(4, -26)
+position = Vector2(4, -81)
 texture = ExtResource("1_rawr2")
 
 [node name="Container" type="Node2D" parent="."]
+position = Vector2(0, -55)
 
 [node name="SymbolSprite" type="Sprite2D" parent="Container"]
 y_sort_enabled = true
