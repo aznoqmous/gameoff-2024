@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dhnsy05wklqec"]
+[gd_scene load_steps=11 format=3 uid="uid://dhnsy05wklqec"]
 
 [ext_resource type="Texture2D" uid="uid://rrc3srj3ranm" path="res://resources/sprites/point.png" id="1_n4cjc"]
 [ext_resource type="Script" path="res://scripts/coin.gd" id="1_xbsim"]
@@ -66,6 +66,65 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(0, -56)]
 }
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("LootParticles")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("LootParticles:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Node2D:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.59, 0.59)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Node2D/CPUParticles2D2:emitting")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Area2D:process_mode")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_pggsa"]
 resource_name = "idle"
@@ -132,10 +191,77 @@ tracks/4/keys = {
 "values": [Vector2(0, -56), Vector2(0, -45), Vector2(0, -56)]
 }
 
+[sub_resource type="Animation" id="Animation_ilp4t"]
+resource_name = "loot"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LootParticles:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.166667, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.59, 0.59), Vector2(1e-05, 1e-05)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node2D/CPUParticles2D2:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Area2D:process_mode")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fci8j"]
 _data = {
 "RESET": SubResource("Animation_1ppdt"),
-"idle": SubResource("Animation_pggsa")
+"idle": SubResource("Animation_pggsa"),
+"loot": SubResource("Animation_ilp4t")
 }
 
 [sub_resource type="Curve" id="Curve_ejpy7"]
@@ -156,6 +282,28 @@ libraries = {
 "": SubResource("AnimationLibrary_fci8j")
 }
 autoplay = "idle"
+
+[node name="LootParticles" type="CPUParticles2D" parent="."]
+position = Vector2(0, -56)
+scale = Vector2(0.59, 0.59)
+emitting = false
+amount = 16
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+lifetime_randomness = 1.0
+texture = ExtResource("2_blq8k")
+spread = 180.0
+gravity = Vector2(0, -100)
+initial_velocity_min = 125.93
+initial_velocity_max = 266.67
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 0.2
+scale_amount_max = 0.2
+scale_amount_curve = SubResource("Curve_ejpy7")
+color_ramp = SubResource("Gradient_7vhjo")
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(0, -56)
@@ -179,9 +327,9 @@ scale = Vector2(0.546019, 0.546019)
 texture = ExtResource("2_blq8k")
 
 [node name="CPUParticles2D2" type="CPUParticles2D" parent="Node2D"]
-amount = 4
+amount = 2
 lifetime = 2.0
-explosiveness = 0.5
+explosiveness = 0.2
 randomness = 1.0
 texture = ExtResource("2_blq8k")
 spread = 180.0
@@ -194,7 +342,6 @@ scale_amount_min = 0.2
 scale_amount_max = 0.2
 scale_amount_curve = SubResource("Curve_ejpy7")
 color_ramp = SubResource("Gradient_7vhjo")
-color_initial_ramp = SubResource("Gradient_7vhjo")
 
 [node name="Area2D" type="Area2D" parent="."]
 

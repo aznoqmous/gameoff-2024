@@ -3,6 +3,8 @@ extends Node2D
 
 @onready var area_2d: Area2D = $Area2D
 @onready var game: Game = $"/root/Game"
+@onready var loot_particles: CPUParticles2D = $Node2D/LootParticles
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func _ready() -> void:
 	if not game or game.collected_coins.has(global_position): return queue_free()
@@ -21,7 +23,7 @@ func handle_animation(delta):
 		visibility = true
 		var tween = get_tree().create_tween()
 		tween.tween_property(self, "scale", Vector2.ONE, 1)
-		
+
 func collect(area: Area2D):
 	game.collect(self)
-	queue_free()
+	animation_player.play("loot")

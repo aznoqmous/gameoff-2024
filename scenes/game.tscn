@@ -65,7 +65,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_ctf73")
 visible = false
 
 [node name="Player" parent="." instance=ExtResource("1_2la08")]
-position = Vector2(4320, -4800)
+position = Vector2(15360, -15360)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(0.3, 0.3)

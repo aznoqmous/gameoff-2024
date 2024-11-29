@@ -62,4 +62,4 @@ func push(direction: Vector2):
 	return finalPosition
 
 func get_tile() -> Tile:
-	return game.get_tile_at_position(currentPosition/game.tileSize)
+	return game.get_tile_at_position(floor(currentPosition/game.tileSize))
