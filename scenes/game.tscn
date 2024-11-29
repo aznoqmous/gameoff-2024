@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://3pte44nuj5m5"]
+[gd_scene load_steps=45 format=3 uid="uid://3pte44nuj5m5"]
 
 [ext_resource type="PackedScene" uid="uid://bdlc63ysvlljr" path="res://scenes/player.tscn" id="1_2la08"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_8utgd"]
@@ -9,9 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://dck8r017nkhwg" path="res://scenes/uis/settings_menu.tscn" id="2_exl6d"]
 [ext_resource type="PackedScene" uid="uid://mous3wbqqboo" path="res://scenes/environments/parallax_background.tscn" id="5_6jx2f"]
 [ext_resource type="PackedScene" uid="uid://44ius7w12rme" path="res://scenes/levels/nature/level_nature_teacher.tscn" id="10_pwtql"]
+[ext_resource type="PackedScene" uid="uid://dhgprbkhapw2i" path="res://scenes/items/button.tscn" id="11_lutkd"]
 [ext_resource type="Texture2D" uid="uid://rrc3srj3ranm" path="res://resources/sprites/point.png" id="11_uslv7"]
+[ext_resource type="PackedScene" uid="uid://cj447cxojo2t6" path="res://scenes/tiles/tile.tscn" id="12_ghq1l"]
 [ext_resource type="PackedScene" uid="uid://7bo0qg6aqda6" path="res://scenes/levels/nature/level_nature_1.tscn" id="12_jfl5y"]
-[ext_resource type="PackedScene" uid="uid://1pl3xiiwduai" path="res://scenes/levels/sanctuary_end.tscn" id="12_yixhr"]
+[ext_resource type="PackedScene" uid="uid://1pl3xiiwduai" path="res://scenes/levels/end/sanctuary_end.tscn" id="12_yixhr"]
 [ext_resource type="PackedScene" uid="uid://bp1liseitxwsg" path="res://scenes/levels/level_tutorial.tscn" id="13_0x2yl"]
 [ext_resource type="PackedScene" uid="uid://b4loukqvarc2c" path="res://scenes/levels/mountain/level_mountain_teacher.tscn" id="13_7d6rc"]
 [ext_resource type="PackedScene" uid="uid://c3my6yjx2mccf" path="res://scenes/levels/spawn_paths.tscn" id="13_21gr4"]
@@ -39,6 +41,8 @@
 [ext_resource type="PackedScene" uid="uid://b0w14xtai1rje" path="res://scenes/symbols/symbol-tornado.tscn" id="32_w5ceq"]
 [ext_resource type="PackedScene" uid="uid://b45qwgiuu5iut" path="res://scenes/symbols/symbol-lilipad.tscn" id="35_gojn7"]
 [ext_resource type="PackedScene" uid="uid://ccgqqol0mmcek" path="res://scenes/symbols/symbol-jump.tscn" id="38_qr3fs"]
+[ext_resource type="PackedScene" uid="uid://7sareldb3h20" path="res://scenes/levels/end/sanctuary_end_1.tscn" id="40_ge6vo"]
+[ext_resource type="PackedScene" uid="uid://bg8pvxuruw23x" path="res://scenes/levels/end/sanctuary_end_2.tscn" id="41_vf1sl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ctf73"]
 bg_color = Color(1, 1, 1, 1)
@@ -47,7 +51,7 @@ bg_color = Color(1, 1, 1, 1)
 y_sort_enabled = true
 script = ExtResource("1_8utgd")
 tileSize = 240
-symbols = [NodePath("SymbolStone"), NodePath("SymbolTornado"), NodePath("SymbolLilipad")]
+symbols = [NodePath("---Symbols---/SymbolStone"), NodePath("---Symbols---/SymbolTornado"), NodePath("---Symbols---/SymbolLilipad")]
 
 [node name="ScreenOverlay" type="CanvasLayer" parent="."]
 script = ExtResource("2_3whoh")
@@ -65,7 +69,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_ctf73")
 visible = false
 
 [node name="Player" parent="." instance=ExtResource("1_2la08")]
-position = Vector2(15360, -15360)
+position = Vector2(13200, -15600)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(0.3, 0.3)
@@ -118,6 +122,14 @@ y_sort_enabled = true
 [node name="Items" type="Node2D" parent="Terrain"]
 y_sort_enabled = true
 
+[node name="Button" parent="Terrain/Items" instance=ExtResource("11_lutkd")]
+position = Vector2(14400, -16800)
+stay_activated = true
+
+[node name="Button2" parent="Terrain/Items" instance=ExtResource("11_lutkd")]
+position = Vector2(16320, -16800)
+stay_activated = true
+
 [node name="Stones" type="Node2D" parent="Terrain"]
 y_sort_enabled = true
 
@@ -127,121 +139,163 @@ y_sort_enabled = true
 [node name="Tiles" type="Node2D" parent="Terrain"]
 y_sort_enabled = true
 
-[node name="Sanctuary" parent="." instance=ExtResource("17_nerxj")]
-position = Vector2(1920, -4080)
+[node name="Tile" parent="Terrain/Tiles" node_paths=PackedStringArray("activators") instance=ExtResource("12_ghq1l")]
+position = Vector2(14160, -15600)
+activators = [null]
 
-[node name="SanctuaryEnd" parent="." instance=ExtResource("12_yixhr")]
-position = Vector2(15360, -13920)
+[node name="Tile2" parent="Terrain/Tiles" node_paths=PackedStringArray("activators") instance=ExtResource("12_ghq1l")]
+position = Vector2(14400, -15600)
+activators = [null]
+
+[node name="Tile3" parent="Terrain/Tiles" node_paths=PackedStringArray("activators") instance=ExtResource("12_ghq1l")]
+position = Vector2(14640, -15600)
+activators = [null]
+
+[node name="Tile4" parent="Terrain/Tiles" node_paths=PackedStringArray("activators") instance=ExtResource("12_ghq1l")]
+position = Vector2(16080, -15600)
+activators = [NodePath("../../Items/Button2")]
+
+[node name="Tile5" parent="Terrain/Tiles" node_paths=PackedStringArray("activators") instance=ExtResource("12_ghq1l")]
+position = Vector2(16320, -15600)
+activators = [NodePath("../../Items/Button2")]
+
+[node name="Tile6" parent="Terrain/Tiles" node_paths=PackedStringArray("activators") instance=ExtResource("12_ghq1l")]
+position = Vector2(16560, -15600)
+activators = [NodePath("../../Items/Button2")]
+
+[node name="Tile7" parent="Terrain/Tiles" node_paths=PackedStringArray("activators") instance=ExtResource("12_ghq1l")]
+position = Vector2(15360, -16080)
+activators = [NodePath("../../Items/Button"), NodePath("../../Items/Button2")]
+
+[node name="Tile8" parent="Terrain/Tiles" node_paths=PackedStringArray("activators") instance=ExtResource("12_ghq1l")]
+position = Vector2(15360, -16320)
+activators = [NodePath("../../Items/Button"), NodePath("../../Items/Button2")]
+
+[node name="Tile9" parent="Terrain/Tiles" node_paths=PackedStringArray("activators") instance=ExtResource("12_ghq1l")]
+position = Vector2(15360, -16560)
+activators = [NodePath("../../Items/Button"), NodePath("../../Items/Button2")]
 
 [node name="Spawn" parent="." instance=ExtResource("15_fd4cq")]
 position = Vector2(0, 2160)
 
-[node name="SpawnPaths" parent="." instance=ExtResource("13_21gr4")]
-position = Vector2(1920, -3840)
-
 [node name="Tutorial" parent="." instance=ExtResource("13_0x2yl")]
 position = Vector2(240, -480)
 
+[node name="Sanctuary" parent="." instance=ExtResource("17_nerxj")]
+position = Vector2(1920, -4080)
+
+[node name="SanctuaryPaths" parent="." instance=ExtResource("13_21gr4")]
+position = Vector2(1920, -3840)
+
 [node name="---STONE---" type="Node" parent="."]
 
-[node name="Push1" parent="." instance=ExtResource("13_s7yu7")]
+[node name="Push1" parent="---STONE---" instance=ExtResource("13_s7yu7")]
 position = Vector2(4080, -4080)
 
-[node name="Push3" parent="." instance=ExtResource("15_ir2oa")]
+[node name="Push3" parent="---STONE---" instance=ExtResource("15_ir2oa")]
 position = Vector2(7920, -1440)
 
-[node name="MountainButtons1" parent="." instance=ExtResource("15_7vmk0")]
+[node name="MountainButtons1" parent="---STONE---" instance=ExtResource("15_7vmk0")]
 position = Vector2(5760, -3840)
 
-[node name="StoneTeacher" parent="." instance=ExtResource("13_7d6rc")]
+[node name="StoneTeacher" parent="---STONE---" instance=ExtResource("13_7d6rc")]
 position = Vector2(9600, 240)
 
-[node name="MountainStone1" parent="." instance=ExtResource("16_b1f5b")]
+[node name="MountainStone1" parent="---STONE---" instance=ExtResource("16_b1f5b")]
 position = Vector2(13680, -720)
 
-[node name="MountainStone2" parent="." instance=ExtResource("14_ip2n4")]
-position = Vector2(17280, 480)
+[node name="MountainStone2" parent="---STONE---" instance=ExtResource("14_ip2n4")]
+position = Vector2(17760, 480)
 
-[node name="MountainAltar" parent="." instance=ExtResource("22_uh8hu")]
-position = Vector2(19920, -480)
+[node name="MountainAltar" parent="---STONE---" instance=ExtResource("22_uh8hu")]
+position = Vector2(20400, -480)
 
-[node name="Altar3" parent="." node_paths=PackedStringArray("symbol") instance=ExtResource("26_3b3qm")]
+[node name="Altar3" parent="---STONE---" node_paths=PackedStringArray("symbol") instance=ExtResource("26_3b3qm")]
 modulate = Color(1, 0.896094, 0.699219, 1)
-position = Vector2(21120, -2640)
-symbol = NodePath("../SymbolStone")
+position = Vector2(21600, -2640)
+symbol = NodePath("../../---Symbols---/SymbolStone")
 
-[node name="Symbol2" parent="Altar3" instance=ExtResource("31_10rqu")]
+[node name="Symbol2" parent="---STONE---/Altar3" instance=ExtResource("31_10rqu")]
 position = Vector2(0, -480)
 script = null
 
 [node name="---Nature---" type="Node" parent="."]
 
-[node name="Nature1" parent="." instance=ExtResource("12_jfl5y")]
+[node name="Nature1" parent="---Nature---" instance=ExtResource("12_jfl5y")]
 position = Vector2(1920, -6720)
 
-[node name="Nature3" parent="." instance=ExtResource("19_g1ffw")]
+[node name="Nature3" parent="---Nature---" instance=ExtResource("19_g1ffw")]
 position = Vector2(1920, -9600)
 
-[node name="NatureTeacher" parent="." instance=ExtResource("10_pwtql")]
+[node name="NatureTeacher" parent="---Nature---" instance=ExtResource("10_pwtql")]
 position = Vector2(-720, -13200)
 
-[node name="NatureLilipad1" parent="." instance=ExtResource("20_qup1n")]
+[node name="NatureLilipad1" parent="---Nature---" instance=ExtResource("20_qup1n")]
 position = Vector2(2880, -13200)
 
-[node name="NatureLilipad2" parent="." instance=ExtResource("24_b2hwo")]
+[node name="NatureLilipad2" parent="---Nature---" instance=ExtResource("24_b2hwo")]
 position = Vector2(5760, -13680)
 
-[node name="NatureAltar" parent="." instance=ExtResource("25_pmawo")]
+[node name="NatureAltar" parent="---Nature---" instance=ExtResource("25_pmawo")]
 position = Vector2(7440, -16080)
 
-[node name="Altar2" parent="." node_paths=PackedStringArray("symbol") instance=ExtResource("26_3b3qm")]
+[node name="Altar2" parent="---Nature---" node_paths=PackedStringArray("symbol") instance=ExtResource("26_3b3qm")]
 modulate = Color(1, 1, 0.800781, 1)
 position = Vector2(8160, -18240)
-symbol = NodePath("../SymbolLilipad")
+symbol = NodePath("../../---Symbols---/SymbolLilipad")
 
-[node name="Symbol" parent="Altar2" instance=ExtResource("35_gojn7")]
+[node name="Symbol" parent="---Nature---/Altar2" instance=ExtResource("35_gojn7")]
 position = Vector2(0, -480)
 script = null
 
 [node name="---Desert---" type="Node" parent="."]
 
-[node name="Desert1" parent="." instance=ExtResource("25_4t5vn")]
+[node name="Desert1" parent="---Desert---" instance=ExtResource("25_4t5vn")]
 position = Vector2(240, -3840)
 
-[node name="Desert2" parent="." instance=ExtResource("26_pgo4m")]
+[node name="Desert2" parent="---Desert---" instance=ExtResource("26_pgo4m")]
 position = Vector2(-3120, -8400)
 
-[node name="DesertTeacher" parent="." instance=ExtResource("14_jdsps")]
+[node name="DesertTeacher" parent="---Desert---" instance=ExtResource("14_jdsps")]
 position = Vector2(-4800, -11280)
 
-[node name="DesertTornado1" parent="." instance=ExtResource("28_i841p")]
+[node name="DesertTornado1" parent="---Desert---" instance=ExtResource("28_i841p")]
 position = Vector2(-8640, -11760)
 
-[node name="DesertTornado2" parent="." instance=ExtResource("29_pll2u")]
+[node name="DesertTornado2" parent="---Desert---" instance=ExtResource("29_pll2u")]
 position = Vector2(-12480, -12720)
 
-[node name="DesertAltar" parent="." instance=ExtResource("29_83hrw")]
+[node name="DesertAltar" parent="---Desert---" instance=ExtResource("29_83hrw")]
 position = Vector2(-15120, -13920)
 
-[node name="Altar" parent="." node_paths=PackedStringArray("symbol") instance=ExtResource("26_3b3qm")]
+[node name="Altar" parent="---Desert---" node_paths=PackedStringArray("symbol") instance=ExtResource("26_3b3qm")]
 modulate = Color(1, 0.980469, 0.867188, 1)
 position = Vector2(-16320, -15600)
-symbol = NodePath("../SymbolTornado")
+symbol = NodePath("../../---Symbols---/SymbolTornado")
 
-[node name="Symbol" parent="Altar" instance=ExtResource("32_w5ceq")]
+[node name="Symbol" parent="---Desert---/Altar" instance=ExtResource("32_w5ceq")]
 position = Vector2(0, -480)
 script = null
 
 [node name="---Symbols---" type="Node" parent="."]
 
-[node name="SymbolStone" parent="." instance=ExtResource("31_10rqu")]
+[node name="SymbolStone" parent="---Symbols---" instance=ExtResource("31_10rqu")]
 position = Vector2(2160, -3840)
 
-[node name="SymbolTornado" parent="." instance=ExtResource("32_w5ceq")]
+[node name="SymbolTornado" parent="---Symbols---" instance=ExtResource("32_w5ceq")]
 position = Vector2(1680, -3840)
 
-[node name="SymbolLilipad" parent="." instance=ExtResource("35_gojn7")]
+[node name="SymbolLilipad" parent="---Symbols---" instance=ExtResource("35_gojn7")]
 position = Vector2(1920, -4080)
 
-[node name="Symbol" parent="." instance=ExtResource("38_qr3fs")]
+[node name="Symbol" parent="---Symbols---" instance=ExtResource("38_qr3fs")]
 position = Vector2(1920, -3600)
+
+[node name="SanctuaryEnd" parent="." instance=ExtResource("12_yixhr")]
+position = Vector2(15360, -13920)
+
+[node name="SanctuaryEnd2" parent="." instance=ExtResource("40_ge6vo")]
+position = Vector2(15360, -13920)
+
+[node name="SanctuaryEnd3" parent="." instance=ExtResource("41_vf1sl")]
+position = Vector2(13920, -15600)

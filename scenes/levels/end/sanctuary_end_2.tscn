@@ -1,0 +1,83 @@
+[gd_scene load_steps=13 format=4 uid="uid://bg8pvxuruw23x"]
+
+[ext_resource type="Script" path="res://scripts/levels/sanctuary.gd" id="1_i4uaq"]
+[ext_resource type="Resource" uid="uid://5j8h7080infg" path="res://resources/levels/level_end.tres" id="2_8mtye"]
+[ext_resource type="TileSet" uid="uid://bovlkgk6cwuhx" path="res://resources/tilemaps/game.tres" id="3_cgn58"]
+[ext_resource type="PackedScene" uid="uid://dhmnwbbaxa1e0" path="res://scenes/teachers/teacher-desert.tscn" id="4_j5yvb"]
+[ext_resource type="PackedScene" uid="uid://cj447cxojo2t6" path="res://scenes/tiles/tile.tscn" id="4_vo75m"]
+[ext_resource type="PackedScene" uid="uid://tywt2nicjedo" path="res://scenes/teachers/teacher-nature.tscn" id="5_s3n87"]
+[ext_resource type="PackedScene" uid="uid://dhgprbkhapw2i" path="res://scenes/items/button.tscn" id="5_vcmhf"]
+[ext_resource type="PackedScene" uid="uid://cu5pn3mjvcwul" path="res://scenes/teachers/teacher-mountain.tscn" id="6_u7uuq"]
+[ext_resource type="PackedScene" uid="uid://ccgqqol0mmcek" path="res://scenes/symbols/symbol-jump.tscn" id="7_2j0nt"]
+[ext_resource type="PackedScene" uid="uid://b0w14xtai1rje" path="res://scenes/symbols/symbol-tornado.tscn" id="8_imvfu"]
+[ext_resource type="PackedScene" uid="uid://ck1lkjgk8xn5y" path="res://scenes/symbols/symbol-stone.tscn" id="9_pf3dk"]
+[ext_resource type="PackedScene" uid="uid://b45qwgiuu5iut" path="res://scenes/symbols/symbol-lilipad.tscn" id="10_m8kif"]
+
+[node name="SanctuaryEnd" type="Node2D"]
+script = ExtResource("1_i4uaq")
+level_config = ExtResource("2_8mtye")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+z_index = -2
+position = Vector2(-128, -128)
+tile_map_data = PackedByteArray("AAD//9f/AQABAAAAAAAAANb/AQABAAAAAAABANf/AQABAAAAAAAAANj/AQABAAAAAAAAANf/AQAAAAAAAAD//9j/AQAAAAAAAAD+/9f/AQAAAAAAAAD//9b/AQAAAAAAAAABANb/AQAAAAAAAAABANj/AQAAAAAAAAACANf/AQAAAAAAAAAAANn/AQAAAAAAAAAAANX/AQAAAAAAAAD+/9b/AQAAAAAAAAD+/9X/AQAAAAAAAAD//9X/AQAAAAAAAAD//9T/AQAAAAAAAAAAANT/AQAAAAAAAAABANT/AQAAAAAAAAABANX/AQAAAAAAAAACANX/AQAAAAAAAAD9/9b/AQAAAAAAAAD9/9f/AQAAAAAAAAD9/9j/AQAAAAAAAAD+/9j/AQAAAAAAAAD//9n/AQAAAAAAAAABANn/AQAAAAAAAAACANj/AQAAAAAAAAADANj/AQAAAAAAAAADANf/AQAAAAAAAAADANb/AQAAAAAAAAACANb/AQAAAAAAAAD+/9n/AQAAAAAAAAACANn/AQAAAAAAAAD//9r/AQAAAAAAAAAAANr/AQAAAAAAAAABANr/AQAAAAAAAAAAAAAAAQABAAAAAAD//wAAAQAAAAAAAAD+/wAAAQAAAAAAAAD+//v/AQAAAAAAAAACAPv/AQABAAAAAAD6/wAAAQAAAAAAAAD7/wAAAQAAAAAAAAD7////AQAAAAAAAAD8////AQAAAAAAAAD7/wEAAQAAAAAAAAD8/wEAAQAAAAAAAAD9////AQAAAAAAAAD8/wAAAQAAAAAAAAD9/wAAAQAAAAAAAAD5/wAAAQAAAAAAAAD4/wAAAQAAAAAAAAD4////AQAAAAAAAAD5////AQAAAAAAAAD5//7/AQAAAAAAAAD4//7/AQAAAAAAAAD3//7/AQAAAAAAAAD3////AQAAAAAAAAD6/wEAAQAAAAAAAAD4/wEAAQAAAAAAAAD4//v/AQAAAAAAAAD4//r/AQAAAAAAAAD4//n/AQAAAAAAAAD4//j/AQAAAAAAAAD4//f/AQAAAAAAAAD9//v/AQAAAAAAAAD8//v/AQAAAAAAAAD4//b/AQAAAAAAAAD4//X/AQAAAAAAAAD9//b/AQAAAAAAAAD9//f/AQAAAAAAAAD9//X/AQAAAAAAAAD9//T/AQAAAAAAAAD9//P/AQAAAAAAAAD5//X/AQAAAAAAAAD3//X/AQAAAAAAAAD8//X/AQAAAAAAAAD+//X/AQAAAAAAAAD4//T/AQAAAAAAAAD5//T/AQAAAAAAAAD3//T/AQAAAAAAAAD9//L/AQAAAAAAAAD3//b/AQAAAAAAAAD8//T/AQAAAAAAAAD+//T/AQAAAAAAAAD+////AQAAAAAAAAD9//H/AQAAAAAAAAA=")
+tile_set = ExtResource("3_cgn58")
+
+[node name="Tile" parent="TileMapLayer" node_paths=PackedStringArray("activators") instance=ExtResource("4_vo75m")]
+position = Vector2(-832, -1312)
+activators = [NodePath("../../ItemLayer/Button")]
+
+[node name="Tile2" parent="TileMapLayer" node_paths=PackedStringArray("activators") instance=ExtResource("4_vo75m")]
+position = Vector2(-832, -1552)
+activators = [NodePath("../../ItemLayer/Button")]
+
+[node name="Tile3" parent="TileMapLayer" node_paths=PackedStringArray("activators") instance=ExtResource("4_vo75m")]
+position = Vector2(-832, -1792)
+activators = [NodePath("../../ItemLayer/Button")]
+
+[node name="Tile4" parent="TileMapLayer" node_paths=PackedStringArray("activators") instance=ExtResource("4_vo75m")]
+position = Vector2(-832, -2032)
+activators = [NodePath("../../ItemLayer/Button")]
+
+[node name="ItemLayer" type="TileMapLayer" parent="."]
+z_index = -2
+position = Vector2(-128, -128)
+tile_map_data = PackedByteArray("AAD//wAAAgAAAAAAAAD+//v/AgADAAAAAAD9//f/AgADAAAAAAD5//T/AgADAAAAAAD8/wAAAgADAAAAAAD5//X/AgADAAAAAAA=")
+tile_set = ExtResource("3_cgn58")
+
+[node name="Button" parent="ItemLayer" instance=ExtResource("5_vcmhf")]
+position = Vector2(-592, -1072)
+
+[node name="Teacher" parent="." instance=ExtResource("4_j5yvb")]
+z_index = 3
+position = Vector2(-480, -10320)
+greeting_text = "A storm knows no bounds,
+but clears the skies for the leap ahead."
+goodbye_text = ""
+
+[node name="Teacher3" parent="." instance=ExtResource("5_s3n87")]
+z_index = 3
+position = Vector2(0, -10560)
+greeting_text = "The dance of life begins and ends in stillness."
+goodbye_text = ""
+
+[node name="Teacher2" parent="." instance=ExtResource("6_u7uuq")]
+position = Vector2(480, -10320)
+greeting_text = "Foundation comes first."
+
+[node name="Symbol" parent="." instance=ExtResource("7_2j0nt")]
+position = Vector2(0, -9600)
+
+[node name="Symbol2" parent="." instance=ExtResource("8_imvfu")]
+position = Vector2(-240, -9840)
+script = null
+
+[node name="Symbol3" parent="." instance=ExtResource("9_pf3dk")]
+position = Vector2(240, -9840)
+script = null
+
+[node name="Symbol4" parent="." instance=ExtResource("10_m8kif")]
+position = Vector2(0, -10080)
+script = null
+
+[node name="Spawn" type="Node2D" parent="."]

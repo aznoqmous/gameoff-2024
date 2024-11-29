@@ -37,6 +37,7 @@ func _ready() -> void:
 var baseTile = preload("res://scenes/tiles/tile.tscn")
 var lilipadBaseTile = preload("res://scenes/tiles/lilipad_tile.tscn")
 func create_map() -> void:	
+	for item: TileItem in items.get_children(): add_item(item, (item.position/tileSize).round())
 	for tile: Tile in tilesContainer.get_children(): add_tile(tile, (tile.position/tileSize).round())
 	
 	ground_layer.visible = false

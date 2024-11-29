@@ -3,7 +3,7 @@ extends Node2D
 @export var symbol : AltarSymbol
 
 @onready var area_2d: Area2D = $Area2D
-@onready var game: Game = $".."
+@onready var game: Game = $"/root/Game"
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var audio: AudioStreamPlayer2D = $Audio
 

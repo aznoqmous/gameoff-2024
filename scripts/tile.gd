@@ -1,8 +1,8 @@
 class_name Tile
 extends Node2D
 
-@onready var player: Player = $"../../../Player"
-@onready var game: Game = $"../../.."
+@onready var player: Player = $"/root/Game/Player"
+@onready var game: Game = $"/root/Game"
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var bump_audio: AudioStreamPlayer2D = $BumpAudio
 

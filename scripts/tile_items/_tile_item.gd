@@ -7,7 +7,7 @@ extends Node2D
 @export var walkable: bool = false
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var game: Game = $"../../.."
+@onready var game: Game = $"/root/Game"
 @onready var fall_audio: AudioStreamPlayer2D = $FallAudio
 
 var currentPosition = null

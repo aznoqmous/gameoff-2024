@@ -2,7 +2,7 @@ class_name Teacher
 extends Node2D
 
 @onready var area_2d: Area2D = $Area2D
-@onready var game: Game = $"../.."
+@onready var game: Game = $"/root/Game"
 @onready var dialog_box: DialogBox = $DialogBox
 @onready var show_spell: Node2D = $ShowSpell
 @onready var greeting_audio: AudioStreamPlayer2D = $GreetingAudio

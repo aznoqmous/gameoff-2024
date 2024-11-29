@@ -3,7 +3,7 @@ extends Node2D
 
 @onready var tile_map_layer: TileMapLayer = $TileMapLayer
 @onready var item_layer: TileMapLayer = $ItemLayer
-@onready var game: Game = $".."
+@onready var game: Game = $"/root/Game"
 @onready var spawn: Node2D = $Spawn
 
 @export var level_config: LevelConfig
