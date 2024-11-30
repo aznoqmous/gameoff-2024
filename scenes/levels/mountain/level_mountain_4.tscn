@@ -76,4 +76,4 @@ position = Vector2(240, -1440)
 
 [node name="Sign" parent="." instance=ExtResource("7_3skgn")]
 position = Vector2(-480, -240)
-message = "Your drawing's direction doesn't matter"
+message = "The direction of your drawing holds no significance."

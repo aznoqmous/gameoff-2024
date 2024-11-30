@@ -22,4 +22,3 @@ func appear():
 func disappear():
 	animation_player.play("Disappear")
 	await animation_player.animation_finished
-	print("finished")

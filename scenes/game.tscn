@@ -1,10 +1,11 @@
-[gd_scene load_steps=44 format=3 uid="uid://3pte44nuj5m5"]
+[gd_scene load_steps=45 format=3 uid="uid://3pte44nuj5m5"]
 
 [ext_resource type="PackedScene" uid="uid://bdlc63ysvlljr" path="res://scenes/player.tscn" id="1_2la08"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_8utgd"]
 [ext_resource type="Script" path="res://scripts/screen_overlay.gd" id="2_3whoh"]
 [ext_resource type="AudioStream" uid="uid://dq2t0pxe1d4dc" path="res://resources/audio/SFX/AMB_Background.wav" id="2_6ksot"]
 [ext_resource type="Script" path="res://scripts/managers/audio_manager.gd" id="2_8fmnl"]
+[ext_resource type="PackedScene" uid="uid://crr2otgg4xj4s" path="res://scenes/uis/coin_count_ui.tscn" id="2_20yjo"]
 [ext_resource type="TileSet" uid="uid://bovlkgk6cwuhx" path="res://resources/tilemaps/game.tres" id="2_4554k"]
 [ext_resource type="PackedScene" uid="uid://dck8r017nkhwg" path="res://scenes/uis/settings_menu.tscn" id="2_exl6d"]
 [ext_resource type="PackedScene" uid="uid://mous3wbqqboo" path="res://scenes/environments/parallax_background.tscn" id="5_6jx2f"]
@@ -68,8 +69,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_ctf73")
 [node name="Menu" parent="." instance=ExtResource("2_exl6d")]
 visible = false
 
+[node name="CoinCount" parent="." instance=ExtResource("2_20yjo")]
+
 [node name="Player" parent="." instance=ExtResource("1_2la08")]
-position = Vector2(17280, 480)
+position = Vector2(0, 2160)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(0.3, 0.3)
@@ -181,23 +184,23 @@ script = null
 position = Vector2(1920, -6720)
 
 [node name="Nature3" parent="." instance=ExtResource("19_g1ffw")]
-position = Vector2(1920, -9600)
+position = Vector2(1920, -10320)
 
 [node name="NatureTeacher" parent="." instance=ExtResource("10_pwtql")]
-position = Vector2(-720, -13200)
+position = Vector2(-720, -13920)
 
 [node name="NatureLilipad1" parent="." instance=ExtResource("20_qup1n")]
-position = Vector2(2880, -13200)
+position = Vector2(2880, -13920)
 
 [node name="NatureLilipad2" parent="." instance=ExtResource("24_b2hwo")]
-position = Vector2(5760, -13680)
+position = Vector2(5760, -14400)
 
 [node name="NatureAltar" parent="." instance=ExtResource("25_pmawo")]
-position = Vector2(7440, -16080)
+position = Vector2(7440, -16800)
 
 [node name="Altar2" parent="." node_paths=PackedStringArray("symbol") instance=ExtResource("26_3b3qm")]
 modulate = Color(1, 1, 0.800781, 1)
-position = Vector2(8160, -18240)
+position = Vector2(8160, -18960)
 symbol = NodePath("../---Symbols---/SymbolLilipad")
 
 [node name="Symbol" parent="Altar2" instance=ExtResource("35_gojn7")]
@@ -260,4 +263,4 @@ visible = false
 position = Vector2(13920, -15600)
 
 [node name="SanctuaryEnd4" parent="." instance=ExtResource("44_55g2r")]
-position = Vector2(15360, -8880)
+position = Vector2(21120, -7680)

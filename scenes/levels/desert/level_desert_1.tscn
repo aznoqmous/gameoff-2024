@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://bddal6gs0hgwj"]
+[gd_scene load_steps=8 format=4 uid="uid://bddal6gs0hgwj"]
 
 [ext_resource type="Script" path="res://scripts/levels/level.gd" id="1_ca1qq"]
 [ext_resource type="Resource" uid="uid://bp46233w7mvtr" path="res://resources/levels/level_desert.tres" id="2_oj6cb"]
@@ -6,13 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://dhgprbkhapw2i" path="res://scenes/items/button.tscn" id="4_p1ugn"]
 [ext_resource type="PackedScene" uid="uid://oseu3jfwxp3m" path="res://scenes/tiles/tile-desert.tscn" id="5_l6osq"]
 [ext_resource type="PackedScene" uid="uid://dhnsy05wklqec" path="res://scenes/coin.tscn" id="6_hnao4"]
+[ext_resource type="PackedScene" uid="uid://bdp2lpfyiwu40" path="res://scenes/sign.tscn" id="7_35rsy"]
 
 [node name="NewLevel" type="Node2D"]
 script = ExtResource("1_ca1qq")
 level_config = ExtResource("2_oj6cb")
 
 [node name="Spawn" type="Node2D" parent="."]
-position = Vector2(-720, -240)
+position = Vector2(-1920, -480)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -2
@@ -47,3 +48,7 @@ position = Vector2(-2032, -3675.1)
 
 [node name="Coin" parent="." instance=ExtResource("6_hnao4")]
 position = Vector2(-3840, -2640)
+
+[node name="Sign" parent="." instance=ExtResource("7_35rsy")]
+position = Vector2(-1680, -720)
+message = "Good stone, bad stone"

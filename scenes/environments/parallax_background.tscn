@@ -22,5 +22,5 @@ motion_mirroring = Vector2(1024, 768)
 [node name="BackgroundSprite" type="Sprite2D" parent="BackgroundLayer"]
 modulate = Color(0.854902, 0.854902, 0.854902, 1)
 z_index = -10
-scale = Vector2(187.5, 127.5)
+scale = Vector2(1000, 680)
 texture = ExtResource("2_wqcxt")

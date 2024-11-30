@@ -66,5 +66,6 @@ modulate = Color(0.752014, 0.867188, 0.853691, 1)
 
 [node name="BackgroundSprite" parent="ParallaxBackground/BackgroundLayer" index="0"]
 modulate = Color(0.55365, 0.734375, 0.715679, 1)
+scale = Vector2(1000, 680)
 
 [editable path="ParallaxBackground"]

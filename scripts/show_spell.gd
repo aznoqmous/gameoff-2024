@@ -16,9 +16,8 @@ func _process(delta):
 	sprite_2d.position = lerp(sprite_2d.position, line_2d.points[-1], delta * 10)
 	
 func animate():
-	var tree = get_tree()
-	if not tree: return;
-	
+	if not is_inside_tree(): return
+	var tree = get_tree()	
 	line_2d.clear_points()
 	for point in points:
 		line_2d.add_point(point)

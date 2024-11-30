@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://7bo0qg6aqda6"]
+[gd_scene load_steps=8 format=4 uid="uid://7bo0qg6aqda6"]
 
 [ext_resource type="Script" path="res://scripts/levels/level.gd" id="1_x71n6"]
 [ext_resource type="Resource" uid="uid://5j1qjhkvo4du" path="res://resources/levels/level_nature.tres" id="2_ny35u"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b7t2q0dt6xcgn" path="res://scenes/tiles/tile-nature.tscn" id="4_gol01"]
 [ext_resource type="PackedScene" uid="uid://dhgprbkhapw2i" path="res://scenes/items/button.tscn" id="5_q50ft"]
 [ext_resource type="PackedScene" uid="uid://dhnsy05wklqec" path="res://scenes/coin.tscn" id="6_7c46m"]
+[ext_resource type="PackedScene" uid="uid://bdp2lpfyiwu40" path="res://scenes/sign.tscn" id="7_jvg5r"]
 
 [node name="Nature1" type="Node2D"]
 script = ExtResource("1_x71n6")
@@ -16,7 +17,7 @@ level_config = ExtResource("2_ny35u")
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -2
 position = Vector2(-128, -128)
-tile_map_data = PackedByteArray("AAAAAAAAAwABAAAAAAAAAPr/AwACAAAAAAAAAPv/AwACAAAAAAAAAPz/AwABAAAAAAAAAP3/AwADAAAAAAAAAP7/AwADAAAAAAAAAP//AwADAAAAAAD///r/AwAAAAAAAAD///v/AwAAAAAAAAABAPr/AwAAAAAAAAABAPv/AwADAAAAAAD///n/AwACAAAAAAD+//r/AwADAAAAAAD9//r/AwADAAAAAAD8//r/AwABAAAAAAD7//r/AwAAAAAAAAD6//r/AwAAAAAAAAD6//n/AwADAAAAAAD7//n/AwABAAAAAAD8//n/AwACAAAAAAD7//v/AwADAAAAAAD7//j/AwAAAAAAAAD7//f/AwABAAAAAAD///b/AwACAAAAAAD+//X/AwAAAAAAAAD///X/AwACAAAAAAAAAPX/AwACAAAAAAABAPf/AwADAAAAAAD9//b/AwADAAAAAAABAPj/AwADAAAAAAADAPn/AwADAAAAAAD4//z/AwADAAAAAAD5//f/AwADAAAAAAAHAPv/AwAAAAAAAAAGAPv/AwADAAAAAAAFAPv/AwADAAAAAAAEAPv/AwADAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAAAAwABAAAAAAAAAPr/AwACAAAAAAAAAPv/AwACAAAAAAAAAPz/AwABAAAAAAAAAP3/AwADAAAAAAAAAP7/AwADAAAAAAAAAP//AwADAAAAAAD///r/AwAAAAAAAAD///v/AwAAAAAAAAABAPr/AwAAAAAAAAABAPv/AwADAAAAAAD///n/AwACAAAAAAD+//r/AwADAAAAAAD9//r/AwADAAAAAAD8//r/AwABAAAAAAD7//r/AwAAAAAAAAD6//r/AwAAAAAAAAD6//n/AwADAAAAAAD7//n/AwABAAAAAAD8//n/AwACAAAAAAD7//v/AwADAAAAAAD7//j/AwAAAAAAAAD7//f/AwABAAAAAAD///b/AwACAAAAAAD+//X/AwAAAAAAAAD///X/AwACAAAAAAAAAPX/AwACAAAAAAABAPf/AwADAAAAAAD9//b/AwADAAAAAAABAPj/AwADAAAAAAADAPn/AwADAAAAAAD4//z/AwADAAAAAAD5//f/AwADAAAAAAAHAPv/AwAAAAAAAAAGAPv/AwADAAAAAAAFAPv/AwADAAAAAAAEAPv/AwADAAAAAAD//wAAAwACAAAAAAA=")
 tile_set = ExtResource("3_5yfqu")
 
 [node name="Tile" parent="TileMapLayer" node_paths=PackedStringArray("activators") instance=ExtResource("4_gol01")]
@@ -38,3 +39,7 @@ position = Vector2(-1072, -1995.1)
 
 [node name="Coin" parent="." instance=ExtResource("6_7c46m")]
 position = Vector2(1680, -1200)
+
+[node name="Sign" parent="." instance=ExtResource("7_jvg5r")]
+position = Vector2(-240, 0)
+message = "Take care not to ruin the path—you’ll need it to return."

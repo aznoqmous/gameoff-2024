@@ -105,8 +105,9 @@ func handle_movement(currentPosition):
 	
 	
 func _input(event: InputEvent):
-	if prevent_inputs: return;
-	if isFalling: return;
+	if prevent_inputs: return
+	if isFalling: return
+	if game.is_paused(): return
 	handle_movement_events(event)
 	if Input.is_action_just_pressed("SwitchMode"):
 		var tile = game.get_tile_at_position(get_last_position()/game.tileSize)
@@ -131,6 +132,7 @@ func _input(event: InputEvent):
 		clear_cast()
 		game.reset_level()
 		leave_tile_position = get_last_position()
+		targetPositions = []
 
 func handle_movement_events(event: InputEvent):
 	if "axis_value" in event:

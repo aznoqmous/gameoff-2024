@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bdp2lpfyiwu40"]
+[gd_scene load_steps=12 format=3 uid="uid://bdp2lpfyiwu40"]
 
 [ext_resource type="Script" path="res://scripts/sign.gd" id="1_qd6lt"]
 [ext_resource type="Texture2D" uid="uid://djief4uv1y67d" path="res://resources/sprites/sign.png" id="1_rawr2"]
 [ext_resource type="FontFile" uid="uid://w12hsd66wulf" path="res://resources/fonts/PatrickHand-Regular.ttf" id="3_fx3sv"]
 [ext_resource type="AudioStream" uid="uid://ccxkw1y7gbhv0" path="res://resources/audio/SFX/UI_Select-001.wav" id="4_iaauh"]
+[ext_resource type="Texture2D" uid="uid://c88x170136llq" path="res://resources/sprites/ui/dialog-box.png" id="4_lxvo7"]
 [ext_resource type="AudioStream" uid="uid://bp0xxllxrj11n" path="res://resources/audio/SFX/UI_Select-002.wav" id="5_dofn6"]
 [ext_resource type="AudioStream" uid="uid://dns58lnff0y8w" path="res://resources/audio/SFX/UI_Select-003.wav" id="6_m5mu1"]
 [ext_resource type="AudioStream" uid="uid://ciek0ecqvrdqx" path="res://resources/audio/SFX/UI_Select-004.wav" id="7_jekr1"]
@@ -12,9 +13,10 @@
 size = Vector2(128, 128)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ttmw2"]
+line_spacing = -16.0
 font = ExtResource("3_fx3sv")
 font_size = 64
-font_color = Color(0, 0, 0, 1)
+font_color = Color(0.282353, 0.282353, 0.282353, 1)
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
@@ -47,14 +49,43 @@ position = Vector2(4, -417)
 scale = Vector2(1.48, 1.48)
 
 [node name="Label" type="Label" parent="Container"]
-offset_left = -350.0
-offset_top = -294.0
-offset_right = 350.0
-offset_bottom = -116.0
-text = "-- Lesson 1 --
-→→→→"
+z_index = 2
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -271.0
+offset_top = -237.0
+offset_right = 271.0
+offset_bottom = -150.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+text = "azdazd azdazd
+"
 label_settings = SubResource("LabelSettings_ttmw2")
 horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 2
+
+[node name="Panel" type="NinePatchRect" parent="Container/Label"]
+modulate = Color(0.956863, 0.933333, 0.886275, 1)
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -28.0
+offset_right = 28.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_lxvo7")
+patch_margin_left = 17
+patch_margin_top = 20
+patch_margin_right = 17
+patch_margin_bottom = 26
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_7ahto")

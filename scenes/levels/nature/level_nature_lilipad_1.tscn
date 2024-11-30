@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://c6qwvnf3qf6sy"]
+[gd_scene load_steps=8 format=4 uid="uid://c6qwvnf3qf6sy"]
 
 [ext_resource type="Script" path="res://scripts/levels/level.gd" id="1_mcsgx"]
 [ext_resource type="Resource" uid="uid://5j1qjhkvo4du" path="res://resources/levels/level_nature.tres" id="2_reemg"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dhgprbkhapw2i" path="res://scenes/items/button.tscn" id="4_nue28"]
 [ext_resource type="PackedScene" uid="uid://b7t2q0dt6xcgn" path="res://scenes/tiles/tile-nature.tscn" id="5_e8tel"]
 [ext_resource type="PackedScene" uid="uid://dhnsy05wklqec" path="res://scenes/coin.tscn" id="6_rqm4x"]
+[ext_resource type="PackedScene" uid="uid://bdp2lpfyiwu40" path="res://scenes/sign.tscn" id="7_nx81q"]
 
 [node name="Nature1" type="Node2D"]
 script = ExtResource("1_mcsgx")
@@ -16,7 +17,7 @@ level_config = ExtResource("2_reemg")
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -2
 position = Vector2(-128, -128)
-tile_map_data = PackedByteArray("AAD/////AwACAAAAAAD//wAAAwAAAAAAAAD//wEAAwACAAAAAAAAAP//AwACAAAAAAAAAAAAAwAAAAAAAAAAAAEAAwAAAAAAAAABAP//AwABAAAAAAABAAAAAwABAAAAAAABAAEAAwABAAAAAAADAPn/AwAAAAAAAAADAPr/AwAAAAAAAAADAPv/AwABAAAAAAAEAPn/AwABAAAAAAAEAPv/AwABAAAAAAAFAPn/AwADAAAAAAAFAPr/AwADAAAAAAAFAPv/AwADAAAAAAAFAAAAAwADAAAAAAAGAPr/AwADAAAAAAAGAPv/AwADAAAAAAAGAP//AwACAAAAAAAGAAAAAwABAAAAAAAGAAEAAwAAAAAAAAAHAPn/AwADAAAAAAAHAPr/AwADAAAAAAAHAPv/AwADAAAAAAAHAPz/AwADAAAAAAAHAP3/AwADAAAAAAAHAP//AwACAAAAAAAHAAAAAwACAAAAAAAHAAEAAwAAAAAAAAAIAP3/AwAAAAAAAAAIAAAAAwABAAAAAAAHAPf/AwADAAAAAAAHAPb/AwADAAAAAAAHAPX/AwAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD/////AwACAAAAAAD//wAAAwAAAAAAAAD//wEAAwACAAAAAAAAAP//AwACAAAAAAAAAAAAAwAAAAAAAAAAAAEAAwAAAAAAAAABAP//AwABAAAAAAABAAAAAwABAAAAAAABAAEAAwABAAAAAAADAPn/AwAAAAAAAAADAPr/AwAAAAAAAAADAPv/AwABAAAAAAAEAPn/AwABAAAAAAAEAPv/AwABAAAAAAAFAPn/AwADAAAAAAAFAPr/AwADAAAAAAAFAPv/AwADAAAAAAAFAAAAAwADAAAAAAAGAPr/AwADAAAAAAAGAPv/AwADAAAAAAAGAP//AwACAAAAAAAGAAAAAwABAAAAAAAGAAEAAwAAAAAAAAAHAPn/AwADAAAAAAAHAPr/AwADAAAAAAAHAPv/AwADAAAAAAAHAPz/AwADAAAAAAAHAP3/AwADAAAAAAAHAP//AwACAAAAAAAHAAAAAwACAAAAAAAHAAEAAwAAAAAAAAAIAP3/AwAAAAAAAAAIAAAAAwABAAAAAAAHAPf/AwADAAAAAAAHAPb/AwADAAAAAAAHAPX/AwAAAAAAAAAAAP7/AwACAAAAAAA=")
 tile_set = ExtResource("3_yis4v")
 
 [node name="Tile" parent="TileMapLayer" node_paths=PackedStringArray("activators") instance=ExtResource("5_e8tel")]
@@ -65,3 +66,7 @@ position = Vector2(2048, -555.105)
 
 [node name="Coin" parent="." instance=ExtResource("6_rqm4x")]
 position = Vector2(1680, -2640)
+
+[node name="Sign" parent="." instance=ExtResource("7_nx81q")]
+position = Vector2(0, -480)
+message = "Where could you find another stone ?"

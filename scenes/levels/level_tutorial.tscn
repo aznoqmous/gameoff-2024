@@ -23,14 +23,14 @@ z_index = -2
 position = Vector2(-128, -164.895)
 tile_set = ExtResource("3_ytgnd")
 
-[node name="Sign3" parent="." instance=ExtResource("4_yxdow")]
-position = Vector2(480, -240)
-message = "Nice !"
-
-[node name="Sign" parent="." instance=ExtResource("4_yxdow")]
+[node name="Indication" parent="." instance=ExtResource("4_yxdow")]
 position = Vector2(1440, -240)
 message = "You can jump in any direction"
 
 [node name="Sign2" parent="." instance=ExtResource("4_yxdow")]
 position = Vector2(1680, -1200)
 message = "If you're stuck, press <R>"
+
+[node name="Sign3" parent="." instance=ExtResource("4_yxdow")]
+position = Vector2(480, -240)
+message = "Nice !"

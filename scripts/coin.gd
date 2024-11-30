@@ -3,8 +3,8 @@ extends Node2D
 
 @onready var area_2d: Area2D = $Area2D
 @onready var game: Game = $"/root/Game"
-@onready var loot_particles: CPUParticles2D = $Node2D/LootParticles
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var loot_particles: CPUParticles2D = $LootParticles
 
 func _ready() -> void:
 	if not game or game.collected_coins.has(global_position): return queue_free()

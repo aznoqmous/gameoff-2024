@@ -7,6 +7,10 @@ var credits_scene = "res://scenes/credits.tscn"
 var pre_scene_manager_progress = preload("res://scenes/scene_manager_progress.tscn")
 var scene_manager_progress: SceneManagerProgress
 
+var run_time = 0
+var coin_count = 0
+var max_coins = 0
+
 func _ready():
 	var root = get_tree().root
 	current_scene = root.get_child(root.get_child_count() - 1)

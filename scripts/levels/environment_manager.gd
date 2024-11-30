@@ -37,7 +37,11 @@ func set_level(the_level: Level):
 	level = the_level
 	active_environment = load_environment(level.level_config)
 	if not active_environment: return
-	player.add_child(active_environment)
+	
+	if active_environment.get_parent():
+		active_environment.reparent(player)
+	else:
+		player.add_child(active_environment)
 
 func load_environment(level_config: LevelConfig):
 	if not level_config or not level_config.environment: return

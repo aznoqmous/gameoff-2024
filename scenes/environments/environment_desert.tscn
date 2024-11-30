@@ -58,4 +58,7 @@ texture = ExtResource("3_25el5")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("4_2gts4")]
 
+[node name="BackgroundSprite" parent="ParallaxBackground/BackgroundLayer" index="0"]
+scale = Vector2(1000, 680)
+
 [editable path="ParallaxBackground"]

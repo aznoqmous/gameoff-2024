@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://f6kgypn075r2"]
+[gd_scene load_steps=12 format=4 uid="uid://f6kgypn075r2"]
 
 [ext_resource type="Script" path="res://scripts/levels/sanctuary.gd" id="1_oycg1"]
 [ext_resource type="Resource" uid="uid://5j8h7080infg" path="res://resources/levels/level_end.tres" id="2_1iwm5"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b0w14xtai1rje" path="res://scenes/symbols/symbol-tornado.tscn" id="8_07q15"]
 [ext_resource type="PackedScene" uid="uid://ck1lkjgk8xn5y" path="res://scenes/symbols/symbol-stone.tscn" id="9_2xgly"]
 [ext_resource type="PackedScene" uid="uid://b45qwgiuu5iut" path="res://scenes/symbols/symbol-lilipad.tscn" id="10_k0jtd"]
+[ext_resource type="PackedScene" uid="uid://bdp2lpfyiwu40" path="res://scenes/sign.tscn" id="11_84k4j"]
 
 [node name="SanctuaryEnd" type="Node2D"]
 script = ExtResource("1_oycg1")
@@ -18,7 +19,7 @@ level_config = ExtResource("2_1iwm5")
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -2
 position = Vector2(-128, -128)
-tile_map_data = PackedByteArray("AAD//9f/AQABAAAAAAAAANb/AQABAAAAAAABANf/AQABAAAAAAAAANj/AQABAAAAAAAAANf/AQAAAAAAAAD//9j/AQAAAAAAAAD+/9f/AQAAAAAAAAD//9b/AQAAAAAAAAABANb/AQAAAAAAAAABANj/AQAAAAAAAAACANf/AQAAAAAAAAAAANn/AQAAAAAAAAAAANX/AQAAAAAAAAD+/9b/AQAAAAAAAAD+/9X/AQAAAAAAAAD//9X/AQAAAAAAAAD//9T/AQAAAAAAAAAAANT/AQAAAAAAAAABANT/AQAAAAAAAAABANX/AQAAAAAAAAACANX/AQAAAAAAAAD9/9b/AQAAAAAAAAD9/9f/AQAAAAAAAAD9/9j/AQAAAAAAAAD+/9j/AQAAAAAAAAD//9n/AQAAAAAAAAABANn/AQAAAAAAAAACANj/AQAAAAAAAAADANj/AQAAAAAAAAADANf/AQAAAAAAAAADANb/AQAAAAAAAAACANb/AQAAAAAAAAD+/9n/AQAAAAAAAAACANn/AQAAAAAAAAD//9r/AQAAAAAAAAAAANr/AQAAAAAAAAABANr/AQAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD//9f/AQABAAAAAAAAANb/AQABAAAAAAABANf/AQABAAAAAAAAANj/AQABAAAAAAAAANf/AQAAAAAAAAD//9j/AQAAAAAAAAD+/9f/AQAAAAAAAAD//9b/AQAAAAAAAAABANb/AQAAAAAAAAABANj/AQAAAAAAAAACANf/AQAAAAAAAAAAANn/AQAAAAAAAAAAANX/AQAAAAAAAAD+/9b/AQAAAAAAAAD+/9X/AQAAAAAAAAD//9X/AQAAAAAAAAD//9T/AQAAAAAAAAAAANT/AQAAAAAAAAABANT/AQAAAAAAAAABANX/AQAAAAAAAAACANX/AQAAAAAAAAD9/9b/AQAAAAAAAAD9/9f/AQAAAAAAAAD9/9j/AQAAAAAAAAD+/9j/AQAAAAAAAAD//9n/AQAAAAAAAAABANn/AQAAAAAAAAACANj/AQAAAAAAAAADANj/AQAAAAAAAAADANf/AQAAAAAAAAADANb/AQAAAAAAAAACANb/AQAAAAAAAAD+/9n/AQAAAAAAAAACANn/AQAAAAAAAAD//9r/AQAAAAAAAAAAANr/AQAAAAAAAAABANr/AQAAAAAAAAAAANv/AQAAAAAAAAAAANz/AQAAAAAAAAAAAN3/AQAAAAAAAAD//93/AQAAAAAAAAABAN3/AQAAAAAAAAAAAN7/AQAAAAAAAAD//9z/AQAAAAAAAAABANz/AQAAAAAAAAD//9v/AQAAAAAAAAABANv/AQAAAAAAAAA=")
 tile_set = ExtResource("3_ti816")
 
 [node name="ItemLayer" type="TileMapLayer" parent="."]
@@ -59,4 +60,8 @@ position = Vector2(0, -10080)
 script = null
 
 [node name="Spawn" type="Node2D" parent="."]
-position = Vector2(0, -9840)
+position = Vector2(0, -8400)
+
+[node name="Indications" parent="." instance=ExtResource("11_84k4j")]
+position = Vector2(0, -9120)
+message = "Connect the four symbols to discover your own power"

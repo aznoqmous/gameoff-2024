@@ -1,6 +1,7 @@
 class_name Game
 extends Node2D
 
+@onready var menu: CanvasLayer = $Menu
 @onready var screen_overlay: ScreenOverlay = $ScreenOverlay
 @onready var audio_manager: AudioManager = $AudioManager
 @onready var player: Player = $Player
@@ -10,21 +11,22 @@ extends Node2D
 @onready var items: Node2D = $Terrain/Items
 @onready var tilesContainer: Node2D = $Terrain/Tiles
 @onready var sanctuary: Sanctuary = $Sanctuary
-@export var sanctuary_end: Sanctuary
-
+@onready var coin_count: CanvasLayer = $CoinCount
 @onready var camera_sprite_2d: Sprite2D = $EnvironmentManager/ParallaxBackground/BackgroundLayer/Sprite2D
 @onready var environment: EnvironmentManager = $EnvironmentManager
-
 @onready var ground_layer: TileMapLayer = $GroundLayer
+@onready var spawn_paths: Level = $SpawnPaths
 
+@export var sanctuary_end: Sanctuary
 @export var mapSize = Vector2(10,10)
 @export var tileSize = 100
 @export var symbols: Array[AltarSymbol] = []
-@onready var spawn_paths: Level = $SpawnPaths
 
 var current_level:Level = null
 var tiles = {}
 var levels = []
+
+var run_time = 0
 
 func _ready() -> void:
 	create_map()
@@ -32,6 +34,20 @@ func _ready() -> void:
 	handle_player_movement(player.position)
 	for altar_symbol in symbols:
 		altar_symbol.on_activate.connect(handle_activate_symbol)
+			
+	coin_count.set_text(str(0, "/", existing_coins.size()))
+	run_time = 0
+
+func is_paused():
+	return menu.visible or player.prevent_inputs
+	
+func _process(delta):
+	if not is_paused(): run_time += delta
+
+func get_human_time():
+	var seconds = int(run_time) % 60
+	var minute = int(run_time/1000.0/60.0)
+	return str(minute, "m", seconds,"s")
 
 var baseTile = preload("res://scenes/tiles/tile.tscn")
 var lilipadBaseTile = preload("res://scenes/tiles/lilipad_tile.tscn")
@@ -208,9 +224,10 @@ func handle_activate_symbol(altarSymbol: AltarSymbol):
 	await altarSymbol.play_animation()
 	await get_tree().create_timer(1).timeout
 
-	#for altar_symbol in symbols:
-		#if not altar_symbol.is_active():
-			#return
+	for altar_symbol in symbols:
+		if not altar_symbol.is_active():
+			player.prevent_inputs = false
+			return
 			
 	print("ALL SYMBOLS ACTIVATED")
 	
@@ -226,6 +243,9 @@ func handle_activate_symbol(altarSymbol: AltarSymbol):
 	player.prevent_inputs = false
 
 func play_end():
+	SceneManager.run_time = run_time
+	SceneManager.coin_count = collected_coins.size()
+	SceneManager.max_coins = existing_coins.size()
 	await screen_overlay.animate(1, 2)
 	SceneManager.load_credits()
 
@@ -233,8 +253,8 @@ var collected_coins = {}
 var existing_coins = {}
 func collect(coin: Coin):
 	collected_coins[coin.global_position] = true
+	coin_count.show_coins()
 	print("+1 coin !", str(collected_coins.size(), "/", existing_coins.size()))
-var coins_count = 0
-
+	
 func register_coin(coin: Coin):
 	existing_coins[coin.global_position] = coin

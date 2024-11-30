@@ -11,7 +11,6 @@ func _ready() -> void:
 	area_2d.area_exited.connect(handle_exit)
 
 func handle_enter(area: Area2D):
-	print(global_position/game.tileSize, Time.get_ticks_msec(), self)
 	set_active(area_2d.get_overlapping_areas().size() > 0)
 	enter_audio.play()
 

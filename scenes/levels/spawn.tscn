@@ -34,4 +34,5 @@ position = Vector2(-9, -481)
 message = "..."
 
 [node name="ShowSpell" parent="." instance=ExtResource("6_jrd13")]
+modulate = Color(1, 1, 1, 0.470588)
 position = Vector2(-240, -2400)

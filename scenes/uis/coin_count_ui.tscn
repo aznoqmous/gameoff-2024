@@ -1,0 +1,128 @@
+[gd_scene load_steps=9 format=3 uid="uid://crr2otgg4xj4s"]
+
+[ext_resource type="FontFile" uid="uid://w12hsd66wulf" path="res://resources/fonts/PatrickHand-Regular.ttf" id="1_gu7t6"]
+[ext_resource type="Script" path="res://scripts/coin_count.gd" id="1_h61vc"]
+[ext_resource type="Texture2D" uid="uid://cpt26wyicr1ul" path="res://resources/sprites/coin.png" id="3_jbdlk"]
+
+[sub_resource type="Animation" id="Animation_6iq7d"]
+resource_name = "show"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1027, -57), Vector2(1027, 19), Vector2(1027, 19), Vector2(1027, -57)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"update_coins"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_0mtod"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1027, -57)]
+}
+
+[sub_resource type="Animation" id="Animation_ift1t"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1027, -57)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bcbwc"]
+_data = {
+"RESET": SubResource("Animation_0mtod"),
+"idle": SubResource("Animation_ift1t"),
+"show": SubResource("Animation_6iq7d")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_3teub"]
+font = ExtResource("1_gu7t6")
+font_size = 32
+font_color = Color(0.2, 0.2, 0.2, 1)
+
+[node name="CoinCount" type="CanvasLayer"]
+script = ExtResource("1_h61vc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bcbwc")
+}
+autoplay = "RESET"
+
+[node name="HBoxContainer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -125.0
+offset_top = -57.0
+offset_right = -20.0
+offset_bottom = -15.0
+grow_horizontal = 0
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -21.0
+offset_right = 50.0
+offset_bottom = 23.0
+grow_vertical = 2
+text = "9/16"
+label_settings = SubResource("LabelSettings_3teub")
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = -33.0
+offset_right = 73.0
+offset_bottom = 95.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_jbdlk")

@@ -323,6 +323,7 @@ modulate = Color(1, 0.99231, 0.507813, 1)
 texture = ExtResource("2_blq8k")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Node2D"]
+position = Vector2(0, -1.69492)
 scale = Vector2(0.546019, 0.546019)
 texture = ExtResource("2_blq8k")
 
@@ -344,6 +345,7 @@ scale_amount_curve = SubResource("Curve_ejpy7")
 color_ramp = SubResource("Gradient_7vhjo")
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_tkwqa")
