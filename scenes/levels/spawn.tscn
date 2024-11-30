@@ -21,16 +21,14 @@ z_index = -2
 position = Vector2(-128, -164.895)
 tile_set = ExtResource("2_cvj1s")
 
-[node name="JumpSign" parent="." instance=ExtResource("4_ij2yg")]
-position = Vector2(0, -2160)
-message = "Now jump"
-
 [node name="CastSign" parent="." instance=ExtResource("4_ij2yg")]
-position = Vector2(-9, -1473)
-message = "<SPACE> <MOVE> <SPACE>"
+position = Vector2(0, -2160)
+message = "<PRESS SPACE>
+<MOVE>
+<PRESS SPACE>"
 
 [node name="HelloSign" parent="." instance=ExtResource("4_ij2yg")]
-position = Vector2(-9, -481)
+position = Vector2(0, -1440)
 message = "..."
 
 [node name="ShowSpell" parent="." instance=ExtResource("6_jrd13")]
