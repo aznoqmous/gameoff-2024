@@ -153,6 +153,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label3" type="Label" parent="CanvasLayer/CenterContainer"]
+layout_mode = 2
+offset_left = 489.0
+offset_top = 200.0
+offset_right = 663.0
+offset_bottom = 234.0
+size_flags_horizontal = 4
+text = "Thanks for playing !"
+label_settings = SubResource("LabelSettings_2hqwp")
+horizontal_alignment = 1
+
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer"]
 layout_mode = 1
 anchors_preset = 8
@@ -161,19 +172,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -109.0
-offset_top = 96.0
+offset_top = 51.0
 offset_right = 109.0
-offset_bottom = 286.0
+offset_bottom = 241.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 30
-
-[node name="Label3" type="Label" parent="CanvasLayer/CenterContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Thanks for playing !"
-label_settings = SubResource("LabelSettings_2hqwp")
-horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer/VBoxContainer"]
 layout_mode = 2
