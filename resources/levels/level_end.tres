@@ -2,13 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://36f0fe4fxeh0" path="res://scenes/environments/environment_default.tscn" id="1_cfobf"]
 [ext_resource type="Script" path="res://scripts/resources/level_config.gd" id="2_xm6ot"]
-
-[sub_resource type="Resource" id="Resource_mablv"]
-metadata/__load_path__ = "res://resources/audio/music/MUS_End.wav"
+[ext_resource type="AudioStream" uid="uid://cn67wcyfeyxtc" path="res://resources/audio/title/MainTitle_Voix-reverb-filtered.wav" id="3_xkamj"]
 
 [resource]
 script = ExtResource("2_xm6ot")
 color = Color(0.855469, 0.855469, 0.855469, 1)
 cloud_color = Color(1, 1, 1, 0)
-theme = SubResource("Resource_mablv")
+theme = ExtResource("3_xkamj")
 environment = ExtResource("1_cfobf")

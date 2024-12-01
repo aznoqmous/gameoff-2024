@@ -185,11 +185,10 @@ func handle_player_movement(pos: Vector2):
 
 func set_level(level: Level):
 	if not current_level or current_level.level_config != level.level_config:
-		pass
-		#audio_manager.play_theme(level.level_config.theme)
-	if level.audio_track: audio_manager.play_audio_track(level.audio_track)
-	if level.stop_current_audio_track: 
-		audio_manager.stop_audio_track()
+		audio_manager.play_theme(level.level_config.theme)
+	#if level.audio_track: audio_manager.play_audio_track(level.audio_track)
+	#if level.stop_current_audio_track:
+		#audio_manager.stop_audio_track()
 	current_level = level
 	environment.set_level(level)
 
@@ -226,11 +225,11 @@ func handle_activate_symbol(altarSymbol: AltarSymbol):
 	await altarSymbol.play_animation()
 	await get_tree().create_timer(1).timeout
 
-	#for altar_symbol in symbols:
-		#if not altar_symbol.is_active():
-			#player.prevent_inputs = false
-			#return
-			#
+	for altar_symbol in symbols:
+		if not altar_symbol.is_active():
+			player.prevent_inputs = false
+			return
+			
 	print("ALL SYMBOLS ACTIVATED")
 	
 	# play end animation

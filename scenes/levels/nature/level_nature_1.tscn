@@ -40,6 +40,9 @@ position = Vector2(-1072, -1995.1)
 [node name="Coin" parent="." instance=ExtResource("6_7c46m")]
 position = Vector2(1680, -1200)
 
+[node name="Teleport" type="Node2D" parent="Coin"]
+position = Vector2(-1680, 0)
+
 [node name="Sign" parent="." instance=ExtResource("7_jvg5r")]
 position = Vector2(-240, 0)
 message = "Take care not to ruin the path—you’ll need it to return."

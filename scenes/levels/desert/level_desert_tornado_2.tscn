@@ -36,6 +36,9 @@ position = Vector2(-1072, -555.105)
 [node name="Coin" parent="." instance=ExtResource("6_4ivfq")]
 position = Vector2(-1680, -1920)
 
+[node name="Teleport" type="Node2D" parent="Coin"]
+position = Vector2(1200, 240)
+
 [node name="Sign" parent="." instance=ExtResource("7_rhnp0")]
 position = Vector2(0, -240)
 message = "Falling won't reset you progress"

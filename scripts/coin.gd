@@ -5,6 +5,7 @@ extends Node2D
 @onready var game: Game = $"/root/Game"
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var loot_particles: CPUParticles2D = $LootParticles
+@onready var teleport: Node2D = $Teleport
 
 func _ready() -> void:
 	if not game or game.collected_coins.has(global_position): return queue_free()
@@ -28,3 +29,8 @@ func collect(area: Area2D):
 	game.collect(self)
 	animation_player.play("loot")
 	game.player.collect_coin_audio.play()
+	if teleport != null: 
+		game.player.prevent_inputs = true
+		await get_tree().create_timer(0.75).timeout
+		game.player.set_current_position(teleport.global_position)
+		game.player.prevent_inputs = false

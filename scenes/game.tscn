@@ -151,11 +151,11 @@ position = Vector2(1920, -3840)
 [node name="Push1" parent="." instance=ExtResource("13_s7yu7")]
 position = Vector2(4080, -4080)
 
-[node name="Push3" parent="." instance=ExtResource("15_ir2oa")]
-position = Vector2(7920, -1440)
-
 [node name="MountainButtons1" parent="." instance=ExtResource("15_7vmk0")]
 position = Vector2(5760, -3840)
+
+[node name="Push3" parent="." instance=ExtResource("15_ir2oa")]
+position = Vector2(7920, -1440)
 
 [node name="StoneTeacher" parent="." instance=ExtResource("13_7d6rc")]
 position = Vector2(9600, 240)

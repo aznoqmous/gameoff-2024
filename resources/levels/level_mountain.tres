@@ -2,11 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://bcj10ermbut8h" path="res://scenes/environments/environment_mountain.tscn" id="1_8p0j0"]
 [ext_resource type="Script" path="res://scripts/resources/level_config.gd" id="1_m6w7b"]
-[ext_resource type="AudioStream" uid="uid://dq2t0pxe1d4dc" path="res://resources/audio/SFX/AMB_Background.wav" id="3_sg65x"]
+[ext_resource type="AudioStream" uid="uid://bglkimvky5n8n" path="res://resources/audio/music/MUS_Moutain_v5.wav" id="3_u7oal"]
 
 [resource]
 script = ExtResource("1_m6w7b")
 color = Color(0.808594, 0.742085, 0.612762, 1)
 cloud_color = Color(0.457031, 0.416363, 0.337418, 1)
-theme = ExtResource("3_sg65x")
+theme = ExtResource("3_u7oal")
 environment = ExtResource("1_8p0j0")

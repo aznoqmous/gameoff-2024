@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://scripts/resources/level_config.gd" id="1_1n3q2"]
 [ext_resource type="PackedScene" uid="uid://c0y186lynyfnm" path="res://scenes/environments/environment_nature.tscn" id="1_vkpms"]
-[ext_resource type="AudioStream" uid="uid://dq2t0pxe1d4dc" path="res://resources/audio/SFX/AMB_Background.wav" id="3_f40cl"]
+[ext_resource type="AudioStream" uid="uid://cttjpdrpb1uk6" path="res://resources/audio/music/MUS_Forest.wav" id="3_hwd1y"]
 
 [resource]
 script = ExtResource("1_1n3q2")
 color = Color(0.584877, 0.636719, 0.492462, 1)
 cloud_color = Color(0.648051, 0.660156, 0.626633, 1)
-theme = ExtResource("3_f40cl")
+theme = ExtResource("3_hwd1y")
 environment = ExtResource("1_vkpms")

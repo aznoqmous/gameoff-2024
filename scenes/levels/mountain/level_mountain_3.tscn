@@ -43,3 +43,6 @@ position = Vector2(2528, 1844.9)
 
 [node name="Coin" parent="." instance=ExtResource("6_8v40c")]
 position = Vector2(1920, 720)
+
+[node name="Teleport" type="Node2D" parent="Coin"]
+position = Vector2(-720, 0)

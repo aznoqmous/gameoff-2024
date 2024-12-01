@@ -26,7 +26,6 @@ scale = Vector2(20, 20)
 
 [node name="BackgroundSprite" parent="ParallaxBackground/BackgroundLayer" index="0"]
 modulate = Color(0.807843, 0.741176, 0.611765, 1)
-scale = Vector2(1000, 680)
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 position = Vector2(-480, 1200)

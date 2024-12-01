@@ -49,6 +49,9 @@ position = Vector2(-2032, -3675.1)
 [node name="Coin" parent="." instance=ExtResource("6_hnao4")]
 position = Vector2(-3840, -2640)
 
+[node name="Teleport" type="Node2D" parent="Coin"]
+position = Vector2(480, 0)
+
 [node name="Sign" parent="." instance=ExtResource("7_35rsy")]
 position = Vector2(-1680, -720)
 message = "Good stone, bad stone"
