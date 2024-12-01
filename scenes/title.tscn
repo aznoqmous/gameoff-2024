@@ -315,9 +315,9 @@ horizontal_alignment = 1
 [node name="Button" parent="CanvasLayer/CenterContainer/VBoxContainer" instance=ExtResource("2_571ub")]
 layout_mode = 1
 offset_left = -49.0
-offset_top = 127.0
+offset_top = 416.0
 offset_right = 51.0
-offset_bottom = 213.919
+offset_bottom = 502.919
 scale = Vector2(1e-05, 1e-05)
 pivot_offset = Vector2(50, 43)
 mouse_default_cursor_shape = 2
