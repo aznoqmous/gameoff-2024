@@ -1,8 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://cj447cxojo2t6"]
+[gd_scene load_steps=9 format=3 uid="uid://cj447cxojo2t6"]
 
 [ext_resource type="Script" path="res://scripts/tile.gd" id="1_68j1j"]
 [ext_resource type="Texture2D" uid="uid://dhlnhfbg8oq7d" path="res://resources/sprites/tile.png" id="2_v4rjg"]
-[ext_resource type="AudioStream" uid="uid://bbicne52gb1e" path="res://resources/audio/SFX/Player_Jump_Down_Gravel-001.wav" id="3_d0muw"]
+[ext_resource type="AudioStream" uid="uid://xi5mhuyob03c" path="res://resources/audio/SFX/Player_Jump_Down_Stone-001.wav" id="3_ec1cr"]
+[ext_resource type="AudioStream" uid="uid://fmt6lcmjacm" path="res://resources/audio/SFX/Player_Jump_Down_Stone-002.wav" id="4_03jo4"]
+[ext_resource type="AudioStream" uid="uid://hd00b8e26kmb" path="res://resources/audio/SFX/Player_Jump_Down_Stone-003.wav" id="5_dfii0"]
+[ext_resource type="AudioStream" uid="uid://bv72hj71krwpx" path="res://resources/audio/SFX/Player_Jump_Down_Stone-004.wav" id="6_5cs13"]
+[ext_resource type="AudioStream" uid="uid://c3wfync4xg27m" path="res://resources/audio/SFX/Player_Jump_Down_Stone-005.wav" id="7_5t8cs"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_2ycpq"]
+streams_count = 5
+stream_0/stream = ExtResource("3_ec1cr")
+stream_1/stream = ExtResource("4_03jo4")
+stream_2/stream = ExtResource("5_dfii0")
+stream_3/stream = ExtResource("6_5cs13")
+stream_4/stream = ExtResource("7_5t8cs")
 
 [node name="Tile" type="Node2D"]
 z_index = -2
@@ -13,5 +25,5 @@ script = ExtResource("1_68j1j")
 texture = ExtResource("2_v4rjg")
 
 [node name="BumpAudio" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_d0muw")
+stream = SubResource("AudioStreamRandomizer_2ycpq")
 bus = &"SFX"

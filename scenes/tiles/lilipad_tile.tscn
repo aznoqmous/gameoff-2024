@@ -1,8 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6epjvp43obfp"]
+[gd_scene load_steps=9 format=3 uid="uid://b6epjvp43obfp"]
 
 [ext_resource type="Script" path="res://scripts/tile.gd" id="1_qaa4c"]
 [ext_resource type="Texture2D" uid="uid://edwesu85wfl0" path="res://resources/sprites/lilipad.png" id="2_ehipv"]
 [ext_resource type="AudioStream" uid="uid://dcafydbkt0kxa" path="res://resources/audio/SFX/Player_Jump_Down_Lilipad-001.wav" id="3_8wc3l"]
+[ext_resource type="AudioStream" uid="uid://bltvruh5n2xrk" path="res://resources/audio/SFX/Player_Jump_Down_Lilipad-002.wav" id="4_r7fpn"]
+[ext_resource type="AudioStream" uid="uid://c4b68ogb6he77" path="res://resources/audio/SFX/Player_Jump_Down_Lilipad-003.wav" id="5_gx3jy"]
+[ext_resource type="AudioStream" uid="uid://bt542itmh2w7w" path="res://resources/audio/SFX/Player_Jump_Down_Lilipad-004.wav" id="6_8tq4f"]
+[ext_resource type="AudioStream" uid="uid://31dbrvfmfecc" path="res://resources/audio/SFX/Player_Jump_Down_Lilipad-005.wav" id="7_pma3y"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_einpf"]
+streams_count = 5
+stream_0/stream = ExtResource("3_8wc3l")
+stream_1/stream = ExtResource("4_r7fpn")
+stream_2/stream = ExtResource("5_gx3jy")
+stream_3/stream = ExtResource("6_8tq4f")
+stream_4/stream = ExtResource("7_pma3y")
 
 [node name="Tile" type="Node2D"]
 z_index = -2
@@ -14,5 +26,5 @@ breakable = true
 texture = ExtResource("2_ehipv")
 
 [node name="BumpAudio" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_8wc3l")
+stream = SubResource("AudioStreamRandomizer_einpf")
 bus = &"SFX"

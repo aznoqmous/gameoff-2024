@@ -34,18 +34,6 @@ tracks/1/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer3/HBoxContainer:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_dh402"]
 resource_name = "open"
@@ -87,18 +75,6 @@ tracks/2/keys = {
 "args": [],
 "method": &"show_results"
 }]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("CanvasLayer3/HBoxContainer:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 16.6, 16.8),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m4sti"]
@@ -208,7 +184,7 @@ label_settings = SubResource("LabelSettings_43rlr")
 [node name="Label2" type="Label" parent="CanvasLayer/CenterContainer/VBoxContainer/VBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "modee"
+text = "jérémie frémont"
 label_settings = SubResource("LabelSettings_mio38")
 
 [node name="SceneManager" type="Node" parent="."]
@@ -295,6 +271,26 @@ text = "time"
 label_settings = SubResource("LabelSettings_onswb")
 horizontal_alignment = 1
 
+[node name="TimeLabel2" type="Label" parent="CanvasLayer2/CenterContainer/HBoxContainer"]
+layout_mode = 2
+text = "12"
+label_settings = SubResource("LabelSettings_kryk0")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer2/CenterContainer/HBoxContainer/TimeLabel2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -16.5
+offset_top = -17.0
+offset_right = 16.5
+offset_bottom = 11.0
+grow_horizontal = 2
+text = "resets"
+label_settings = SubResource("LabelSettings_onswb")
+horizontal_alignment = 1
+
 [node name="Control" type="Control" parent="CanvasLayer2/CenterContainer/HBoxContainer"]
 custom_minimum_size = Vector2(91.705, 0)
 layout_mode = 2
@@ -337,34 +333,3 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_70pe8")
-
-[node name="CanvasLayer3" type="CanvasLayer" parent="."]
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer3"]
-modulate = Color(1, 1, 1, 0)
-top_level = true
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -120.0
-offset_top = -20.0
-offset_right = 120.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 30
-alignment = 1
-
-[node name="MainMenuButton" type="Button" parent="CanvasLayer3/HBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_me6bs")
-theme_override_font_sizes/font_size = 26
-text = "Main menu"
-
-[node name="NewGameButton" type="Button" parent="CanvasLayer3/HBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_me6bs")
-theme_override_font_sizes/font_size = 26
-text = "New game"

@@ -1,12 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://dkriar24wri7v"]
+[gd_scene load_steps=10 format=3 uid="uid://dkriar24wri7v"]
 
 [ext_resource type="Script" path="res://scripts/tile.gd" id="1_76vtj"]
 [ext_resource type="Texture2D" uid="uid://b7je67kxukmdh" path="res://resources/sprites/tiles-2.png" id="2_ku4kf"]
-[ext_resource type="AudioStream" uid="uid://xi5mhuyob03c" path="res://resources/audio/SFX/Player_Jump_Down_Stone-001.wav" id="3_2lut3"]
+[ext_resource type="AudioStream" uid="uid://bbicne52gb1e" path="res://resources/audio/SFX/Player_Jump_Down_Gravel-001.wav" id="3_dg4w0"]
+[ext_resource type="AudioStream" uid="uid://s15vpjf8mx1i" path="res://resources/audio/SFX/Player_Jump_Down_Gravel-002.wav" id="4_laqhx"]
+[ext_resource type="AudioStream" uid="uid://d0m81ced7y2c1" path="res://resources/audio/SFX/Player_Jump_Down_Gravel-003.wav" id="5_0lrel"]
+[ext_resource type="AudioStream" uid="uid://bsleersgnef41" path="res://resources/audio/SFX/Player_Jump_Down_Gravel-004.wav" id="6_gu0fy"]
+[ext_resource type="AudioStream" uid="uid://bftsxuy4xyagi" path="res://resources/audio/SFX/Player_Jump_Down_Gravel-005.wav" id="7_bt4fx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ampju"]
 atlas = ExtResource("2_ku4kf")
 region = Rect2(15.3448, 594.246, 275.698, 294.078)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_nqjmo"]
+streams_count = 5
+stream_0/stream = ExtResource("3_dg4w0")
+stream_1/stream = ExtResource("4_laqhx")
+stream_2/stream = ExtResource("5_0lrel")
+stream_3/stream = ExtResource("6_gu0fy")
+stream_4/stream = ExtResource("7_bt4fx")
 
 [node name="Tile" type="Node2D"]
 z_index = -2
@@ -17,5 +29,5 @@ script = ExtResource("1_76vtj")
 texture = SubResource("AtlasTexture_ampju")
 
 [node name="BumpAudio" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_2lut3")
+stream = SubResource("AudioStreamRandomizer_nqjmo")
 bus = &"SFX"

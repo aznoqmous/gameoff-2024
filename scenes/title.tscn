@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c351pl2gsxj61"]
+[gd_scene load_steps=26 format=3 uid="uid://c351pl2gsxj61"]
 
 [ext_resource type="Script" path="res://scripts/uis/title.gd" id="1_spqcb"]
 [ext_resource type="PackedScene" uid="uid://j6jm62adx1ro" path="res://scenes/uis/button.tscn" id="2_571ub"]
@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://cipmyllp43mhj" path="res://resources/audio/SFX/Player_Jump_Rise-008.wav" id="15_drv65"]
 [ext_resource type="AudioStream" uid="uid://cajj72w227tch" path="res://resources/audio/music/MUS_First cast v2.wav" id="16_kr50q"]
 [ext_resource type="AudioStream" uid="uid://dq2t0pxe1d4dc" path="res://resources/audio/SFX/AMB_Background.wav" id="17_tw5mu"]
+[ext_resource type="AudioStream" uid="uid://cn67wcyfeyxtc" path="res://resources/audio/title/MainTitle_Voix-reverb-filtered.wav" id="18_nh3s6"]
 
 [sub_resource type="Animation" id="Animation_t26nv"]
 length = 0.001
@@ -278,7 +279,7 @@ grow_vertical = 2
 pivot_offset = Vector2(176, 0)
 size_flags_horizontal = 0
 size_flags_vertical = 0
-text = "aznoqmous x modee"
+text = "aznoqmous x jfremont"
 label_settings = SubResource("LabelSettings_dw336")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -368,6 +369,12 @@ bus = &"Music"
 
 [node name="TitleTheme2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_tw5mu")
+volume_db = -18.0
+autoplay = true
+bus = &"Music"
+
+[node name="TitleTheme3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_nh3s6")
 volume_db = -12.0
 autoplay = true
 bus = &"Music"

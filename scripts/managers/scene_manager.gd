@@ -10,6 +10,7 @@ var scene_manager_progress: SceneManagerProgress
 var run_time = 0
 var coin_count = 0
 var max_coins = 0
+var reset_count = 0
 
 func _ready():
 	var root = get_tree().root

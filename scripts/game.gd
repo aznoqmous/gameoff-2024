@@ -27,6 +27,7 @@ var tiles = {}
 var levels = []
 
 var run_time = 0
+var reset_count = 0
 
 func _ready() -> void:
 	create_map()
@@ -37,6 +38,7 @@ func _ready() -> void:
 			
 	coin_count.set_text(str(0, "/", existing_coins.size()))
 	run_time = 0
+	reset_count = 0
 
 func is_paused():
 	return menu.visible or player.prevent_inputs
@@ -224,11 +226,11 @@ func handle_activate_symbol(altarSymbol: AltarSymbol):
 	await altarSymbol.play_animation()
 	await get_tree().create_timer(1).timeout
 
-	for altar_symbol in symbols:
-		if not altar_symbol.is_active():
-			player.prevent_inputs = false
-			return
-			
+	#for altar_symbol in symbols:
+		#if not altar_symbol.is_active():
+			#player.prevent_inputs = false
+			#return
+			#
 	print("ALL SYMBOLS ACTIVATED")
 	
 	# play end animation
@@ -244,6 +246,7 @@ func handle_activate_symbol(altarSymbol: AltarSymbol):
 
 func play_end():
 	SceneManager.run_time = run_time
+	SceneManager.reset_count = reset_count
 	SceneManager.coin_count = collected_coins.size()
 	SceneManager.max_coins = existing_coins.size()
 	await screen_overlay.animate(1, 2)

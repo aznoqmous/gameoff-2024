@@ -45,6 +45,7 @@ var castTrail = []
 @onready var cast_end_audio: AudioStreamPlayer2D = $Audio/CastEndAudio
 @onready var cast_loop_audio: AudioStreamPlayer2D = $Audio/CastLoopAudio
 @onready var teleport_audio: AudioStreamPlayer2D = $Audio/TeleportAudio
+@onready var collect_coin_audio: AudioStreamPlayer2D = $Audio/CollectCoinAudio
 
 func _ready() -> void:
 	position = (position / game.tileSize).round() * game.tileSize
@@ -133,6 +134,7 @@ func _input(event: InputEvent):
 		game.reset_level()
 		leave_tile_position = get_last_position()
 		targetPositions = []
+		game.reset_count += 1
 
 func handle_movement_events(event: InputEvent):
 	if "axis_value" in event:

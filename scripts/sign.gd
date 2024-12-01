@@ -22,6 +22,7 @@ func _process(delta: float) -> void:
 	symbol_sprite.scale = lerp(symbol_sprite.scale, Vector2.ONE * state, delta * 5)
 
 func handle_area_entered(area: Area2D):
+	if not visible: return
 	state = 1
 	audio_stream_player_2d.play()
 func handle_area_exited(area: Area2D):

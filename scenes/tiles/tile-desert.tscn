@@ -1,12 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://oseu3jfwxp3m"]
+[gd_scene load_steps=11 format=3 uid="uid://oseu3jfwxp3m"]
 
 [ext_resource type="Script" path="res://scripts/tile.gd" id="1_g8d0w"]
 [ext_resource type="Texture2D" uid="uid://b7je67kxukmdh" path="res://resources/sprites/tiles-2.png" id="2_hufvg"]
 [ext_resource type="AudioStream" uid="uid://s5iewv8wkgrr" path="res://resources/audio/SFX/Player_Jump_Down_Sand-001.wav" id="3_vqp8q"]
+[ext_resource type="AudioStream" uid="uid://t0bg8jd45ag" path="res://resources/audio/SFX/Player_Jump_Down_Sand-002.wav" id="4_sf2ph"]
+[ext_resource type="AudioStream" uid="uid://637gchd53dvx" path="res://resources/audio/SFX/Player_Jump_Down_Sand-003.wav" id="5_bgcvv"]
+[ext_resource type="AudioStream" uid="uid://w27kt5j6m6c3" path="res://resources/audio/SFX/Player_Jump_Down_Sand-004.wav" id="6_rvgdq"]
+[ext_resource type="AudioStream" uid="uid://ia3rgql20b5j" path="res://resources/audio/SFX/Player_Jump_Down_Sand-005.wav" id="7_n46wm"]
+[ext_resource type="AudioStream" uid="uid://da0rdbnaa2kx4" path="res://resources/audio/SFX/Player_Jump_Down_Sand-006.wav" id="8_iknmt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ampju"]
 atlas = ExtResource("2_hufvg")
 region = Rect2(11.4862, 902.051, 279.557, 274.769)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_b2foe"]
+streams_count = 6
+stream_0/stream = ExtResource("3_vqp8q")
+stream_1/stream = ExtResource("4_sf2ph")
+stream_2/stream = ExtResource("5_bgcvv")
+stream_3/stream = ExtResource("6_rvgdq")
+stream_4/stream = ExtResource("7_n46wm")
+stream_5/stream = ExtResource("8_iknmt")
 
 [node name="Tile" type="Node2D"]
 z_index = -2
@@ -17,5 +31,5 @@ script = ExtResource("1_g8d0w")
 texture = SubResource("AtlasTexture_ampju")
 
 [node name="BumpAudio" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_vqp8q")
+stream = SubResource("AudioStreamRandomizer_b2foe")
 bus = &"SFX"

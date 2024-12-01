@@ -27,3 +27,4 @@ func handle_animation(delta):
 func collect(area: Area2D):
 	game.collect(self)
 	animation_player.play("loot")
+	game.player.collect_coin_audio.play()
